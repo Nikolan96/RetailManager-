@@ -37,7 +37,9 @@ namespace RMDesktopUI
 
             _container
                 .Singleton<IWindowManager, WindowManager>() // Handles bringing windows in and out
-                .Singleton<IEventAggregator, EventAggregator>(); // Here we pass event messaging throughout application, handles events.
+                .Singleton<IEventAggregator, EventAggregator>() // Here we pass event messaging throughout application, handles events.
+                .Singleton<IAPIHelper, APIHelper>(); // Creates one instance of APIHelper.
+
 
             // Use reflection get type for our current instance, get class types, where name of the class ends with ViewModel and add to list, run through list.
             // Registers the classes so that a new instance is created on request
