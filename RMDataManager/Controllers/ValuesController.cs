@@ -15,6 +15,7 @@ namespace RMDataManager.Controllers
         public IEnumerable<string> Get()
         {
             string userID = RequestContext.Principal.Identity.GetUserId();
+
             return new string[] { "value1", "value2", userID };
         }
 

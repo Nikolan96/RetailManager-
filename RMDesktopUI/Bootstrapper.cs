@@ -23,7 +23,7 @@ namespace RMDesktopUI
         }
 
 
-        // container holds an instance of itself to pass if someone asks for simple container
+        // Container holds an instance of itself to pass if someone asks for simple container
         protected override void Configure()
         {
             _container.Instance(_container);
