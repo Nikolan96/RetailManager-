@@ -13,6 +13,9 @@ namespace RMDesktopUI.ViewModels
     {
         private string _userName;
         private string _password;
+        private bool _isErrorVisible;
+        private string _errorMessage;
+
         private IAPIHelper _apiHelper;
 
         public LoginViewModel(IAPIHelper apiHelper)
@@ -44,7 +47,31 @@ namespace RMDesktopUI.ViewModels
             }
         }
 
-        
+        public string ErrorMessage
+        {
+            get { return _errorMessage; }
+            set
+            {             
+                _errorMessage = value;
+                NotifyOfPropertyChange(() => IsErrorVisible);
+                NotifyOfPropertyChange(() => ErrorMessage);
+            }
+        }
+
+        public bool IsErrorVisible
+        {
+            get
+            {
+                bool output = false;
+
+                if (ErrorMessage?.Length > 0)
+                {
+                    output = true;
+                }
+                return output;
+            }
+        }
+
         // Login logic that returns a boolean which is used to enable or disable login button.
         public bool CanLogIn
         {
@@ -62,16 +89,18 @@ namespace RMDesktopUI.ViewModels
             }
         }
 
-        // 
+        
         public async Task LogIn()
         {
             try
             {
+                // Resets the error message.
+                ErrorMessage = "";
                 var result = await _apiHelper.Authenticate(UserName, Password);
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                ErrorMessage = ex.Message;
             }
            
         }
