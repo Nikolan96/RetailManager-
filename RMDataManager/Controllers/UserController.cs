@@ -12,14 +12,17 @@ namespace RMDataManager.Controllers
     [Authorize]
     public class UserController : ApiController
     {          
-        public List<UserModel> GetById()
+        // Returns a UserModel based on Id.
+        [HttpGet]
+        public UserModel GetById()
         {
-            // Gets ID from logged in user.
+            // Gets ID from logged in user
             string id = RequestContext.Principal.Identity.GetUserId();
 
+            // Creates a dependency for now, will be changed.
             UserData data = new UserData();
 
-            return data.GetUserById(id);
+            return data.GetUserById(id).First();
         }     
     }
 }

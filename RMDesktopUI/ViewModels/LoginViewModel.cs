@@ -1,5 +1,6 @@
 ﻿using Caliburn.Micro;
 using RMDesktopUI.Helpers;
+using RMDesktopUI.Library.Api;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,6 @@ namespace RMDesktopUI.ViewModels
     {
         private string _userName;
         private string _password;
-        private bool _isErrorVisible;
         private string _errorMessage;
 
         private IAPIHelper _apiHelper;
@@ -97,6 +97,11 @@ namespace RMDesktopUI.ViewModels
                 // Resets the error message.
                 ErrorMessage = "";
                 var result = await _apiHelper.Authenticate(UserName, Password);
+
+                // Get info about user
+
+                await _apiHelper.GetLoggedInUserInfo(result.Access_Token);
+
             }
             catch (Exception ex)
             {
