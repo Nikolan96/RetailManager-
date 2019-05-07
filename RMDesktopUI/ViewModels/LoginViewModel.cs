@@ -60,9 +60,7 @@ namespace RMDesktopUI.ViewModels
 
                 return output;
             }
-        }
-
-        private bool _isErrorVisible;
+        }        
 
         public bool IsErrorVisible
         {
