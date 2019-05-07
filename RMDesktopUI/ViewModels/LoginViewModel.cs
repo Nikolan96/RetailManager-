@@ -12,6 +12,12 @@ namespace RMDesktopUI.ViewModels
     {
         private string _userName;
         private string _password;
+        private IAPIHelper _apiHelper;
+
+        public LoginViewModel(IAPIHelper apiHelper)
+        {
+            _apiHelper = apiHelper;
+        }
 
         public string UserName
         {
@@ -37,6 +43,7 @@ namespace RMDesktopUI.ViewModels
             }
         }
 
+        
         // Login logic that returns a boolean which is used to enable or disable login button.
         public bool CanLogIn
         {
@@ -55,9 +62,17 @@ namespace RMDesktopUI.ViewModels
         }
 
         // 
-        public void LogIn()
+        public async Task LogIn()
         {
-            Console.WriteLine();
+            try
+            {
+                var result = await _apiHelper.Authenticate(UserName, Password);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+           
         }
 
 
