@@ -13,9 +13,6 @@ namespace RMDesktopUI.ViewModels
     {
         private string _userName;
         private string _password;
-        private bool _isErrorVisible;
-        private string _errorMessage;
-
         private IAPIHelper _apiHelper;
 
         public LoginViewModel(IAPIHelper apiHelper)
