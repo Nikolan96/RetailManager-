@@ -1,5 +1,4 @@
 ﻿using Caliburn.Micro;
-using RMDesktopUI.Helpers;
 using RMDesktopUI.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -7,7 +6,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
 
 namespace RMDesktopUI
 {
@@ -22,11 +20,6 @@ namespace RMDesktopUI
         public Bootstrapper()
         {
             Initialize();
-
-            ConventionManager.AddElementConvention<PasswordBox>(
-            PasswordBoxHelper.BoundPasswordProperty,
-            "Password",
-            "PasswordChanged");
         }
 
 
@@ -37,9 +30,7 @@ namespace RMDesktopUI
 
             _container
                 .Singleton<IWindowManager, WindowManager>() // Handles bringing windows in and out
-                .Singleton<IEventAggregator, EventAggregator>() // Here we pass event messaging throughout application, handles events.
-                .Singleton<IAPIHelper, APIHelper>(); // Creates one instance of APIHelper.
-
+                .Singleton<IEventAggregator, EventAggregator>(); // Here we pass event messaging throughout application, handles events.
 
             // Use reflection get type for our current instance, get class types, where name of the class ends with ViewModel and add to list, run through list.
             // Registers the classes so that a new instance is created on request

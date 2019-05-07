@@ -5,20 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="ShellView" Height="450" Width="800">
-    <DockPanel>
-        <Menu DockPanel.Dock="Top" FontSize="18">
-            <MenuItem Header="_File">
-                
-            </MenuItem>
-            <MenuItem Header="_Account">
-                <MenuItem x:Name="LoginScreen" Header="_Login"></MenuItem>
-            </MenuItem>
-        </Menu>
+    <Grid>
         
-        <Grid>
-            <ContentControl x:Name="ActiveItem" Margin="5"></ContentControl>
-        </Grid>
-        
-    </DockPanel>
-    
+    </Grid>
 </Window>
