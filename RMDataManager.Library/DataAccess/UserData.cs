@@ -16,7 +16,7 @@ namespace RMDataManager.Library.DataAccess
 
             var p = new { ID = id };
 
-            var output = sql.LoadData<UserModel, dynamic>("dbo.spUserLookup", p, "DefaultConnection");
+            var output = sql.LoadData<UserModel, dynamic>("dbo.spUserLookup", p, "RMData");
 
             return output;
         }
