@@ -103,7 +103,7 @@ namespace RMDesktopUI.ViewModels
 
                 // Get more info about the user.
 
-
+                await _apiHelper.GetLoggedInUserInfo(result.Access_Token);
             }
             catch (Exception ex)
             {

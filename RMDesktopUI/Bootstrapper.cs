@@ -1,6 +1,7 @@
 ﻿using Caliburn.Micro;
 using RMDesktopUI.Helpers;
 using RMDesktopUI.Library.Api;
+using RMDesktopUI.Library.Models;
 using RMDesktopUI.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -38,7 +39,8 @@ namespace RMDesktopUI
 
             _container
                 .Singleton<IWindowManager, WindowManager>() // Handles bringing windows in and out
-                .Singleton<IEventAggregator, EventAggregator>() // Here we pass event messaging throughout application, handles events.
+                .Singleton<IEventAggregator, EventAggregator>()// Here we pass event messaging throughout application, handles events.
+                .Singleton<ILoggedInUserModel, LoggedInUserModel>() // Could fuck up, if not before API.
                 .Singleton<IAPIHelper, APIHelper>(); // Creates one instance of APIHelper.
 
 

@@ -10,8 +10,10 @@ using System.Web.Http;
 namespace RMDataManager.Controllers
 {
     [Authorize]
+    [RoutePrefix("/Users")]
     public class UsersController : ApiController
     {
+        [HttpGet] 
         public UserModel GetById()
         {
             string userID = RequestContext.Principal.Identity.GetUserId();
