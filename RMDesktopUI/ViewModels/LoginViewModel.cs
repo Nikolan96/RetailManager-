@@ -1,5 +1,4 @@
 ﻿using Caliburn.Micro;
-using RMDesktopUI.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,12 +12,6 @@ namespace RMDesktopUI.ViewModels
     {
         private string _userName;
         private string _password;
-        private IAPIHelper _apiHelper;
-
-        public LoginViewModel(IAPIHelper apiHelper)
-        {
-            _apiHelper = apiHelper;
-        }
 
         public string UserName
         {
@@ -44,7 +37,6 @@ namespace RMDesktopUI.ViewModels
             }
         }
 
-        
         // Login logic that returns a boolean which is used to enable or disable login button.
         public bool CanLogIn
         {
@@ -63,17 +55,9 @@ namespace RMDesktopUI.ViewModels
         }
 
         // 
-        public async Task LogIn()
+        public void LogIn()
         {
-            try
-            {
-                var result = await _apiHelper.Authenticate(UserName, Password);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-           
+            Console.WriteLine();
         }
 
 
