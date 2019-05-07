@@ -213,7 +213,7 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -286,7 +286,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\User\" />
+    <Folder Include="Views\Users\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -317,7 +317,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RMDataManager.Library\RMDataManager.Library.csproj">
-      <Project>{C9102E7A-AFDB-4503-97FA-C8C5989D0192}</Project>
+      <Project>{9228FDD3-3491-480F-94A1-01642B7B791E}</Project>
       <Name>RMDataManager.Library</Name>
     </ProjectReference>
   </ItemGroup>
@@ -339,7 +339,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>49833</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:49835/</IISUrl>
+          <IISUrl>http://localhost:49833/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

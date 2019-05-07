@@ -1,11 +1,9 @@
 ﻿CREATE PROCEDURE [dbo].[spUserLookup]
-	@id nvarchar(128)
-
+	@ID nvarchar(128)
 AS
-Begin
+begin
 	set nocount on;
-
-	SELECT ID, FirstName, LastName, EmailAddress, CreatedDate
-	From dbo.[User]
-	WHERE ID = @id;
-End
+	select ID,FirstName, LastName, EmailAddress, CreatedDate
+	from [dbo].[User]
+	where ID = @ID;
+end

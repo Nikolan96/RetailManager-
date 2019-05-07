@@ -11,17 +11,12 @@ using System.Threading.Tasks;
 namespace RMDataManager.Library.Internal.DataAccess
 {
     internal class SqlDataAccess
-    {       
-
-        // Gets the connection string from configuration file of RMDataManager.
+    {
         public string GetConnectionString(string name)
         {
             return ConfigurationManager.ConnectionStrings[name].ConnectionString;
         }
 
-        // Takes a connection to db, does a query and says this is a type of model I want each row to be.
-        // Passes a stored procedure name and parameters generic ( U ).  
-        // Returns a set of rows.
         public List<T> LoadData<T, U>(string storedProcedure, U parameters, string connectionStringName)
         {
             string connectionString = GetConnectionString(connectionStringName);
@@ -32,20 +27,19 @@ namespace RMDataManager.Library.Internal.DataAccess
                         commandType: CommandType.StoredProcedure).ToList();
 
                 return rows;
+
             }
         }
 
-        // Saves data, does not work currently, this is just a "Skeleton".
-        public void SaveData<T>(string storedProcedure, T parameters, string connectionStringName)
+        public void SaveData<T, U>(string storedProcedure, T parameters, string connectionStringName)
         {
             string connectionString = GetConnectionString(connectionStringName);
 
             using (IDbConnection connection = new SqlConnection(connectionString))
             {
-                connection.Execute(storedProcedure, parameters, 
-                      commandType: CommandType.StoredProcedure);
+                connection.Execute(storedProcedure, parameters,
+                           commandType: CommandType.StoredProcedure);
             }
         }
-
     }
 }
