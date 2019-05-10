@@ -6,19 +6,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using RMDesktopUI.Library.Api;
+using RMDesktopUI.EventModels;
 
 namespace RMDesktopUI.ViewModels
 {
     // Caliburn Micro wires up UI and logic behind the scene, based on names.
     public class LoginViewModel : Screen
     {
-        private string _userName;
-        private string _password;
+        private string _userName = "Nikolan96@gmail.com";
+        private string _password = "Engeliousqw13!";
         private IAPIHelper _apiHelper;
+        private IEventAggregator _events;
 
-        public LoginViewModel(IAPIHelper apiHelper)
+        public LoginViewModel(IAPIHelper apiHelper, IEventAggregator events)
         {
             _apiHelper = apiHelper;
+            _events = events;
         }
 
         public string UserName
@@ -101,9 +104,10 @@ namespace RMDesktopUI.ViewModels
                 ErrorMessage = "";
                 var result = await _apiHelper.Authenticate(UserName, Password);
 
-                // Get more info about the user.
-
                 await _apiHelper.GetLoggedInUserInfo(result.Access_Token);
+
+                // Raises an event for Login
+                _events.PublishOnUIThread(new LogOnEvent());
             }
             catch (Exception ex)
             {

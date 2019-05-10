@@ -13,7 +13,7 @@ namespace RMDesktopUI.Library.Api
 {
     public class APIHelper : IAPIHelper
     {
-        private HttpClient apiClient;
+        private HttpClient _apiClient;
         private ILoggedInUserModel _loggedInUserModel;
 
         public APIHelper(ILoggedInUserModel loggedInUserModel)
@@ -22,17 +22,25 @@ namespace RMDesktopUI.Library.Api
             _loggedInUserModel = loggedInUserModel;
         }
 
+        public HttpClient ApiClient
+        {
+            get
+            {
+                return _apiClient;
+            }
+        }
+
         private void InitializeClient()
         {
             // Loads api url into api variable.
             string api = ConfigurationManager.AppSettings["api"];
 
-            apiClient = new HttpClient();
-            apiClient.BaseAddress = new Uri(api);
+            _apiClient = new HttpClient();
+            _apiClient.BaseAddress = new Uri(api);
             // Clears headers so it starts from a blank slate.
-            apiClient.DefaultRequestHeaders.Accept.Clear();
+            _apiClient.DefaultRequestHeaders.Accept.Clear();
             // Looking for json datapack
-            apiClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            _apiClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
         // Creates the data that will be sent to API endpoint. Calls Token and gets back a resposne.
@@ -46,7 +54,7 @@ namespace RMDesktopUI.Library.Api
 
             });
 
-            using (HttpResponseMessage response = await apiClient.PostAsync("/Token", data))
+            using (HttpResponseMessage response = await _apiClient.PostAsync("/Token", data))
             {
                 // If it succedes it gets the information from content and puts it inot AuthenticatedUser model
                 if (response.IsSuccessStatusCode)
@@ -66,12 +74,12 @@ namespace RMDesktopUI.Library.Api
         // Method which can fuck things up.
         public async Task GetLoggedInUserInfo(string token)
         {
-            apiClient.DefaultRequestHeaders.Clear();
-            apiClient.DefaultRequestHeaders.Accept.Clear(); 
-            apiClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            apiClient.DefaultRequestHeaders.Add("Authorization", $"Bearer { token }");
+            _apiClient.DefaultRequestHeaders.Clear();
+            _apiClient.DefaultRequestHeaders.Accept.Clear(); 
+            _apiClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            _apiClient.DefaultRequestHeaders.Add("Authorization", $"Bearer { token }");
 
-            using (HttpResponseMessage response = await apiClient.GetAsync("/api/Users"))
+            using (HttpResponseMessage response = await _apiClient.GetAsync("/api/Users"))
             {
                 if (response.IsSuccessStatusCode)
                 {

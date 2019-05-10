@@ -35,7 +35,8 @@ namespace RMDesktopUI
         // Container holds an instance of itself to pass if someone asks for simple container
         protected override void Configure()
         {
-            _container.Instance(_container);
+            _container.Instance(_container)
+                .PerRequest<IProductEndpoint, ProductEndpoint>();
 
             _container
                 .Singleton<IWindowManager, WindowManager>() // Handles bringing windows in and out
