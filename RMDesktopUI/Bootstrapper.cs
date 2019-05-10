@@ -1,4 +1,7 @@
 ﻿using Caliburn.Micro;
+using RMDesktopUI.Helpers;
+using RMDesktopUI.Library.Api;
+using RMDesktopUI.Library.Models;
 using RMDesktopUI.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -26,11 +29,15 @@ namespace RMDesktopUI
         // Container holds an instance of itself to pass if someone asks for simple container
         protected override void Configure()
         {
-            _container.Instance(_container);
+            _container.Instance(_container)
+                .PerRequest<IProductEndpoint, ProductEndpoint>();
 
             _container
                 .Singleton<IWindowManager, WindowManager>() // Handles bringing windows in and out
-                .Singleton<IEventAggregator, EventAggregator>(); // Here we pass event messaging throughout application, handles events.
+                .Singleton<IEventAggregator, EventAggregator>()// Here we pass event messaging throughout application, handles events.
+                .Singleton<ILoggedInUserModel, LoggedInUserModel>() // Could fuck up, if not before API.
+                .Singleton<IAPIHelper, APIHelper>(); // Creates one instance of APIHelper.
+
 
             // Use reflection get type for our current instance, get class types, where name of the class ends with ViewModel and add to list, run through list.
             // Registers the classes so that a new instance is created on request

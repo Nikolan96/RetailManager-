@@ -10,19 +10,17 @@ using System.Web.Http;
 namespace RMDataManager.Controllers
 {
     [Authorize]
+    [RoutePrefix("/Users")]
     public class UsersController : ApiController
     {
-
-        // GET: Users/Details/5
-        public List<UserModel> GetById()
+        [HttpGet] 
+        public UserModel GetById()
         {
-
             string userID = RequestContext.Principal.Identity.GetUserId();
-
+             
             UserData data = new UserData();
 
-            return data.GetUserById(userID);
+            return data.GetUserById(userID).First();
         }
-
     }
 }
