@@ -1,4 +1,6 @@
 ﻿using Caliburn.Micro;
+using RMDesktopUI.Library.Api;
+using RMDesktopUI.Library.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,10 +12,16 @@ namespace RMDesktopUI.ViewModels
 {
     public class SalesViewModel : Screen
     {
+        IProductEndpoint _productEndpoint;
 
-        private BindingList<string> _products;
+        public SalesViewModel(IProductEndpoint productEndpoint)
+        {
+            _productEndpoint = productEndpoint;            
+        }
+       
+        private BindingList<ProductModel> _products;
 
-        public BindingList<string> Products
+        public BindingList<ProductModel> Products
         {
             get { return _products; }
             set
@@ -32,6 +40,18 @@ namespace RMDesktopUI.ViewModels
             {
                 _itemQuantity = value;
                 NotifyOfPropertyChange(() => ItemQuantity);
+            }
+        }
+
+        private BindingList<ProductModel> _cart;
+
+        public BindingList<ProductModel> Cart
+        {
+            get { return _cart; }
+            set
+            {
+                _cart = value;
+                NotifyOfPropertyChange(() => Cart);
             }
         }
 
@@ -70,19 +90,7 @@ namespace RMDesktopUI.ViewModels
 
                 return output;
             }
-        }
-
-        private BindingList<string> _cart;
-
-        public BindingList<string> Cart
-        {
-            get { return _cart; }
-            set
-            {
-                _cart = value;
-                NotifyOfPropertyChange(() => Cart);
-            }
-        }
+        }    
 
         public string SubTotal
         {
@@ -121,6 +129,25 @@ namespace RMDesktopUI.ViewModels
         {
 
         }
+
+        public void RemoveFromCart()
+        {
+
+        }
+
+        private async Task LoadProducts()
+        {
+            var productList = await _productEndpoint.GetAll();
+            Products = new BindingList<ProductModel>(productList);
+        }
+
+        protected override async void OnViewLoaded(object view)
+        {
+            base.OnViewLoaded(view);
+            await LoadProducts();
+        }
+
+       
 
 
 
