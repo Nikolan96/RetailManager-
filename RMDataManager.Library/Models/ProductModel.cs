@@ -13,7 +13,11 @@ namespace RMDataManager.Library.Models
 
         public string ProductName { get; set; }
 
+        public string ProductCategory { get; set; }
+
         public string Description { get; set; }
+
+        public decimal Tax { get; set; }
 
         public decimal RetailPrice { get; set; }
 
