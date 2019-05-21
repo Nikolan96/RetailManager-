@@ -2,6 +2,7 @@
 (
 	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
     [ProductName] NVARCHAR(100) NOT NULL, 
+	[Tax] Money NOT NULL,
     [Description] NVARCHAR(MAX) NOT NULL, 
 	[RetailPrice] MONEY NOT NULL,
 	[QuantityInStock] INT NOT NULL DEFAULT 1,
