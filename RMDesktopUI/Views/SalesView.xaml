@@ -53,7 +53,7 @@
             <TextBox x:Name="ItemQuantity" MinWidth="100" Margin="0 0 0 10"/>
             <Button x:Name="AddToCart" Content="Add To Cart" Margin="0 0 0 30" Padding="5"/>
             <Button x:Name="RemoveFromCart" Content="Remove From Cart" Padding="5"/>
-
+            <Button x:Name="RemoveAllFromCart" Content="Remove All From Cart" Margin="0 20 0 0" Padding="5"/>
         </StackPanel>
 
         <!--Cart list box-->
@@ -72,21 +72,22 @@
 
         <DockPanel  Grid.Column="2" Grid.Row="3">
             <TextBlock Text="SubTotal: " TextAlignment="Right" Margin="0 0 15 0"/>
-            <TextBlock x:Name="SubTotal" Text="$0.00" TextAlignment="Right"/>
+            <TextBlock x:Name="DisplaySubTotal" Text="$0.00" TextAlignment="Right"/>
         </DockPanel>
 
         <DockPanel  Grid.Column="2" Grid.Row="4">
             <TextBlock Text="Tax: " TextAlignment="Right"/>
-            <TextBlock x:Name="Tax" Text="$0.00" TextAlignment="Right"/>
+            <TextBlock x:Name="DisplayTax" Text="$0.00" TextAlignment="Right"/>
         </DockPanel>
 
         <DockPanel  Grid.Column="2" Grid.Row="5">
             <TextBlock Text="Total: " TextAlignment="Right"/>
-            <TextBlock x:Name="Total" Text="$0.00" TextAlignment="Right"/>
+            <TextBlock x:Name="DisplayTotal" Text="$0.00" TextAlignment="Right"/>
         </DockPanel>
 
         <Button x:Name="CheckOut" Grid.Row="6" Grid.Column="2" Content="Check Out" Margin="0 20 0 0" Padding="5"/>
 
+       
     </Grid>
 
 </UserControl>

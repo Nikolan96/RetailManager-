@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace RMDesktopUI.ViewModels
 {
@@ -18,7 +19,9 @@ namespace RMDesktopUI.ViewModels
         {
             _productEndpoint = productEndpoint;            
         }
-       
+
+      
+
         private BindingList<ProductModel> _products;
 
         public BindingList<ProductModel> Products
@@ -85,6 +88,7 @@ namespace RMDesktopUI.ViewModels
             {
                 _cart = value;
                 NotifyOfPropertyChange(() => Cart);
+                NotifyOfPropertyChange(() => CanCheckOut);
             }
         }
 
@@ -124,7 +128,10 @@ namespace RMDesktopUI.ViewModels
             {
                 bool output = false;
 
-                // Make sure there is something in the cart
+                if (Cart.Count > 0)
+                {
+                    output = true;
+                }
 
                 return output;
             }
@@ -145,6 +152,16 @@ namespace RMDesktopUI.ViewModels
             }
         }
 
+        public string DisplaySubTotal
+        {
+            get
+            {
+                decimal value = Convert.ToDecimal(SubTotal);
+                value = Decimal.Round(value, 2);
+                return value.ToString();
+            }
+        }
+
         public string Tax
         {
             get
@@ -153,10 +170,20 @@ namespace RMDesktopUI.ViewModels
 
                 foreach (var item in Cart)
                 {
-                    tax += ((item.Product.RetailPrice * item.Product.Tax) / 100);
+                    tax += ((item.Product.RetailPrice * item.Product.Tax) / 100) * item.QuantityInCart;
                 }
 
                 return tax.ToString();
+            }
+        }
+
+        public string DisplayTax
+        {
+            get
+            {
+                decimal value = Convert.ToDecimal(Tax);
+                value = Decimal.Round(value, 2);
+                return value.ToString();
             }
         }
 
@@ -173,6 +200,16 @@ namespace RMDesktopUI.ViewModels
             }
         }
 
+        public string DisplayTotal
+        {
+            get
+            {
+                decimal value = Convert.ToDecimal(Total);
+                value = Decimal.Round(value, 2);
+                return value.ToString();
+            }
+        }
+
 
         public void AddToCart()
         {
@@ -184,6 +221,7 @@ namespace RMDesktopUI.ViewModels
 
                 Cart.Remove(existingItem);
                 Cart.Add(existingItem);
+                NotifyOfPropertyChange(() => CanCheckOut);
             }
             else
             {
@@ -198,9 +236,11 @@ namespace RMDesktopUI.ViewModels
             SelectedProduct.QuantityInStock -= ItemQuantity;
             ItemQuantity = 1;
             SelectedProduct = null;
-            NotifyOfPropertyChange(() => SubTotal);
-            NotifyOfPropertyChange(() => Tax);
-            NotifyOfPropertyChange(() => Total);
+            NotifyOfPropertyChange(() => DisplaySubTotal);
+            NotifyOfPropertyChange(() => DisplayTax);
+            NotifyOfPropertyChange(() => DisplayTotal);
+            NotifyOfPropertyChange(() => CanCheckOut);
+            NotifyOfPropertyChange(() => CanRemoveAllFromCart);
         }     
 
         public void RemoveFromCart()
@@ -219,14 +259,66 @@ namespace RMDesktopUI.ViewModels
 
             SelectedItemFromCart = null;
             ItemQuantity = 1;
-            NotifyOfPropertyChange(() => SubTotal);
-            NotifyOfPropertyChange(() => Tax);
-            NotifyOfPropertyChange(() => Total);
+            NotifyOfPropertyChange(() => DisplaySubTotal);
+            NotifyOfPropertyChange(() => DisplayTax);
+            NotifyOfPropertyChange(() => DisplayTotal);
+            NotifyOfPropertyChange(() => CanCheckOut);
+            NotifyOfPropertyChange(() => CanRemoveAllFromCart);
+        }
+
+        public bool CanRemoveAllFromCart
+        {
+            get
+            {
+                bool output = false;
+
+                if (Cart.Count > 0)
+                {
+                    output = true;
+                }
+
+                return output;
+            }
+        }
+
+        public void RemoveAllFromCart()
+        {
+            foreach (var item in Cart)
+            {
+                foreach (var product in Products)
+                {
+                    var prod = item.Product.ProductName;
+                    if (product.ProductName == prod)
+                    {
+                        product.QuantityInStock += item.QuantityInCart;
+                    }                 
+                }               
+            }
+
+            Cart.Clear();
+
+            ItemQuantity = 1;
+            NotifyOfPropertyChange(() => DisplaySubTotal);
+            NotifyOfPropertyChange(() => DisplayTax);
+            NotifyOfPropertyChange(() => DisplayTotal);
+            NotifyOfPropertyChange(() => CanCheckOut);
         }
 
         public void CheckOut()
         {
+            string items = "";
 
+            foreach (var item in Cart)
+            {
+                items += item.DisplayText + "\n";
+            }
+
+            items += "\n";
+            items += $"SubTotal : {DisplaySubTotal} \n";
+            items += $"Tax : {DisplayTax} \n";
+            items += $"Total : {DisplayTotal} \n";
+
+            MessageBox.Show(items);
         }
 
         private async Task LoadProducts()
