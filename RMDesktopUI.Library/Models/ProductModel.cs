@@ -15,6 +15,8 @@ namespace RMDesktopUI.Library.Models
 
         public string Description { get; set; }
 
+        public decimal Tax { get; set; }
+
         public decimal RetailPrice { get; set; }
 
         public int QuantityInStock { get; set; }
