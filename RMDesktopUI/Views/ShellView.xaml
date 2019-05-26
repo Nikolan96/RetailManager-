@@ -4,7 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="ShellView" Height="600" Width="1000">
+        Title="ShellView" WindowState="Maximized" ResizeMode="NoResize"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="14"
+        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+        >
     <DockPanel>
         <Menu DockPanel.Dock="Top" FontSize="18">
             <MenuItem Header="_File">
@@ -16,7 +22,7 @@
         </Menu>
         
         <Grid>
-            <ContentControl x:Name="ActiveItem" Margin="20 5 20 20"></ContentControl>
+            <ContentControl x:Name="ActiveItem" Margin="10 5 10 0"></ContentControl>
         </Grid>
         
     </DockPanel>

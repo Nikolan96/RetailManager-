@@ -47,8 +47,7 @@ namespace RMDesktopUI.ViewModels
                 NotifyOfPropertyChange(() => CanLogIn);
             }
         }
-
-        
+ 
         // Login logic that returns a boolean which is used to enable or disable login button.
         public bool CanLogIn
         {
@@ -61,7 +60,6 @@ namespace RMDesktopUI.ViewModels
                 {
                     output = true;
                 }
-
                 return output;
             }
         }        
@@ -93,10 +91,6 @@ namespace RMDesktopUI.ViewModels
             }
         }
 
-
-
-
-        // 
         public async Task LogIn()
         {
             try
@@ -112,12 +106,12 @@ namespace RMDesktopUI.ViewModels
             catch (Exception ex)
             {
                 ErrorMessage = ex.Message;
-            }
-           
+            }          
         }
 
-
-
-
+        public void GoToCashRegister()
+        {
+            _events.PublishOnUIThread(new CashRegisterEvent());
+        }
     }
 }

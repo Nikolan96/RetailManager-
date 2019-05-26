@@ -1,4 +1,5 @@
 ﻿using Caliburn.Micro;
+using RMDesktopUI.EventModels;
 using RMDesktopUI.Library.Api;
 using RMDesktopUI.Library.Models;
 using System;
@@ -14,13 +15,13 @@ namespace RMDesktopUI.ViewModels
     public class SalesViewModel : Screen
     {
         IProductEndpoint _productEndpoint;
+        private readonly IEventAggregator _events;
 
-        public SalesViewModel(IProductEndpoint productEndpoint)
+        public SalesViewModel(IProductEndpoint productEndpoint, IEventAggregator events)
         {
-            _productEndpoint = productEndpoint;            
+            _productEndpoint = productEndpoint;
+            _events = events;
         }
-
-      
 
         private BindingList<ProductModel> _products;
 
@@ -302,6 +303,7 @@ namespace RMDesktopUI.ViewModels
             NotifyOfPropertyChange(() => DisplayTax);
             NotifyOfPropertyChange(() => DisplayTotal);
             NotifyOfPropertyChange(() => CanCheckOut);
+            NotifyOfPropertyChange(() => CanRemoveAllFromCart);
         }
 
         public void CheckOut()
@@ -319,6 +321,11 @@ namespace RMDesktopUI.ViewModels
             items += $"Total : {DisplayTotal} \n";
 
             MessageBox.Show(items);
+        }
+
+        public void GoToCashRegister()
+        {
+            _events.PublishOnUIThread(new CashRegisterEvent());
         }
 
         private async Task LoadProducts()

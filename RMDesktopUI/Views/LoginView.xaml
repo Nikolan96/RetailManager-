@@ -4,9 +4,19 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:RMDesktopUI.Views"
-             mc:Ignorable="d" Background="White" FontSize="24"
-             d:DesignHeight="425" d:DesignWidth="800" FontFamily="Segoe UI Light" >
-    <Grid>
+             mc:Ignorable="d" FontSize="24"
+             d:DesignHeight="800" d:DesignWidth="800" 
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             Background="{DynamicResource MaterialDesignPaper}"
+             TextElement.FontWeight="Medium"
+             TextElement.FontSize="25"
+             FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto">
+    <Grid >
+
+        <Grid.Background>
+            <ImageBrush ImageSource="C:\Users\Nikola\Desktop\market.jpg"></ImageBrush>
+        </Grid.Background>
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="auto"></ColumnDefinition>
@@ -21,34 +31,38 @@
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
+
         <!--Login Form text row-->
-        <TextBlock Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="48" Margin="0 0 0 20">
+        <TextBlock Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="48" Margin="0 220 0 20"
+                   Panel.ZIndex="1">
             Login Form
         </TextBlock>
-        
+
         <!--Error Handling row-->
         <TextBlock Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" 
                    Margin="0 0 10 10" HorizontalAlignment="Center"
-                   Foreground="red" MaxWidth="270" TextWrapping="Wrap"
+                   Foreground="red" MaxWidth="270" TextWrapping="Wrap" Panel.ZIndex="1"
                    x:Name="ErrorMessage" Visibility="{Binding IsErrorVisible,
                    Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed}">
         </TextBlock>
-        
+
         <!--Username row-->
-        <TextBlock Grid.Row="2" Grid.Column="1"  Margin="0 0 10 10">
+        <TextBlock Grid.Row="2" Grid.Column="1"  Margin="0 0 10 10" Panel.ZIndex="1">
             Username:
         </TextBlock>
-        <TextBox x:Name="UserName" Grid.Row="2" Grid.Column="2" MinWidth="240"  Margin="0 0 0 10"></TextBox>
-        
+        <TextBox x:Name="UserName" Grid.Row="2" Grid.Column="2" MinWidth="240"  Margin="0 0 0 10" Panel.ZIndex="1"></TextBox>
+
         <!-- Password row -->
-        <TextBlock Grid.Row="3" Grid.Column="1"  Margin="0 0 10 10">
+        <TextBlock Grid.Row="3" Grid.Column="1"  Margin="0 0 10 10" Panel.ZIndex="1"> 
             Password:
         </TextBlock>
-        <PasswordBox x:Name="Password" Grid.Row="3" Grid.Column="2" MinWidth="240"  Margin="0 0 0 20"></PasswordBox>
-        
+        <PasswordBox x:Name="Password" Grid.Row="3" Grid.Column="2" MinWidth="240"  Margin="0 0 0 20" Panel.ZIndex="1"></PasswordBox>
+
         <!-- Login Button row-->
-        <Button x:Name="Login" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" Padding="20 5">
+        <Button x:Name="LogIn" FontSize="22" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" Panel.ZIndex="1"
+        HorizontalAlignment="Center" VerticalAlignment="Top" Padding="20 5" Height="50" Margin="0 10 0 0" Grid.RowSpan="2">
             Log in
         </Button>
+
     </Grid>
 </UserControl>

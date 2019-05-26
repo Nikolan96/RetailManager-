@@ -51,7 +51,6 @@ namespace RMDesktopUI.Library.Api
                new KeyValuePair<string, string>("grant_type", "password"),
                new KeyValuePair<string, string>("username", username),
                new KeyValuePair<string, string>("password", password),
-
             });
 
             using (HttpResponseMessage response = await _apiClient.PostAsync("/Token", data))
@@ -67,7 +66,6 @@ namespace RMDesktopUI.Library.Api
                     // Returns why it failed.
                     throw new Exception(response.ReasonPhrase);
                 }
-
             }
         }
 
@@ -91,7 +89,6 @@ namespace RMDesktopUI.Library.Api
                     _loggedInUserModel.ID = result.ID;
                     _loggedInUserModel.LastName = result.LastName;
                     _loggedInUserModel.Token = token;
-
                     
                 }
                 else
