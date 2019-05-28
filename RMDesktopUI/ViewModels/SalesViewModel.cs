@@ -331,8 +331,7 @@ namespace RMDesktopUI.ViewModels
         private async Task LoadProducts()
         {
             var productList = await _productEndpoint.GetAll();
-            Products = new BindingList<ProductModel>(productList);
-           
+            Products = new BindingList<ProductModel>(productList);           
         }
 
         protected override async void OnViewLoaded(object view)

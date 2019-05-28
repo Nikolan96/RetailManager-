@@ -6,13 +6,13 @@
         mc:Ignorable="d"
         Title="ShellView" WindowState="Maximized" ResizeMode="NoResize"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
-        Background="{DynamicResource MaterialDesignPaper}"
+        Background="#A3A3A3"
         TextElement.FontWeight="Medium"
         TextElement.FontSize="14"
         FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
         >
     <DockPanel>
-        <Menu DockPanel.Dock="Top" FontSize="18">
+        <Menu DockPanel.Dock="Top" FontSize="18" Background="#A3A3A3">
             <MenuItem Header="_File">
                 
             </MenuItem>
@@ -20,7 +20,8 @@
                 <MenuItem x:Name="LoginScreen" Header="_Login"></MenuItem>
             </MenuItem>
         </Menu>
-        
+
+
         <Grid>
             <ContentControl x:Name="ActiveItem" Margin="10 5 10 0"></ContentControl>
         </Grid>

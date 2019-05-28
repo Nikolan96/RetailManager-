@@ -40,8 +40,12 @@
         <Rectangle Grid.Row="3" Grid.ColumnSpan="6" Fill="Gray"></Rectangle>
         <Rectangle Grid.Row="5" Grid.ColumnSpan="6" Fill="Gray"></Rectangle>
         <Rectangle Grid.Row="7" Grid.ColumnSpan="6" Fill="Gray"></Rectangle>
-
         <Rectangle Grid.Row="2" Grid.Column="4"  Fill="Gray"></Rectangle>
+
+        <Rectangle Grid.Row="0" Fill="#A3A3A3" Grid.ColumnSpan="6"></Rectangle>
+        <Rectangle Grid.Row="4" Fill="#DDDDDD" Grid.ColumnSpan="6"></Rectangle>
+        <Rectangle Grid.Row="6" Fill="#BBBBBB" Grid.ColumnSpan="6"></Rectangle>
+        <Rectangle Grid.Row="8" Fill="#A3A3A3" Grid.ColumnSpan="6"></Rectangle>
         <!--#endregion-->
 
         <!--#region Row 0-->
@@ -53,7 +57,7 @@
             <Button x:Name="RemoveFromCart" Content="2" FontSize="21"
                     Padding="5" Margin="10 0 0 0" Width="70" Height="50"/>
             <Button x:Name="RemoveAllFromCart" Content="3" FontSize="21"
-                    Margin="10 0 0 0" Padding="5" Width="70" Height="50"/>
+                    Margin="10 0 10 0" Padding="5" Width="70" Height="50"/>
         </StackPanel>
 
         <TextBlock Text="User : " Grid.Row="0" Grid.Column="2"
@@ -71,33 +75,17 @@
             Grid.Row="2" Grid.ColumnSpan="4
             "
   Margin="0 8 0 0"
-  ItemsSource="{Binding Items3}"
+  ItemsSource="{Binding Products}"
   CanUserSortColumns="True"
   CanUserAddRows="False"
   AutoGenerateColumns="False"
   materialDesign:DataGridAssist.CellPadding="13 8 8 8"
-  materialDesign:DataGridAssist.ColumnHeaderPadding="8">
+  materialDesign:DataGridAssist.ColumnHeaderPadding="8"
+            VerticalScrollBarVisibility="Visible">
             <DataGrid.Columns>
-                <DataGridCheckBoxColumn
-      Binding="{Binding IsSelected}"
-      ElementStyle="{StaticResource MaterialDesignDataGridCheckBoxColumnStyle}"
-      EditingElementStyle="{StaticResource MaterialDesignDataGridCheckBoxColumnEditingStyle}">
-                    <DataGridCheckBoxColumn.Header>
-                        <!--padding to allow hit test to pass thru for sorting -->
-                        <Border
-          Background="Transparent"
-          Padding="6 0 6 0"
-          HorizontalAlignment="Center">
-                            <CheckBox
-            HorizontalAlignment="Center"
-            DataContext="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}, Path=DataContext}"
-            IsChecked="{Binding IsAllItems3Selected}" />
-                        </Border>
-                    </DataGridCheckBoxColumn.Header>
-                </DataGridCheckBoxColumn>
                 <DataGridTextColumn
-      Binding="{Binding Code}"
-      Header="Code"
+      Binding="{Binding ProductName}"
+      Header="Product Name"
       EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" />
                 <!-- if you want to use the pop up style (MaterialDesignDataGridTextColumnPopupEditingStyle), you must use MaterialDataGridTextColumn -->
                 <materialDesign:MaterialDataGridTextColumn
@@ -152,7 +140,7 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <StackPanel Grid.Row="2" Grid.Column="5" Margin="10 80 10 10">
+        <StackPanel Grid.Row="2" Grid.Column="5" Margin="10 5 10 10">
             <TextBlock Text="Product Id" 
                    HorizontalAlignment="Center" VerticalAlignment="Center"
                    FontSize="22" Margin="0 5 0 0"/>
@@ -171,7 +159,7 @@
             <TextBox x:Name="Quantity" 
                        Margin="0 0 0 10" TextAlignment="Center" FontSize="23"></TextBox>
 
-            <Button x:Name="Add" Content="Add" Margin="140 40 140 0"
+            <Button x:Name="Add" Content="Add" Margin="80 10 80 0"
                     Padding="5" FontSize="21" Height="90"/>
         </StackPanel>
         <!--#endregion-->
@@ -179,7 +167,7 @@
         <!--#region Row 2-->
         <TextBlock Text="Total: " Grid.Column="2" Grid.Row="4" 
                    HorizontalAlignment="Center" VerticalAlignment="Center"
-                   FontSize="22" Margin="141,16,140,11"/>
+                   FontSize="22" Margin="141,16,140,11" Foreground="Red"/>
         <!--#endregion-->
 
         <!--#region Row 3-->
