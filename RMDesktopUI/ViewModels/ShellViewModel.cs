@@ -9,21 +9,23 @@ using RMDesktopUI.EventModels;
 namespace RMDesktopUI.ViewModels
 {
     // Conductor holds on to and activates only one item at a time.
-    public class ShellViewModel : Conductor<object>, IHandle<LogOnEvent>, IHandle<CashRegisterEvent>
+    public class ShellViewModel : Conductor<object>, IHandle<LogOnEvent>, IHandle<CashRegisterEvent>, IHandle<ProductsViewEvent>
     {
         private readonly IEventAggregator _events;
         private readonly SalesViewModel _salesVM;
         private readonly SimpleContainer _container;
+        private readonly ProductsViewModel _productsVM;
         private readonly CashRegisterViewModel _cashRegisterVM;
 
         // Uses constructor injection to pass in a new instance of LoginVM and activate it.
-        public ShellViewModel(IEventAggregator events, SalesViewModel salesVM, CashRegisterViewModel cashRegisterVM, SimpleContainer container)
+        public ShellViewModel(IEventAggregator events, SalesViewModel salesVM, CashRegisterViewModel cashRegisterVM, SimpleContainer container,ProductsViewModel ProductsVM)
         {
             _events = events;
             _salesVM = salesVM;
             _cashRegisterVM = cashRegisterVM;
             _container = container;
-            
+            _productsVM = ProductsVM;
+
             // Subscribes instance of shellview to events
             _events.Subscribe(this);
 
@@ -38,6 +40,11 @@ namespace RMDesktopUI.ViewModels
         public void Handle(CashRegisterEvent messager)
         {
             ActivateItem(_cashRegisterVM);
+        }
+
+        public void Handle(ProductsViewEvent message)
+        {
+            ActivateItem(_productsVM);
         }
     }
 }

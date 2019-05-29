@@ -45,7 +45,7 @@
                  >
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock Text="{Binding ProductName}"></TextBlock>
+                    <TextBlock Text="{Binding ProductName}" Foreground="{Binding Color}"></TextBlock>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>

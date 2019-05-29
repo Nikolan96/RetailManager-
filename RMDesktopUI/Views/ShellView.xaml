@@ -23,7 +23,7 @@
 
 
         <Grid>
-            <ContentControl x:Name="ActiveItem" Margin="10 5 10 0"></ContentControl>
+            <ContentControl x:Name="ActiveItem"></ContentControl>
         </Grid>
         
     </DockPanel>

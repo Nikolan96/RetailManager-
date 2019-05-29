@@ -6,63 +6,67 @@
              xmlns:local="clr-namespace:RMDesktopUI.Views"
              mc:Ignorable="d" FontSize="24"
              d:DesignHeight="800" d:DesignWidth="800" 
-             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
-             Background="{DynamicResource MaterialDesignPaper}"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"           
              TextElement.FontWeight="Medium"
              TextElement.FontSize="25"
              FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto">
-    <Grid >
-
+    <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="C:\Users\Nikola\Desktop\market.jpg"></ImageBrush>
         </Grid.Background>
-
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="auto"></ColumnDefinition>
-            <ColumnDefinition Width="auto"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto"></RowDefinition>
-            <RowDefinition Height="auto"></RowDefinition>
-            <RowDefinition Height="auto"></RowDefinition>
-            <RowDefinition Height="auto"></RowDefinition>
-            <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <!--Login Form text row-->
-        <TextBlock Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="48" Margin="0 220 0 20"
+        <Rectangle Width="450" Height="350" RadiusX="40" RadiusY="40">
+            <Rectangle.Fill>
+                <SolidColorBrush Color="Gray" Opacity="0.3"/>
+            </Rectangle.Fill>
+        </Rectangle>
+
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Height="307">
+            <TextBlock Grid.Row="0" Grid.Column="1"
+                       Grid.ColumnSpan="2" HorizontalAlignment="Center"
+                       FontSize="48" Margin="0 0 0 40"
                    Panel.ZIndex="1">
             Login Form
-        </TextBlock>
+            </TextBlock>
 
-        <!--Error Handling row-->
-        <TextBlock Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" 
+            <TextBlock 
                    Margin="0 0 10 10" HorizontalAlignment="Center"
                    Foreground="red" MaxWidth="270" TextWrapping="Wrap" Panel.ZIndex="1"
                    x:Name="ErrorMessage" Visibility="{Binding IsErrorVisible,
                    Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed}">
-        </TextBlock>
+            </TextBlock>
 
-        <!--Username row-->
-        <TextBlock Grid.Row="2" Grid.Column="1"  Margin="0 0 10 10" Panel.ZIndex="1">
-            Username:
-        </TextBlock>
-        <TextBox x:Name="UserName" Grid.Row="2" Grid.Column="2" MinWidth="240"  Margin="0 0 0 10" Panel.ZIndex="1"></TextBox>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="0 0 10 10" Panel.ZIndex="1">
+                 Username:
+                </TextBlock>
+                <TextBox x:Name="UserName" Grid.Row="2" Grid.Column="2"
+                         MinWidth="240" MaxWidth="280"  Margin="0 0 0 10" 
+                         Panel.ZIndex="1">
+                </TextBox>
+            </StackPanel>
 
-        <!-- Password row -->
-        <TextBlock Grid.Row="3" Grid.Column="1"  Margin="0 0 10 10" Panel.ZIndex="1"> 
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="0 0 10 10" Panel.ZIndex="1"> 
             Password:
-        </TextBlock>
-        <PasswordBox x:Name="Password" Grid.Row="3" Grid.Column="2" MinWidth="240"  Margin="0 0 0 20" Panel.ZIndex="1"></PasswordBox>
+                </TextBlock>
+                <PasswordBox x:Name="Password" Grid.Row="3" Grid.Column="2"
+                             MinWidth="250" MaxWidth="280"  Margin="0 0 0 20" Panel.ZIndex="1">
+                </PasswordBox>
+            </StackPanel>
 
-        <!-- Login Button row-->
-        <Button x:Name="LogIn" FontSize="22" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" Panel.ZIndex="1"
-        HorizontalAlignment="Center" VerticalAlignment="Top" Padding="20 5" Height="50" Margin="0 10 0 0" Grid.RowSpan="2">
-            Log in
-        </Button>
 
+            <Button x:Name="LogIn" FontSize="22" Panel.ZIndex="1"
+                    HorizontalAlignment="Center" VerticalAlignment="Top" 
+                    Padding="20 5" Height="50" Margin="0 20 0 0" Grid.RowSpan="2">
+                Log in
+            </Button>
+        </StackPanel>
     </Grid>
 </UserControl>
