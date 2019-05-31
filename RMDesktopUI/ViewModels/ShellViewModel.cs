@@ -34,7 +34,7 @@ namespace RMDesktopUI.ViewModels
 
         public void Handle(LogOnEvent message)
         {
-            ActivateItem(_salesVM);           
+            ActivateItem(_cashRegisterVM);           
         }
 
         public void Handle(CashRegisterEvent messager)

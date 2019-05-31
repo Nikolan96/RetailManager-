@@ -18,5 +18,13 @@ namespace RMDataManager.Library.DataAccess
 
             return output;
         }
+
+        public void InsertProducts(InsertProductModel productModel)
+        {
+            SqlDataAccess sql = new SqlDataAccess();
+
+            sql.SaveData<InsertProductModel, dynamic>("dbo.spInsertProduct", productModel, "RMData");
+
+        }
     }
 }

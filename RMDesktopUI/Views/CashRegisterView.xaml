@@ -159,7 +159,7 @@
             <TextBox x:Name="Quantity" 
                        Margin="0 0 0 10" TextAlignment="Center" FontSize="23"></TextBox>
 
-            <Button x:Name="Add" Content="Add" Margin="80 10 80 0"
+            <Button x:Name="Add" Content="Add" Margin="100 10 100 0"
                     Padding="5" FontSize="21" Height="90"/>
         </StackPanel>
         <!--#endregion-->
@@ -177,25 +177,17 @@
         <!--#endregion-->
 
         <!--#region Row 4-->
-        <StackPanel Grid.Row="8" Grid.Column="0" Orientation="Horizontal" Grid.ColumnSpan="2" Grid.RowSpan="2">
-            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="25 0 0 0"
-                        VerticalAlignment="Center" Width="120" >
-                <Button x:Name="g" Content="Add" Margin="10 0 0 0"
+        <StackPanel Grid.Row="8" Grid.Column="0" Orientation="Horizontal" Grid.ColumnSpan="1" Grid.RowSpan="2">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="40 0 0 0"
+                        VerticalAlignment="Center" Width="150" >
+                <Button x:Name="g" Content="Cancel item" Margin="10 0 0 0"
                     Padding="5" FontSize="21"  Height="55"/>
-                <Button x:Name="h" Content="Remove" Margin="10 10 0 0"
-                    Padding="5" FontSize="21" Height="55"/>
+                <Button x:Name="h" Content="Cancel Bill" Margin="10 10 0 0"
+                    Padding="7" FontSize="21" Height="55"/>
             </StackPanel>
 
             <Button x:Name="GoToProductsView" Content="Products" Margin="30 0 0 0"
                     Padding="5" FontSize="21"  Height="120" Width="120" Background="#FF3F51B5"/>
-
-            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Width="120"
-                        VerticalAlignment="Center" Margin="30 0 0 0">
-                <Button x:Name="p" Content="Up" Margin="5 0 0 0"
-                    Padding="5" FontSize="21"  Height="55"/>
-                <Button x:Name="o" Content="Down" Margin="5 10 0 0"
-                    Padding="5" FontSize="21" Height="55"/>
-            </StackPanel>
         </StackPanel>
 
         <Button Grid.Row="8" Grid.Column="2" Margin="100,21,100,16" 

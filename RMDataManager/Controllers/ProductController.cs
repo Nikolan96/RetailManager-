@@ -12,7 +12,7 @@ namespace RMDataManager.Controllers
     [Authorize]
     public class ProductController : ApiController
     {
-
+        [HttpGet]
         public List<ProductModel> Get()
         {
             ProductData data = new ProductData();
@@ -20,5 +20,12 @@ namespace RMDataManager.Controllers
             return data.GetProducts();
         }
 
+        [HttpPost]
+        public void Post(InsertProductModel productModel)
+        {
+            ProductData data = new ProductData();
+
+            data.InsertProducts(productModel);
+        }
     }
 }

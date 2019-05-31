@@ -10,9 +10,10 @@
         TextElement.FontWeight="Medium"
         TextElement.FontSize="14"
         FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+        Icon="C:\Users\Nikola\Desktop\Groceries-256.png"
         >
     <DockPanel>
-        <Menu DockPanel.Dock="Top" FontSize="18" Background="#A3A3A3">
+        <Menu DockPanel.Dock="Top" FontSize="18">
             <MenuItem Header="_File">
                 
             </MenuItem>

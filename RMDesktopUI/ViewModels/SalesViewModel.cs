@@ -334,16 +334,6 @@ namespace RMDesktopUI.ViewModels
         {
             var productList = await _productEndpoint.GetAll();
 
-            foreach (var item in productList)
-            {
-                if (item.QuantityInStock <= 20)
-                {
-                    item.Color = "Red";
-                }
-                else
-                    item.Color = "Black";
-            }
-
             Products = new BindingList<ProductModel>(productList);           
         }
 

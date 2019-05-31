@@ -1,4 +1,5 @@
-﻿using RMDesktopUI.Library.Models;
+﻿using Newtonsoft.Json;
+using RMDesktopUI.Library.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,6 +33,15 @@ namespace RMDesktopUI.Library.Api
                     throw new Exception(response.ReasonPhrase);
                 }
             }
+        }
+
+        public async Task<HttpResponseMessage> InsertProduct(InsertProductModel productModel)
+        {
+            var stringContent = new StringContent(JsonConvert.SerializeObject(productModel), Encoding.UTF8, "application/json");
+
+            HttpResponseMessage response = await _apiHelper.ApiClient.PostAsync("/api/Product", stringContent);
+
+            return response;
         }
     }
 }

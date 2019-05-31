@@ -87,6 +87,7 @@
     <Compile Include="EventModels\CashRegisterEvent.cs" />
     <Compile Include="EventModels\LogOnEvent.cs" />
     <Compile Include="EventModels\ProductsViewEvent.cs" />
+    <Compile Include="Models\InsertProduct.cs" />
     <Compile Include="MyBkColorConverter.cs" />
     <Compile Include="Helpers\PasswordBoxHelper.cs" />
     <Compile Include="ViewModels\CashRegisterViewModel.cs" />
@@ -177,8 +178,6 @@
       <Name>RMDesktopUI.Library</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
