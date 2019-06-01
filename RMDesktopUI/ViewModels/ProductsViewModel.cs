@@ -8,6 +8,10 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
+using System.Collections.ObjectModel;
 
 namespace RMDesktopUI.ViewModels
 {
@@ -112,7 +116,7 @@ namespace RMDesktopUI.ViewModels
             {
                 _quantityTb = value;
                 NotifyOfPropertyChange(() => CanAddProduct);
-                NotifyOfPropertyChange(() => TaxTb);
+                NotifyOfPropertyChange(() => QuantityTb);
             }
         }
 
@@ -133,6 +137,7 @@ namespace RMDesktopUI.ViewModels
         {
             InsertProductModel productModel = new InsertProductModel();
 
+            // should get automapper
             productModel.ProductName = ProductNameTb;
             productModel.Category = CategoryTb;
             productModel.Description = DescriptionTb;
@@ -143,6 +148,7 @@ namespace RMDesktopUI.ViewModels
 
             await _productEndpoint.InsertProduct(productModel);
             ResetTextboxes();
+
             await LoadProducts();       
         }
 
@@ -174,6 +180,17 @@ namespace RMDesktopUI.ViewModels
             QuantityTb = 1;
         }
 
+        public void Edit()
+        {
+           // Opens new windows and lets you edit selected product
+        }
+
+        public void Delete()
+        {
+            // test delete
+            MessageBoxResult result = MessageBox.Show("Deleted");
+        }
+
         public void GoToCashRegister()
         {
             _events.PublishOnUIThread(new CashRegisterEvent());
@@ -183,16 +200,6 @@ namespace RMDesktopUI.ViewModels
         {
             var productList = await _productEndpoint.GetAll();
 
-            foreach (var item in productList)
-            {
-                if (item.QuantityInStock < 20)
-                {
-                    item.Color = "red";
-                }
-                else
-                    item.Color = "black";
-            }
-
             Products = new BindingList<ProductModel>(productList);
         }
 
@@ -200,6 +207,11 @@ namespace RMDesktopUI.ViewModels
         {
             base.OnViewLoaded(view);
             await LoadProducts();
+        }
+
+        public void Test()
+        {
+            MessageBoxResult result = MessageBox.Show("Test");
         }
 
 

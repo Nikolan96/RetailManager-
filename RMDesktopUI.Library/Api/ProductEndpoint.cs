@@ -43,5 +43,12 @@ namespace RMDesktopUI.Library.Api
 
             return response;
         }
+
+        public async Task<HttpResponseMessage> DeleteProduct(int id)
+        {
+            HttpResponseMessage response = await _apiHelper.ApiClient.DeleteAsync($"/api/Product/{id}");
+
+            return response;
+        }
     }
 }

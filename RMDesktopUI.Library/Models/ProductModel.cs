@@ -13,6 +13,8 @@ namespace RMDesktopUI.Library.Models
 
         public string ProductName { get; set; }
 
+        public decimal Margin { get; set; }
+
         public string Category { get; set; }
 
         public string Description { get; set; }
@@ -23,11 +25,7 @@ namespace RMDesktopUI.Library.Models
 
         public decimal PurchasePrice { get; set; }
 
-        public decimal Margin { get; set; }
-
         public int QuantityInStock { get; set; }
-
-        public string Color { get; set; }
 
     }
 }

@@ -11,6 +11,7 @@
              Background="{DynamicResource MaterialDesignPaper}"
              TextElement.FontWeight="Medium"
              TextElement.FontSize="14"
+             xmlns:cal="http://www.caliburnproject.org"
              FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto">
     <Grid>
 
@@ -132,6 +133,7 @@
             Grid.Row="2" Grid.RowSpan="2"
             Margin="5 8 0 0"
             ItemsSource="{Binding Products}" 
+            CanUserSortColumns="False"
             CanUserAddRows="False"
             AutoGenerateColumns="False"
             materialDesign:DataGridAssist.CellPadding="6 8 8 8"
@@ -157,19 +159,10 @@
       Header="Product Id"
       MinWidth="90"
       MaxWidth="90">
-                    <DataGridTextColumn.CellStyle>
-                        <Style TargetType="{x:Type DataGridCell}">
-                            <Setter Property="Foreground">
-                                <Setter.Value>
-                                    <Binding Converter="{StaticResource bkColorCvrt}"/>
-                                </Setter.Value>
-                            </Setter>
-                        </Style>
-                    </DataGridTextColumn.CellStyle>
                 </DataGridTextColumn>
 
                 <DataGridTextColumn
-      Binding="{Binding ProductName}" Foreground="{Binding Color}"
+      Binding="{Binding ProductName}"
       Header="Product Name"
       MinWidth="120"
       MaxWidth="130"
@@ -177,7 +170,7 @@
                 </DataGridTextColumn>
 
                 <DataGridTextColumn
-      Binding="{Binding Category}" Foreground="{Binding Color}"
+      Binding="{Binding Category}"
       Header="Category"
       MinWidth="120"
       MaxWidth="150"
@@ -185,25 +178,26 @@
                 </DataGridTextColumn>
 
                 <DataGridTextColumn
-      Binding="{Binding Description}" Foreground="{Binding Color}"
+      Binding="{Binding Description}"
       Header="Description"
-      MinWidth="270"
-      Width="270"
+      MinWidth="150"
+      Width="150"
       MaxWidth="500"
       ScrollViewer.HorizontalScrollBarVisibility="Auto"
 >
                 </DataGridTextColumn>
 
                 <DataGridTextColumn
-      Binding="{Binding PurchasePrice}" Foreground="{Binding Color}"
+      Binding="{Binding PurchasePrice, StringFormat=N2}" 
       Header="Purchase Price"
       MinWidth="120"
       MaxWidth="120"
+      HeaderStringFormat=""
 >
                 </DataGridTextColumn>
 
                 <DataGridTextColumn
-      Binding="{Binding RetailPrice}" Foreground="{Binding Color}"
+      Binding="{Binding RetailPrice, StringFormat=N2}"
       Header="Retail Price" 
       MinWidth="110"
       MaxWidth="110"
@@ -211,7 +205,7 @@
                 </DataGridTextColumn>
 
                 <DataGridTextColumn
-      Binding="{Binding Tax}" Foreground="{Binding Color}"
+      Binding="{Binding Tax, StringFormat=N2}" 
       Header="Tax"
       MaxWidth="90"
       MinWidth="90"
@@ -219,23 +213,38 @@
                 </DataGridTextColumn>
 
                 <DataGridTextColumn
-      Binding="{Binding Margin}" Foreground="{Binding Color}"
+      Binding="{Binding Margin, StringFormat=N2}"
       Header="Margin"
-      MaxWidth="90"
-      MinWidth="90"
->
+      MaxWidth="70"
+      MinWidth="70">
                 </DataGridTextColumn>
 
                 <DataGridTextColumn
-      Binding="{Binding QuantityInStock}" Foreground="{Binding Color}"
+      Binding="{Binding QuantityInStock}" 
       Header="Quantity"
-      MaxWidth="90"
-      MinWidth="90">
+      MaxWidth="80"
+      MinWidth="80">
                 </DataGridTextColumn>
 
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="Edit" Background="Green" Content="Edit"></Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate xmlns:cal="http://www.caliburnproject.org">
+                            <Button Content="Delete" Background="Red"
+                             x:Name="Delete" Click="Delete_Click" CommandParameter="{Binding Path=Id}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
             </DataGrid.Columns>
+
         </DataGrid>
-        
-        
     </Grid>
 </UserControl>

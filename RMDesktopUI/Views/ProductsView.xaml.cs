@@ -1,5 +1,8 @@
-﻿using System;
+﻿using RMDesktopUI.Library.Api;
+using RMDesktopUI.Library.Models;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -21,6 +24,7 @@ namespace RMDesktopUI.Views
     /// </summary>
     public partial class ProductsView : UserControl
     {
+
         public ProductsView()
         {
             InitializeComponent();
@@ -30,6 +34,16 @@ namespace RMDesktopUI.Views
         {
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            
+            //ProductModel productToDelete = (ProductModel)((Button)e.Source).DataContext;
+            //return productToDelete.Id;
+
+            ////MessageBoxResult result = MessageBox.Show(dataRowView.Id.ToString());
+            //object ID = ((Button)sender).CommandParameter;
         }
     }
 }

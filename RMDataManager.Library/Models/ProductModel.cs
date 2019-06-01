@@ -25,5 +25,7 @@ namespace RMDataManager.Library.Models
 
         public int QuantityInStock { get; set; }
 
+        public decimal Margin { get; set; }
+
     }
 }

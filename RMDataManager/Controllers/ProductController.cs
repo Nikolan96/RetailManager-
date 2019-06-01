@@ -27,5 +27,14 @@ namespace RMDataManager.Controllers
 
             data.InsertProducts(productModel);
         }
+
+        [HttpDelete]
+        [Route("api/Product/{id}")]
+        public void Delete(int id)
+        {
+            ProductData data = new ProductData();
+
+            data.DeleteProduct(id);
+        }
     }
 }
