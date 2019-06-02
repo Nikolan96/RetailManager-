@@ -4,13 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="ShellView" WindowState="Maximized" ResizeMode="NoResize"
+        Title="ShellView" WindowState="Maximized" ResizeMode="CanMinimize"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         Background="#A3A3A3"
         TextElement.FontWeight="Medium"
         TextElement.FontSize="14"
         FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
-        Icon="C:\Users\Nikola\Desktop\Groceries-256.png"
+        Icon="C:\Users\Nikola\Desktop\Groceries-256.png"        
         >
     <DockPanel>
         <Menu DockPanel.Dock="Top" FontSize="18">

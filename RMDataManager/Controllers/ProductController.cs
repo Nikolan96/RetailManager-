@@ -29,7 +29,7 @@ namespace RMDataManager.Controllers
         }
 
         [HttpDelete]
-        [Route("api/Product/{id}")]
+        [Route("{id}")]
         public void Delete(int id)
         {
             ProductData data = new ProductData();
