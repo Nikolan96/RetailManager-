@@ -49,6 +49,7 @@
     <Compile Include="DataAccess\UserData.cs" />
     <Compile Include="Models\InsertProductModel.cs" />
     <Compile Include="Models\ProductModel.cs" />
+    <Compile Include="Models\UpdateProductModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Internal\DataAccess\SqlDataAccess.cs" />

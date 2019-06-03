@@ -58,6 +58,7 @@
     <Compile Include="Models\InsertProductModel.cs" />
     <Compile Include="Models\LoggedInUserModel.cs" />
     <Compile Include="Models\ProductModel.cs" />
+    <Compile Include="Models\UpdateProductModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

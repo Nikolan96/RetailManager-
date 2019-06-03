@@ -10,5 +10,6 @@ namespace RMDesktopUI.Library.Api
         Task<List<ProductModel>> GetAll();
         Task<HttpResponseMessage> InsertProduct(InsertProductModel productModel);
         Task<HttpResponseMessage> DeleteProduct(int id);
+        Task<HttpResponseMessage> UpdateProduct(UpdateProductModel productModel);
     }
 }

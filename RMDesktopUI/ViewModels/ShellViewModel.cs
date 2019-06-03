@@ -9,22 +9,24 @@ using RMDesktopUI.EventModels;
 namespace RMDesktopUI.ViewModels
 {
     // Conductor holds on to and activates only one item at a time.
-    public class ShellViewModel : Conductor<object>, IHandle<LogOnEvent>, IHandle<CashRegisterEvent>, IHandle<ProductsViewEvent>
+    public class ShellViewModel : Conductor<object>, IHandle<LogOnEvent>, IHandle<CashRegisterEvent>, IHandle<ProductsViewEvent>, IHandle<EditProductViewEvent>
     {
         private readonly IEventAggregator _events;
         private readonly SalesViewModel _salesVM;
         private readonly SimpleContainer _container;
         private readonly ProductsViewModel _productsVM;
+        private readonly EditProductViewModel _editProductViewModel;
         private readonly CashRegisterViewModel _cashRegisterVM;
 
         // Uses constructor injection to pass in a new instance of LoginVM and activate it.
-        public ShellViewModel(IEventAggregator events, SalesViewModel salesVM, CashRegisterViewModel cashRegisterVM, SimpleContainer container,ProductsViewModel ProductsVM)
+        public ShellViewModel(IEventAggregator events, SalesViewModel salesVM, CashRegisterViewModel cashRegisterVM, SimpleContainer container,ProductsViewModel ProductsVM, EditProductViewModel editProductViewModel)
         {
             _events = events;
             _salesVM = salesVM;
             _cashRegisterVM = cashRegisterVM;
             _container = container;
             _productsVM = ProductsVM;
+            _editProductViewModel = editProductViewModel;
 
             // Subscribes instance of shellview to events
             _events.Subscribe(this);
@@ -45,6 +47,12 @@ namespace RMDesktopUI.ViewModels
         public void Handle(ProductsViewEvent message)
         {
             ActivateItem(_productsVM);
+        }
+
+        public void Handle(EditProductViewEvent message)
+        {
+            _editProductViewModel.AddProductModel(message.SelectedProduct);
+            ActivateItem(_editProductViewModel);
         }
     }
 }

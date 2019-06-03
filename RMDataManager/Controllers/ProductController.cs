@@ -35,5 +35,13 @@ namespace RMDataManager.Controllers
 
             data.DeleteProduct(id);
         }
+
+        [HttpPut]
+        public void Update(UpdateProductModel productModel)
+        {
+            ProductData data = new ProductData();
+
+            data.UpdateProduct(productModel);
+        }
     }
 }
