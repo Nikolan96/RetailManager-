@@ -6,13 +6,14 @@
              xmlns:local="clr-namespace:RMDesktopUI.Views"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             d:DesignHeight="1080" d:DesignWidth="1920"
+             d:DesignHeight="1080" d:DesignWidth="1366"
              TextElement.Foreground="{DynamicResource MaterialDesignBody}"
              Background="{DynamicResource MaterialDesignPaper}"
              TextElement.FontWeight="Medium"
              TextElement.FontSize="14"
              xmlns:cal="http://www.caliburnproject.org"
-             FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto">
+             FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+             >
     <Grid>
 
         <Grid.RowDefinitions>
@@ -41,8 +42,12 @@
                    Grid.ColumnSpan="3"></Rectangle>
 
         <TextBlock Text="List of Products" Grid.Row="0" Grid.Column="0"
-                   HorizontalAlignment="Center" VerticalAlignment="Center"
+                  Margin="100 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Center"
                    FontSize="46" />
+
+        <Button Margin="200 0 0 0" x:Name="Edit" Width="150" Height="60" Content="Edit" FontSize="30" Background="Green"></Button>
+
+        <Button Margin="530 0 0 0" x:Name="Delete" Width="150" Height="60" Content="Delete" FontSize="30" Background="Red"></Button>
 
         <TextBlock Text="Insert Product" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="3"
                    HorizontalAlignment="Center" VerticalAlignment="Center"
@@ -133,6 +138,7 @@
             Grid.Row="2" Grid.RowSpan="2"
             Margin="5 8 0 0"
             ItemsSource="{Binding Products}" 
+            SelectedItem="{Binding SelectedProduct}"
             CanUserSortColumns="False"
             CanUserAddRows="False"
             AutoGenerateColumns="False"
@@ -143,7 +149,7 @@
             >
             <DataGrid.Resources>
                 <Style TargetType="ScrollBar">
-                    <Setter Property="Background" Value="Gray" />
+                    <!--<Setter Property="SelectiveScrollingGrid.Background" Value="red" />-->
                     <Style.Triggers>
                         <DataTrigger Binding="{Binding Color}" Value="False">
                             <Setter Property="Background" Value="Red" />
@@ -226,7 +232,7 @@
       MinWidth="80">
                 </DataGridTextColumn>
 
-                <DataGridTemplateColumn>
+                <!--<DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Button x:Name="Edit" Background="Green" Content="Edit"></Button>
@@ -238,10 +244,10 @@
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate xmlns:cal="http://www.caliburnproject.org">
                             <Button Content="Delete" Background="Red"
-                             x:Name="Delete" Click="Delete_Click" CommandParameter="{Binding Path=Id}"/>
+                             Click="Delete_Click" CommandParameter="{Binding Path=Id}"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
+                </DataGridTemplateColumn>-->
 
             </DataGrid.Columns>
 

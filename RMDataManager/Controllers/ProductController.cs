@@ -9,7 +9,7 @@ using RMDataManager.Library.Models;
 
 namespace RMDataManager.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class ProductController : ApiController
     {
         [HttpGet]
@@ -28,8 +28,7 @@ namespace RMDataManager.Controllers
             data.InsertProducts(productModel);
         }
 
-        [HttpDelete]
-        [Route("{id}")]
+        [HttpDelete]     
         public void Delete(int id)
         {
             ProductData data = new ProductData();

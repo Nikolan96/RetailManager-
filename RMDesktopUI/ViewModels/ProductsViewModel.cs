@@ -120,6 +120,21 @@ namespace RMDesktopUI.ViewModels
             }
         }
 
+        private ProductModel _selectedProduct;
+
+        public ProductModel SelectedProduct
+        {
+            get { return _selectedProduct; }
+            set
+            {
+                _selectedProduct = value;
+                NotifyOfPropertyChange(() => SelectedProduct);
+                NotifyOfPropertyChange(() => CanDelete);
+                NotifyOfPropertyChange(() => CanEdit);
+            }
+        }
+
+
 
         private BindingList<ProductModel> _products;
 
@@ -169,6 +184,32 @@ namespace RMDesktopUI.ViewModels
             }
         }
 
+        public bool CanDelete
+        {
+            get
+            {
+                bool output = false;
+                if (SelectedProduct != null)
+                {
+                    output = true;
+                }
+                return output;
+            }
+        }
+
+        public bool CanEdit
+        {
+            get
+            {
+                bool output = false;
+                if (SelectedProduct != null)
+                {
+                    output = true;
+                }
+                return output;
+            }
+        }
+
         public void ResetTextboxes()
         {
             RetailPriceTb = 0;
@@ -185,10 +226,10 @@ namespace RMDesktopUI.ViewModels
            // Opens new windows and lets you edit selected product
         }
 
-        public void Delete()
+        public async Task Delete()
         {
-            // test delete
-            MessageBoxResult result = MessageBox.Show("Deleted");
+            await _productEndpoint.DeleteProduct(SelectedProduct.Id);
+            await LoadProducts();
         }
 
         public void GoToCashRegister()
