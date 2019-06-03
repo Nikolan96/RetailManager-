@@ -50,5 +50,14 @@ namespace RMDesktopUI.Library.Api
 
             return response;
         }
+
+        public async Task<HttpResponseMessage> UpdateProduct(UpdateProductModel productModel)
+        {
+            var stringContent = new StringContent(JsonConvert.SerializeObject(productModel), Encoding.UTF8, "application/json");
+
+            HttpResponseMessage response = await _apiHelper.ApiClient.PutAsync("/api/Product", stringContent);
+
+            return response;
+        }
     }
 }

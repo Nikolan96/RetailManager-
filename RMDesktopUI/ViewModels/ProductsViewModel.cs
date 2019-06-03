@@ -223,7 +223,7 @@ namespace RMDesktopUI.ViewModels
 
         public void Edit()
         {
-           // Opens new windows and lets you edit selected product
+            _events.PublishOnUIThread(new EditProductViewEvent(_selectedProduct));
         }
 
         public async Task Delete()

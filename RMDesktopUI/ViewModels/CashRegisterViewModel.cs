@@ -36,6 +36,33 @@ namespace RMDesktopUI.ViewModels
             }
         }
 
+        private BindingList<string> _productNames;
+
+        public BindingList<string> ProductNames
+        {
+            get { return _productNames; }
+            set
+            {
+                _productNames = value;
+                NotifyOfPropertyChange(() => ProductNames);
+            }
+        }
+
+        private async Task LoadProductNames()
+        {
+            //var productList = await _productEndpoint.GetAll();
+            //ProductNames = new BindingList<string>(productList);
+
+            var productNames = await _productEndpoint.GetProductNames();
+            ProductNames = new BindingList<string>(productNames);
+        }
+
+        protected override async void OnViewLoaded(object view)
+        {
+            base.OnViewLoaded(view);
+            await LoadProductNames();
+        }
+
         public void GoToProductsView()
         {
             _events.PublishOnUIThread(new ProductsViewEvent());

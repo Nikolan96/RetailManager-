@@ -34,5 +34,12 @@ namespace RMDataManager.Library.DataAccess
 
             sql.SaveData<dynamic, dynamic>("dbo.spDeleteProduct", p, "RMData");
         }
+
+        public void UpdateProduct(UpdateProductModel productModel)
+        {
+            SqlDataAccess sql = new SqlDataAccess();
+
+            sql.SaveData<UpdateProductModel, dynamic>("dbo.spUpdateProduct", productModel, "RMData");
+        }
     }
 }

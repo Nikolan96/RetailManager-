@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:RMDesktopUI.Views"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             d:DesignHeight="1080" d:DesignWidth="1366"
+             d:DesignHeight="1080" d:DesignWidth="1920"
              TextElement.Foreground="{DynamicResource MaterialDesignBody}"
              Background="{DynamicResource MaterialDesignPaper}"
              TextElement.FontWeight="Medium"

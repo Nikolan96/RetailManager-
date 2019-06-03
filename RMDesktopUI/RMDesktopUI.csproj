@@ -85,18 +85,23 @@
     </ApplicationDefinition>
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="EventModels\CashRegisterEvent.cs" />
+    <Compile Include="EventModels\EditProductViewEvent.cs" />
     <Compile Include="EventModels\LogOnEvent.cs" />
     <Compile Include="EventModels\ProductsViewEvent.cs" />
     <Compile Include="Models\InsertProduct.cs" />
     <Compile Include="MyBkColorConverter.cs" />
     <Compile Include="Helpers\PasswordBoxHelper.cs" />
     <Compile Include="ViewModels\CashRegisterViewModel.cs" />
+    <Compile Include="ViewModels\EditProductViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\ProductsViewModel.cs" />
     <Compile Include="ViewModels\SalesViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Compile Include="Views\CashRegisterView.xaml.cs">
       <DependentUpon>CashRegisterView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EditProductView.xaml.cs">
+      <DependentUpon>EditProductView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
@@ -123,6 +128,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\CashRegisterView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EditProductView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
