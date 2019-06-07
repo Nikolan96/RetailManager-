@@ -19,6 +19,26 @@ namespace RMDataManager.Library.DataAccess
             return output;
         }
 
+        public List<string> GetAllProductNames()
+        {
+            SqlDataAccess sql = new SqlDataAccess();
+
+            var output = sql.LoadData<string, dynamic>("dbo.spGetAllProductNames", new { }, "RMData");
+
+            return output;
+        }
+
+        public ProductModel GetByProductName(string productName)
+        {
+            SqlDataAccess sql = new SqlDataAccess();
+
+            var p = new { productName = productName };
+
+            var output = sql.LoadOne<ProductModel, dynamic>("dbo.spGetProductByProductName", p, "RMData");
+
+            return output;
+        }
+
         public void InsertProducts(InsertProductModel productModel)
         {
             SqlDataAccess sql = new SqlDataAccess();

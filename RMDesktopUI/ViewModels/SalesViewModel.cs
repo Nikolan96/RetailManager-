@@ -327,9 +327,7 @@ namespace RMDesktopUI.ViewModels
         {
             _events.PublishOnUIThread(new CashRegisterEvent());
         }
-
-       
-
+     
         private async Task LoadProducts()
         {
             var productList = await _productEndpoint.GetAll();

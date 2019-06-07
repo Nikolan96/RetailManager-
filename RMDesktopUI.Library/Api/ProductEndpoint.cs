@@ -35,6 +35,40 @@ namespace RMDesktopUI.Library.Api
             }
         }
 
+        public async Task<List<string>> GetAllProductNames()
+        {
+            using (HttpResponseMessage response = await _apiHelper.ApiClient.GetAsync("/api/Product/ProductNames"))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    var result = await response.Content.ReadAsAsync<List<string>>();
+
+                    return result;
+                }
+                else
+                {
+                    throw new Exception(response.ReasonPhrase);
+                }
+            }
+        }
+
+        public async Task<ProductModel> GetByProductName(string productName)
+        {
+            using (HttpResponseMessage response = await _apiHelper.ApiClient.GetAsync("/api/Product/ProductName/?productName=" + productName))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    var result = await response.Content.ReadAsAsync<ProductModel>();
+
+                    return result;
+                }
+                else
+                {
+                    throw new Exception(response.ReasonPhrase);
+                }
+            }
+        }
+
         public async Task<HttpResponseMessage> InsertProduct(InsertProductModel productModel)
         {
             var stringContent = new StringContent(JsonConvert.SerializeObject(productModel), Encoding.UTF8, "application/json");

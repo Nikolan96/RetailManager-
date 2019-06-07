@@ -78,6 +78,8 @@
     <Build Include="dbo\Stored Procedures\spProductLookup.sql" />
     <Build Include="dbo\Stored Procedures\spDeleteProduct.sql" />
     <Build Include="dbo\Stored Procedures\spUpdateProduct.sql" />
+    <Build Include="dbo\Stored Procedures\spGetAllProductNames.sql" />
+    <Build Include="dbo\Stored Procedures\spGetProductByProductName.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="RMData.refactorlog" />

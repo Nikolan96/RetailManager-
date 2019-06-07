@@ -31,6 +31,17 @@ namespace RMDataManager.Library.Internal.DataAccess
             }
         }
 
+        public T LoadOne<T, U>(string storedProcedure, U parameters, string connectionStringName)
+        {
+            string connectionString = GetConnectionString(connectionStringName);
+
+            using (IDbConnection connection = new SqlConnection(connectionString))
+            {
+                return connection.Query<T>(storedProcedure, parameters,
+                        commandType: CommandType.StoredProcedure).First();
+            }
+        }
+
         public void SaveData<T, U>(string storedProcedure, T parameters, string connectionStringName)
         {
             string connectionString = GetConnectionString(connectionStringName);

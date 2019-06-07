@@ -144,7 +144,7 @@ namespace RMDesktopUI.ViewModels
             QuantityTb = _productModel.QuantityInStock;
         }
 
-        protected override async void OnViewLoaded(object view)
+        protected override void OnViewLoaded(object view)
         {
             base.OnViewLoaded(view);
             FillTextboxes();

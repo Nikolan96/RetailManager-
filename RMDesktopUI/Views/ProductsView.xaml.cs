@@ -45,5 +45,10 @@ namespace RMDesktopUI.Views
             ////MessageBoxResult result = MessageBox.Show(dataRowView.Id.ToString());
             //object ID = ((Button)sender).CommandParameter;
         }
+
+        private void PurchasePriceTb_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+
+        }
     }
 }

@@ -102,7 +102,8 @@
                    HorizontalAlignment="Center" VerticalAlignment="Center"
                    FontSize="32" Margin="0 30 0 0"/>
             <TextBox 
-                  PreviewTextInput="PreviewTextInput"  x:Name="PurchasePriceTb" Margin="20 0 20 10" TextAlignment="Center" FontSize="27">
+                  PreviewTextInput="PreviewTextInput"  x:Name="PurchasePriceTb" Margin="20 0 20 10" TextAlignment="Center" FontSize="27"
+               >
             </TextBox>
 
             <TextBlock Text="Retail Price" 
