@@ -45,8 +45,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataAccess\BillData.cs" />
+    <Compile Include="DataAccess\BillItemData.cs" />
     <Compile Include="DataAccess\ProductData.cs" />
     <Compile Include="DataAccess\UserData.cs" />
+    <Compile Include="Models\BillItemModel.cs" />
+    <Compile Include="Models\BillModel.cs" />
     <Compile Include="Models\InsertProductModel.cs" />
     <Compile Include="Models\ProductModel.cs" />
     <Compile Include="Models\UpdateProductModel.cs" />

@@ -1,0 +1,10 @@
+﻿CREATE TABLE [dbo].[Bill]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY,
+    [CreateDate] DATETIME2 NOT NULL DEFAULT getutcdate(), 
+	[ShopId] int NOT NULL,
+	[Total] MONEY NOT NULL,
+	[Paid] MONEY NOT NULL,
+	[Change] Money NOT NULL,
+    [UserId] NVARCHAR(128) NOT NULL FOREIGN KEY REFERENCES [User](ID) 
+)

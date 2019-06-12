@@ -9,7 +9,7 @@ using RMDataManager.Library.Models;
 
 namespace RMDataManager.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class ProductController : ApiController
     {
         [HttpGet]

@@ -68,10 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\User.sql" />
-    <Build Include="dbo\Tables\Sale.sql" />
-    <Build Include="dbo\Tables\SaleDetail.sql" />
     <Build Include="dbo\Tables\Product.sql" />
-    <Build Include="dbo\Tables\Inventory.sql" />
     <Build Include="dbo\Stored Procedures\spUserLookup.sql" />
     <Build Include="dbo\Stored Procedures\spProduct_GetAll.sql" />
     <Build Include="dbo\Stored Procedures\spInsertProduct.sql" />
@@ -80,6 +77,15 @@
     <Build Include="dbo\Stored Procedures\spUpdateProduct.sql" />
     <Build Include="dbo\Stored Procedures\spGetAllProductNames.sql" />
     <Build Include="dbo\Stored Procedures\spGetProductByProductName.sql" />
+    <Build Include="dbo\Tables\Bill.sql" />
+    <Build Include="dbo\Tables\BillItem.sql" />
+    <Build Include="dbo\Stored Procedures\spInsertBill.sql" />
+    <Build Include="dbo\Stored Procedures\spGetBill.sql" />
+    <Build Include="dbo\Stored Procedures\spGetBills.sql" />
+    <Build Include="dbo\Stored Procedures\spDeleteBill.sql" />
+    <Build Include="dbo\Stored Procedures\spInsertBillItem.sql" />
+    <Build Include="dbo\Stored Procedures\spDeleteBillItem.sql" />
+    <Build Include="dbo\Stored Procedures\spGetBillItems.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="RMData.refactorlog" />

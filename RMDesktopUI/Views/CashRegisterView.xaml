@@ -26,12 +26,12 @@
             <RowDefinition Height="6*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="525*"/>
+            <ColumnDefinition Width="195*"/>
+            <ColumnDefinition Width="478*"/>
+            <ColumnDefinition Width="240*"/>
             <ColumnDefinition Width="2"/>
-            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="480*"/>
         </Grid.ColumnDefinitions>
 
         <!--#region Lines-->
@@ -50,7 +50,7 @@
 
         <!--#region Row 0-->
         <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.Row="0"
-                    Margin="20,0,0,0" HorizontalAlignment="Left">
+                    Margin="20,0,0,0" HorizontalAlignment="Left" Width="250">
 
             <Button x:Name="AddToCart" Content="1" Margin="10 0 0 0"
                     Padding="5" FontSize="21" Width="70" Height="50"/>
@@ -62,11 +62,11 @@
 
         <TextBlock Text="User : " Grid.Row="0" Grid.Column="2"
                    HorizontalAlignment="Center" VerticalAlignment="Center"
-                   FontSize="22" Margin="139,41,139,40"/>
+                   FontSize="22" Margin="208,64,208,63" Height="26" Width="62"/>
 
         <TextBlock Text="RetailManager" Grid.Row="0" Grid.Column="5"
                    HorizontalAlignment="Right" VerticalAlignment="Center"
-                   FontSize="40" Margin="0 0 50 0"/>
+                   FontSize="40" Margin="0,52,50,53" Height="48" Width="264"/>
         <!--#endregion-->
 
 
@@ -205,10 +205,10 @@
         <StackPanel Grid.Row="2" Grid.Column="5" Margin="10 60 10 10">
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <RadioButton IsChecked="True" x:Name="RB1" GroupName="group1" Content="By Product Id" Margin="0 0 50 20"></RadioButton>
-                <RadioButton x:Name="RB2" GroupName="group1" Content="By Product Name"></RadioButton>
+                <RadioButton x:Name="RB1" GroupName="group1" Content="By Product Id" Margin="0 0 50 20"></RadioButton>
+                <RadioButton IsChecked="True" x:Name="RB2" GroupName="group1" Content="By Product Name"></RadioButton>
             </StackPanel>
-            
+
             <TextBlock Text="Product Id" 
                    HorizontalAlignment="Center" VerticalAlignment="Center"
                    FontSize="22" Margin="0 5 0 0"/>
@@ -260,13 +260,13 @@
                        MaxWidth="100" MinWidth="130"></TextBox>
 
         </StackPanel>
-    
+
         <!--#endregion-->
 
         <!--#region Row 3-->
         <StackPanel Orientation="Horizontal"
                     Grid.Column="2" Grid.Row="6">
-           
+
             <TextBlock Text="Total:"
                        Margin="75 0 0 0"
                    VerticalAlignment="Center" 
@@ -288,7 +288,7 @@
                    FontSize="22" Foreground="Red"/>
         </StackPanel>
         <!--#endregion-->
-    
+
         <!--#region Row 4-->
         <StackPanel Grid.Row="8" Grid.Column="0" Orientation="Horizontal" Grid.ColumnSpan="1" Grid.RowSpan="2">
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="40 0 0 0"
@@ -301,14 +301,17 @@
 
             <Button x:Name="GoToProductsView" Content="Products" Margin="30 0 0 0"
                     Padding="5" FontSize="21"  Height="120" Width="120" Background="#FF3F51B5"/>
+
+            <Button x:Name="GoToBillsView" Content="Bills" Margin="30 0 0 0"
+                    Padding="5" FontSize="21"  Height="120" Width="120" Background="#FF3F51B5"/>
         </StackPanel>
 
-        <Button x:Name="Cash" Grid.Row="8" Grid.Column="2" Margin="100,21,100,16" 
-                Content="Cash" Height="120" FontSize="30">
+        <Button x:Name="Cash" Grid.Row="8" Grid.Column="2" Margin="100,53,100,48" 
+                Content="Cash" Height="Auto" FontSize="30">
         </Button>
 
-        <Button Grid.Row="8" Grid.Column="5" Margin="100,21,100,16" 
-                Content="Back" Height="120" FontSize="30">
+        <Button Grid.Row="8" Grid.Column="5" Margin="100,53,100,48" 
+                Content="Back" Height="Auto" FontSize="30">
         </Button>
         <!--#endregion-->
 

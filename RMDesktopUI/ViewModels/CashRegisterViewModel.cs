@@ -46,8 +46,13 @@ namespace RMDesktopUI.ViewModels
             {
                 _paid = value;
                 NotifyOfPropertyChange(() => Paid);
-                NotifyOfPropertyChange(() => Change);
-                NotifyOfPropertyChange(() => DisplayChange);
+
+                if (Paid > Total && Total > 0)
+                {
+                    NotifyOfPropertyChange(() => Change);
+                    NotifyOfPropertyChange(() => DisplayChange);
+                }
+                
                 NotifyOfPropertyChange(() => CanCash);
             }
         }
@@ -83,7 +88,13 @@ namespace RMDesktopUI.ViewModels
         {
             get
             {
-                return Paid - Total;
+                if (Paid > 0)
+                {
+                    return Paid - Total;
+                }
+
+                return 0;
+                
             }
             set
             {          
@@ -97,8 +108,13 @@ namespace RMDesktopUI.ViewModels
         {
             get
             {
-                var value = Decimal.Round(Change, 2);
-                return value.ToString();
+                if (Paid > 0)
+                {
+                    var value = Decimal.Round(Change, 2);
+                    return value.ToString();
+                }
+
+                return "0";
             }
         }
 
@@ -245,13 +261,20 @@ namespace RMDesktopUI.ViewModels
         }
 
         public void DeleteBillItem()
-        {
+        {       
+            Total -= SelectedBillItem.RetailPrice;
             Products.Remove(SelectedBillItem);
             SelectedBillItem = null;
+
+            Paid = 0;
+
+            NotifyOfPropertyChange(() => Paid);
             NotifyOfPropertyChange(() => CanDeleteBill);
             NotifyOfPropertyChange(() => Total);
             NotifyOfPropertyChange(() => DisplayTotal);
             NotifyOfPropertyChange(() => CanCash);
+            NotifyOfPropertyChange(() => Products);
+            NotifyOfPropertyChange(() => Change);
             NotifyOfPropertyChange(() => DisplayChange);
         }
 
@@ -271,12 +294,24 @@ namespace RMDesktopUI.ViewModels
         }
 
         public void DeleteBill()
-        {
+        {         
+            foreach (var item in Products)
+            {
+                Total -= item.RetailPrice;
+            }
+
+            Paid = 0;
+           
             Products.Clear();
+
+            NotifyOfPropertyChange(() => Paid);
             NotifyOfPropertyChange(() => Total);
+            NotifyOfPropertyChange(() => DisplayTotal);
             NotifyOfPropertyChange(() => CanDeleteBill);
             NotifyOfPropertyChange(() => CanCash);
             NotifyOfPropertyChange(() => DisplayChange);
+            NotifyOfPropertyChange(() => Change);
+            NotifyOfPropertyChange(() => Products);
         }
 
         public bool CanCash
