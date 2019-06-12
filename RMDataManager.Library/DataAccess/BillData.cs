@@ -28,6 +28,13 @@ namespace RMDataManager.Library.DataAccess
             return output;
         }
 
+        //public void InsertBill(InsertBillModel billModel)
+        //{
+        //    SqlDataAccess sql = new SqlDataAccess();
+
+        //    sql.SaveData<InsertProductModel, dynamic>("dbo.spInsertBill", billModel, "RMData");
+        //}
+
         public void DeleteBill(int id)
         {
             SqlDataAccess sql = new SqlDataAccess();
