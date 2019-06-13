@@ -21,11 +21,18 @@ namespace RMDataManager.Library.DataAccess
             return output;
         }
 
-        public void DeleteBillItems(int Billid)
+        public void InsertBillItem(InsertBillItemModel billItemModel)
         {
             SqlDataAccess sql = new SqlDataAccess();
 
-            var p = new { Billid = Billid };
+            sql.SaveData<InsertBillItemModel, dynamic>("dbo.spInsertBillItem", billItemModel, "RMData");
+        }
+
+        public void DeleteBillItems(int BillId)
+        {
+            SqlDataAccess sql = new SqlDataAccess();
+
+            var p = new { BillId = BillId };
 
             sql.SaveData<dynamic, dynamic>("dbo.spDeleteBillItems", p, "RMData");
         }

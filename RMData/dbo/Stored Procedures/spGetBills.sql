@@ -2,6 +2,6 @@
 AS
 begin
 	set nocount on;
-	select Id,CreateDate, ShopId, Total, Paid, Change, UserId
+	select Id,CreatedDate, ShopId, Total, Paid, Change, UserId
 	from [dbo].[Bill];
 end

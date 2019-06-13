@@ -1,7 +1,7 @@
 ﻿CREATE TABLE [dbo].[Bill]
 (
-	[Id] INT NOT NULL PRIMARY KEY IDENTITY,
-    [CreateDate] DATETIME2 NOT NULL DEFAULT getutcdate(), 
+	[ID] NVARCHAR(128) NOT NULL PRIMARY KEY, 
+    [CreatedDate] DATETIME2 NOT NULL DEFAULT getutcdate(), 
 	[ShopId] int NOT NULL,
 	[Total] MONEY NOT NULL,
 	[Paid] MONEY NOT NULL,

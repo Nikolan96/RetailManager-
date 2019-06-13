@@ -2,6 +2,7 @@
 using RMDataManager.Library.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -9,15 +10,15 @@ using System.Web.Http;
 
 namespace RMDataManager.Controllers
 {
+    [Authorize]
     public class BillController : ApiController
     {
         [HttpGet]
-        [Route("api/Bill/GetBill")]
-        public BillModel GetBill()
+        public BillModel GetBill(string ID)
         {
             BillData data = new BillData();
 
-            return data.GetBill();
+            return data.GetBill(ID);
         }
 
         [HttpGet]
@@ -29,12 +30,20 @@ namespace RMDataManager.Controllers
             return data.GetBills();
         }
 
-        [HttpDelete]
-        public void Delete(int id)
+        [HttpPost]
+        public void InsertBill(BillModel billModel)
         {
             BillData data = new BillData();
 
-            data.DeleteBill(id);
+            data.InsertBill(billModel);
+        }
+
+        [HttpDelete]
+        public void Delete(string ID)
+        {
+            BillData data = new BillData();
+
+            data.DeleteBill(ID);
         }
     }
 }

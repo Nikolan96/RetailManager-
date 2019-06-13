@@ -1,8 +1,8 @@
 ﻿CREATE PROCEDURE [dbo].[spDeleteBill]
-	@id int
+	@Id NVARCHAR(128)
 AS
 begin
 	set nocount on;
-	delete from Bill where Bill.Id = @id;
+	delete from Bill where Bill.Id = @Id;
 end
 

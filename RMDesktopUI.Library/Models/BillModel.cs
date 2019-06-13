@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RMDataManager.Library.Models
+namespace RMDesktopUI.Library.Models
 {
     public class BillModel
     {
@@ -18,5 +17,4 @@ namespace RMDataManager.Library.Models
         public string ID { get; set; }
 
     }
-
 }

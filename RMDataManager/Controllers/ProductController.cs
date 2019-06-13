@@ -19,6 +19,7 @@ namespace RMDataManager.Controllers
 
             return data.GetProducts();
         }
+
         [HttpGet]
         [Route("api/Product/ProductNames")]
         public List<string> GetAllProductNames()

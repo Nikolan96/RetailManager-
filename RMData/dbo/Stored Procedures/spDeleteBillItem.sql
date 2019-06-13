@@ -3,6 +3,6 @@
 AS
 begin
 	set nocount on;
-	delete from BillItem where BillId.Id = @BillId;
+	delete from BillItem where BillId = @BillId;
 end
 

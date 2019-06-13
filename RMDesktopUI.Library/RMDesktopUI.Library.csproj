@@ -49,12 +49,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api\APIHelper.cs" />
+    <Compile Include="Api\BillEndpoint.cs" />
+    <Compile Include="Api\BillItemEndpoint.cs" />
     <Compile Include="Api\IAPIHelper.cs" />
+    <Compile Include="Api\IBillEndpoint.cs" />
+    <Compile Include="Api\IBillItemEndpoint.cs" />
     <Compile Include="Api\IProductEndpoint.cs" />
     <Compile Include="Api\ProductEndpoint.cs" />
     <Compile Include="Models\AuthenticatedUser.cs" />
+    <Compile Include="Models\BillItemModel.cs" />
+    <Compile Include="Models\BillModel.cs" />
     <Compile Include="Models\CartItemModel.cs" />
     <Compile Include="Models\ILoggedInUserModel.cs" />
+    <Compile Include="Models\InsertBillItemModel.cs" />
     <Compile Include="Models\InsertProductModel.cs" />
     <Compile Include="Models\LoggedInUserModel.cs" />
     <Compile Include="Models\ProductModel.cs" />

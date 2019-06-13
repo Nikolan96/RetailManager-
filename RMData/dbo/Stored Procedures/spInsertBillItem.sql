@@ -1,5 +1,5 @@
 ﻿CREATE PROCEDURE [dbo].[spInsertBillItem]
-	@BillId int,
+	@BillId nvarchar(128),
 	@ProductName NVARCHAR(100),
 	@Quantity int,
 	@RetailPrice money,

@@ -36,13 +36,16 @@ namespace RMDesktopUI
         protected override void Configure()
         {
             _container.Instance(_container)
-                .PerRequest<IProductEndpoint, ProductEndpoint>();
+                .PerRequest<IProductEndpoint, ProductEndpoint>()
+                .PerRequest<IBillEndpoint , BillEndpoint>()
+                .PerRequest<IBillItemEndpoint, BillItemEndpoint>();
 
             _container
                 .Singleton<IWindowManager, WindowManager>() // Handles bringing windows in and out
                 .Singleton<IEventAggregator, EventAggregator>()// Here we pass event messaging throughout application, handles events.
                 .Singleton<ILoggedInUserModel, LoggedInUserModel>() // Could fuck up, if not before API.
                 .Singleton<IAPIHelper, APIHelper>(); // Creates one instance of APIHelper.
+                
 
 
             // Use reflection get type for our current instance, get class types, where name of the class ends with ViewModel and add to list, run through list.

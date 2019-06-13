@@ -5,6 +5,8 @@ using RMDesktopUI.Library.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data.SqlTypes;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,12 +19,18 @@ namespace RMDesktopUI.ViewModels
         private IAPIHelper _apiHelper;
         private IEventAggregator _events;
         private readonly IProductEndpoint _productEndpoint;
+        private readonly IBillEndpoint _billEndpoint;
+        private readonly IBillItemEndpoint _billItemEndpoint;
+        private readonly ILoggedInUserModel _loggedInUser;
 
-        public CashRegisterViewModel(IAPIHelper apiHelper, IEventAggregator events, IProductEndpoint productEndpoint)
+        public CashRegisterViewModel(IAPIHelper apiHelper, IEventAggregator events, IProductEndpoint productEndpoint, IBillEndpoint billEndpoint, IBillItemEndpoint billItemEndpoint, ILoggedInUserModel loggedInUser)
         {
             _apiHelper = apiHelper;
             _events = events;
             _productEndpoint = productEndpoint;
+            _billEndpoint = billEndpoint;
+            _billItemEndpoint = billItemEndpoint;
+            _loggedInUser = loggedInUser;
         }
 
         private int _quantity = 1;
@@ -329,8 +337,42 @@ namespace RMDesktopUI.ViewModels
             }
         }
 
-        public void Cash()
+        public async Task Cash()
         {
+
+            BillModel bill = new BillModel
+            {
+                ShopId = 1,
+                Total = Total,
+                Paid = Paid,
+                Change = Change,
+                UserId = _loggedInUser.ID,
+                CreatedDate = DateTime.Now,
+                ID = Guid.NewGuid().ToString()
+      
+             };
+
+            await _billEndpoint.InsertBill(bill);
+     
+            BillModel ExistingBill = await _billEndpoint.GetBill(bill.ID);
+
+            foreach (var item in Products)
+            {
+                InsertBillItemModel billItem = new InsertBillItemModel
+                {
+                    ProductName = item.ProductName,
+                    Category = item.Category,
+                    Description = item.Description,
+                    RetailPrice = item.RetailPrice,
+                    Quantity = item.QuantityInStock,
+                    BillId = ExistingBill.ID
+                };
+
+                await _billItemEndpoint.InsertBillItem(billItem);
+
+                MessageBox.Show("Inserted :" + billItem.ProductName);
+            }
+
             string items = "";
 
             foreach (var item in Products)
@@ -343,6 +385,8 @@ namespace RMDesktopUI.ViewModels
             items += "Change:" + DisplayChange + "\n";
 
             MessageBox.Show(items);
+
+            DeleteBill();
         }
 
         private async Task LoadProductNames()

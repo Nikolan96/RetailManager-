@@ -39,7 +39,7 @@
                     Height="643" Margin="0,85,0,40" Width="785"
                     Orientation="Horizontal">
 
-            <StackPanel Orientation="Vertical" Margin="80 0 60 0">
+            <StackPanel Orientation="Vertical" Margin="30 0 60 0">
                 <TextBlock Text="Product Name" 
                    HorizontalAlignment="Center" VerticalAlignment="Center"
                    FontSize="32" Margin="0 30 0 0"/>
