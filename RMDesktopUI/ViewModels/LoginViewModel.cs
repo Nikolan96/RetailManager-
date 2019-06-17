@@ -25,6 +25,18 @@ namespace RMDesktopUI.ViewModels
             _events = events;
         }
 
+        private bool _isBusy;
+
+        public bool IsBusy
+        {
+            get { return _isBusy; }
+            set
+            {
+                _isBusy = value;
+                NotifyOfPropertyChange(() => IsBusy);
+            }
+        }
+
         public string UserName
         {
             get { return _userName; }
@@ -92,16 +104,19 @@ namespace RMDesktopUI.ViewModels
             }
         }
 
-        public async Task LogIn()
+        public async void LogIn()
         {
             try
             {
                 ErrorMessage = "";
-                 var result = await _apiHelper.Authenticate(UserName, Password);
 
-                 await _apiHelper.GetLoggedInUserInfo(result.Access_Token);
+                IsBusy = true;
 
-                // Raises an event for Login
+                var result = await _apiHelper.Authenticate(UserName, Password);
+                await _apiHelper.GetLoggedInUserInfo(result.Access_Token);
+
+                IsBusy = false;
+
                 _events.PublishOnUIThread(new LogOnEvent());
             }
             catch (Exception ex)

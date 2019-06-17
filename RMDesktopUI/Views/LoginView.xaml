@@ -27,6 +27,27 @@
             </Rectangle.Fill>
         </Rectangle>
 
+        <Rectangle Width="auto" Height="auto" Fill="Gray"
+                   Visibility="{Binding IsBusy,
+                   Converter={StaticResource BooleanToVisibilityConverter},
+                   FallbackValue=Collapsed}"
+                   Panel.ZIndex="100"
+                   Opacity="0.4">
+        </Rectangle>
+
+        <ProgressBar
+                   Style="{StaticResource MaterialDesignCircularProgressBar}"
+                   Value="35"
+                   IsIndeterminate="True"
+                   Width="200"
+                   Height="200"
+                   Visibility="{Binding IsBusy,
+                   Converter={StaticResource BooleanToVisibilityConverter},
+                   FallbackValue=Collapsed}"
+                   Panel.ZIndex="101"
+                     
+            />
+
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Height="307">
             <TextBlock Grid.Row="0" Grid.Column="1"
                        Grid.ColumnSpan="2" HorizontalAlignment="Center"
