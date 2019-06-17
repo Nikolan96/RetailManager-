@@ -14,9 +14,9 @@ namespace RMDesktopUI.Library.Api
 
         Task<List<BillModel>> GetBills();
 
-        Task<HttpResponseMessage> InsertBill(BillModel billModel);
+        Task<HttpResponseMessage> InsertBill(InsertBillModel billModel);
 
-        Task<HttpResponseMessage> Delete(int id);
+        Task<HttpResponseMessage> Delete(string id);
 
     }
 }

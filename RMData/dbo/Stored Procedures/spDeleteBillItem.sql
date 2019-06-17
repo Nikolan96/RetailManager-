@@ -1,5 +1,5 @@
 ﻿CREATE PROCEDURE [dbo].[spDeleteBillItem]
-	@BillId int
+	@BillId nvarchar(128)
 AS
 begin
 	set nocount on;

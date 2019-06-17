@@ -52,6 +52,7 @@
     <Compile Include="Models\BillItemModel.cs" />
     <Compile Include="Models\BillModel.cs" />
     <Compile Include="Models\InsertBillItemModel.cs" />
+    <Compile Include="Models\InsertBillModel.cs" />
     <Compile Include="Models\InsertProductModel.cs" />
     <Compile Include="Models\ProductModel.cs" />
     <Compile Include="Models\UpdateProductModel.cs" />

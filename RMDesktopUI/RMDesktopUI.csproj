@@ -62,6 +62,7 @@
     <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Caliburn.Micro.3.2.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
     </Reference>
@@ -84,6 +85,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="EventModels\BillItemsViewEvent.cs" />
+    <Compile Include="EventModels\BillsViewEvent.cs" />
     <Compile Include="EventModels\CashRegisterEvent.cs" />
     <Compile Include="EventModels\EditProductViewEvent.cs" />
     <Compile Include="EventModels\LogOnEvent.cs" />
@@ -91,12 +94,20 @@
     <Compile Include="Models\InsertProduct.cs" />
     <Compile Include="MyBkColorConverter.cs" />
     <Compile Include="Helpers\PasswordBoxHelper.cs" />
+    <Compile Include="ViewModels\BillItemsViewModel.cs" />
+    <Compile Include="ViewModels\BillsViewModel.cs" />
     <Compile Include="ViewModels\CashRegisterViewModel.cs" />
     <Compile Include="ViewModels\EditProductViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\ProductsViewModel.cs" />
     <Compile Include="ViewModels\SalesViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
+    <Compile Include="Views\BillItemsView.xaml.cs">
+      <DependentUpon>BillItemsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BillsView.xaml.cs">
+      <DependentUpon>BillsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\CashRegisterView.xaml.cs">
       <DependentUpon>CashRegisterView.xaml</DependentUpon>
     </Compile>
@@ -127,6 +138,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\BillItemsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\BillsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\CashRegisterView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -187,6 +206,8 @@
       <Name>RMDesktopUI.Library</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <SplashScreen Include="splashscreen.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

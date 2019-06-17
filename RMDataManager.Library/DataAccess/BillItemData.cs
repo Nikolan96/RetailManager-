@@ -10,7 +10,7 @@ namespace RMDataManager.Library.DataAccess
 {
     public class BillItemData
     {
-        public List<BillItemModel> GetBillItems(int BillId)
+        public List<BillItemModel> GetBillItems(string BillId)
         {
             SqlDataAccess sql = new SqlDataAccess();
 
@@ -28,13 +28,13 @@ namespace RMDataManager.Library.DataAccess
             sql.SaveData<InsertBillItemModel, dynamic>("dbo.spInsertBillItem", billItemModel, "RMData");
         }
 
-        public void DeleteBillItems(int BillId)
+        public void DeleteBillItems(string BillId)
         {
             SqlDataAccess sql = new SqlDataAccess();
 
             var p = new { BillId = BillId };
 
-            sql.SaveData<dynamic, dynamic>("dbo.spDeleteBillItems", p, "RMData");
+            sql.SaveData<dynamic, dynamic>("dbo.spDeleteBillItem", p, "RMData");
         }
     }
 }

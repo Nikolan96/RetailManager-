@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using RMDesktopUI.Library.Api;
 using RMDesktopUI.EventModels;
+using System.Windows;
 
 namespace RMDesktopUI.ViewModels
 {
@@ -96,9 +97,9 @@ namespace RMDesktopUI.ViewModels
             try
             {
                 ErrorMessage = "";
-                var result = await _apiHelper.Authenticate(UserName, Password);
+                 var result = await _apiHelper.Authenticate(UserName, Password);
 
-                await _apiHelper.GetLoggedInUserInfo(result.Access_Token);
+                 await _apiHelper.GetLoggedInUserInfo(result.Access_Token);
 
                 // Raises an event for Login
                 _events.PublishOnUIThread(new LogOnEvent());

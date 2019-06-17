@@ -13,8 +13,7 @@ namespace RMDataManager.Controllers
     public class BillItemController : ApiController
     {
         [HttpGet]
-        [Route("api/Bill/GetBillItems")]
-        public List<BillItemModel> GetBills(int BillId)
+        public List<BillItemModel> GetBills(string BillId)
         {
             BillItemData data = new BillItemData();
 
@@ -30,7 +29,7 @@ namespace RMDataManager.Controllers
         }
 
         [HttpDelete]
-        public void Delete(int BillId)
+        public void Delete(string BillId)
         {
             BillItemData data = new BillItemData();
 

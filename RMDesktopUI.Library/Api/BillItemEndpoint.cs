@@ -27,7 +27,7 @@ namespace RMDesktopUI.Library.Api
 
         public async Task<List<BillItemModel>> GetBillItems(string BillId)
         {
-            using (HttpResponseMessage response = await _apiHelper.ApiClient.GetAsync("/api/BillItem/GetBillItems?BillId=" + BillId))
+            using (HttpResponseMessage response = await _apiHelper.ApiClient.GetAsync("/api/BillItem/?BillId=" + BillId))
             {
                 if (response.IsSuccessStatusCode)
                 {

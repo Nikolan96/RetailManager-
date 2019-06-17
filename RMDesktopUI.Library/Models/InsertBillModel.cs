@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RMDataManager.Library.Models
+namespace RMDesktopUI.Library.Models
 {
-    public class BillModel
+    public class InsertBillModel
     {
         public string Id { get; set; }
         public DateTime CreatedDate { get; set; }
@@ -16,9 +15,6 @@ namespace RMDataManager.Library.Models
         public decimal Paid { get; set; }
         public decimal Change { get; set; }
         public string UserId { get; set; }
-
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
 
     }
 }

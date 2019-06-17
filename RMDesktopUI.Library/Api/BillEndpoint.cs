@@ -54,7 +54,7 @@ namespace RMDesktopUI.Library.Api
             }
         }
 
-        public async Task<HttpResponseMessage> InsertBill(BillModel billModel)
+        public async Task<HttpResponseMessage> InsertBill(InsertBillModel billModel)
         {
             var stringContent = new StringContent(JsonConvert.SerializeObject(billModel), Encoding.UTF8, "application/json");
 
@@ -63,9 +63,9 @@ namespace RMDesktopUI.Library.Api
             return response;
         }
 
-        public async Task<HttpResponseMessage> Delete(int id)
+        public async Task<HttpResponseMessage> Delete(string Id)
         {
-            HttpResponseMessage response = await _apiHelper.ApiClient.DeleteAsync("/api/Bill?id=" + id);
+            HttpResponseMessage response = await _apiHelper.ApiClient.DeleteAsync("/api/Bill?Id=" + Id);
 
             return response;
         }

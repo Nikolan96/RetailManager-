@@ -31,7 +31,7 @@ namespace RMDataManager.Controllers
         }
 
         [HttpPost]
-        public void InsertBill(BillModel billModel)
+        public void InsertBill(InsertBillModel billModel)
         {
             BillData data = new BillData();
 

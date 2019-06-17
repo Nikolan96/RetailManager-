@@ -270,7 +270,7 @@ namespace RMDesktopUI.ViewModels
 
         public void DeleteBillItem()
         {       
-            Total -= SelectedBillItem.RetailPrice;
+            Total -= SelectedBillItem.RetailPrice * SelectedBillItem.QuantityInStock;
             Products.Remove(SelectedBillItem);
             SelectedBillItem = null;
 
@@ -305,7 +305,7 @@ namespace RMDesktopUI.ViewModels
         {         
             foreach (var item in Products)
             {
-                Total -= item.RetailPrice;
+                Total -= item.RetailPrice * item.QuantityInStock;
             }
 
             Paid = 0;
@@ -340,7 +340,7 @@ namespace RMDesktopUI.ViewModels
         public async Task Cash()
         {
 
-            BillModel bill = new BillModel
+            InsertBillModel bill = new InsertBillModel
             {
                 ShopId = 1,
                 Total = Total,
@@ -348,13 +348,11 @@ namespace RMDesktopUI.ViewModels
                 Change = Change,
                 UserId = _loggedInUser.ID,
                 CreatedDate = DateTime.Now,
-                ID = Guid.NewGuid().ToString()
+                Id = Guid.NewGuid().ToString()
       
              };
 
             await _billEndpoint.InsertBill(bill);
-     
-            BillModel ExistingBill = await _billEndpoint.GetBill(bill.ID);
 
             foreach (var item in Products)
             {
@@ -365,12 +363,10 @@ namespace RMDesktopUI.ViewModels
                     Description = item.Description,
                     RetailPrice = item.RetailPrice,
                     Quantity = item.QuantityInStock,
-                    BillId = ExistingBill.ID
+                    BillId = bill.Id
                 };
 
-                await _billItemEndpoint.InsertBillItem(billItem);
-
-                MessageBox.Show("Inserted :" + billItem.ProductName);
+                await _billItemEndpoint.InsertBillItem(billItem);            
             }
 
             string items = "";
@@ -409,6 +405,11 @@ namespace RMDesktopUI.ViewModels
         public void GoToCashRegister()
         {
             _events.PublishOnUIThread(new CashRegisterEvent());
+        }
+
+        public void GoToBillsView()
+        {
+            _events.PublishOnUIThread(new BillsViewEvent());
         }
     }
 }

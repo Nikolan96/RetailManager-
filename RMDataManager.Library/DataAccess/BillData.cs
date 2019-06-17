@@ -31,11 +31,11 @@ namespace RMDataManager.Library.DataAccess
             return output;
         }
 
-        public void InsertBill(BillModel billModel)
+        public void InsertBill(InsertBillModel billModel)
         {
             SqlDataAccess sql = new SqlDataAccess();
 
-            sql.SaveData<BillModel, dynamic>("dbo.spInsertBill", billModel, "RMData");
+            sql.SaveData<InsertBillModel, dynamic>("dbo.spInsertBill", billModel, "RMData");
         }
 
         public void DeleteBill(string ID)

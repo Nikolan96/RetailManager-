@@ -9,17 +9,20 @@ using RMDesktopUI.EventModels;
 namespace RMDesktopUI.ViewModels
 {
     // Conductor holds on to and activates only one item at a time.
-    public class ShellViewModel : Conductor<object>, IHandle<LogOnEvent>, IHandle<CashRegisterEvent>, IHandle<ProductsViewEvent>, IHandle<EditProductViewEvent>
+    public class ShellViewModel : Conductor<object>, IHandle<LogOnEvent>, IHandle<CashRegisterEvent>, IHandle<ProductsViewEvent>, IHandle<EditProductViewEvent>, IHandle<BillsViewEvent>, IHandle<BillItemsViewEvent>
     {
         private readonly IEventAggregator _events;
         private readonly SalesViewModel _salesVM;
         private readonly SimpleContainer _container;
         private readonly ProductsViewModel _productsVM;
         private readonly EditProductViewModel _editProductViewModel;
+        private readonly BillsViewModel _billsViewModel;
+        private readonly BillItemsViewModel _billItemsViewModel;
         private readonly CashRegisterViewModel _cashRegisterVM;
 
         // Uses constructor injection to pass in a new instance of LoginVM and activate it.
-        public ShellViewModel(IEventAggregator events, SalesViewModel salesVM, CashRegisterViewModel cashRegisterVM, SimpleContainer container,ProductsViewModel ProductsVM, EditProductViewModel editProductViewModel)
+        public ShellViewModel(IEventAggregator events, SalesViewModel salesVM, CashRegisterViewModel cashRegisterVM, SimpleContainer container,
+            ProductsViewModel ProductsVM, EditProductViewModel editProductViewModel, BillsViewModel billsViewModel, BillItemsViewModel billItemsViewModel)
         {
             _events = events;
             _salesVM = salesVM;
@@ -27,6 +30,8 @@ namespace RMDesktopUI.ViewModels
             _container = container;
             _productsVM = ProductsVM;
             _editProductViewModel = editProductViewModel;
+            _billsViewModel = billsViewModel;
+            _billItemsViewModel = billItemsViewModel;
 
             // Subscribes instance of shellview to events
             _events.Subscribe(this);
@@ -53,6 +58,17 @@ namespace RMDesktopUI.ViewModels
         {
             _editProductViewModel.AddProductModel(message.SelectedProduct);
             ActivateItem(_editProductViewModel);
+        }
+
+        public void Handle(BillsViewEvent message)
+        {
+            ActivateItem(_billsViewModel);
+        }
+
+        public void Handle(BillItemsViewEvent message)
+        {
+            _billItemsViewModel.AddBillId(message.BillId);
+            ActivateItem(_billItemsViewModel);
         }
     }
 }
