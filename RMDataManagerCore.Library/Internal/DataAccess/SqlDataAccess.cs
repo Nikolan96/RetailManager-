@@ -1,26 +1,25 @@
 ﻿using Dapper;
-using RMDataManager.Library.Interfaces;
-using System;
+using RMDataManagerCore.Library.Interfaces;
 using System.Collections.Generic;
-using System.Configuration;
+using Microsoft.Extensions.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 
-namespace RMDataManager.Library.Internal.DataAccess
+namespace RMDataManagerCore.Library.Internal.DataAccess
 {
     public class SqlDataAccess : ISqlDataAccess
     {
-        public string GetConnectionString(string name)
-        {           
-            return ConfigurationManager.ConnectionStrings[name].ConnectionString;
+
+        public string GetConnectionString()
+        {
+            return "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=RMData;Integrated Security=True;Connect Timeout=60;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;";
         }
 
-        public List<T> LoadData<T, U>(string storedProcedure, U parameters, string connectionStringName)
+        public List<T> LoadData<T, U>(string storedProcedure, U parameters)
         {
-            string connectionString = GetConnectionString(connectionStringName);
+            string connectionString = GetConnectionString();
 
             using (IDbConnection connection = new SqlConnection(connectionString))
             {
@@ -32,9 +31,9 @@ namespace RMDataManager.Library.Internal.DataAccess
             }
         }
 
-        public T LoadOne<T, U>(string storedProcedure, U parameters, string connectionStringName)
+        public T LoadOne<T, U>(string storedProcedure, U parameters)
         {
-            string connectionString = GetConnectionString(connectionStringName);
+            string connectionString = GetConnectionString();
 
             using (IDbConnection connection = new SqlConnection(connectionString))
             {
@@ -43,9 +42,9 @@ namespace RMDataManager.Library.Internal.DataAccess
             }
         }
 
-        public void SaveData<T, U>(string storedProcedure, T parameters, string connectionStringName)
+        public void SaveData<T, U>(string storedProcedure, T parameters)
         {
-            string connectionString = GetConnectionString(connectionStringName);
+            string connectionString = GetConnectionString();
 
             using (IDbConnection connection = new SqlConnection(connectionString))
             {
