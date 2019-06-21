@@ -1,4 +1,5 @@
 ﻿using RMDataManager.Library.DataAccess;
+using RMDataManager.Library.Interfaces;
 using RMDataManager.Library.Models;
 using System;
 using System.Collections.Generic;
@@ -12,28 +13,29 @@ namespace RMDataManager.Controllers
     [Authorize]
     public class BillItemController : ApiController
     {
+        private readonly IBillItemData _billItemData;
+
+        public BillItemController(IBillItemData billItemData)
+        {
+            _billItemData = billItemData;
+        }
+
         [HttpGet]
         public List<BillItemModel> GetBills(string BillId)
         {
-            BillItemData data = new BillItemData();
-
-            return data.GetBillItems(BillId);
+            return _billItemData.GetBillItems(BillId);
         }
 
         [HttpPost]
         public void InsertBillItem(InsertBillItemModel billItemModel)
         {
-            BillItemData data = new BillItemData();
-
-            data.InsertBillItem(billItemModel);
+            _billItemData.InsertBillItem(billItemModel);
         }
 
         [HttpDelete]
         public void Delete(string BillId)
         {
-            BillItemData data = new BillItemData();
-
-            data.DeleteBillItems(BillId);
+            _billItemData.DeleteBillItems(BillId);
         }
     }
 }

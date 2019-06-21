@@ -1,4 +1,5 @@
-﻿using RMDataManager.Library.Internal.DataAccess;
+﻿using RMDataManager.Library.Interfaces;
+using RMDataManager.Library.Internal.DataAccess;
 using RMDataManager.Library.Models;
 using System;
 using System.Collections.Generic;
@@ -9,42 +10,41 @@ using System.Threading.Tasks;
 
 namespace RMDataManager.Library.DataAccess
 {
-    public class BillData
+    public class BillData : IBillData
     {
+        private readonly ISqlDataAccess _sqlDataAccess;
+
+        public BillData(ISqlDataAccess sqlDataAccess)
+        {
+            _sqlDataAccess = sqlDataAccess;
+        }
+
         public BillModel GetBill(string ID)
         {
-            SqlDataAccess sql = new SqlDataAccess();
-
             var p = new { ID = ID };
 
-            var output = sql.LoadOne<BillModel, dynamic>("dbo.spGetBill", p, "RMData");
+            var output = _sqlDataAccess.LoadOne<BillModel, dynamic>("dbo.spGetBill", p, "RMData");
 
             return output;
         }
 
         public List<BillModel> GetBills()
         {
-            SqlDataAccess sql = new SqlDataAccess();
-            
-            var output = sql.LoadData<BillModel, dynamic>("dbo.spGetBills", new { }, "RMData");
+            var output = _sqlDataAccess.LoadData<BillModel, dynamic>("dbo.spGetBills", new { }, "RMData");
 
             return output;
         }
 
         public void InsertBill(InsertBillModel billModel)
         {
-            SqlDataAccess sql = new SqlDataAccess();
-
-            sql.SaveData<InsertBillModel, dynamic>("dbo.spInsertBill", billModel, "RMData");
+            _sqlDataAccess.SaveData<InsertBillModel, dynamic>("dbo.spInsertBill", billModel, "RMData");
         }
 
         public void DeleteBill(string ID)
         {
-            SqlDataAccess sql = new SqlDataAccess();
-
             var p = new { ID = ID };
 
-            sql.SaveData<dynamic, dynamic>("dbo.spDeleteBill", p, "RMData");
+            _sqlDataAccess.SaveData<dynamic, dynamic>("dbo.spDeleteBill", p, "RMData");
         }
     }
 }

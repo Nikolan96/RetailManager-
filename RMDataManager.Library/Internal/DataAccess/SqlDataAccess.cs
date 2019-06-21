@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using RMDataManager.Library.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace RMDataManager.Library.Internal.DataAccess
 {
-    internal class SqlDataAccess
+    public class SqlDataAccess : ISqlDataAccess
     {
         public string GetConnectionString(string name)
         {

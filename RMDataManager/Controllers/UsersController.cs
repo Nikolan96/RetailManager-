@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNet.Identity;
 using RMDataManager.Library.DataAccess;
+using RMDataManager.Library.Interfaces;
 using RMDataManager.Library.Models;
 using System;
 using System.Collections.Generic;
@@ -13,14 +14,19 @@ namespace RMDataManager.Controllers
     [RoutePrefix("/Users")]
     public class UsersController : ApiController
     {
+        private readonly IUserData _userData;
+
+        public UsersController(IUserData userData)
+        {
+            _userData = userData;
+        }
+
         [HttpGet] 
         public UserModel GetById()
         {
             string userID = RequestContext.Principal.Identity.GetUserId();
-             
-            UserData data = new UserData();
 
-            return data.GetUserById(userID).First();
+            return _userData.GetUserById(userID).First();
         }
     }
 }

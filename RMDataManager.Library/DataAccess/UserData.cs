@@ -1,4 +1,5 @@
-﻿using RMDataManager.Library.Internal.DataAccess;
+﻿using RMDataManager.Library.Interfaces;
+using RMDataManager.Library.Internal.DataAccess;
 using RMDataManager.Library.Models;
 using System;
 using System.Collections.Generic;
@@ -8,15 +9,20 @@ using System.Threading.Tasks;
 
 namespace RMDataManager.Library.DataAccess
 {
-    public class UserData
+    public class UserData : IUserData
     {
+        private readonly ISqlDataAccess _sqlDataAccess;
+
+        public UserData(ISqlDataAccess sqlDataAccess)
+        {
+            _sqlDataAccess = sqlDataAccess;
+        }
+
         public List<UserModel> GetUserById(string id)
         {
-            SqlDataAccess sql = new SqlDataAccess();
-
             var p = new { ID = id };
 
-            var output = sql.LoadData<UserModel, dynamic>("dbo.spUserLookup", p, "RMData");
+            var output = _sqlDataAccess.LoadData<UserModel, dynamic>("dbo.spUserLookup", p, "RMData");
 
             return output;
         }
