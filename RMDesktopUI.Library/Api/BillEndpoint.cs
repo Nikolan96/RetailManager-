@@ -22,7 +22,7 @@ namespace RMDesktopUI.Library.Api
         public async Task<BillModel> GetBill(string ID)
         {
 
-            using (HttpResponseMessage response = await _apiHelper.ApiClient.GetAsync("/api/Bill/?ID=" + ID))
+            using (HttpResponseMessage response = await _apiHelper.ApiClient.GetAsync("/api/Bill/" + ID))
             {
                 if (response.IsSuccessStatusCode)
                 {
@@ -65,7 +65,7 @@ namespace RMDesktopUI.Library.Api
 
         public async Task<HttpResponseMessage> Delete(string Id)
         {
-            HttpResponseMessage response = await _apiHelper.ApiClient.DeleteAsync("/api/Bill?Id=" + Id);
+            HttpResponseMessage response = await _apiHelper.ApiClient.DeleteAsync("/api/Bill/" + Id);
 
             return response;
         }

@@ -22,7 +22,7 @@ namespace RMDataManagerCore.Controllers
         }
 
         [HttpGet]
-        public UserModel GetBuId()
+        public UserModel GetById()
         {
             string UserId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
 
