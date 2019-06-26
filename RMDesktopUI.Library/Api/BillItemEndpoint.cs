@@ -20,14 +20,14 @@ namespace RMDesktopUI.Library.Api
 
         public async Task<HttpResponseMessage> Delete(string BillId)
         {
-            HttpResponseMessage response = await _apiHelper.ApiClient.DeleteAsync("/api/BillItem?BillId=" + BillId);
+            HttpResponseMessage response = await _apiHelper.ApiClient.DeleteAsync("/api/BillItem/" + BillId);
 
             return response;
         }
 
         public async Task<List<BillItemModel>> GetBillItems(string BillId)
         {
-            using (HttpResponseMessage response = await _apiHelper.ApiClient.GetAsync("/api/BillItem/?BillId=" + BillId))
+            using (HttpResponseMessage response = await _apiHelper.ApiClient.GetAsync("/api/BillItem/" + BillId))
             {
                 if (response.IsSuccessStatusCode)
                 {

@@ -33,7 +33,7 @@ namespace RMDesktopUI.Library.Api
         private void InitializeClient()
         {
             // Loads api url into api variable.
-            string api = ConfigurationManager.AppSettings["api"];
+            string api = ConfigurationManager.AppSettings["apiCore"];
 
             _apiClient = new HttpClient();
             _apiClient.BaseAddress = new Uri(api);
@@ -49,7 +49,7 @@ namespace RMDesktopUI.Library.Api
             var data = new FormUrlEncodedContent(new[]
             {
                new KeyValuePair<string, string>("grant_type", "password"),
-               new KeyValuePair<string, string>("username", username),
+               new KeyValuePair<string, string>("email", username),
                new KeyValuePair<string, string>("password", password),
             });
 

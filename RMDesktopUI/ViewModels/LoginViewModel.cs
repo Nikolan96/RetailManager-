@@ -110,12 +110,12 @@ namespace RMDesktopUI.ViewModels
             {
                 ErrorMessage = "";
 
-                IsBusy = true;
+                //IsBusy = true;
 
-                var result = await _apiHelper.Authenticate(UserName, Password);
-                await _apiHelper.GetLoggedInUserInfo(result.Access_Token);
+                //var result = await _apiHelper.Authenticate(UserName, Password);
+                //await _apiHelper.GetLoggedInUserInfo(result.Access_Token);
 
-                IsBusy = false;
+                //IsBusy = false;
 
                 _events.PublishOnUIThread(new LogOnEvent());
             }

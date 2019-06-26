@@ -54,7 +54,7 @@ namespace RMDesktopUI.Library.Api
 
         public async Task<ProductModel> GetByProductName(string productName)
         {
-            using (HttpResponseMessage response = await _apiHelper.ApiClient.GetAsync("/api/Product/ProductName/?productName=" + productName))
+            using (HttpResponseMessage response = await _apiHelper.ApiClient.GetAsync("/api/Product/ProductName/" + productName))
             {
                 if (response.IsSuccessStatusCode)
                 {
@@ -80,7 +80,7 @@ namespace RMDesktopUI.Library.Api
 
         public async Task<HttpResponseMessage> DeleteProduct(int id)
         {
-            HttpResponseMessage response = await _apiHelper.ApiClient.DeleteAsync("/api/Product/?id="+id);
+            HttpResponseMessage response = await _apiHelper.ApiClient.DeleteAsync("/api/Product/"+id);
 
             return response;
         }

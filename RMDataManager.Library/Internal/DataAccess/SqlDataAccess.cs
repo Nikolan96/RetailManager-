@@ -14,7 +14,7 @@ namespace RMDataManager.Library.Internal.DataAccess
     public class SqlDataAccess : ISqlDataAccess
     {
         public string GetConnectionString(string name)
-        {
+        {           
             return ConfigurationManager.ConnectionStrings[name].ConnectionString;
         }
 
