@@ -44,6 +44,12 @@
     <Reference Include="Caliburn.Micro.Platform.Core, Version=3.2.0.0, Culture=neutral, PublicKeyToken=8e5891231f2ed21f, processorArchitecture=MSIL">
       <HintPath>..\packages\Caliburn.Micro.3.2.0\lib\net45\Caliburn.Micro.Platform.Core.dll</HintPath>
     </Reference>
+    <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.Wpf, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.Wpf.0.9.7\lib\net45\LiveCharts.Wpf.dll</HintPath>
+    </Reference>
     <Reference Include="MaterialDesignColors, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignColors.1.1.2\lib\net45\MaterialDesignColors.dll</HintPath>
     </Reference>
@@ -94,113 +100,77 @@
     <Compile Include="Models\InsertProduct.cs" />
     <Compile Include="MyBkColorConverter.cs" />
     <Compile Include="Helpers\PasswordBoxHelper.cs" />
+    <Compile Include="ViewModels\BillCountByWorkerChartViewModel.cs" />
     <Compile Include="ViewModels\BillItemsViewModel.cs" />
-    <Compile Include="ViewModels\ManagerViewModels\BillsPerCashierGraphViewModel.cs" />
+    <Compile Include="ViewModels\ChartMenuViewModel.cs" />
+    <Compile Include="ViewModels\EditShopViewModel.cs" />
+    <Compile Include="ViewModels\EditUserViewModel.cs" />
+    <Compile Include="ViewModels\ManagerMenuViewModel.cs" />
     <Compile Include="ViewModels\BillsViewModel.cs" />
-    <Compile Include="ViewModels\CashierViewModels\CashierBillViewModel.cs" />
-    <Compile Include="ViewModels\CashierViewModels\CashierProductsViewModel.cs" />
     <Compile Include="ViewModels\CashRegisterViewModel.cs" />
-    <Compile Include="ViewModels\CEOViewModels\CEOBillsPerWorkerGraphViewModel.cs" />
-    <Compile Include="ViewModels\CEOViewModels\CEOMenuViewModel.cs" />
-    <Compile Include="ViewModels\CEOViewModels\CEOProductGraphSaleViewModel.cs" />
-    <Compile Include="ViewModels\CEOViewModels\CEOProductSaleGraphViewModel.cs" />
-    <Compile Include="ViewModels\CEOViewModels\CEOProfitGraphViewModel.cs" />
-    <Compile Include="ViewModels\CEOViewModels\CEOProfitPerCategoryGraphViewModel.cs" />
-    <Compile Include="ViewModels\CEOViewModels\EditWorkerViewModel.cs" />
-    <Compile Include="ViewModels\CEOViewModels\ListOfWorkersViewModel.cs" />
     <Compile Include="ViewModels\EditProductViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
-    <Compile Include="ViewModels\ManagerViewModels\ManagerMenuViewModel.cs" />
-    <Compile Include="ViewModels\ManagerViewModels\OrderItemsViewModel.cs" />
-    <Compile Include="ViewModels\ManagerViewModels\OrdersViewModel.cs" />
-    <Compile Include="ViewModels\ManagerViewModels\ProductSaleGraphViewModel.cs" />
-    <Compile Include="ViewModels\ManagerViewModels\ProductsToOrderViewModel.cs" />
+    <Compile Include="ViewModels\ProductsBySaleChartViewModel.cs" />
     <Compile Include="ViewModels\ProductsViewModel.cs" />
-    <Compile Include="ViewModels\ManagerViewModels\ProfitGraphViewModel.cs" />
-    <Compile Include="ViewModels\ManagerViewModels\ProfitPerCategoryGraphViewModel.cs" />
+    <Compile Include="ViewModels\ProfitByCategoryViewModel.cs" />
+    <Compile Include="ViewModels\ProfitChartViewModel.cs" />
     <Compile Include="ViewModels\SalesViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
-    <Compile Include="ViewModels\ManagerViewModels\SoldProductsGraphViewModel.cs" />
+    <Compile Include="ViewModels\ShopListViewModel.cs" />
+    <Compile Include="ViewModels\UserListViewModel.cs" />
+    <Compile Include="Views\BillCountByWorkerChartView.xaml.cs">
+      <DependentUpon>BillCountByWorkerChartView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\BillItemsView.xaml.cs">
       <DependentUpon>BillItemsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\BillsView.xaml.cs">
       <DependentUpon>BillsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\CashierViews\CashierBillView.xaml.cs">
-      <DependentUpon>CashierBillView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\CashierViews\CashierProductsView.xaml.cs">
-      <DependentUpon>CashierProductsView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\CashRegisterView.xaml.cs">
       <DependentUpon>CashRegisterView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\CEOViews\CEOBillsPerWorkerGraphView.xaml.cs">
-      <DependentUpon>CEOBillsPerWorkerGraphView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\CEOViews\CEOMenuView.xaml.cs">
-      <DependentUpon>CEOMenuView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\CEOViews\CEOProductGraphSaleView.xaml.cs">
-      <DependentUpon>CEOProductGraphSaleView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\CEOViews\CEOProductSaleGraphView.xaml.cs">
-      <DependentUpon>CEOProductSaleGraphView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\CEOViews\CEOProfitGraphView.xaml.cs">
-      <DependentUpon>CEOProfitGraphView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\CEOViews\CEOProfitPerCategoryGraphView.xaml.cs">
-      <DependentUpon>CEOProfitPerCategoryGraphView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\CEOViews\EditWorkerView.xaml.cs">
-      <DependentUpon>EditWorkerView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\CEOViews\ListOfWorkersView.xaml.cs">
-      <DependentUpon>ListOfWorkersView.xaml</DependentUpon>
+    <Compile Include="Views\ChartMenuView.xaml.cs">
+      <DependentUpon>ChartMenuView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\EditProductView.xaml.cs">
       <DependentUpon>EditProductView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\EditShopView.xaml.cs">
+      <DependentUpon>EditShopView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EditUserView.xaml.cs">
+      <DependentUpon>EditUserView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ManagerViews\BillsPerCashierGraphView.xaml.cs">
-      <DependentUpon>BillsPerCashierGraphView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\ManagerViews\ManagerMenuView.xaml.cs">
+    <Compile Include="Views\ManagerMenuView.xaml.cs">
       <DependentUpon>ManagerMenuView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ManagerViews\OrderItemsView.xaml.cs">
-      <DependentUpon>OrderItemsView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\ManagerViews\OrdersView.xaml.cs">
-      <DependentUpon>OrdersView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\ManagerViews\ProductSaleGraphView.xaml.cs">
-      <DependentUpon>ProductSaleGraphView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\ManagerViews\ProductsToOrderView.xaml.cs">
-      <DependentUpon>ProductsToOrderView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\ManagerViews\ProfitGraphView.xaml.cs">
-      <DependentUpon>ProfitGraphView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\ManagerViews\ProfitPerCategoryGraphView.xaml.cs">
-      <DependentUpon>ProfitPerCategoryGraphView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\ManagerViews\SoldProductsGraphView.xaml.cs">
-      <DependentUpon>SoldProductsGraphView.xaml</DependentUpon>
+    <Compile Include="Views\ProductsBySaleChartView.xaml.cs">
+      <DependentUpon>ProductsBySaleChartView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ProductsView.xaml.cs">
       <DependentUpon>ProductsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProfitByCategoryView.xaml.cs">
+      <DependentUpon>ProfitByCategoryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProfitChartView.xaml.cs">
+      <DependentUpon>ProfitChartView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SalesView.xaml.cs">
       <DependentUpon>SalesView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ShellView.xaml.cs">
       <DependentUpon>ShellView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ShopListView.xaml.cs">
+      <DependentUpon>ShopListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserListView.xaml.cs">
+      <DependentUpon>UserListView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -214,6 +184,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\BillCountByWorkerChartView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\BillItemsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -222,47 +196,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\CashierViews\CashierBillView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\CashierViews\CashierProductsView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\CashRegisterView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\CEOViews\CEOBillsPerWorkerGraphView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\CEOViews\CEOMenuView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\CEOViews\CEOProductGraphSaleView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\CEOViews\CEOProductSaleGraphView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\CEOViews\CEOProfitGraphView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\CEOViews\CEOProfitPerCategoryGraphView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\CEOViews\EditWorkerView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\CEOViews\ListOfWorkersView.xaml">
+    <Page Include="Views\ChartMenuView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -270,47 +208,35 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\EditShopView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EditUserView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\LoginView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\ManagerViews\BillsPerCashierGraphView.xaml">
+    <Page Include="Views\ManagerMenuView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\ManagerViews\ManagerMenuView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\ManagerViews\OrderItemsView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\ManagerViews\OrdersView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\ManagerViews\ProductSaleGraphView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\ManagerViews\ProductsToOrderView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\ManagerViews\ProfitGraphView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\ManagerViews\ProfitPerCategoryGraphView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\ManagerViews\SoldProductsGraphView.xaml">
+    <Page Include="Views\ProductsBySaleChartView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ProductsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ProfitByCategoryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ProfitChartView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -319,6 +245,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ShellView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ShopListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

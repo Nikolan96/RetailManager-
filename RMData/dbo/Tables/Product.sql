@@ -10,7 +10,8 @@
 	[QuantityInStock] INT NOT NULL DEFAULT 1,
 	[Category] NVARCHAR(50) not null,
     [CreateDate] DATETIME2 NOT NULL DEFAULT getutcdate(), 
-    [LastModified] DATETIME2 NOT NULL DEFAULT getutcdate()
+    [LastModified] DATETIME2 NOT NULL DEFAULT getutcdate(),
+	[ShopID] int NOt NULL FOREIGN KEY References Shop(ID)
     
     
 )

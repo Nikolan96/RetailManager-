@@ -2,9 +2,9 @@
 (
 	[ID] NVARCHAR(128) NOT NULL PRIMARY KEY, 
     [CreatedDate] DATETIME2 NOT NULL DEFAULT getutcdate(), 
-	[ShopId] int NOT NULL,
+	[ShopID] int NOT NULL foreign key references Shop(ID),
 	[Total] MONEY NOT NULL,
 	[Paid] MONEY NOT NULL,
 	[Change] Money NOT NULL,
-    [UserId] NVARCHAR(128) NOT NULL FOREIGN KEY REFERENCES [User](ID) 
+    [UserId] int NOT NULL FOREIGN KEY REFERENCES [User](ID) 
 )

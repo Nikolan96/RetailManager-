@@ -19,239 +19,283 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="2px"></RowDefinition>
-            <RowDefinition Height="5*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="3*"/>
-            <ColumnDefinition Width="2px"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="2px"/>
+            <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Rectangle Grid.Row="2" Grid.Column="1" Grid.RowSpan="2" Fill="Gray"></Rectangle>
-        <Rectangle Grid.Row="1" Grid.ColumnSpan="5" Fill="Gray"></Rectangle>
+        <Rectangle Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="7" Fill="Gray"></Rectangle>
+        <Rectangle Grid.Row="1" Grid.Column="4" Grid.RowSpan="12"  Fill="Gray"></Rectangle>
+
+        <!--<Rectangle Grid.Row="1" Grid.ColumnSpan="5" Fill="Gray"></Rectangle>
         <Rectangle Grid.Row="1" Grid.Column="3" Grid.RowSpan="2" Fill="Gray"
                    Margin="0 30 0 15"></Rectangle>
 
 
         <Rectangle Grid.Row="0" Fill="#BBBBBB" Grid.ColumnSpan="6"></Rectangle>
         <Rectangle Grid.Row="2" Fill="#dddddd" Grid.Column="2" Grid.RowSpan="2"
-                   Grid.ColumnSpan="3"></Rectangle>
+                   Grid.ColumnSpan="3"></Rectangle>-->
 
-        <TextBlock Text="List of Products" Grid.Row="0" Grid.Column="0"
-                  Margin="100 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Center"
-                   FontSize="46" />
-
-        <Button Margin="200 0 0 0" x:Name="Edit" Width="150" Height="60" Content="Edit" FontSize="30" Background="Green"></Button>
-
-        <Button Margin="530 0 0 0" x:Name="Delete" Width="150" Height="60" Content="Delete" FontSize="30" Background="Red"></Button>
-
-        <TextBlock Text="Insert Product" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="3"
+        <TextBlock Text="List of Products" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
                    HorizontalAlignment="Center" VerticalAlignment="Center"
                    FontSize="46" />
 
-        <StackPanel Grid.Row="2" Grid.Column="2">
-            
-            <TextBlock Text="Product Name" 
+        <Viewbox Grid.Row="0" Grid.Column="2" Stretch="Fill">
+            <Button x:Name="Edit" 
+                Margin="30 5 30 5"
+        Content="Edit" FontSize="20" Background="Green">
+            </Button>
+        </Viewbox>
+
+        <Viewbox Grid.Row="0" Grid.Column="3" Stretch="Fill">
+            <Button x:Name="Delete" 
+                Margin="30 5 30 5"
+        Content="Delete" FontSize="20" Background="Red">
+            </Button>
+        </Viewbox>
+
+        <TextBlock Text="Insert Product" Grid.Row="0" Grid.Column="5" Grid.ColumnSpan="2"
                    HorizontalAlignment="Center" VerticalAlignment="Center"
-                   FontSize="32" Margin="0 30 0 0"/>
+                   FontSize="46" />
+
+            <TextBlock Text="Product Name" Grid.Row="2" Grid.Column="5"
+                   HorizontalAlignment="Center" VerticalAlignment="Center"
+                   FontSize="32" />
             <TextBox  
-                   x:Name="ProductNameTb" Margin="20 0 20 10" TextAlignment="Center" FontSize="27">
+                x:Name="ProductNameTb" VerticalAlignment="Center"
+                Margin="10 0 10 0"
+                FontSize="27" Grid.Row="3" Grid.Column="5">
             </TextBox>
 
             <TextBlock Text="Category" 
+                       Grid.Row="4" Grid.Column="5"
                    HorizontalAlignment="Center" VerticalAlignment="Center"
-                   FontSize="32" Margin="0 40 0 0"/>
-            <TextBox  
-                     x:Name="CategoryTb"  Margin="20 0 20 10" TextAlignment="Center" FontSize="27">
+                   FontSize="32" />
+            <TextBox  Grid.Row="5" Grid.Column="5"
+                     x:Name="CategoryTb" 
+                Margin="10 0 10 0" VerticalAlignment="Center" TextAlignment="Center" FontSize="27">
             </TextBox>
 
 
-            <TextBlock Text="Description" 
+            <TextBlock Text="Description" Grid.Row="6" Grid.Column="5"
                    HorizontalAlignment="Center" VerticalAlignment="Center"
-                   FontSize="32" Margin="0 30 0 0"/>
-            <TextBox
-             x:Name="DescriptionTb"
-    Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
-    Margin="20 20 20 10"
-    VerticalAlignment="Top"
-    Height="200"
-    FontSize="20"
-    AcceptsReturn="True"
-    TextWrapping="Wrap"
-    VerticalScrollBarVisibility="Auto"
-    materialDesign:HintAssist.Hint="Product description"
-     />
+                   FontSize="32" />
+        <Viewbox Grid.Row="7" Grid.Column="5" Grid.RowSpan="4" Stretch="Fill">
+            <TextBox             
+             x:Name="DescriptionTb" Margin="10"
+             Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"          
+             FontSize="7"
+             AcceptsReturn="True"
+             TextWrapping="Wrap"
+             VerticalScrollBarVisibility="Auto"
+                HorizontalScrollBarVisibility="Auto"
+             materialDesign:HintAssist.Hint="Product description"
+             />
+        </Viewbox>
 
-            <Button 
-                x:Name="AddProduct"
-                Grid.Row="3" Grid.Column="2"
-                Content="Add" Margin="50 60 50 10"
-                Padding="5" FontSize="35" Height="90">
+        <Viewbox Grid.Row="11" Grid.Column="5" Grid.RowSpan="2"  Stretch="Fill">
+            <Button x:Name="AddProduct" 
+                Margin="30 10 30 10"
+        Content="Add" FontSize="20" Background="Blue">
             </Button>
-        </StackPanel>
+        </Viewbox>
 
-        
-        
-        <StackPanel Grid.Row="2" Grid.Column="4">
-
-            <TextBlock Text="Purchase Price" 
+        <TextBlock Text="Purchase Price" Grid.Row="2" Grid.Column="6"
                    HorizontalAlignment="Center" VerticalAlignment="Center"
-                   FontSize="32" Margin="0 30 0 0"/>
-            <TextBox 
-                  PreviewTextInput="PreviewTextInput"  x:Name="PurchasePriceTb" Margin="20 0 20 10" TextAlignment="Center" FontSize="27"
-               >
+                   FontSize="32"/>
+        <TextBox 
+                  PreviewTextInput="PreviewTextInput" Grid.Row="3" Grid.Column="7"
+                  x:Name="PurchasePriceTb" Margin="10 0 10 0" VerticalAlignment="Center"
+                  FontSize="27">
+        </TextBox>
+
+        <TextBlock Text="Retail Price" Grid.Row="4" Grid.Column="6"
+                   HorizontalAlignment="Center" VerticalAlignment="Center"
+                   FontSize="32"/>
+            <TextBox  
+                Grid.Row="5" Grid.Column="6"
+                   PreviewTextInput="PreviewTextInput" x:Name="RetailPriceTb" 
+                   Margin="10 0 10 0" VerticalAlignment="Center" FontSize="27">
             </TextBox>
 
-            <TextBlock Text="Retail Price" 
+            <TextBlock Text="Tax" Grid.Row="6" Grid.Column="56"
                    HorizontalAlignment="Center" VerticalAlignment="Center"
-                   FontSize="32" Margin="0 40 0 0"/>
+                   FontSize="32"/>
             <TextBox  
-                   PreviewTextInput="PreviewTextInput" x:Name="RetailPriceTb"  Margin="20 0 20 10" TextAlignment="Center" FontSize="27">
-            </TextBox>
-
-            <TextBlock Text="Tax" 
-                   HorizontalAlignment="Center" VerticalAlignment="Center"
-                   FontSize="32" Margin="0 60 0 0"/>
-            <TextBox  
-                  PreviewTextInput="PreviewTextInput" x:Name="TaxTb" Margin="20 0 20 10" TextAlignment="Center" FontSize="27">
+                Grid.Row="7" Grid.Column="6"
+                PreviewTextInput="PreviewTextInput" x:Name="TaxTb"
+                Margin="10 0 10 0" VerticalAlignment="Center" FontSize="27">
             </TextBox>
 
             <TextBlock Text="Quantity" 
+                       Grid.Row="8" Grid.Column="6"
                    HorizontalAlignment="Center" VerticalAlignment="Center"
-                   FontSize="32" Margin="0 60 0 0"/>
+                   FontSize="32"/>
             <TextBox  
-                  PreviewTextInput="PreviewTextInput" x:Name="QuantityTb" Margin="20 0 20 10" TextAlignment="Center" FontSize="27">
+                Grid.Row="9" Grid.Column="6"
+                  PreviewTextInput="PreviewTextInput" x:Name="QuantityTb" 
+                Margin="10 0 10 0" VerticalAlignment="Center" FontSize="27">
             </TextBox>
 
-            <Button x:Name="GoToCashRegister"
-                Content="Back"  Margin="50 60 50 10"
-                Padding="5" FontSize="35" Height="90">
+        <Viewbox Grid.Row="11" Grid.Column="6" Grid.RowSpan="2"  Stretch="Fill">
+            <Button x:Name="GoToCashRegister" 
+                Margin="30 10 30 10"
+        Content="Back" FontSize="20" Background="Blue">
             </Button>
+        </Viewbox>
 
-        </StackPanel>
-
-        <DataGrid 
+        <DataGrid
             IsReadOnly="True"
-            Grid.Row="2" Grid.RowSpan="2"
-            Margin="5 8 0 0"
-            ItemsSource="{Binding Products}" 
-            SelectedItem="{Binding SelectedProduct}"
+            Grid.Row="2" Grid.RowSpan="11" Grid.ColumnSpan="4"
+            ItemsSource="{Binding Products}"
+            SelectedItem="{Binding Selectedproduct}"
             CanUserSortColumns="False"
             CanUserAddRows="False"
             AutoGenerateColumns="False"
-            materialDesign:DataGridAssist.CellPadding="6 8 8 8"
-            materialDesign:DataGridAssist.ColumnHeaderPadding="8"
+            MaterialDesign:DatagridAssist.CellPadding="6 8 8 8"
+            MaterialDesign:DatagridAssist.ColumnHeaderPadding="8"
             VerticalScrollBarVisibility="Auto"
             HorizontalScrollBarVisibility="Visible"
             >
-            <DataGrid.Resources>
-                <Style TargetType="ScrollBar">
-                    <!--<Setter Property="SelectiveScrollingGrid.Background" Value="red" />-->
-                    <Style.Triggers>
-                        <DataTrigger Binding="{Binding Color}" Value="False">
-                            <Setter Property="Background" Value="Red" />
-                        </DataTrigger>
-                    </Style.Triggers>
-                </Style>
-            </DataGrid.Resources>
-            <DataGrid.Columns>
-
-                <DataGridTextColumn
-                   
-      Binding="{Binding Id}"
-      Header="Product Id"
-      MinWidth="90"
-      MaxWidth="90">
-                </DataGridTextColumn>
-
-                <DataGridTextColumn
-      Binding="{Binding ProductName}"
-      Header="Product Name"
-      MinWidth="120"
-      MaxWidth="130"
->
-                </DataGridTextColumn>
-
-                <DataGridTextColumn
-      Binding="{Binding Category}"
-      Header="Category"
-      MinWidth="120"
-      MaxWidth="150"
->
-                </DataGridTextColumn>
-
-                <DataGridTextColumn
-      Binding="{Binding Description}"
-      Header="Description"
-      MinWidth="150"
-      Width="150"
-      MaxWidth="500"
-      ScrollViewer.HorizontalScrollBarVisibility="Auto"
->
-                </DataGridTextColumn>
-
-                <DataGridTextColumn
-      Binding="{Binding PurchasePrice, StringFormat=N2}" 
-      Header="Purchase Price"
-      MinWidth="120"
-      MaxWidth="120"
-      HeaderStringFormat=""
->
-                </DataGridTextColumn>
-
-                <DataGridTextColumn
-      Binding="{Binding RetailPrice, StringFormat=N2}"
-      Header="Retail Price" 
-      MinWidth="110"
-      MaxWidth="110"
->
-                </DataGridTextColumn>
-
-                <DataGridTextColumn
-      Binding="{Binding Tax, StringFormat=N2}" 
-      Header="Tax"
-      MaxWidth="90"
-      MinWidth="90"
->
-                </DataGridTextColumn>
-
-                <DataGridTextColumn
-      Binding="{Binding Margin, StringFormat=N2}"
-      Header="Margin"
-      MaxWidth="70"
-      MinWidth="70">
-                </DataGridTextColumn>
-
-                <DataGridTextColumn
-      Binding="{Binding QuantityInStock}" 
-      Header="Quantity"
-      MaxWidth="80"
-      MinWidth="80">
-                </DataGridTextColumn>
-
-                <!--<DataGridTemplateColumn>
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Button x:Name="Edit" Background="Green" Content="Edit"></Button>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-
-                <DataGridTemplateColumn>
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate xmlns:cal="http://www.caliburnproject.org">
-                            <Button Content="Delete" Background="Red"
-                             Click="Delete_Click" CommandParameter="{Binding Path=Id}"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>-->
-
-            </DataGrid.Columns>
-
+            
         </DataGrid>
+
+        <!--<datagrid 
+            isreadonly="true"
+            grid.row="2" grid.rowspan="2"
+            margin="5 8 0 0"
+            itemssource="{binding products}" 
+            selecteditem="{binding selectedproduct}"
+            canusersortcolumns="false"
+            canuseraddrows="false"
+            autogeneratecolumns="false"
+            materialdesign:datagridassist.cellpadding="6 8 8 8"
+            materialdesign:datagridassist.columnheaderpadding="8"
+            verticalscrollbarvisibility="auto"
+            horizontalscrollbarvisibility="visible"
+            >
+            <datagrid.resources>
+                <style targettype="scrollbar">
+                    <setter property="selectivescrollinggrid.background" value="red" />
+                    <style.triggers>
+                        <datatrigger binding="{binding color}" value="false">
+                            <setter property="background" value="red" />
+                        </datatrigger>
+                    </style.triggers>
+                </style>
+            </datagrid.resources>
+            <datagrid.columns>
+
+                <datagridtextcolumn
+                   
+      binding="{binding id}"
+      header="product id"
+      minwidth="90"
+      maxwidth="90">
+                </datagridtextcolumn>
+
+                <datagridtextcolumn
+      binding="{binding productname}"
+      header="product name"
+      minwidth="120"
+      maxwidth="130"
+>
+                </datagridtextcolumn>
+
+                <datagridtextcolumn
+      binding="{binding category}"
+      header="category"
+      minwidth="120"
+      maxwidth="150"
+>
+                </datagridtextcolumn>
+
+                <datagridtextcolumn
+      binding="{binding description}"
+      header="description"
+      minwidth="150"
+      width="150"
+      maxwidth="500"
+      scrollviewer.horizontalscrollbarvisibility="auto"
+>
+                </datagridtextcolumn>
+
+                <datagridtextcolumn
+      binding="{binding purchaseprice, stringformat=n2}" 
+      header="purchase price"
+      minwidth="120"
+      maxwidth="120"
+      headerstringformat=""
+>
+                </datagridtextcolumn>
+
+                <datagridtextcolumn
+      binding="{binding retailprice, stringformat=n2}"
+      header="retail price" 
+      minwidth="110"
+      maxwidth="110"
+>
+                </datagridtextcolumn>
+
+                <datagridtextcolumn
+      binding="{binding tax, stringformat=n2}" 
+      header="tax"
+      maxwidth="90"
+      minwidth="90"
+>
+                </datagridtextcolumn>
+
+                <datagridtextcolumn
+      binding="{binding margin, stringformat=n2}"
+      header="margin"
+      maxwidth="70"
+      minwidth="70">
+                </datagridtextcolumn>
+
+                <datagridtextcolumn
+      binding="{binding quantityinstock}" 
+      header="quantity"
+      maxwidth="80"
+      minwidth="80">
+                </datagridtextcolumn>
+
+                <datagridtemplatecolumn>
+                    <datagridtemplatecolumn.celltemplate>
+                        <datatemplate>
+                            <button x:name="edit" background="green" content="edit"></button>
+                        </datatemplate>
+                    </datagridtemplatecolumn.celltemplate>
+                </datagridtemplatecolumn>
+
+                <datagridtemplatecolumn>
+                    <datagridtemplatecolumn.celltemplate>
+                        <datatemplate xmlns:cal="http://www.caliburnproject.org">
+                            <button content="delete" background="red"
+                             click="delete_click" commandparameter="{binding path=id}"/>
+                        </datatemplate>
+                    </datagridtemplatecolumn.celltemplate>
+                </datagridtemplatecolumn>
+
+            </datagrid.columns>
+
+        </datagrid>-->
     </Grid>
 </UserControl>
