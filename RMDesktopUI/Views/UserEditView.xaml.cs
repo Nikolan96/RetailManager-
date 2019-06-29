@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace RMDesktopUI.Views
 {
     /// <summary>
-    /// Interaction logic for EditShopView.xaml
+    /// Interaction logic for UserEditView.xaml
     /// </summary>
-    public partial class EditShopView : UserControl
+    public partial class UserEditView : UserControl
     {
-        public EditShopView()
+        public UserEditView()
         {
             InitializeComponent();
         }

@@ -4,9 +4,162 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:RMDesktopUI.Views"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="1080" d:DesignWidth="1920"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             Background="{DynamicResource MaterialDesignPaper}"
+             TextElement.FontWeight="Medium"
+             TextElement.FontSize="14"
+             xmlns:cal="http://www.caliburnproject.org"
+             FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+             >
     <Grid>
-            
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="2px"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2px"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Rectangle Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="7" Fill="Gray"></Rectangle>
+        <Rectangle Grid.Row="1" Grid.Column="4" Grid.RowSpan="12"  Fill="Gray"></Rectangle>
+
+        <!--<Rectangle Grid.Row="1" Grid.ColumnSpan="5" Fill="Gray"></Rectangle>
+        <Rectangle Grid.Row="1" Grid.Column="3" Grid.RowSpan="2" Fill="Gray"
+                   Margin="0 30 0 15"></Rectangle>
+
+
+        <Rectangle Grid.Row="0" Fill="#BBBBBB" Grid.ColumnSpan="6"></Rectangle>
+        <Rectangle Grid.Row="2" Fill="#dddddd" Grid.Column="2" Grid.RowSpan="2"
+                   Grid.ColumnSpan="3"></Rectangle>-->
+
+        <TextBlock Text="List of Shops" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+                   HorizontalAlignment="Center" VerticalAlignment="Center"
+                   FontSize="46" />
+
+        <Viewbox Grid.Row="0" Grid.Column="2" Stretch="Fill">
+            <Button x:Name="Edit" 
+                Margin="30 5 30 5"
+        Content="Edit" FontSize="20" Background="Green">
+            </Button>
+        </Viewbox>
+
+        <Viewbox Grid.Row="0" Grid.Column="3" Stretch="Fill">
+            <Button x:Name="Delete" 
+                Margin="30 5 30 5"
+        Content="Delete" FontSize="20" Background="Red">
+            </Button>
+        </Viewbox>
+
+        <TextBlock Text="Add Shop" Grid.Row="0" Grid.Column="5" Grid.ColumnSpan="2"
+                   HorizontalAlignment="Center" VerticalAlignment="Center"
+                   FontSize="46" />
+
+        <TextBlock Text="Town" Grid.Row="4" Grid.ColumnSpan="2" Grid.Column="5"
+                   HorizontalAlignment="Center" VerticalAlignment="Center"
+                   FontSize="32" />
+        <TextBox  
+                x:Name="ProductNameTb" VerticalAlignment="Center"
+                Margin="30 0 30 0" TextAlignment="Center"
+                FontSize="27" Grid.Row="5" Grid.Column="5" Grid.ColumnSpan="2">
+        </TextBox>
+
+        <TextBlock Text="Address"  Grid.ColumnSpan="2"
+                       Grid.Row="6" Grid.Column="5"
+                   HorizontalAlignment="Center" VerticalAlignment="Center"
+                   FontSize="32" />
+        <TextBox  Grid.Row="7" Grid.Column="5"
+                     x:Name="CategoryTb" Grid.ColumnSpan="2"
+                Margin="30 0 30 0" VerticalAlignment="Center" TextAlignment="Center" FontSize="27">
+        </TextBox>
+
+        <Viewbox Grid.Row="8" Grid.Column="5" Grid.ColumnSpan="2" Grid.RowSpan="2"  Stretch="Uniform" Margin="30">
+            <Button x:Name="AddProduct"                
+        Content="Add" >
+            </Button>
+        </Viewbox>
+
+        <Viewbox Grid.Row="11" Grid.Column="5" Grid.ColumnSpan="2" Grid.RowSpan="2"  Stretch="Uniform" Margin="30"> 
+            <Button x:Name="GoToCashRegister" 
+               
+        Content="Back" >
+            </Button>
+        </Viewbox>
+
+        <DataGrid 
+            IsReadOnly="True"
+            Grid.Row="2" Grid.RowSpan="11" Grid.Column="0" Grid.ColumnSpan="4"
+            Margin="10"
+            ItemsSource="{Binding Products}" 
+            SelectedItem="{Binding SelectedProduct}"
+            CanUserSortColumns="False"
+            CanUserAddRows="False"
+            AutoGenerateColumns="False"
+            materialDesign:DataGridAssist.CellPadding="6 8 8 8"
+            materialDesign:DataGridAssist.ColumnHeaderPadding="8"
+            VerticalScrollBarVisibility="Visible"
+            HorizontalScrollBarVisibility="Visible"
+            >
+
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="DataGridColumnHeader">
+                    <Setter Property="FontSize" Value="50"></Setter>
+                    <Setter Property="Padding" Value="50 0 0 0"></Setter>
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+
+            <DataGrid.Resources>
+                <Style TargetType="ScrollBar">
+                </Style>
+                <Style TargetType="DataGridRow">
+                    <Setter Property="FontSize" Value="30"/>
+                </Style>
+            </DataGrid.Resources>
+
+            <DataGrid.Columns>
+                <DataGridTextColumn                 
+      Binding="{Binding Id}"
+      Header="Shop Id" MaxWidth="250" MinWidth="250">
+                </DataGridTextColumn>
+
+                <DataGridTextColumn
+      Binding="{Binding Town}"
+      Header="Town" MaxWidth="250" MinWidth="250">
+                </DataGridTextColumn>
+
+                <DataGridTextColumn
+      Binding="{Binding Address}"
+      Header="Address" MaxWidth="350" MinWidth="250">
+                </DataGridTextColumn>
+
+                <DataGridTextColumn
+      Binding="{Binding NumOfEmployees}"
+      Header="Number Of Employees" MaxWidth="250" MinWidth="250"   
+      ScrollViewer.HorizontalScrollBarVisibility="Auto">
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        
     </Grid>
 </UserControl>

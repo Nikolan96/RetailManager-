@@ -102,8 +102,8 @@
     <Compile Include="Helpers\PasswordBoxHelper.cs" />
     <Compile Include="ViewModels\BillCountByWorkerChartViewModel.cs" />
     <Compile Include="ViewModels\BillItemsViewModel.cs" />
+    <Compile Include="ViewModels\CEOMenuViewModel.cs" />
     <Compile Include="ViewModels\ChartMenuViewModel.cs" />
-    <Compile Include="ViewModels\EditShopViewModel.cs" />
     <Compile Include="ViewModels\EditUserViewModel.cs" />
     <Compile Include="ViewModels\ManagerMenuViewModel.cs" />
     <Compile Include="ViewModels\BillsViewModel.cs" />
@@ -116,7 +116,9 @@
     <Compile Include="ViewModels\ProfitChartViewModel.cs" />
     <Compile Include="ViewModels\SalesViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
+    <Compile Include="ViewModels\ShopEditViewModel.cs" />
     <Compile Include="ViewModels\ShopListViewModel.cs" />
+    <Compile Include="ViewModels\UserEditViewModel.cs" />
     <Compile Include="ViewModels\UserListViewModel.cs" />
     <Compile Include="Views\BillCountByWorkerChartView.xaml.cs">
       <DependentUpon>BillCountByWorkerChartView.xaml</DependentUpon>
@@ -130,14 +132,14 @@
     <Compile Include="Views\CashRegisterView.xaml.cs">
       <DependentUpon>CashRegisterView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\CEOMenuView.xaml.cs">
+      <DependentUpon>CEOMenuView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ChartMenuView.xaml.cs">
       <DependentUpon>ChartMenuView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\EditProductView.xaml.cs">
       <DependentUpon>EditProductView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\EditShopView.xaml.cs">
-      <DependentUpon>EditShopView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\EditUserView.xaml.cs">
       <DependentUpon>EditUserView.xaml</DependentUpon>
@@ -166,8 +168,14 @@
     <Compile Include="Views\ShellView.xaml.cs">
       <DependentUpon>ShellView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ShopEditView.xaml.cs">
+      <DependentUpon>ShopEditView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ShopListView.xaml.cs">
       <DependentUpon>ShopListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserEditView.xaml.cs">
+      <DependentUpon>UserEditView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UserListView.xaml.cs">
       <DependentUpon>UserListView.xaml</DependentUpon>
@@ -200,15 +208,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\CEOMenuView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ChartMenuView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\EditProductView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\EditShopView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -248,7 +256,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\ShopEditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ShopListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserEditView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

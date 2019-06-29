@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RMDesktopUI.ViewModels
 {
-    class EditShopViewModel
+    class UserEditViewModel
     {
     }
 }

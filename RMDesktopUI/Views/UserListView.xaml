@@ -4,9 +4,262 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:RMDesktopUI.Views"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="1080" d:DesignWidth="1920"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             Background="{DynamicResource MaterialDesignPaper}"
+             TextElement.FontWeight="Medium"
+             TextElement.FontSize="14"
+             xmlns:cal="http://www.caliburnproject.org"
+             FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+             >
     <Grid>
-            
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="2px"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2px"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Rectangle Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="7" Fill="Gray"></Rectangle>
+        <Rectangle Grid.Row="1" Grid.Column="4" Grid.RowSpan="12"  Fill="Gray"></Rectangle>
+
+        <!--<Rectangle Grid.Row="1" Grid.ColumnSpan="5" Fill="Gray"></Rectangle>
+        <Rectangle Grid.Row="1" Grid.Column="3" Grid.RowSpan="2" Fill="Gray"
+                   Margin="0 30 0 15"></Rectangle>
+
+
+        <Rectangle Grid.Row="0" Fill="#BBBBBB" Grid.ColumnSpan="6"></Rectangle>
+        <Rectangle Grid.Row="2" Fill="#dddddd" Grid.Column="2" Grid.RowSpan="2"
+                   Grid.ColumnSpan="3"></Rectangle>-->
+
+        <TextBlock Text="List of Workers" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+                   HorizontalAlignment="Center" VerticalAlignment="Center"
+                   FontSize="46" />
+
+        <Viewbox Grid.Row="0" Grid.Column="2" Stretch="Fill">
+            <Button x:Name="Edit" 
+                Margin="30 5 30 5"
+        Content="Edit" FontSize="20" Background="Green">
+            </Button>
+        </Viewbox>
+
+        <Viewbox Grid.Row="0" Grid.Column="3" Stretch="Fill">
+            <Button x:Name="Delete" 
+                Margin="30 5 30 5"
+        Content="Delete" FontSize="20" Background="Red">
+            </Button>
+        </Viewbox>
+
+        <TextBlock Text="Add Worker" Grid.Row="0" Grid.Column="5" Grid.ColumnSpan="2"
+                   HorizontalAlignment="Center" VerticalAlignment="Center"
+                   FontSize="46" />
+
+        <TextBlock Text="First Name" Grid.Row="3" Grid.Column="5"
+                   HorizontalAlignment="Center" VerticalAlignment="Center"
+                   FontSize="32" />
+        <TextBox  
+                x:Name="FirstNameTb" VerticalAlignment="Center"
+                Margin="10 0 10 0" TextAlignment="Center"
+                FontSize="27" Grid.Row="4" Grid.Column="5">
+        </TextBox>
+
+        <TextBlock Text="Last Name" 
+                       Grid.Row="5" Grid.Column="5"
+                   HorizontalAlignment="Center" VerticalAlignment="Center"
+                   FontSize="32" />
+        <TextBox  Grid.Row="6" Grid.Column="5"
+                     x:Name="LastNameTb" 
+                Margin="10 0 10 0" VerticalAlignment="Center" TextAlignment="Center" FontSize="27">
+        </TextBox>
+
+
+        <TextBlock Text="Email" Grid.Row="7" Grid.Column="5"
+                   HorizontalAlignment="Center" VerticalAlignment="Center"
+                   FontSize="32" />
+
+        <TextBox  Grid.Row="8" Grid.Column="5"
+                     x:Name="EmailTb" 
+                Margin="10 0 10 0" VerticalAlignment="Center" TextAlignment="Center" FontSize="27">
+        </TextBox>
+
+        <Viewbox Grid.Row="11" Grid.Column="5" Grid.RowSpan="2"  Stretch="Fill">
+            <Button x:Name="AddProduct" 
+                Margin="30 10 30 10"
+        Content="Add" FontSize="20" >
+            </Button>
+        </Viewbox>
+
+        <TextBlock Text="Password" Grid.Row="3" Grid.Column="6"
+                   HorizontalAlignment="Center" VerticalAlignment="Center"
+                   FontSize="32"/>
+        <TextBox 
+                  PreviewTextInput="PreviewTextInput" Grid.Row="4" Grid.Column="7"
+                  TextAlignment="Center"
+                  x:Name="PasswordTb" Margin="10 0 10 0" VerticalAlignment="Center"
+                  FontSize="27">
+        </TextBox>
+
+        <TextBlock Text="Role" Grid.Row="5" Grid.Column="6"
+                   HorizontalAlignment="Center" VerticalAlignment="Center"
+                   FontSize="32"/>
+        <TextBox  
+                Grid.Row="6" Grid.Column="6"
+                TextAlignment="Center"
+                   PreviewTextInput="PreviewTextInput" x:Name="RoleCheckBox" 
+                   Margin="10 0 10 0" VerticalAlignment="Center" FontSize="27">
+        </TextBox>
+
+        <TextBlock Text="Shop Id" Grid.Row="7" Grid.Column="56"
+                   HorizontalAlignment="Center" VerticalAlignment="Center"
+                   FontSize="32"/>
+        <TextBox  
+                TextAlignment="Center"
+                Grid.Row="8" Grid.Column="6"
+                PreviewTextInput="PreviewTextInput" x:Name="ShopIdComboBox"
+                Margin="10 0 10 0" VerticalAlignment="Center" FontSize="27">
+        </TextBox>
+
+        <Viewbox Grid.Row="11" Grid.Column="6" Grid.RowSpan="2"  Stretch="Fill">
+            <Button x:Name="GoToCashRegister" 
+                Margin="30 10 30 10"
+        Content="Back" FontSize="20">
+            </Button>
+        </Viewbox>
+
+        <DataGrid 
+            IsReadOnly="True"
+            Grid.Row="2" Grid.RowSpan="11" Grid.Column="0" Grid.ColumnSpan="4"
+            Margin="5 8 0 0"
+            ItemsSource="{Binding Products}" 
+            SelectedItem="{Binding SelectedProduct}"
+            CanUserSortColumns="False"
+            CanUserAddRows="False"
+            AutoGenerateColumns="False"
+            materialDesign:DataGridAssist.CellPadding="6 8 8 8"
+            materialDesign:DataGridAssist.ColumnHeaderPadding="8"
+            VerticalScrollBarVisibility="Visible"
+            HorizontalScrollBarVisibility="Visible"
+            >
+
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="DataGridColumnHeader">
+                    <Setter Property="FontSize" Value="30"></Setter>
+                    <Setter Property="Padding" Value="50 0 0 0"></Setter>
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+
+            <DataGrid.Resources>
+                <Style TargetType="ScrollBar">
+                </Style>
+                <Style TargetType="DataGridRow">
+                    <Setter Property="FontSize" Value="20"/>
+                </Style>
+            </DataGrid.Resources>
+
+            <DataGrid.Columns>
+                <DataGridTextColumn                 
+      Binding="{Binding Id}"
+      Header="Worker Id"
+      MinWidth="190"
+      MaxWidth="190">
+                </DataGridTextColumn>
+
+                <DataGridTextColumn
+      Binding="{Binding ProductName}"
+      Header="First Name"
+      MinWidth="220"
+      Width="220"
+      MaxWidth="250">
+                </DataGridTextColumn>
+
+                <DataGridTextColumn
+      Binding="{Binding Category}"
+      Header="Last Name"
+      MinWidth="220"
+      Width="220"
+      MaxWidth="300">
+                </DataGridTextColumn>
+
+                <DataGridTextColumn
+      Binding="{Binding Description}"
+      Header="Email"
+      MinWidth="400"
+      Width="400"
+      MaxWidth="800"
+      ScrollViewer.HorizontalScrollBarVisibility="Auto">
+                </DataGridTextColumn>
+
+                <DataGridTextColumn
+      Binding="{Binding PurchasePrice, StringFormat=N2}" 
+      Header="Password"
+      MinWidth="200"
+      Width="200"
+      MaxWidth="250"
+      HeaderStringFormat="">
+                </DataGridTextColumn>
+
+                <DataGridTextColumn
+      Binding="{Binding RetailPrice, StringFormat=N2}"
+      Header="Role" 
+      MinWidth="200"
+      MaxWidth="200">
+                </DataGridTextColumn>
+
+                <DataGridTextColumn
+      Binding="{Binding Tax, StringFormat=N2}" 
+      Header="Shop Id"
+      MaxWidth="150"
+      MinWidth="150">
+                </DataGridTextColumn>
+
+                <DataGridTextColumn
+      Binding="{Binding Margin, StringFormat=N2}"
+      Header="Joined on"
+      MaxWidth="250"
+      MinWidth="250">
+                </DataGridTextColumn>
+
+                <!--<DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="Edit" Background="Green" Content="Edit"></Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate xmlns:cal="http://www.caliburnproject.org">
+                            <Button Content="Delete" Background="Red"
+                             Click="Delete_Click" CommandParameter="{Binding Path=Id}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>-->
+
+            </DataGrid.Columns>
+        </DataGrid>
+
     </Grid>
 </UserControl>
