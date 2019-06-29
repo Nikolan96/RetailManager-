@@ -21,7 +21,7 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Rectangle Width="450" Height="350" RadiusX="40" RadiusY="40">
+        <Rectangle Width="450" Height="450" RadiusX="40" RadiusY="40">
             <Rectangle.Fill>
                 <SolidColorBrush Color="Gray" Opacity="0.3"/>
             </Rectangle.Fill>

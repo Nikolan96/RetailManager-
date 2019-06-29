@@ -14,101 +14,166 @@
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="C:\Users\Nikola\Desktop\market.jpg"></ImageBrush>
-        </Grid.Background>
+        </Grid.Background> 
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Rectangle RadiusX="40" RadiusY="40" Margin="500,10,500,40">
+        <Rectangle Grid.Row="1" Grid.RowSpan="13" Grid.Column="2" Grid.ColumnSpan="4"
+            RadiusX="100" RadiusY="100" >
             <Rectangle.Fill>
                 <SolidColorBrush Color="Gray" Opacity="0.6"/>
             </Rectangle.Fill>
         </Rectangle>
 
-        <TextBlock Grid.Row="0" Grid.Column="1"
+        <Viewbox Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="2" Stretch="Fill" >
+            <TextBlock 
+                   VerticalAlignment="Center"
                    HorizontalAlignment="Center"
-                   FontSize="38" Margin="0 120 0 40"
+                   FontWeight="Bold"                    
                    Panel.ZIndex="1">
             Edit Product Form
-        </TextBlock>
+            </TextBlock>
+        </Viewbox>
 
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center"
-                    Height="643" Margin="0,85,0,40" Width="785"
-                    Orientation="Horizontal">
+        <Viewbox Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Stretch="Uniform" Margin="10">
+            <TextBlock Text="Product Name"
+                   HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                   />
+        </Viewbox>
 
-            <StackPanel Orientation="Vertical" Margin="110 0 60 0">
-                <TextBlock Text="Product Name" 
-                   HorizontalAlignment="Center" VerticalAlignment="Center"
-                   FontSize="32" Margin="0 30 0 0"/>
-                <TextBox  
-                   x:Name="ProductNameTb" Margin="20 0 20 10" TextAlignment="Center" FontSize="27">
-                </TextBox>
+        <Viewbox  Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Stretch="Uniform" Margin="10 0 10 0" >
+            <TextBox    
+                   x:Name="ProductNameTb" TextAlignment="Center" FontSize="10">
+            </TextBox>
+        </Viewbox>
+      
 
-                <TextBlock Text="Category" 
-                   HorizontalAlignment="Center" VerticalAlignment="Center"
-                   FontSize="32" Margin="0 40 0 0"/>
-                <TextBox  
-                     x:Name="CategoryTb"  Margin="20 0 20 10" TextAlignment="Center" FontSize="27">
-                </TextBox>
+        <Viewbox Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" Stretch="Uniform" Margin="10">
+            <TextBlock Text="Category" 
+                           
+                   HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                   FontSize="32" />
+        </Viewbox>
 
-                <TextBlock Text="Description" 
-                   HorizontalAlignment="Center" VerticalAlignment="Center"
-                   FontSize="32" Margin="0 30 0 0"/>
-                <TextBox
+        <Viewbox  Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2"  Margin="10 0 10 0" Stretch="Uniform">
+            <TextBox  
+                  
+                     x:Name="CategoryTb" TextAlignment="Center" FontSize="27">
+            </TextBox>
+        </Viewbox>
+                
+
+        <Viewbox  Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2" Stretch="Uniform" Margin="10">
+            <TextBlock Text="Description" 
+                          
+                   HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                   FontSize="32" />
+        </Viewbox>
+
+        <Viewbox  Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="2" 
+                  Grid.RowSpan="4" Margin="30" Stretch="Fill">
+            <TextBox
              x:Name="DescriptionTb"
-    Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
-    Margin="20 20 20 10"
-    VerticalAlignment="Top"
-    Height="200"
-    FontSize="20"
-    AcceptsReturn="True"
-    TextWrapping="Wrap"
-    VerticalScrollBarVisibility="Auto"
-    materialDesign:HintAssist.Hint="Product description"
-     />
-            </StackPanel>
-            <StackPanel Margin="60 0 0 0">
+             Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"             
+             VerticalAlignment="Top"
+             MinHeight="220"
+             FontSize="20"
+             AcceptsReturn="True"
+             TextWrapping="Wrap"
+             VerticalScrollBarVisibility="Auto"
+             materialDesign:HintAssist.Hint="Product description"
+             />
 
-                <TextBlock Text="Purchase Price" 
-                   HorizontalAlignment="Center" VerticalAlignment="Center"
-                   FontSize="32" Margin="0 30 0 0"/>
-                <TextBox 
-                x:Name="PurchasePriceTb" Margin="20 0 20 10" TextAlignment="Center" FontSize="27"/>
+        </Viewbox>
+           
+        <Viewbox  Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="2" Margin="10" Stretch="Uniform">
+            <TextBlock Text="Purchase Price"
+                   HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                   FontSize="32" />
+        </Viewbox>
 
-                <TextBlock Text="Retail Price" 
-                   HorizontalAlignment="Center" VerticalAlignment="Center"
-                   FontSize="32" Margin="0 40 0 0"/>
-                <TextBox  
-                   x:Name="RetailPriceTb"  Margin="20 0 20 10" TextAlignment="Center" FontSize="27"/>
+        <Viewbox  Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="2" Stretch="Uniform" Margin="10 0 1 0">
+            <TextBox
+                x:Name="PurchasePriceTb" TextAlignment="Center" FontSize="27"/>
 
-                <TextBlock Text="Tax" 
-                   HorizontalAlignment="Center" VerticalAlignment="Center"
-                   FontSize="32" Margin="0 60 0 0"/>
-                <TextBox  
-                  x:Name="TaxTb" Margin="20 0 20 10" TextAlignment="Center" FontSize="27"/>
+        </Viewbox>
+                
+        <Viewbox Grid.Row="4" Grid.Column="4" Grid.ColumnSpan="2" Margin="10" Stretch="Uniform">
+            <TextBlock Text="Retail Price" 
+                   HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                   FontSize="32" />
+        </Viewbox>
 
-                <TextBlock Text="Quantity" 
-                   HorizontalAlignment="Center" VerticalAlignment="Center"
-                   FontSize="32" Margin="0 60 0 0"/>
-                <TextBox  
-                   x:Name="QuantityTb" Margin="20 0 20 10" TextAlignment="Center" FontSize="27"/>
+        <Viewbox Grid.Row="5" Grid.Column="4" Grid.ColumnSpan="2"  Margin="10 0 10 0" Stretch="Uniform">
+            <TextBox  
+                   x:Name="RetailPriceTb"  TextAlignment="Center" FontSize="27"/>
+        </Viewbox>
+              
 
-            </StackPanel>
+        <Viewbox Grid.Row="6" Grid.Column="4" Grid.ColumnSpan="2" Stretch="Uniform" Margin="10">
+            <TextBlock Text="Tax"  
+                   HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                   FontSize="32" />
+        </Viewbox>
 
-        </StackPanel>
+        <Viewbox  Grid.Row="7" Grid.Column="4" Grid.ColumnSpan="2" Margin="10 0 10 0" Stretch="Uniform">
+            <TextBox 
+                  x:Name="TaxTb"  TextAlignment="Center" FontSize="27"/>
+        </Viewbox>
+               
 
-        <Button x:Name="Edit" FontSize="32" Panel.ZIndex="1"
-                    HorizontalAlignment="Center" VerticalAlignment="Bottom" 
-                    Padding="5" Height="55" Margin="0 0 230 135" Width="160">
-            Edit
-        </Button>
-        <Button x:Name="Back" FontSize="32" Panel.ZIndex="1"
+        <Viewbox  Grid.Row="8" Grid.Column="4" Grid.ColumnSpan="2" Stretch="Uniform" Margin="10">
+            <TextBlock Text="Quantity" 
+                   HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                   FontSize="32" />
+        </Viewbox>
+
+        <Viewbox Grid.Row="9" Grid.Column="4" Grid.ColumnSpan="2"  Margin="10 0 10 0" Stretch="Uniform">
+            <TextBox  
+                   x:Name="QuantityTb" TextAlignment="Center" FontSize="27"/>
+        </Viewbox>
+             
+        <Viewbox Grid.Row="11" Grid.Column="2" Grid.RowSpan="2" Grid.ColumnSpan="2"
+                 VerticalAlignment="Center"> 
+            <Button x:Name="Edit" FontSize="13" Panel.ZIndex="1"
+                    VerticalAlignment="Bottom" 
+                    >
+                Edit
+            </Button>
+        </Viewbox>
+
+        <Viewbox Grid.Row="11" Grid.Column="4" Grid.RowSpan="2" Grid.ColumnSpan="2">
+            <Button x:Name="Back" FontSize="13" Panel.ZIndex="1"
                 HorizontalAlignment="Center" VerticalAlignment="Bottom" 
-                Padding="5" Height="55" Margin="230 0 0 135" Width="160">
-            Back
-        </Button>
+                >
+                Back
+            </Button>
+        </Viewbox>
+       
     </Grid>
 </UserControl>

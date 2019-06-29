@@ -14,70 +14,89 @@
              FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="108*"/>
-            <RowDefinition Height="2"/>
-            <RowDefinition Height="380*"/>
-            <RowDefinition Height="2"/>
-            <RowDefinition Height="54*"/>
-            <RowDefinition Height="2"/>
-            <RowDefinition Height="55*"/>
-            <RowDefinition Height="2"/>
-            <RowDefinition Height="157*"/>
-            <RowDefinition Height="6*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2px"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2px"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2px"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2px"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="525*"/>
-            <ColumnDefinition Width="195*"/>
-            <ColumnDefinition Width="478*"/>
-            <ColumnDefinition Width="240*"/>
-            <ColumnDefinition Width="2"/>
-            <ColumnDefinition Width="480*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2px"/>
+            <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
 
-        <!--#region Lines-->
+        <Rectangle Grid.Row="1" Grid.ColumnSpan="16" Fill="Gray"></Rectangle>
+        <Rectangle Grid.Row="11" Grid.ColumnSpan="16" Fill="Gray"></Rectangle>
+        <Rectangle Grid.Row="13" Grid.ColumnSpan="16" Fill="Gray"></Rectangle>
+        <Rectangle Grid.Row="9" Grid.ColumnSpan="16" Fill="Gray"></Rectangle>
+        <Rectangle Grid.Row="1" Grid.Column="14" Grid.RowSpan="8" Fill="Gray"></Rectangle>
 
-        <Rectangle Grid.Row="1" Grid.ColumnSpan="6" Fill="Gray"></Rectangle>
-        <Rectangle Grid.Row="3" Grid.ColumnSpan="6" Fill="Gray"></Rectangle>
-        <Rectangle Grid.Row="5" Grid.ColumnSpan="6" Fill="Gray"></Rectangle>
-        <Rectangle Grid.Row="7" Grid.ColumnSpan="6" Fill="Gray"></Rectangle>
-        <Rectangle Grid.Row="2" Grid.Column="4"  Fill="Gray"></Rectangle>
 
-        <Rectangle Grid.Row="0" Fill="#A3A3A3" Grid.ColumnSpan="6" Margin="0,-5,0,5"></Rectangle>
-        <Rectangle Grid.Row="4" Fill="#DDDDDD" Grid.ColumnSpan="6"></Rectangle>
-        <Rectangle Grid.Row="6" Fill="#BBBBBB" Grid.ColumnSpan="6"></Rectangle>
-        <Rectangle Grid.Row="8" Fill="#A3A3A3" Grid.ColumnSpan="6"></Rectangle>
-        <!--#endregion-->
+        <Viewbox Grid.Row="0" Grid.Column="0" Margin="25" Stretch="fill">
+            <Button  Content="1"
+                    />
+        </Viewbox>
 
-        <!--#region Row 0-->
-        <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.Row="0"
-                    Margin="20,0,0,0" HorizontalAlignment="Left" Width="250">
+        <Viewbox Grid.Row="0" Grid.Column="1" Margin="25" Stretch="fill">
+            <Button  Content="2"
+                   />
+        </Viewbox>
 
-            <Button x:Name="AddToCart" Content="1" Margin="10 0 0 0"
-                    Padding="5" FontSize="21" Width="70" Height="50"/>
-            <Button x:Name="RemoveFromCart" Content="2" FontSize="21"
-                    Padding="5" Margin="10 0 0 0" Width="70" Height="50"/>
-            <Button x:Name="RemoveAllFromCart" Content="3" FontSize="21"
-                    Margin="10 0 10 0" Padding="5" Width="70" Height="50"/>
-        </StackPanel>
+        <Viewbox Grid.Row="0" Grid.Column="2" Margin="25" Stretch="Fill">
+            <Button Content="3"
+                    />
+        </Viewbox>
 
-        <TextBlock Text="User : " Grid.Row="0" Grid.Column="2"
+        <Viewbox  Grid.Row="0" Grid.Column="6" Grid.ColumnSpan="2" Margin="30" Stretch="Fill">
+            <TextBlock Text="User : "
                    HorizontalAlignment="Center" VerticalAlignment="Center"
-                   FontSize="22" Margin="208,64,208,63" Height="26" Width="62"/>
+                   />
+        </Viewbox>
 
-        <TextBlock Text="RetailManager" Grid.Row="0" Grid.Column="5"
+        <Viewbox  Grid.Row="0" Grid.Column="8" Grid.ColumnSpan="3" Margin="20 30 30 30" Stretch="Fill">
+            <TextBlock Text="Logged In User"
+                   HorizontalAlignment="Center" VerticalAlignment="Center"
+                   />
+        </Viewbox>
+
+        <Viewbox Grid.Row="0" Grid.Column="15" Margin="30" Stretch="Fill">
+            <TextBlock Text="Product form" TextWrapping="Wrap"
                    HorizontalAlignment="Right" VerticalAlignment="Center"
-                   FontSize="40" Margin="0,52,50,53" Height="48" Width="264"/>
-        <!--#endregion-->
+                  />
+        </Viewbox>
 
-
-        <!--#region Row 1-->
-        <!--<DataGrid 
-            Grid.Row="2" Grid.ColumnSpan="4
-            "-->
+    
         <DataGrid 
             IsReadOnly="True"
             Grid.Row="2"
-            Grid.ColumnSpan="4"
+            Grid.RowSpan="7"
+            Grid.Column="0"
+            Grid.ColumnSpan="14"
             Margin="5 8 0 0"
             ItemsSource="{Binding Products}" 
             SelectedItem="{Binding SelectedBillItem}"           
@@ -96,14 +115,6 @@
             </DataGrid.ColumnHeaderStyle>
 
             <DataGrid.Resources>
-                <Style TargetType="ScrollBar">
-                    <!--<Setter Property="SelectiveScrollingGrid.Background" Value="red" />-->
-                    <Style.Triggers>
-                        <DataTrigger Binding="{Binding Color}" Value="False">
-                            <Setter Property="Background" Value="Red" />
-                        </DataTrigger>
-                    </Style.Triggers>
-                </Style>
                 <Style TargetType="DataGridRow">
                     <Setter Property="FontSize" Value="20"/>
                 </Style>
@@ -163,118 +174,112 @@
 
         </DataGrid>
 
-        <StackPanel Grid.Row="2" Grid.Column="5" Margin="10 60 10 10">
-
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <RadioButton x:Name="RB1" GroupName="group1" Content="By Product Id" Margin="0 0 50 20"></RadioButton>
-                <RadioButton IsChecked="True" x:Name="RB2" GroupName="group1" Content="By Product Name"></RadioButton>
-            </StackPanel>
-
-            <TextBlock Text="Product Id" 
-                   HorizontalAlignment="Center" VerticalAlignment="Center"
-                   FontSize="22" Margin="0 5 0 0"/>
-            <TextBox x:Name="SelectedProductId" 
-                     IsEnabled="{Binding IsChecked, ElementName=RB1}"
-                     PreviewTextInput="PreviewTextInput"
-                     Margin="0 0 0 10" TextAlignment="Center" FontSize="23"></TextBox>
-
+        <Viewbox Stretch="Uniform" Margin="5 15 5 15" Grid.Row="3" Grid.Column="15">
             <TextBlock Text="Product Name" 
                    HorizontalAlignment="Center" VerticalAlignment="Center"
-                   FontSize="22" Margin="0 5 0 0"/>
+                   />
+        </Viewbox>
+
+        <Viewbox  Stretch="Uniform" Margin="10" Grid.Row="4" Grid.Column="15">
             <ComboBox
-  Margin="0 10 0 10"
-  IsEditable="True"
-  FontSize="22"
-  IsEnabled="{Binding IsChecked, ElementName=RB2}"
-  ItemsSource="{Binding ProductNames}"
-  SelectedItem="{Binding SelectedProductName}"
-                >
+                MinWidth="120"
+             IsEditable="True"
+             IsEnabled="{Binding IsChecked, ElementName=RB2}"
+             ItemsSource="{Binding ProductNames}"
+             SelectedItem="{Binding SelectedProductName}">
                 <ComboBox.ItemsPanel>
                     <ItemsPanelTemplate>
                         <VirtualizingStackPanel />
                     </ItemsPanelTemplate>
                 </ComboBox.ItemsPanel>
             </ComboBox>
+        </Viewbox>
 
+        <Viewbox Stretch="Uniform" Margin="5 15 5 15" Grid.Row="5" Grid.Column="15">
             <TextBlock Text="Quantity" 
                    HorizontalAlignment="Center" VerticalAlignment="Center"
-                   FontSize="22" Margin="0 5 0 0"/>
+                   />
+        </Viewbox>
+
+        <Viewbox Stretch="Uniform" Margin="10" Grid.Row="6" Grid.Column="15">
             <TextBox x:Name="Quantity" 
-                       Margin="0 0 0 10" TextAlignment="Center" FontSize="23"></TextBox>
+                     MinWidth="100"
+                       TextAlignment="Center"></TextBox>
+        </Viewbox>
 
-            <Button x:Name="Add" Content="Add" Margin="100 10 100 0"
-                    Padding="5" FontSize="21" Height="90"/>
-        </StackPanel>
-        <!--#endregion-->
+        <Viewbox Stretch="Uniform" Margin="35" Grid.Row="7" Grid.Column="15" Grid.RowSpan="2">
+            <Button x:Name="Add" Content="Add"/>
+        </Viewbox>
 
-        <!--#region Row 2-->
+          
 
-        <StackPanel Orientation="Horizontal"
-                    Grid.Column="2" Grid.Row="4">
+        <Viewbox Stretch="Uniform" Grid.Row="10" Grid.Column="5" Grid.ColumnSpan="3"  Margin="10">
             <TextBlock Text="Paid:"
-                       Margin="145 0 0 0"
-                   VerticalAlignment="Center" 
-                   FontSize="22"/>
+                   VerticalAlignment="Center"/>
+        </Viewbox>
 
+        <Viewbox Stretch="Uniform" Grid.Row="10" Grid.Column="7" Grid.ColumnSpan="3"  Margin="10">
             <TextBox x:Name="Paid" 
-                       Margin="20 10 0 23" TextAlignment="Center" FontSize="22"
-                       MaxWidth="100" MinWidth="130"></TextBox>
+                      TextAlignment="Center" 
+                      MinWidth="130"></TextBox>
+        </Viewbox>
 
-        </StackPanel>
-
-        <!--#endregion-->
-
-        <!--#region Row 3-->
-        <StackPanel Orientation="Horizontal"
-                    Grid.Column="2" Grid.Row="6">
-
+        <Viewbox Stretch="Uniform" Grid.Row="12" Grid.Column="3" Grid.ColumnSpan="2" Margin="10">
             <TextBlock Text="Total:"
-                       Margin="75 0 0 0"
+                      
                    VerticalAlignment="Center" 
-                   FontSize="22" Foreground="Red"/>
+                   />
+        </Viewbox>
 
-            <TextBlock x:Name="DisplayTotal"
-                   Margin="30 0 0 0"
+        <Viewbox Stretch="Uniform" Grid.Row="12" Grid.Column="5" Grid.ColumnSpan="2"  Margin="10">
+            <TextBox x:Name="DisplayTotal" 
+                      TextAlignment="Center" 
+                      MinWidth="130"></TextBox>
+        </Viewbox>
+
+        <Viewbox Stretch="Uniform" Grid.Row="12" Grid.Column="7" Grid.ColumnSpan="2" Margin="10">
+            <TextBlock Text="Change:"                   
                    VerticalAlignment="Center" 
-                   FontSize="22" Foreground="Red"/>
+                   />
+        </Viewbox>
 
-            <TextBlock Text="Change:"
-                       Margin="45 0 0 0"
-                   VerticalAlignment="Center" 
-                   FontSize="22"/>
+        <Viewbox  Stretch="Uniform" Grid.Row="12" Grid.Column="9" Grid.ColumnSpan="2" Margin="10">
+            <TextBox x:Name="DisplayChange" 
+                      TextAlignment="Center" 
+                      MinWidth="130"></TextBox>
+        </Viewbox>
 
-            <TextBlock x:Name="DisplayChange"
-                   Margin="30 0 100 0"
-                   VerticalAlignment="Center" 
-                   FontSize="22" Foreground="Red"/>
-        </StackPanel>
-        <!--#endregion-->
+        <Viewbox Stretch="Fill" Grid.Row="14" Grid.ColumnSpan="2" Margin="10">
+            <Button x:Name="DeleteBillItem" Content="Cancel item"
+                    />
+        </Viewbox>
 
-        <!--#region Row 4-->
-        <StackPanel Grid.Row="8" Grid.Column="0" Orientation="Horizontal" Grid.ColumnSpan="1" Grid.RowSpan="2">
-            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="40 0 0 0"
-                        VerticalAlignment="Center" Width="150" >
-                <Button x:Name="DeleteBillItem" Content="Cancel item" Margin="10 0 0 0"
-                    Padding="5" FontSize="21"  Height="55"/>
-                <Button x:Name="DeleteBill" Content="Cancel Bill" Margin="10 10 0 0"
-                    Padding="7" FontSize="21" Height="55"/>
-            </StackPanel>
+        <Viewbox Stretch="Fill" Grid.Row="15" Grid.ColumnSpan="2" Margin="10">
+            <Button x:Name="DeleteBill" Content="Cancel Bill"
+                    />
+        </Viewbox>
 
-            <Button x:Name="GoToProductsView" Content="Products" Margin="30 0 0 0"
-                    Padding="5" FontSize="21"  Height="120" Width="120" Background="#FF3F51B5"/>
+        <Viewbox Stretch="Fill" Grid.Row="14" Grid.RowSpan="2" Grid.Column="2" Grid.ColumnSpan="2" Margin="20 10 20 10">
+            <Button x:Name="GoToProductsView" Content="Products"
+                    />
+        </Viewbox>
 
-            <Button x:Name="GoToBillsView" Content="Bills" Margin="30 0 0 0"
-                    Padding="5" FontSize="21"  Height="120" Width="120" Background="#FF3F51B5"/>
-        </StackPanel>
+        <Viewbox Stretch="Fill" Grid.Row="14" Grid.RowSpan="2" Grid.Column="4" Grid.ColumnSpan="2" Margin="20 10 20 10">
+            <Button x:Name="GoToBillsView" Content="Bills" 
+                   />
+        </Viewbox>
 
-        <Button x:Name="Cash" Grid.Row="8" Grid.Column="2" Margin="100,53,100,48" 
-                Content="Cash" Height="Auto" FontSize="30">
-        </Button>
+        <Viewbox Stretch="Fill" Grid.Row="14" Grid.RowSpan="2" Grid.Column="7" Grid.ColumnSpan="2" Margin="20 10 20 10">
+            <Button x:Name="Cash" 
+                Content="Cash">
+            </Button>
+        </Viewbox>
 
-        <Button Grid.Row="8" Grid.Column="5" Margin="100,53,100,48" 
-                Content="Back" Height="Auto" FontSize="30">
-        </Button>
-        <!--#endregion-->
+        <Viewbox Stretch="Fill" Grid.Row="14" Grid.RowSpan="2" Grid.Column="14" Grid.ColumnSpan="2" Margin="50 10 50 10">
+            <Button
+                Content="Back" >
+            </Button>
+        </Viewbox>
 
     </Grid>
 </UserControl>
