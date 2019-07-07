@@ -66,9 +66,11 @@
                    />
         </Viewbox>
 
-        <Viewbox  Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" Stretch="Uniform" Margin="10 0 10 0" >
+        <Viewbox  Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" Stretch="Uniform" Margin="10 10 10 10" >
             <TextBox    
-                   x:Name="FirstNameTb" TextAlignment="Center" FontSize="10">
+                   x:Name="FirstNameTb" TextAlignment="Center" FontSize="17"
+                   MinWidth="160"
+                   MaxWidth="160">
             </TextBox>
         </Viewbox>
 
@@ -81,36 +83,41 @@
         </Viewbox>
 
         <Viewbox  Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2"  Margin="10 0 10 0" Stretch="Uniform">
-            <TextBox  
-                  
-                     x:Name="LastNameTb" TextAlignment="Center" FontSize="27">
+            <TextBox          
+                     x:Name="LastNameTb" TextAlignment="Center" FontSize="17"
+                     MinWidth="150"
+                     MaxWidth="150">
             </TextBox>
         </Viewbox>
 
 
-        <Viewbox  Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="2" Stretch="Uniform" Margin="10">
+        <Viewbox  Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="2" Stretch="Uniform" Margin="10 0 10 0">
             <TextBlock Text="Email" 
                           
                    HorizontalAlignment="Center" VerticalAlignment="Bottom"
-                   FontSize="32" />
+                   FontSize="17" />
         </Viewbox>
 
         <Viewbox  Grid.Row="8" Grid.Column="2" Grid.ColumnSpan="2" 
-                   Margin="30" Stretch="Fill">
+                   Margin="10" Stretch="Fill">
             <TextBox                    
-                     x:Name="EmailTb" TextAlignment="Center" FontSize="27">
+                     x:Name="EmailTb" TextAlignment="Center" FontSize="17"
+                     MinWidth="160"
+                     MaxWidth="160">
             </TextBox>
         </Viewbox>
 
         <Viewbox  Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="2" Margin="10" Stretch="Uniform">
             <TextBlock Text="Password"
                    HorizontalAlignment="Center" VerticalAlignment="Bottom"
-                   FontSize="32" />
+                   FontSize="17" />
         </Viewbox>
 
-        <Viewbox  Grid.Row="4" Grid.Column="4" Grid.ColumnSpan="2" Stretch="Uniform" Margin="10 0 1 0">
+        <Viewbox  Grid.Row="4" Grid.Column="4" Grid.ColumnSpan="2" Stretch="Uniform" Margin="10 0 10 0">
             <TextBox
-                x:Name="PasswordTb" TextAlignment="Center" FontSize="27"/>
+                x:Name="PasswordTb" TextAlignment="Center" FontSize="17"
+                MinWidth="150"
+                MaxWidth="150"/>
 
         </Viewbox>
 
@@ -121,8 +128,15 @@
         </Viewbox>
 
         <Viewbox Grid.Row="6" Grid.Column="4" Grid.ColumnSpan="2"  Margin="10 0 10 0" Stretch="Uniform">
-            <TextBox  
-                   x:Name="RoleTb"  TextAlignment="Center" FontSize="27"/>
+            <ComboBox                  
+                   x:Name="Roles" 
+                   SelectedItem="Role"
+                   IsReadOnly="True"
+                   FontSize="17"
+                   MinWidth="100"
+                   MaxWidth="100"
+                   >
+            </ComboBox>
         </Viewbox>
 
 
@@ -133,13 +147,20 @@
         </Viewbox>
 
         <Viewbox  Grid.Row="8" Grid.Column="4" Grid.ColumnSpan="2" Margin="10 0 10 0" Stretch="Uniform">
-            <TextBox 
-                  x:Name="ShopIdTb"  TextAlignment="Center" FontSize="27"/>
+            <ComboBox                  
+                   x:Name="ShopIds" 
+                   SelectedItem="ShopId"
+                   IsReadOnly="True"
+                   FontSize="17"
+                   MinWidth="100"
+                   MaxWidth="100"
+                   >
+            </ComboBox>
         </Viewbox>
 
         <Viewbox Grid.Row="11" Grid.Column="2" Grid.RowSpan="2" Grid.ColumnSpan="2"
                  VerticalAlignment="Center">
-            <Button x:Name="Edit" FontSize="13" Panel.ZIndex="1"
+            <Button x:Name="EditUser" FontSize="13" Panel.ZIndex="1"
                     VerticalAlignment="Bottom" 
                     >
                 Edit

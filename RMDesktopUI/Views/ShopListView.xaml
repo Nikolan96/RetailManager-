@@ -59,14 +59,14 @@
                    FontSize="46" />
 
         <Viewbox Grid.Row="0" Grid.Column="2" Stretch="Fill">
-            <Button x:Name="Edit" 
+            <Button x:Name="EditShop" 
                 Margin="30 5 30 5"
         Content="Edit" FontSize="20" Background="Green">
             </Button>
         </Viewbox>
 
         <Viewbox Grid.Row="0" Grid.Column="3" Stretch="Fill">
-            <Button x:Name="Delete" 
+            <Button x:Name="DeleteShop" 
                 Margin="30 5 30 5"
         Content="Delete" FontSize="20" Background="Red">
             </Button>
@@ -80,7 +80,7 @@
                    HorizontalAlignment="Center" VerticalAlignment="Center"
                    FontSize="32" />
         <TextBox  
-                x:Name="ProductNameTb" VerticalAlignment="Center"
+                x:Name="Town" VerticalAlignment="Center"
                 Margin="30 0 30 0" TextAlignment="Center"
                 FontSize="27" Grid.Row="5" Grid.Column="5" Grid.ColumnSpan="2">
         </TextBox>
@@ -90,18 +90,18 @@
                    HorizontalAlignment="Center" VerticalAlignment="Center"
                    FontSize="32" />
         <TextBox  Grid.Row="7" Grid.Column="5"
-                     x:Name="CategoryTb" Grid.ColumnSpan="2"
+                     x:Name="Address" Grid.ColumnSpan="2"
                 Margin="30 0 30 0" VerticalAlignment="Center" TextAlignment="Center" FontSize="27">
         </TextBox>
 
         <Viewbox Grid.Row="8" Grid.Column="5" Grid.ColumnSpan="2" Grid.RowSpan="2"  Stretch="Uniform" Margin="30">
-            <Button x:Name="AddProduct"                
+            <Button x:Name="AddShop"                
         Content="Add" >
             </Button>
         </Viewbox>
 
         <Viewbox Grid.Row="11" Grid.Column="5" Grid.ColumnSpan="2" Grid.RowSpan="2"  Stretch="Uniform" Margin="30"> 
-            <Button x:Name="GoToCashRegister" 
+            <Button x:Name="GoToCEOMenu" 
                
         Content="Back" >
             </Button>
@@ -111,8 +111,8 @@
             IsReadOnly="True"
             Grid.Row="2" Grid.RowSpan="11" Grid.Column="0" Grid.ColumnSpan="4"
             Margin="10"
-            ItemsSource="{Binding Products}" 
-            SelectedItem="{Binding SelectedProduct}"
+            ItemsSource="{Binding Shops}" 
+            SelectedItem="{Binding SelectedShop}"
             CanUserSortColumns="False"
             CanUserAddRows="False"
             AutoGenerateColumns="False"
@@ -124,7 +124,7 @@
 
             <DataGrid.ColumnHeaderStyle>
                 <Style TargetType="DataGridColumnHeader">
-                    <Setter Property="FontSize" Value="50"></Setter>
+                    <Setter Property="FontSize" Value="30"></Setter>
                     <Setter Property="Padding" Value="50 0 0 0"></Setter>
                 </Style>
             </DataGrid.ColumnHeaderStyle>
@@ -133,13 +133,13 @@
                 <Style TargetType="ScrollBar">
                 </Style>
                 <Style TargetType="DataGridRow">
-                    <Setter Property="FontSize" Value="30"/>
+                    <Setter Property="FontSize" Value="20"/>
                 </Style>
             </DataGrid.Resources>
 
             <DataGrid.Columns>
-                <DataGridTextColumn                 
-      Binding="{Binding Id}"
+                <DataGridTextColumn                     
+      Binding="{Binding ID}" 
       Header="Shop Id" MaxWidth="250" MinWidth="250">
                 </DataGridTextColumn>
 
@@ -155,7 +155,7 @@
 
                 <DataGridTextColumn
       Binding="{Binding NumOfEmployees}"
-      Header="Number Of Employees" MaxWidth="250" MinWidth="250"   
+      Header="Number Of Employees" MaxWidth="410" MinWidth="410"   
       ScrollViewer.HorizontalScrollBarVisibility="Auto">
                 </DataGridTextColumn>
             </DataGrid.Columns>

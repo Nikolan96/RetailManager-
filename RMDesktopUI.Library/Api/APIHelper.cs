@@ -44,58 +44,58 @@ namespace RMDesktopUI.Library.Api
         }
 
         // Creates the data that will be sent to API endpoint. Calls Token and gets back a resposne.
-        public async Task<AuthenticatedUser> Authenticate(string username, string password)
-        {
-            var data = new FormUrlEncodedContent(new[]
-            {
-               new KeyValuePair<string, string>("grant_type", "password"),
-               new KeyValuePair<string, string>("email", username),
-               new KeyValuePair<string, string>("password", password),
-            });
+        //public async Task<AuthenticatedUser> Authenticate(string username, string password)
+        //{
+        //    var data = new FormUrlEncodedContent(new[]
+        //    {
+        //       new KeyValuePair<string, string>("grant_type", "password"),
+        //       new KeyValuePair<string, string>("email", username),
+        //       new KeyValuePair<string, string>("password", password),
+        //    });
 
-            using (HttpResponseMessage response = await _apiClient.PostAsync("/Token", data))
-            {
-                // If it succedes it gets the information from content and puts it inot AuthenticatedUser model
-                if (response.IsSuccessStatusCode)
-                {
-                    var result = await response.Content.ReadAsAsync<AuthenticatedUser>();
-                    return result;
-                }
-                else
-                {
-                    // Returns why it failed.
-                    throw new Exception(response.ReasonPhrase);
-                }
-            }
-        }
+        //    using (HttpResponseMessage response = await _apiClient.PostAsync("/Token", data))
+        //    {
+        //        // If it succedes it gets the information from content and puts it inot AuthenticatedUser model
+        //        if (response.IsSuccessStatusCode)
+        //        {
+        //            var result = await response.Content.ReadAsAsync<AuthenticatedUser>();
+        //            return result;
+        //        }
+        //        else
+        //        {
+        //            // Returns why it failed.
+        //            throw new Exception(response.ReasonPhrase);
+        //        }
+        //    }
+        //}
 
-        // Method which can fuck things up.
-        public async Task GetLoggedInUserInfo(string token)
-        {
-            _apiClient.DefaultRequestHeaders.Clear();
-            _apiClient.DefaultRequestHeaders.Accept.Clear(); 
-            _apiClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            _apiClient.DefaultRequestHeaders.Add("Authorization", $"Bearer { token }");
+        //// Method which can fuck things up.
+        //public async Task GetLoggedInUserInfo(string token)
+        //{
+        //    _apiClient.DefaultRequestHeaders.Clear();
+        //    _apiClient.DefaultRequestHeaders.Accept.Clear(); 
+        //    _apiClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+        //    _apiClient.DefaultRequestHeaders.Add("Authorization", $"Bearer { token }");
 
-            using (HttpResponseMessage response = await _apiClient.GetAsync("/api/Users"))
-            {
-                if (response.IsSuccessStatusCode)
-                {
-                    var result = await response.Content.ReadAsAsync<LoggedInUserModel>();
+        //    using (HttpResponseMessage response = await _apiClient.GetAsync("/api/Users"))
+        //    {
+        //        if (response.IsSuccessStatusCode)
+        //        {
+        //            var result = await response.Content.ReadAsAsync<LoggedInUserModel>();
 
-                    _loggedInUserModel.CreatedDate = result.CreatedDate;
-                    _loggedInUserModel.EmailAddress = result.EmailAddress;
-                    _loggedInUserModel.FirstName = result.FirstName;
-                    _loggedInUserModel.ID = result.ID;
-                    _loggedInUserModel.LastName = result.LastName;
-                    _loggedInUserModel.Token = token;
+        //            _loggedInUserModel.CreatedDate = result.CreatedDate;
+        //            _loggedInUserModel.EmailAddress = result.EmailAddress;
+        //            _loggedInUserModel.FirstName = result.FirstName;
+        //            _loggedInUserModel.ID = result.ID;
+        //            _loggedInUserModel.LastName = result.LastName;
+        //            _loggedInUserModel.Token = token;
                     
-                }
-                else
-                {
-                    throw new Exception(response.ReasonPhrase);
-                }
-            }
-        }
+        //        }
+        //        else
+        //        {
+        //            throw new Exception(response.ReasonPhrase);
+        //        }
+        //    }
+        //}
     }
 }

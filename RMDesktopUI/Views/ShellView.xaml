@@ -18,10 +18,10 @@
                 
             </MenuItem>
             <MenuItem Header="_Account">
-                <MenuItem x:Name="LoginScreen" Header="_Login"></MenuItem>
+                <MenuItem x:Name="LoginScreen" Header="Login"></MenuItem>
+                <MenuItem x:Name="LogOut" Header="_Logout"></MenuItem>
             </MenuItem>
         </Menu>
-
 
         <Grid>
             <ContentControl x:Name="ActiveItem"></ContentControl>

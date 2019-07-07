@@ -150,7 +150,6 @@ namespace RMDesktopUI.ViewModels
             FillTextboxes();
         }
 
-
         public void Back()
         {
             _events.PublishOnUIThread(new ProductsViewEvent());

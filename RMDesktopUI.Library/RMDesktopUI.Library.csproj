@@ -55,7 +55,11 @@
     <Compile Include="Api\IBillEndpoint.cs" />
     <Compile Include="Api\IBillItemEndpoint.cs" />
     <Compile Include="Api\IProductEndpoint.cs" />
+    <Compile Include="Api\IShopEndpoint.cs" />
+    <Compile Include="Api\IUserEndpoint.cs" />
     <Compile Include="Api\ProductEndpoint.cs" />
+    <Compile Include="Api\ShopEndpoint.cs" />
+    <Compile Include="Api\UserEndpoint.cs" />
     <Compile Include="Models\AuthenticatedUser.cs" />
     <Compile Include="Models\BillItemModel.cs" />
     <Compile Include="Models\BillModel.cs" />
@@ -64,9 +68,16 @@
     <Compile Include="Models\InsertBillItemModel.cs" />
     <Compile Include="Models\InsertBillModel.cs" />
     <Compile Include="Models\InsertProductModel.cs" />
+    <Compile Include="Models\InsertShopModel.cs" />
+    <Compile Include="Models\InsertUserModel.cs" />
     <Compile Include="Models\LoggedInUserModel.cs" />
     <Compile Include="Models\ProductModel.cs" />
+    <Compile Include="Models\ShopModel.cs" />
     <Compile Include="Models\UpdateProductModel.cs" />
+    <Compile Include="Models\UpdateShopModel.cs" />
+    <Compile Include="Models\UpdateShopNumOfEmployeesModel.cs" />
+    <Compile Include="Models\UpdateUserModel.cs" />
+    <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

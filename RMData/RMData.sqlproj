@@ -69,10 +69,10 @@
   <ItemGroup>
     <Build Include="dbo\Tables\User.sql" />
     <Build Include="dbo\Tables\Product.sql" />
-    <Build Include="dbo\Stored Procedures\spUserLookup.sql" />
-    <Build Include="dbo\Stored Procedures\spProduct_GetAll.sql" />
+    <Build Include="dbo\Stored Procedures\spGetUserByEmail.sql" />
+    <Build Include="dbo\Stored Procedures\spGetProducts.sql" />
     <Build Include="dbo\Stored Procedures\spInsertProduct.sql" />
-    <Build Include="dbo\Stored Procedures\spProductLookup.sql" />
+    <Build Include="dbo\Stored Procedures\spGetProductById.sql" />
     <Build Include="dbo\Stored Procedures\spDeleteProduct.sql" />
     <Build Include="dbo\Stored Procedures\spUpdateProduct.sql" />
     <Build Include="dbo\Stored Procedures\spGetAllProductNames.sql" />
@@ -87,6 +87,19 @@
     <Build Include="dbo\Stored Procedures\spDeleteBillItem.sql" />
     <Build Include="dbo\Stored Procedures\spGetBillItems.sql" />
     <Build Include="dbo\Tables\Shop.sql" />
+    <Build Include="dbo\Stored Procedures\spGetUsers.sql" />
+    <Build Include="dbo\Stored Procedures\spUpdateUser.sql" />
+    <Build Include="dbo\Stored Procedures\spUpdateProductQuantity.sql" />
+    <Build Include="dbo\Stored Procedures\spInsertShop.sql" />
+    <Build Include="dbo\Stored Procedures\spUpdateShop.sql" />
+    <Build Include="dbo\Stored Procedures\spGetShops.sql" />
+    <Build Include="dbo\Stored Procedures\spGetShopById.sql" />
+    <Build Include="dbo\Stored Procedures\spGetUserRoles.sql" />
+    <Build Include="dbo\Stored Procedures\spUpdateShopNumOfEmployees.sql" />
+    <Build Include="dbo\Stored Procedures\spDeleteShop.sql" />
+    <Build Include="dbo\Stored Procedures\spGetShopIds.sql" />
+    <Build Include="dbo\Stored Procedures\spInsertUser.sql" />
+    <Build Include="dbo\Stored Procedures\spDeleteUser.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="RMData.refactorlog" />

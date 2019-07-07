@@ -41,9 +41,10 @@
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Rectangle Grid.Row="1" Grid.RowSpan="13" Grid.Column="2" Grid.ColumnSpan="4"
+        <Rectangle Grid.Row="1" Grid.RowSpan="14" Grid.Column="2" Grid.ColumnSpan="4"
             RadiusX="100" RadiusY="100" >
             <Rectangle.Fill>
                 <SolidColorBrush Color="Gray" Opacity="0.6"/>
@@ -86,23 +87,25 @@
                      x:Name="CategoryTb" TextAlignment="Center" FontSize="27">
             </TextBox>
         </Viewbox>
-                
 
-        <Viewbox  Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2" Stretch="Uniform" Margin="10">
+        <Viewbox Grid.Row="8" Grid.Column="3" Grid.ColumnSpan="2" Stretch="Uniform" Margin="10">
             <TextBlock Text="Description" 
-                          
+                           
                    HorizontalAlignment="Center" VerticalAlignment="Bottom"
                    FontSize="32" />
         </Viewbox>
 
-        <Viewbox  Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="2" 
-                  Grid.RowSpan="4" Margin="30" Stretch="Fill">
+        <Viewbox  Grid.Row="9" Grid.Column="2" Grid.ColumnSpan="4" 
+                  Grid.RowSpan="3" Stretch="Uniform" Margin="10">
             <TextBox
              x:Name="DescriptionTb"
              Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"             
              VerticalAlignment="Top"
              MinHeight="220"
-             FontSize="20"
+             MaxHeight="220"
+             MinWidth="800"
+             MaxWidth="800"
+             FontSize="30"
              AcceptsReturn="True"
              TextWrapping="Wrap"
              VerticalScrollBarVisibility="Auto"
@@ -135,30 +138,18 @@
         </Viewbox>
               
 
-        <Viewbox Grid.Row="6" Grid.Column="4" Grid.ColumnSpan="2" Stretch="Uniform" Margin="10">
+        <Viewbox Grid.Row="6" Grid.Column="3" Grid.ColumnSpan="2" Stretch="Uniform" Margin="10">
             <TextBlock Text="Tax"  
                    HorizontalAlignment="Center" VerticalAlignment="Bottom"
                    FontSize="32" />
         </Viewbox>
 
-        <Viewbox  Grid.Row="7" Grid.Column="4" Grid.ColumnSpan="2" Margin="10 0 10 0" Stretch="Uniform">
+        <Viewbox  Grid.Row="7" Grid.Column="3" Grid.ColumnSpan="2" Margin="10 0 10 0" Stretch="Uniform">
             <TextBox 
                   x:Name="TaxTb"  TextAlignment="Center" FontSize="27"/>
         </Viewbox>
-               
-
-        <Viewbox  Grid.Row="8" Grid.Column="4" Grid.ColumnSpan="2" Stretch="Uniform" Margin="10">
-            <TextBlock Text="Quantity" 
-                   HorizontalAlignment="Center" VerticalAlignment="Bottom"
-                   FontSize="32" />
-        </Viewbox>
-
-        <Viewbox Grid.Row="9" Grid.Column="4" Grid.ColumnSpan="2"  Margin="10 0 10 0" Stretch="Uniform">
-            <TextBox  
-                   x:Name="QuantityTb" TextAlignment="Center" FontSize="27"/>
-        </Viewbox>
-             
-        <Viewbox Grid.Row="11" Grid.Column="2" Grid.RowSpan="2" Grid.ColumnSpan="2"
+                     
+        <Viewbox Grid.Row="12" Grid.Column="2" Grid.RowSpan="2" Grid.ColumnSpan="2"
                  VerticalAlignment="Center"> 
             <Button x:Name="Edit" FontSize="13" Panel.ZIndex="1"
                     VerticalAlignment="Bottom" 
@@ -167,7 +158,7 @@
             </Button>
         </Viewbox>
 
-        <Viewbox Grid.Row="11" Grid.Column="4" Grid.RowSpan="2" Grid.ColumnSpan="2">
+        <Viewbox Grid.Row="12" Grid.Column="4" Grid.RowSpan="2" Grid.ColumnSpan="2">
             <Button x:Name="Back" FontSize="13" Panel.ZIndex="1"
                 HorizontalAlignment="Center" VerticalAlignment="Bottom" 
                 >

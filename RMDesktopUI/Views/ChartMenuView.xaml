@@ -31,6 +31,11 @@
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
@@ -44,93 +49,109 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <Rectangle Grid.Row="0" Grid.RowSpan="12" Grid.Column="1" Grid.ColumnSpan="8" RadiusX="40" RadiusY="40">
+        <Rectangle Grid.Row="1" Grid.RowSpan="15" Grid.Column="1" Grid.ColumnSpan="11" RadiusX="40" RadiusY="40">
             <Rectangle.Fill>
                 <SolidColorBrush Color="Gray" Opacity="0.3"/>
             </Rectangle.Fill>
         </Rectangle>
 
-        <TextBlock Grid.Row="0" Grid.ColumnSpan="10"
-                   VerticalAlignment="Center" HorizontalAlignment="Center"
-                   FontSize="40"
-                   >Chart Menu</TextBlock>
+        <Viewbox  Grid.Row="2" Grid.Column="5"  Grid.ColumnSpan="4">
+            <TextBlock
+                   VerticalAlignment="Center" HorizontalAlignment="Center">Chart Menu</TextBlock>
+        </Viewbox>
 
-        <Button Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="4"
-                Height="120" Width="130"
+        <Viewbox  Grid.Row="4" Grid.Column="3" Grid.ColumnSpan="2" Grid.RowSpan="4" Stretch="Fill">
+            <Button            
   Style="{StaticResource MaterialDesignFloatingActionAccentButton}">
-            <Button.Content>
-                <StackPanel>
-                    <TextBlock FontWeight="Bold" FontSize="17" HorizontalAlignment="Center">Profit</TextBlock>
-                    <Image Width="80" Source="C:\Users\Nikola\Desktop\moneychart.png"></Image>
-                </StackPanel>
-            </Button.Content>
-        </Button>
+                <Button.Content>
+                    <StackPanel>
+                        <TextBlock FontWeight="Bold" FontSize="7" HorizontalAlignment="Center">Profit</TextBlock>
+                        <Image Width="30" Source="C:\Users\Nikola\Desktop\moneychart.png"></Image>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+        </Viewbox>
 
-        <Button Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2" Grid.RowSpan="4"
-                Height="120" Width="130"
+        <Viewbox  Grid.Row="4" Grid.Column="6" Grid.ColumnSpan="2" Grid.RowSpan="4" Stretch="Fill">
+            <Button                
   Style="{StaticResource MaterialDesignFloatingActionAccentButton}">
-            <Button.Content>
-                <StackPanel>
-                    <TextBlock FontWeight="Bold" FontSize="15" HorizontalAlignment="Center">Chart 2</TextBlock>
-                    <Image Width="80" Source="C:\Users\Nikola\Desktop\graph1.png"></Image>
-                </StackPanel>
-            </Button.Content>
-        </Button>
+                <Button.Content>
+                    <StackPanel>
+                        <TextBlock FontWeight="Bold" FontSize="7" HorizontalAlignment="Center">Chart 2</TextBlock>
+                        <Image Width="30" Source="C:\Users\Nikola\Desktop\graph1.png"></Image>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+        </Viewbox>
 
-        <Button Grid.Row="1" Grid.Column="7" Grid.ColumnSpan="2" Grid.RowSpan="4"
-                Height="120" Width="130"
+        <Viewbox Grid.Row="4" Grid.Column="9" Grid.ColumnSpan="2" Grid.RowSpan="4" Stretch="Fill">
+            <Button               
   Style="{StaticResource MaterialDesignFloatingActionAccentButton}">
-            <Button.Content>
-                <StackPanel>
-                    <TextBlock FontWeight="Bold" FontSize="15" HorizontalAlignment="Center">Bills Issued</TextBlock>
-                    <Image Width="80" Source="C:\Users\Nikola\Desktop\cashier.png"></Image>
-                </StackPanel>
-            </Button.Content>
-        </Button>
+                <Button.Content>
+                    <StackPanel>
+                        <TextBlock FontWeight="Bold" FontSize="7" HorizontalAlignment="Center">Bills Issued</TextBlock>
+                        <Image Width="30" Source="C:\Users\Nikola\Desktop\cashier.png"></Image>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+        </Viewbox>
 
-        <Button Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="4"
-                Height="120" Width="130"
+        <Viewbox Grid.Row="9" Grid.Column="3" Grid.ColumnSpan="2" Grid.RowSpan="4" Stretch="Fill">
+            <Button 
   Style="{StaticResource MaterialDesignFloatingActionAccentButton}">
-            <Button.Content>
-                <StackPanel>
-                    <TextBlock Margin="0 9 0 0" FontWeight="bold"
-                               FontSize="14"
+                <Button.Content>
+                    <StackPanel>
+                        <TextBlock FontWeight="bold"
+                               FontSize="7"
                                HorizontalAlignment="Center">
                         Sold Products
-                    </TextBlock>
-                    <Image Width="80" Source="C:\Users\Nikola\Desktop\sold.png"></Image>
-                </StackPanel>
-            </Button.Content>
-        </Button>
+                        </TextBlock>
+                        <Image Width="30" Source="C:\Users\Nikola\Desktop\sold.png"></Image>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+        </Viewbox>
 
-        <Button Grid.Row="5" Grid.Column="4" Grid.ColumnSpan="2" Grid.RowSpan="4"
-                Height="120" Width="130"
+        <Viewbox Grid.Row="9" Grid.Column="6" Grid.ColumnSpan="2" Grid.RowSpan="4" Stretch="Fill">
+            <Button 
   Style="{StaticResource MaterialDesignFloatingActionAccentButton}">
-            <Button.Content>
-                <StackPanel>
-                    <TextBlock Margin="0 5 0 0" MaxWidth="60" TextWrapping="Wrap" FontWeight="bold" HorizontalAlignment="Center">
+                <Button.Content>
+                    <StackPanel>
+                        <TextBlock FontSize="7" MaxWidth="60" TextWrapping="Wrap"
+                                  FontWeight="bold" HorizontalAlignment="Center">
                         Profit By Category
-                    </TextBlock>
-                    <Image Width="80" Source="C:\Users\Nikola\Desktop\ProfitByCategory.png"></Image>
-                </StackPanel>
-            </Button.Content>
-        </Button>
+                        </TextBlock>
+                        <Image Width="40" Source="C:\Users\Nikola\Desktop\ProfitByCategory.png"></Image>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+        </Viewbox>
 
-        <Button Grid.Row="5" Grid.Column="7" Grid.ColumnSpan="2" Grid.RowSpan="4"
-                Height="120" Width="130"
+        <Viewbox Grid.Row="9" Grid.Column="9" Grid.ColumnSpan="2" Grid.RowSpan="4">
+            <Button 
   Style="{StaticResource MaterialDesignFloatingActionAccentButton}">
-            <Button.Content>
-                <StackPanel>
-                    <TextBlock Margin="0 5 0 0" TextWrapping="Wrap" FontWeight="Bold" MaxWidth="60" HorizontalAlignment="Center">Profit By Product</TextBlock>
-                    <Image Width="80" Source="C:\Users\Nikola\Desktop\profitByProduct.png"></Image>
-                </StackPanel>
-            </Button.Content>
-        </Button>
-
-        <Viewbox Grid.Row="10" Grid.Column="4" Grid.ColumnSpan="2" Grid.RowSpan="2" Stretch="Uniform" Margin="10" >
-            <Button>Back</Button>
+                <Button.Content>
+                    <StackPanel>
+                        <TextBlock TextWrapping="Wrap" 
+                                   FontWeight="Bold" MaxWidth="40" FontSize="6"
+                                   HorizontalAlignment="Center">
+                            Profit By Product
+                        </TextBlock>
+                        <Image Width="40" Source="C:\Users\Nikola\Desktop\profitByProduct.png"></Image>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+        </Viewbox>
+        
+        <Viewbox Grid.Row="14" Grid.Column="6" Grid.ColumnSpan="2"
+                 Grid.RowSpan="2" Stretch="Uniform" Margin="10"
+                 >
+            <Button x:Name="Back">Back</Button>
         </Viewbox>
 
     </Grid>

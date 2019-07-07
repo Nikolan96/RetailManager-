@@ -63,7 +63,7 @@
         <Viewbox  Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="3" Stretch="Uniform" Margin="10 0 10 0" 
                  >
             <TextBox  MinWidth="150"
-                   x:Name="ProductNameTb" TextAlignment="Center" FontSize="10">
+                   x:Name="Town" TextAlignment="Center" FontSize="10">
             </TextBox>
         </Viewbox>
 
@@ -77,13 +77,13 @@
         <Viewbox  Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="3"  Margin="10 0 10 0" Stretch="Uniform">
             <TextBox  
                      MinWidth="150"
-                     x:Name="CategoryTb" TextAlignment="Center" FontSize="10">
+                     x:Name="Address" TextAlignment="Center" FontSize="10">
             </TextBox>
         </Viewbox>
 
         <Viewbox Grid.Row="7" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="2" Margin="20"
                  VerticalAlignment="Center">
-            <Button x:Name="Edit" FontSize="13" Panel.ZIndex="1"
+            <Button x:Name="EditShop" FontSize="13" Panel.ZIndex="1"
                     VerticalAlignment="Bottom" 
                     >
                 Edit
