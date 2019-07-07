@@ -21,7 +21,7 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Rectangle Width="450" Height="450" RadiusX="40" RadiusY="40">
+        <Rectangle Width="450" Height="650" RadiusX="40" RadiusY="40">
             <Rectangle.Fill>
                 <SolidColorBrush Color="Gray" Opacity="0.3"/>
             </Rectangle.Fill>
@@ -65,10 +65,10 @@
 
             <StackPanel Orientation="Horizontal">
                 <TextBlock Margin="0 0 10 10" Panel.ZIndex="1">
-                 Username:
+                 Email:
                 </TextBlock>
-                <TextBox x:Name="UserName" Grid.Row="2" Grid.Column="2"
-                         MinWidth="240" MaxWidth="280"  Margin="0 0 0 10" 
+                <TextBox x:Name="Email" Grid.Row="2" Grid.Column="2"
+                         MinWidth="330" MaxWidth="330"  Margin="0 0 0 10" 
                          Panel.ZIndex="1">
                 </TextBox>
             </StackPanel>
@@ -78,7 +78,7 @@
             Password:
                 </TextBlock>
                 <PasswordBox x:Name="Password" Grid.Row="3" Grid.Column="2"
-                             MinWidth="250" MaxWidth="280"  Margin="0 0 0 20" Panel.ZIndex="1">
+                             MinWidth="280" MaxWidth="280"  Margin="0 0 0 20" Panel.ZIndex="1">
                 </PasswordBox>
             </StackPanel>
 

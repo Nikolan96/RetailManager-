@@ -33,6 +33,11 @@ namespace RMDesktopUI.ViewModels
             _loggedInUser = loggedInUser;
         }
 
+        public string User
+        {
+            get { return _loggedInUser.FirstName; }
+        }  
+
         private int _quantity = 1;
 
         public int Quantity
@@ -66,7 +71,7 @@ namespace RMDesktopUI.ViewModels
         }
 
         private decimal _total = 0;
-
+         
         public decimal Total
         {
             get
@@ -410,6 +415,18 @@ namespace RMDesktopUI.ViewModels
         public void GoToBillsView()
         {
             _events.PublishOnUIThread(new BillsViewEvent());
+        }
+
+        public void Back()
+        {
+            if (_loggedInUser.Role == "Cashier")
+            {
+                _events.PublishOnUIThread(new LogoutEvent());
+            }
+            else
+            {
+                _events.PublishOnUIThread(new ManagerLogOnEvent());
+            }
         }
     }
 }

@@ -8,21 +8,29 @@ using System.Threading.Tasks;
 using RMDesktopUI.Library.Api;
 using RMDesktopUI.EventModels;
 using System.Windows;
+using RMDesktopUI.Library.Models;
+using AutoMapper;
 
 namespace RMDesktopUI.ViewModels
 {
     // Caliburn Micro wires up UI and logic behind the scene, based on names.
     public class LoginViewModel : Screen
     {
-        private string _userName = "Nikolan96@gmail.com";
-        private string _password = "Engeliousqw13!";
+        private string _email = "nikolan96@gmail.com";
+        private string _password = "nikolan123";
         private IAPIHelper _apiHelper;
         private IEventAggregator _events;
+        private readonly IUserEndpoint _userEndpoint;
+        private ILoggedInUserModel _loggedInUser;
+        private IAutoMapper _autoMapper;
 
-        public LoginViewModel(IAPIHelper apiHelper, IEventAggregator events)
+        public LoginViewModel(IAPIHelper apiHelper, IEventAggregator events, IUserEndpoint userEndpoint, ILoggedInUserModel loggedInUser, IAutoMapper autoMapper)
         {
             _apiHelper = apiHelper;
             _events = events;
+            _userEndpoint = userEndpoint;
+            _loggedInUser = loggedInUser;
+            _autoMapper = autoMapper;         
         }
 
         private bool _isBusy;
@@ -37,14 +45,14 @@ namespace RMDesktopUI.ViewModels
             }
         }
 
-        public string UserName
+        public string Email
         {
-            get { return _userName; }
+            get { return _email; }
             set
             {
-                _userName = value;
+                _email = value;
                 // Indicates if UserName property changed value.
-                NotifyOfPropertyChange(() => UserName);
+                NotifyOfPropertyChange(() => Email);
                 NotifyOfPropertyChange(() => CanLogIn);
             }
         }
@@ -69,7 +77,7 @@ namespace RMDesktopUI.ViewModels
                 bool output = false;
 
                 // ? after property name is a null check.
-                if (UserName?.Length > 0 && Password?.Length > 0)
+                if (Email?.Length > 0 && Password?.Length > 0)
                 {
                     output = true;
                 }
@@ -110,24 +118,46 @@ namespace RMDesktopUI.ViewModels
             {
                 ErrorMessage = "";
 
-                //IsBusy = true;
+                IsBusy = true;
 
-                //var result = await _apiHelper.Authenticate(UserName, Password);
-                //await _apiHelper.GetLoggedInUserInfo(result.Access_Token);
+                var ExistingUser = await _userEndpoint.GetUserByEmail(_email);
 
-                //IsBusy = false;
+                if (ExistingUser == null)
+                {
+                    ErrorMessage = "User does not exist";
+                }
 
-                _events.PublishOnUIThread(new LogOnEvent());
+                // Decrypt pass from DB
+
+                //if (ExistingUser.Password != _password)
+                //{
+                //    ErrorMessage = "Incorrect password";
+                //}
+
+                // Add AutoMapper _loggedInUser = ExistingUser;
+                LoggedInUserModel loggedInUser = Mapper.Map<LoggedInUserModel>(ExistingUser);
+                _loggedInUser.PopulateLoggedInUser(loggedInUser);
+               
+                switch (_loggedInUser.Role)
+                {
+                    case "Cashier":                        
+                        _events.PublishOnUIThread(new CashierLogOnEvent());
+                    break;
+                    case "Manager":
+                        _events.PublishOnUIThread(new ManagerLogOnEvent());
+                    break;
+                    case "CEO":
+                        _events.PublishOnUIThread(new CEOLogOnEvent());
+                    break;
+                }
+
+                IsBusy = false;
             }
             catch (Exception ex)
             {
+                IsBusy = false;
                 ErrorMessage = ex.Message;
             }          
-        }
-
-        public void GoToCashRegister()
-        {
-            _events.PublishOnUIThread(new CashRegisterEvent());
         }
     }
 }

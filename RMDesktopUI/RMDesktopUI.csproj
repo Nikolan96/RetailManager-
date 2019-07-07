@@ -35,6 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=8.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.8.1.1\lib\net461\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="Caliburn.Micro, Version=3.2.0.0, Culture=neutral, PublicKeyToken=8e5891231f2ed21f, processorArchitecture=MSIL">
       <HintPath>..\packages\Caliburn.Micro.Core.3.2.0\lib\net45\Caliburn.Micro.dll</HintPath>
     </Reference>
@@ -94,9 +97,21 @@
     <Compile Include="EventModels\BillItemsViewEvent.cs" />
     <Compile Include="EventModels\BillsViewEvent.cs" />
     <Compile Include="EventModels\CashRegisterEvent.cs" />
+    <Compile Include="EventModels\CEOLogOnEvent.cs" />
+    <Compile Include="EventModels\ChartMenuViewEvent.cs" />
     <Compile Include="EventModels\EditProductViewEvent.cs" />
-    <Compile Include="EventModels\LogOnEvent.cs" />
+    <Compile Include="EventModels\CashierLogOnEvent.cs" />
+    <Compile Include="EventModels\EditShopViewEvent.cs" />
+    <Compile Include="EventModels\EditUserViewEvent.cs" />
+    <Compile Include="EventModels\LogoutEvent.cs" />
+    <Compile Include="EventModels\ManagerLogOnEvent.cs" />
     <Compile Include="EventModels\ProductsViewEvent.cs" />
+    <Compile Include="EventModels\ShopListViewEvent.cs" />
+    <Compile Include="EventModels\UserListViewEvent.cs" />
+    <Compile Include="Helpers\AutoMapper.cs" />
+    <Compile Include="Helpers\IAutoMapper.cs" />
+    <Compile Include="Helpers\IPasswordEncryptor.cs" />
+    <Compile Include="Helpers\PasswordEncryptor.cs" />
     <Compile Include="Models\InsertProduct.cs" />
     <Compile Include="MyBkColorConverter.cs" />
     <Compile Include="Helpers\PasswordBoxHelper.cs" />
@@ -140,9 +155,6 @@
     </Compile>
     <Compile Include="Views\EditProductView.xaml.cs">
       <DependentUpon>EditProductView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\EditUserView.xaml.cs">
-      <DependentUpon>EditUserView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
@@ -217,10 +229,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\EditProductView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\EditUserView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -311,6 +319,8 @@
   <ItemGroup>
     <SplashScreen Include="splashscreen.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Profiles\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

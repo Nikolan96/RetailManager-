@@ -26,6 +26,8 @@
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
@@ -42,42 +44,50 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <Rectangle Grid.Row="1" Grid.RowSpan="5" Grid.Column="1" Grid.ColumnSpan="11" RadiusX="40" RadiusY="40">
+        <Rectangle Grid.Row="1" Grid.RowSpan="7" Grid.Column="1" Grid.ColumnSpan="13" RadiusX="40" RadiusY="40">
             <Rectangle.Fill>
                 <SolidColorBrush Color="Gray" Opacity="0.3"/>
             </Rectangle.Fill>
         </Rectangle>
 
-        <TextBlock Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="5"
-                   VerticalAlignment="Center" HorizontalAlignment="Center"
-                   FontSize="40"
-                   >CEO Menu</TextBlock>
-
-        <Button Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="3"
-                Height="160" Width="160"
+        <Viewbox  Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="5" Stretch="Uniform" Margin="15">
+            <TextBlock
+                   VerticalAlignment="Center" HorizontalAlignment="Center">CEO Menu</TextBlock>
+        </Viewbox>
+       
+        <Viewbox Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="3" Grid.RowSpan="3" Stretch="Fill">
+            <Button 
+               x:Name="GoToChartMenuView"
   Style="{StaticResource MaterialDesignFloatingActionAccentButton}">
-            <Button.Content>
-                <Image Width="100" Source="C:\Users\Nikola\Desktop\graph1.png"></Image>
-            </Button.Content>
-        </Button>
+                <Button.Content>
+                    <Image Width="40" Source="C:\Users\Nikola\Desktop\graph1.png"></Image>
+                </Button.Content>
+            </Button>
+        </Viewbox>
 
-        <Button Grid.Row="2" Grid.Column="5" Grid.ColumnSpan="3" Grid.RowSpan="3"
-                 Height="160" Width="160"
+        <Viewbox  Grid.Row="3" Grid.Column="6" Grid.ColumnSpan="3" Grid.RowSpan="3" Stretch="Fill">
+            <Button
+                 x:Name="GoToUserListView"
   Style="{StaticResource MaterialDesignFloatingActionAccentButton}">
-            <Button.Content>
-                <Image Width="130" Source="C:\Users\Nikola\Desktop\cashier.png"></Image>
-            </Button.Content>
-        </Button>
+                <Button.Content>
+                    <Image Width="40" Source="C:\Users\Nikola\Desktop\cashier.png"></Image>
+                </Button.Content>
+            </Button>
+        </Viewbox>
 
-        <Button Grid.Row="2" Grid.Column="9" Grid.ColumnSpan="3" Grid.RowSpan="3"
-                Height="160" Width="160"
+        <Viewbox Grid.Row="3" Grid.Column="10" Grid.ColumnSpan="3" Grid.RowSpan="3" Stretch="Fill">
+            <Button 
+                x:Name="GoToShopListView"
   Style="{StaticResource MaterialDesignFloatingActionAccentButton}">
-            <Button.Content>
-                <Image Width="100" Source="C:\Users\Nikola\Desktop\splashscreen.png"></Image>
-            </Button.Content>
-        </Button>
-
+                <Button.Content>
+                    <Image Width="40" Source="C:\Users\Nikola\Desktop\splashscreen.png"></Image>
+                </Button.Content>
+            </Button>
+        </Viewbox>
+       
     </Grid>
 </UserControl>

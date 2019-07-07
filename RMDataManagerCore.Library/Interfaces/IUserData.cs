@@ -7,6 +7,11 @@ namespace RMDataManagerCore.Library.Interfaces
 {
     public interface IUserData
     {
-        List<UserModel> GetUserById(string id);
+        UserModel GetUserByEmail(string email);
+        List<UserModel> GetUsers();
+        List<string> GetUserRoles();
+        void UpdateUser(UpdateUserModel UpdateUserModel);
+        void InsertUser(InsertUserModel userModel);
+        void DeleteUser(int ID);
     }
 }

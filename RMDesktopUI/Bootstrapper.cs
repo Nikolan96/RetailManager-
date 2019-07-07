@@ -20,7 +20,6 @@ namespace RMDesktopUI
 
         private SimpleContainer _container = new SimpleContainer();
 
-
         public Bootstrapper()
         {
             Initialize();
@@ -31,14 +30,17 @@ namespace RMDesktopUI
             "PasswordChanged");
         }
 
-
         // Container holds an instance of itself to pass if someone asks for simple container
         protected override void Configure()
         {
             _container.Instance(_container)
                 .PerRequest<IProductEndpoint, ProductEndpoint>()
-                .PerRequest<IBillEndpoint , BillEndpoint>()
-                .PerRequest<IBillItemEndpoint, BillItemEndpoint>();
+                .PerRequest<IBillEndpoint, BillEndpoint>()
+                .PerRequest<IBillItemEndpoint, BillItemEndpoint>()
+                .PerRequest<IUserEndpoint, UserEndpoint>()
+                .PerRequest<IPasswordEncryptor, PasswordEncryptor>()
+                .PerRequest<IShopEndpoint, ShopEndpoint>()
+                .PerRequest<IAutoMapper, Helpers.AutoMapper>();
 
             _container
                 .Singleton<IWindowManager, WindowManager>() // Handles bringing windows in and out
@@ -46,8 +48,6 @@ namespace RMDesktopUI
                 .Singleton<ILoggedInUserModel, LoggedInUserModel>() // Could fuck up, if not before API.
                 .Singleton<IAPIHelper, APIHelper>(); // Creates one instance of APIHelper.
                 
-
-
             // Use reflection get type for our current instance, get class types, where name of the class ends with ViewModel and add to list, run through list.
             // Registers the classes so that a new instance is created on request
             GetType().Assembly.GetTypes()

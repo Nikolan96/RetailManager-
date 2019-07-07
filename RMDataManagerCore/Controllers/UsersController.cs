@@ -21,12 +21,41 @@ namespace RMDataManagerCore.Controllers
             _userData = userData;
         }
 
-        [HttpGet]
-        public UserModel GetById()
+        [HttpGet("GetUserByEmail/{email}")]
+        public UserModel GetUserByEmail(string email)
         {
-            string UserId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
-
-            return _userData.GetUserById(UserId).First();
+            return _userData.GetUserByEmail(email);
         }
+
+        [HttpGet]
+        public List<UserModel> GetUsers()
+        {
+            return _userData.GetUsers();
+        }
+
+        [HttpGet("GetUserRoles")]
+        public List<string> GetUserRoles()
+        {
+            return _userData.GetUserRoles();
+        }
+
+        [HttpPost]
+        public void Post(InsertUserModel userModel)
+        {
+            _userData.InsertUser(userModel);
+        }
+
+        [HttpPut]
+        public void Update(UpdateUserModel userModel)
+        {
+            _userData.UpdateUser(userModel);
+        }
+
+        [HttpDelete("{ID}")]
+        public void Delete(int ID)
+        {
+            _userData.DeleteUser(ID);
+        }
+
     }
 }

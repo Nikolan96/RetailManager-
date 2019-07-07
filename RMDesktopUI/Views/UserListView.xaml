@@ -59,14 +59,14 @@
                    FontSize="46" />
 
         <Viewbox Grid.Row="0" Grid.Column="2" Stretch="Fill">
-            <Button x:Name="Edit" 
+            <Button x:Name="EditUser" 
                 Margin="30 5 30 5"
         Content="Edit" FontSize="20" Background="Green">
             </Button>
         </Viewbox>
 
         <Viewbox Grid.Row="0" Grid.Column="3" Stretch="Fill">
-            <Button x:Name="Delete" 
+            <Button x:Name="DeleteUser" 
                 Margin="30 5 30 5"
         Content="Delete" FontSize="20" Background="Red">
             </Button>
@@ -105,7 +105,7 @@
         </TextBox>
 
         <Viewbox Grid.Row="11" Grid.Column="5" Grid.RowSpan="2"  Stretch="Fill">
-            <Button x:Name="AddProduct" 
+            <Button x:Name="AddUser" 
                 Margin="30 10 30 10"
         Content="Add" FontSize="20" >
             </Button>
@@ -115,7 +115,7 @@
                    HorizontalAlignment="Center" VerticalAlignment="Center"
                    FontSize="32"/>
         <TextBox 
-                  PreviewTextInput="PreviewTextInput" Grid.Row="4" Grid.Column="7"
+                  Grid.Row="4" Grid.Column="7"
                   TextAlignment="Center"
                   x:Name="PasswordTb" Margin="10 0 10 0" VerticalAlignment="Center"
                   FontSize="27">
@@ -124,25 +124,27 @@
         <TextBlock Text="Role" Grid.Row="5" Grid.Column="6"
                    HorizontalAlignment="Center" VerticalAlignment="Center"
                    FontSize="32"/>
-        <TextBox  
-                Grid.Row="6" Grid.Column="6"
-                TextAlignment="Center"
-                   PreviewTextInput="PreviewTextInput" x:Name="RoleCheckBox" 
+
+        <ComboBox  Grid.Row="6" Grid.Column="6"                   
+                   x:Name="Roles" 
+                   SelectedItem="{Binding Role}"
+                   IsReadOnly="True"
                    Margin="10 0 10 0" VerticalAlignment="Center" FontSize="27">
-        </TextBox>
+        </ComboBox>
 
         <TextBlock Text="Shop Id" Grid.Row="7" Grid.Column="56"
                    HorizontalAlignment="Center" VerticalAlignment="Center"
                    FontSize="32"/>
-        <TextBox  
-                TextAlignment="Center"
+        <ComboBox 
                 Grid.Row="8" Grid.Column="6"
-                PreviewTextInput="PreviewTextInput" x:Name="ShopIdComboBox"
+                x:Name="ShopIds"
+                SelectedItem="{Binding ShopId}"
+                IsReadOnly="True"
                 Margin="10 0 10 0" VerticalAlignment="Center" FontSize="27">
-        </TextBox>
+        </ComboBox>
 
         <Viewbox Grid.Row="11" Grid.Column="6" Grid.RowSpan="2"  Stretch="Fill">
-            <Button x:Name="GoToCashRegister" 
+            <Button  x:Name="GoToCEOMenu" 
                 Margin="30 10 30 10"
         Content="Back" FontSize="20">
             </Button>
@@ -152,8 +154,8 @@
             IsReadOnly="True"
             Grid.Row="2" Grid.RowSpan="11" Grid.Column="0" Grid.ColumnSpan="4"
             Margin="5 8 0 0"
-            ItemsSource="{Binding Products}" 
-            SelectedItem="{Binding SelectedProduct}"
+            ItemsSource="{Binding Users}" 
+            SelectedItem="{Binding SelectedUser}"
             CanUserSortColumns="False"
             CanUserAddRows="False"
             AutoGenerateColumns="False"
@@ -180,14 +182,14 @@
 
             <DataGrid.Columns>
                 <DataGridTextColumn                 
-      Binding="{Binding Id}"
+      Binding="{Binding ID}"
       Header="Worker Id"
       MinWidth="190"
       MaxWidth="190">
                 </DataGridTextColumn>
 
                 <DataGridTextColumn
-      Binding="{Binding ProductName}"
+      Binding="{Binding FirstName}"
       Header="First Name"
       MinWidth="220"
       Width="220"
@@ -195,7 +197,7 @@
                 </DataGridTextColumn>
 
                 <DataGridTextColumn
-      Binding="{Binding Category}"
+      Binding="{Binding LastName}"
       Header="Last Name"
       MinWidth="220"
       Width="220"
@@ -203,7 +205,7 @@
                 </DataGridTextColumn>
 
                 <DataGridTextColumn
-      Binding="{Binding Description}"
+      Binding="{Binding EmailAddress}"
       Header="Email"
       MinWidth="400"
       Width="400"
@@ -212,7 +214,7 @@
                 </DataGridTextColumn>
 
                 <DataGridTextColumn
-      Binding="{Binding PurchasePrice, StringFormat=N2}" 
+      Binding="{Binding Password}" 
       Header="Password"
       MinWidth="200"
       Width="200"
@@ -221,21 +223,21 @@
                 </DataGridTextColumn>
 
                 <DataGridTextColumn
-      Binding="{Binding RetailPrice, StringFormat=N2}"
+      Binding="{Binding Role}"
       Header="Role" 
       MinWidth="200"
       MaxWidth="200">
                 </DataGridTextColumn>
 
                 <DataGridTextColumn
-      Binding="{Binding Tax, StringFormat=N2}" 
+      Binding="{Binding ShopId}" 
       Header="Shop Id"
       MaxWidth="150"
       MinWidth="150">
                 </DataGridTextColumn>
 
                 <DataGridTextColumn
-      Binding="{Binding Margin, StringFormat=N2}"
+      Binding="{Binding CreatedDate}"
       Header="Joined on"
       MaxWidth="250"
       MinWidth="250">

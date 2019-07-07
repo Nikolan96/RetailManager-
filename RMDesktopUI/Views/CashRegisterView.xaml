@@ -72,17 +72,17 @@
                     />
         </Viewbox>
 
-        <Viewbox  Grid.Row="0" Grid.Column="6" Grid.ColumnSpan="2" Margin="30" Stretch="Fill">
-            <TextBlock Text="User : "
+        <!--<Viewbox  Grid.Row="0" Grid.Column="6" Grid.ColumnSpan="2" Margin="30" Stretch="Fill">
+            <TextBlock Text="User :"
                    HorizontalAlignment="Center" VerticalAlignment="Center"
                    />
         </Viewbox>
 
-        <Viewbox  Grid.Row="0" Grid.Column="8" Grid.ColumnSpan="3" Margin="20 30 30 30" Stretch="Fill">
-            <TextBlock Text="Logged In User"
+        <Viewbox  Grid.Row="0" Grid.Column="8" Grid.ColumnSpan="3" Margin="20 30 30 30" Stretch="Uniform">
+            <TextBlock x:Name="User"
                    HorizontalAlignment="Center" VerticalAlignment="Center"
                    />
-        </Viewbox>
+        </Viewbox>-->
 
         <Viewbox Grid.Row="0" Grid.Column="15" Margin="30" Stretch="Fill">
             <TextBlock Text="Product form" TextWrapping="Wrap"
@@ -276,7 +276,8 @@
         </Viewbox>
 
         <Viewbox Stretch="Fill" Grid.Row="14" Grid.RowSpan="2" Grid.Column="14" Grid.ColumnSpan="2" Margin="50 10 50 10">
-            <Button
+            <Button 
+                x:Name="Back"
                 Content="Back" >
             </Button>
         </Viewbox>
