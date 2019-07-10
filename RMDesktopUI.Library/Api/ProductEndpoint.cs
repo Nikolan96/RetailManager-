@@ -35,9 +35,9 @@ namespace RMDesktopUI.Library.Api
             }
         }
 
-        public async Task<List<string>> GetAllProductNames()
+        public async Task<List<string>> GetAllProductNames(int ShopID)
         {
-            using (HttpResponseMessage response = await _apiHelper.ApiClient.GetAsync("/api/Product/ProductNames"))
+            using (HttpResponseMessage response = await _apiHelper.ApiClient.GetAsync("/api/Product/ProductNames/" + ShopID))
             {
                 if (response.IsSuccessStatusCode)
                 {
@@ -59,6 +59,23 @@ namespace RMDesktopUI.Library.Api
                 if (response.IsSuccessStatusCode)
                 {
                     var result = await response.Content.ReadAsAsync<ProductModel>();
+
+                    return result;
+                }
+                else
+                {
+                    throw new Exception(response.ReasonPhrase);
+                }
+            }
+        }
+
+        public async Task<List<ProductModel>> GetProductsByShopID(int ShopID)
+        {
+            using (HttpResponseMessage response = await _apiHelper.ApiClient.GetAsync("/api/Product/GetProductsByShopID/" + ShopID))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    var result = await response.Content.ReadAsAsync<List<ProductModel>>();
 
                     return result;
                 }

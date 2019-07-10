@@ -3,7 +3,7 @@
 	@LastName nvarchar(100),
 	@Password nvarchar(200),
 	@EmailAddress nvarchar(100),
-	@ShopId int,
+	@ShopId int null,
 	@Role nvarchar(100)
 AS
 begin

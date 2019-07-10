@@ -10,5 +10,6 @@ namespace RMDataManagerCore.Library.Interfaces
         BillModel GetBill(string ID);
         List<BillModel> GetBills();
         void InsertBill(InsertBillModel billModel);
+        List<BillModel> GetBillsByShopID(int ShopID);
     }
 }

@@ -6,11 +6,12 @@
 	@RetailPrice money,
 	@Tax int,
 	@Quantity int,
-	@Category nvarchar(100)
+	@Category nvarchar(100),
+	@ShopID int
 
 as
 begin
 	set nocount on;
-	INSERT INTO Product(ProductName, [Description], PurchasePrice, RetailPrice, Tax, Margin, QuantityInStock, Category)
-	values (@ProductName,@Description,@PurchasePrice,@RetailPrice,@Tax, @RetailPrice-@purchasePrice,@Quantity,@Category);
+	INSERT INTO Product(ProductName, [Description], PurchasePrice, RetailPrice, Tax, Margin, QuantityInStock, Category, ShopID)
+	values (@ProductName,@Description,@PurchasePrice,@RetailPrice,@Tax, @RetailPrice-@purchasePrice,@Quantity,@Category, @ShopID);
 end

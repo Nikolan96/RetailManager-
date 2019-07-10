@@ -68,7 +68,9 @@
         </Viewbox>
 
         <Viewbox  Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Stretch="Uniform" Margin="10 0 10 0" >
-            <TextBox    
+            <TextBox  
+                MinWidth="120"
+                MaxWidth="120"
                    x:Name="ProductNameTb" TextAlignment="Center" FontSize="10">
             </TextBox>
         </Viewbox>
@@ -83,8 +85,9 @@
 
         <Viewbox  Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2"  Margin="10 0 10 0" Stretch="Uniform">
             <TextBox  
-                  
-                     x:Name="CategoryTb" TextAlignment="Center" FontSize="27">
+                     MinWidth="120"
+                     MaxWidth="120"
+                     x:Name="CategoryTb" TextAlignment="Center" FontSize="10">
             </TextBox>
         </Viewbox>
 
@@ -122,7 +125,9 @@
 
         <Viewbox  Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="2" Stretch="Uniform" Margin="10 0 1 0">
             <TextBox
-                x:Name="PurchasePriceTb" TextAlignment="Center" FontSize="27"/>
+                   MinWidth="120"
+                MaxWidth="120"
+                x:Name="PurchasePriceTb" TextAlignment="Center" FontSize="10"/>
 
         </Viewbox>
                 
@@ -134,7 +139,9 @@
 
         <Viewbox Grid.Row="5" Grid.Column="4" Grid.ColumnSpan="2"  Margin="10 0 10 0" Stretch="Uniform">
             <TextBox  
-                   x:Name="RetailPriceTb"  TextAlignment="Center" FontSize="27"/>
+                   MinWidth="120"
+                MaxWidth="120"
+                   x:Name="RetailPriceTb"  TextAlignment="Center" FontSize="10"/>
         </Viewbox>
               
 

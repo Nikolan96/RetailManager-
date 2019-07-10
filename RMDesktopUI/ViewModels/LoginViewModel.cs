@@ -16,21 +16,23 @@ namespace RMDesktopUI.ViewModels
     // Caliburn Micro wires up UI and logic behind the scene, based on names.
     public class LoginViewModel : Screen
     {
-        private string _email = "nikolan96@gmail.com";
-        private string _password = "nikolan123";
+        private string _email = "nikola@gmail.com";
+        private string _password = "nikola123";
         private IAPIHelper _apiHelper;
         private IEventAggregator _events;
         private readonly IUserEndpoint _userEndpoint;
         private ILoggedInUserModel _loggedInUser;
         private IAutoMapper _autoMapper;
+        private readonly IPasswordEncryptor _passwordEncryptor;
 
-        public LoginViewModel(IAPIHelper apiHelper, IEventAggregator events, IUserEndpoint userEndpoint, ILoggedInUserModel loggedInUser, IAutoMapper autoMapper)
+        public LoginViewModel(IAPIHelper apiHelper, IEventAggregator events, IUserEndpoint userEndpoint, ILoggedInUserModel loggedInUser, IAutoMapper autoMapper, IPasswordEncryptor passwordEncryptor)
         {
             _apiHelper = apiHelper;
             _events = events;
             _userEndpoint = userEndpoint;
             _loggedInUser = loggedInUser;
-            _autoMapper = autoMapper;         
+            _autoMapper = autoMapper;
+            _passwordEncryptor = passwordEncryptor;
         }
 
         private bool _isBusy;
@@ -121,34 +123,33 @@ namespace RMDesktopUI.ViewModels
                 IsBusy = true;
 
                 var ExistingUser = await _userEndpoint.GetUserByEmail(_email);
+                var ExistingUsersPassword = _passwordEncryptor.Decrypt(ExistingUser.Password);
 
                 if (ExistingUser == null)
                 {
                     ErrorMessage = "User does not exist";
                 }
-
-                // Decrypt pass from DB
-
-                //if (ExistingUser.Password != _password)
-                //{
-                //    ErrorMessage = "Incorrect password";
-                //}
-
-                // Add AutoMapper _loggedInUser = ExistingUser;
-                LoggedInUserModel loggedInUser = Mapper.Map<LoggedInUserModel>(ExistingUser);
-                _loggedInUser.PopulateLoggedInUser(loggedInUser);
-               
-                switch (_loggedInUser.Role)
+                else if (ExistingUsersPassword != _password)
                 {
-                    case "Cashier":                        
-                        _events.PublishOnUIThread(new CashierLogOnEvent());
-                    break;
-                    case "Manager":
-                        _events.PublishOnUIThread(new ManagerLogOnEvent());
-                    break;
-                    case "CEO":
-                        _events.PublishOnUIThread(new CEOLogOnEvent());
-                    break;
+                    ErrorMessage = "Incorrect password";
+                }
+                else
+                {
+                    LoggedInUserModel loggedInUser = Mapper.Map<LoggedInUserModel>(ExistingUser);
+                    _loggedInUser.PopulateLoggedInUser(loggedInUser);
+
+                    switch (_loggedInUser.Role)
+                    {
+                        case "Cashier":
+                            _events.PublishOnUIThread(new CashierLogOnEvent());
+                            break;
+                        case "Manager":
+                            _events.PublishOnUIThread(new ManagerLogOnEvent());
+                            break;
+                        case "CEO":
+                            _events.PublishOnUIThread(new CEOLogOnEvent());
+                            break;
+                    }
                 }
 
                 IsBusy = false;

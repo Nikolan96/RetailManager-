@@ -21,12 +21,14 @@ namespace RMDesktopUI.ViewModels
         private IAPIHelper _apiHelper;
         private IEventAggregator _events;
         private readonly IProductEndpoint _productEndpoint;
+        private readonly ILoggedInUserModel _loggedInUser;
 
-        public ProductsViewModel(IAPIHelper apiHelper, IEventAggregator events, IProductEndpoint productEndpoint)
+        public ProductsViewModel(IAPIHelper apiHelper, IEventAggregator events, IProductEndpoint productEndpoint, ILoggedInUserModel loggedInUser)
         {
             _apiHelper = apiHelper;
             _events = events;
             _productEndpoint = productEndpoint;
+            _loggedInUser = loggedInUser;
         }
      
         private string _productNameTb;
@@ -134,6 +136,29 @@ namespace RMDesktopUI.ViewModels
             }
         }
 
+        private string _isManager;
+
+        public string IsManager
+        {
+            get { return _isManager; }
+            set
+            {
+                _isManager = value;
+                NotifyOfPropertyChange(() => IsManager);
+            }
+        }
+
+        private int _colSpan;
+
+        public int ColSpan
+        {
+            get { return _colSpan; }
+            set
+            {
+                _colSpan = value;
+                NotifyOfPropertyChange(() => ColSpan);
+            }
+        }
 
 
         private BindingList<ProductModel> _products;
@@ -150,16 +175,17 @@ namespace RMDesktopUI.ViewModels
 
         public async Task AddProduct()
         {
-            InsertProductModel productModel = new InsertProductModel();
-
-            // should get automapper
-            productModel.ProductName = ProductNameTb;
-            productModel.Category = CategoryTb;
-            productModel.Description = DescriptionTb;
-            productModel.PurchasePrice = PurchasePriceTb;
-            productModel.RetailPrice = RetailPriceTb;
-            productModel.Tax = TaxTb;
-            productModel.Quantity = QuantityTb;
+            InsertProductModel productModel = new InsertProductModel()
+            {
+                ProductName = ProductNameTb,
+                Category = CategoryTb,
+                Description = DescriptionTb,
+                PurchasePrice = PurchasePriceTb,
+                RetailPrice = RetailPriceTb,
+                Tax = TaxTb,
+                Quantity = QuantityTb,
+                ShopID = _loggedInUser.ShopId
+            };
 
             await _productEndpoint.InsertProduct(productModel);
             ResetTextboxes();
@@ -239,7 +265,7 @@ namespace RMDesktopUI.ViewModels
 
         private async Task LoadProducts()
         {
-            var productList = await _productEndpoint.GetAll();
+            var productList = await _productEndpoint.GetProductsByShopID(_loggedInUser.ShopId);
 
             Products = new BindingList<ProductModel>(productList);
         }
@@ -248,6 +274,20 @@ namespace RMDesktopUI.ViewModels
         {
             base.OnViewLoaded(view);
             await LoadProducts();
+
+            if (_loggedInUser.Role == "Manager")
+            {
+                IsManager = "Visible";
+                ColSpan = 4;
+            }
+            else
+            {
+                IsManager = "Hidden";
+                ColSpan = 6;
+            }
+
+            NotifyOfPropertyChange(() => ColSpan);
+            NotifyOfPropertyChange(() => IsManager);
         }
 
         public void Test()

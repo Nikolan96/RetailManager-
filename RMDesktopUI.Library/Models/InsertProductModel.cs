@@ -21,5 +21,7 @@ namespace RMDesktopUI.Library.Models
         public decimal RetailPrice { get; set; }
 
         public int Quantity { get; set; }
+
+        public int ShopID { get; set; }
     }
 }

@@ -306,7 +306,8 @@ namespace RMDesktopUI.ViewModels
             BindingList<string> ListOfRoles = new BindingList<string>()
             {
                 "Manager",
-                "Cashier"
+                "Cashier",
+                "CEO"
             };
 
             Roles = new BindingList<string>(ListOfRoles);
