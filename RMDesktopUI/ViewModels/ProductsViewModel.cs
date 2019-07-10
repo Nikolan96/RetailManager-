@@ -175,16 +175,17 @@ namespace RMDesktopUI.ViewModels
 
         public async Task AddProduct()
         {
-            InsertProductModel productModel = new InsertProductModel();
-
-            // should get automapper
-            productModel.ProductName = ProductNameTb;
-            productModel.Category = CategoryTb;
-            productModel.Description = DescriptionTb;
-            productModel.PurchasePrice = PurchasePriceTb;
-            productModel.RetailPrice = RetailPriceTb;
-            productModel.Tax = TaxTb;
-            productModel.Quantity = QuantityTb;
+            InsertProductModel productModel = new InsertProductModel()
+            {
+                ProductName = ProductNameTb,
+                Category = CategoryTb,
+                Description = DescriptionTb,
+                PurchasePrice = PurchasePriceTb,
+                RetailPrice = RetailPriceTb,
+                Tax = TaxTb,
+                Quantity = QuantityTb,
+                ShopID = _loggedInUser.ShopId
+            };
 
             await _productEndpoint.InsertProduct(productModel);
             ResetTextboxes();
@@ -264,7 +265,7 @@ namespace RMDesktopUI.ViewModels
 
         private async Task LoadProducts()
         {
-            var productList = await _productEndpoint.GetAll();
+            var productList = await _productEndpoint.GetProductsByShopID(_loggedInUser.ShopId);
 
             Products = new BindingList<ProductModel>(productList);
         }

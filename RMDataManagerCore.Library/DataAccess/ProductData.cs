@@ -24,9 +24,11 @@ namespace RMDataManagerCore.Library.DataAccess
             return output;
         }
 
-        public List<string> GetAllProductNames()
+        public List<string> GetAllProductNames(int ShopID)
         {
-            var output = _sqlDataAccess.LoadData<string, dynamic>("dbo.spGetAllProductNames", new { });
+            var p = new { ShopID = ShopID };
+
+            var output = _sqlDataAccess.LoadData<string, dynamic>("dbo.spGetAllProductNames", p);
 
             return output;
         }
@@ -55,6 +57,15 @@ namespace RMDataManagerCore.Library.DataAccess
         public void UpdateProduct(UpdateProductModel productModel)
         {
             _sqlDataAccess.SaveData<UpdateProductModel, dynamic>("dbo.spUpdateProduct", productModel);
+        }
+
+        public List<ProductModel> GetProductsByShopID(int ShopID)
+        {
+            var p = new { ShopID = ShopID };
+
+            var output = _sqlDataAccess.LoadData<ProductModel, dynamic>("dbo.spGetProductsByShopID", p);
+
+            return output;
         }
     }
 }

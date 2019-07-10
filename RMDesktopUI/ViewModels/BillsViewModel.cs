@@ -125,7 +125,7 @@ namespace RMDesktopUI.ViewModels
 
         private async Task LoadBills()
         {
-            var bills = await _billEndpoint.GetBills();
+            var bills = await _billEndpoint.GetBillsByShopID(_loggedInUser.ShopId);
             Bills = new BindingList<BillModel>(bills);
         }
 

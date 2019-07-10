@@ -6,6 +6,6 @@
     [EmailAddress] NVARCHAR(256) NOT NULL, 
 	[Password] NVARCHAR(256) not null,
 	[Role] NVARCHAR(50) not null,
-	[ShopID] int FOREIGN KEY REFERENCES Shop(ID),
+	[ShopID] int FOREIGN KEY REFERENCES Shop(ID) ,
     [CreatedDate] DATETIME2 NOT NULL DEFAULT getutcdate()
 )

@@ -10,7 +10,7 @@ namespace RMDataManagerCore.Library.Models
     {
         public string Id { get; set; }
         public DateTime CreatedDate { get; set; }
-        public int ShopId { get; set; }
+        public int ShopID { get; set; }
         public decimal Total { get; set; }
         public decimal Paid { get; set; }
         public decimal Change { get; set; }

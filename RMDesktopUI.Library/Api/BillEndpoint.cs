@@ -54,6 +54,23 @@ namespace RMDesktopUI.Library.Api
             }
         }
 
+        public async Task<List<BillModel>> GetBillsByShopID(int ShopID)
+        {
+            using (HttpResponseMessage response = await _apiHelper.ApiClient.GetAsync("/api/Bill/GetBillsByShopID/" + ShopID))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    var result = await response.Content.ReadAsAsync<List<BillModel>>();
+
+                    return result;
+                }
+                else
+                {
+                    throw new Exception(response.ReasonPhrase);
+                }
+            }
+        }
+
         public async Task<HttpResponseMessage> InsertBill(InsertBillModel billModel)
         {
             var stringContent = new StringContent(JsonConvert.SerializeObject(billModel), Encoding.UTF8, "application/json");

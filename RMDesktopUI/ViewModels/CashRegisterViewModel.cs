@@ -347,7 +347,7 @@ namespace RMDesktopUI.ViewModels
 
             InsertBillModel bill = new InsertBillModel
             {
-                ShopId = 1,
+                ShopId = _loggedInUser.ShopId,
                 Total = Total,
                 Paid = Paid,
                 Change = Change,
@@ -392,7 +392,7 @@ namespace RMDesktopUI.ViewModels
 
         private async Task LoadProductNames()
         {
-            var productNames = await _productEndpoint.GetAllProductNames();
+            var productNames = await _productEndpoint.GetAllProductNames(_loggedInUser.ShopId);
             ProductNames = new BindingList<string>(productNames);
         }
 

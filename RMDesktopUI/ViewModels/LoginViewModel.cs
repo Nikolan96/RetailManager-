@@ -16,8 +16,8 @@ namespace RMDesktopUI.ViewModels
     // Caliburn Micro wires up UI and logic behind the scene, based on names.
     public class LoginViewModel : Screen
     {
-        private string _email = "nikolan96@gmail.com";
-        private string _password = "Nikolan96";
+        private string _email = "nikola@gmail.com";
+        private string _password = "nikola123";
         private IAPIHelper _apiHelper;
         private IEventAggregator _events;
         private readonly IUserEndpoint _userEndpoint;

@@ -107,7 +107,7 @@
                 <Button.Content>
                     <StackPanel>
                         <TextBlock FontWeight="bold"
-                               FontSize="7"
+                               FontSize="6"
                                HorizontalAlignment="Center">
                         Sold Products
                         </TextBlock>
@@ -122,7 +122,7 @@
   Style="{StaticResource MaterialDesignFloatingActionAccentButton}">
                 <Button.Content>
                     <StackPanel>
-                        <TextBlock FontSize="7" MaxWidth="60" TextWrapping="Wrap"
+                        <TextBlock FontSize="5" MaxWidth="30" TextWrapping="Wrap"
                                   FontWeight="bold" HorizontalAlignment="Center">
                         Profit By Category
                         </TextBlock>
@@ -132,13 +132,13 @@
             </Button>
         </Viewbox>
 
-        <Viewbox Grid.Row="9" Grid.Column="9" Grid.ColumnSpan="2" Grid.RowSpan="4">
+        <Viewbox Grid.Row="9" Grid.Column="9" Grid.ColumnSpan="2" Grid.RowSpan="4" Stretch="Fill">
             <Button 
   Style="{StaticResource MaterialDesignFloatingActionAccentButton}">
                 <Button.Content>
                     <StackPanel>
-                        <TextBlock TextWrapping="Wrap" 
-                                   FontWeight="Bold" MaxWidth="40" FontSize="6"
+                        <TextBlock TextWrapping="Wrap" Margin="1"
+                                   FontWeight="Bold" MaxWidth="30" FontSize="5"
                                    HorizontalAlignment="Center">
                             Profit By Product
                         </TextBlock>

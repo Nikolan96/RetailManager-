@@ -27,6 +27,15 @@ namespace RMDataManagerCore.Library.DataAccess
             return output;
         }
 
+        public List<BillModel> GetBillsByShopID(int ShopID)
+        {
+            var p = new { ShopID = ShopID };
+
+            var output = _sqlDataAccess.LoadData<BillModel, dynamic>("dbo.spGetBillsByShopID", p);
+
+            return output;
+        }
+
         public List<BillModel> GetBills()
         {
             var output = _sqlDataAccess.LoadData<BillModel, dynamic>("dbo.spGetBills", new { });

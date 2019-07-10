@@ -32,6 +32,12 @@ namespace RMDataManagerCore.Controllers
             return _billData.GetBills();
         }
 
+        [HttpGet("GetBillsByShopID/{ShopID}")]
+        public List<BillModel> GetBillsByShopID(int ShopID)
+        {
+            return _billData.GetBillsByShopID(ShopID);
+        }
+
         [HttpPost]
         public void InsertBill(InsertBillModel billModel)
         {

@@ -26,10 +26,16 @@ namespace RMDataManagerCore.Controllers
             return _productData.GetProducts();
         }
 
-        [HttpGet("ProductNames")]
-        public List<string> GetAllProductNames()
+        [HttpGet("ProductNames/{ShopID}")]
+        public List<string> GetAllProductNamesByShopId(int ShopID)
         {
-            return _productData.GetAllProductNames();
+            return _productData.GetAllProductNames(ShopID);
+        }
+
+        [HttpGet("GetProductsByShopID/{ShopID}")]
+        public List<ProductModel> GetProductsByShopID(int ShopID)
+        {
+            return _productData.GetProductsByShopID(ShopID);
         }
 
         [HttpGet("ProductName/{productName}")]

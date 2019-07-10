@@ -18,5 +18,7 @@ namespace RMDesktopUI.Library.Api
 
         Task<HttpResponseMessage> Delete(string id);
 
+        Task<List<BillModel>> GetBillsByShopID(int ShopID);
+
     }
 }

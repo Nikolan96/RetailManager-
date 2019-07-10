@@ -100,6 +100,8 @@
     <Build Include="dbo\Stored Procedures\spGetShopIds.sql" />
     <Build Include="dbo\Stored Procedures\spInsertUser.sql" />
     <Build Include="dbo\Stored Procedures\spDeleteUser.sql" />
+    <Build Include="dbo\Stored Procedures\spGetProductsByShopID.sql" />
+    <Build Include="dbo\Stored Procedures\spGetBillsByShopId.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="RMData.refactorlog" />
