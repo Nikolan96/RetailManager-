@@ -43,7 +43,7 @@
         </Grid.ColumnDefinitions>
 
         <Rectangle Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="7" Fill="Gray"></Rectangle>
-        <Rectangle Grid.Row="1" Grid.Column="4" Grid.RowSpan="12"  Fill="Gray"></Rectangle>
+        <Rectangle Grid.Row="1" Grid.Column="4" Grid.RowSpan="12"  Fill="Gray" Visibility="{Binding IsManager}"></Rectangle>
 
         <!--<Rectangle Grid.Row="1" Grid.ColumnSpan="5" Fill="Gray"></Rectangle>
         <Rectangle Grid.Row="1" Grid.Column="3" Grid.RowSpan="2" Fill="Gray"
@@ -59,14 +59,14 @@
                    FontSize="46" />
 
         <Viewbox Grid.Row="0" Grid.Column="2" Stretch="Fill">
-            <Button x:Name="Edit" 
+            <Button x:Name="Edit" Visibility="{Binding IsManager}"
                 Margin="30 5 30 5"
         Content="Edit" FontSize="20" Background="Green">
             </Button>
         </Viewbox>
 
         <Viewbox Grid.Row="0" Grid.Column="3" Stretch="Fill">
-            <Button x:Name="Delete" 
+            <Button x:Name="Delete" Visibility="{Binding IsManager}"
                 Margin="30 5 30 5"
         Content="Delete" FontSize="20" Background="Red">
             </Button>
@@ -74,32 +74,32 @@
 
         <TextBlock Text="Insert Product" Grid.Row="0" Grid.Column="5" Grid.ColumnSpan="2"
                    HorizontalAlignment="Center" VerticalAlignment="Center"
-                   FontSize="46" />
+                   FontSize="46" Visibility="{Binding IsManager}"/>
 
             <TextBlock Text="Product Name" Grid.Row="2" Grid.Column="5"
                    HorizontalAlignment="Center" VerticalAlignment="Center"
-                   FontSize="32" />
-            <TextBox  
+                   FontSize="32" Visibility="{Binding IsManager}"/>
+            <TextBox  Visibility="{Binding IsManager}"
                 x:Name="ProductNameTb" VerticalAlignment="Center"
                 Margin="10 0 10 0" TextAlignment="Center"
                 FontSize="27" Grid.Row="3" Grid.Column="5">
             </TextBox>
 
-            <TextBlock Text="Category" 
+        <TextBlock Text="Category" Visibility="{Binding IsManager}"
                        Grid.Row="4" Grid.Column="5"
                    HorizontalAlignment="Center" VerticalAlignment="Center"
                    FontSize="32" />
             <TextBox  Grid.Row="5" Grid.Column="5"
-                     x:Name="CategoryTb" 
+                     x:Name="CategoryTb" Visibility="{Binding IsManager}"
                 Margin="10 0 10 0" VerticalAlignment="Center" TextAlignment="Center" FontSize="27">
             </TextBox>
 
 
             <TextBlock Text="Description" Grid.Row="6" Grid.Column="5"
                    HorizontalAlignment="Center" VerticalAlignment="Center"
-                   FontSize="32" />
+                   FontSize="32" Visibility="{Binding IsManager}"/>
         <Viewbox Grid.Row="7" Grid.Column="5" Grid.RowSpan="4" Stretch="Fill">
-            <TextBox             
+            <TextBox    Visibility="{Binding IsManager}"         
              x:Name="DescriptionTb" Margin="10"
              Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"          
              FontSize="7"
@@ -113,7 +113,7 @@
         </Viewbox>
 
         <Viewbox Grid.Row="11" Grid.Column="5" Grid.RowSpan="2"  Stretch="Fill">
-            <Button x:Name="AddProduct" 
+            <Button x:Name="AddProduct" Visibility="{Binding IsManager}"  
                 Margin="30 10 30 10"
         Content="Add" FontSize="20" Background="Blue">
             </Button>
@@ -121,8 +121,8 @@
 
         <TextBlock Text="Purchase Price" Grid.Row="2" Grid.Column="6"
                    HorizontalAlignment="Center" VerticalAlignment="Center"
-                   FontSize="32"/>
-        <TextBox 
+                   FontSize="32" Visibility="{Binding IsManager}"/>
+        <TextBox Visibility="{Binding IsManager}"
                   PreviewTextInput="PreviewTextInput" Grid.Row="3" Grid.Column="7"
                   TextAlignment="Center"
                   x:Name="PurchasePriceTb" Margin="10 0 10 0" VerticalAlignment="Center"
@@ -131,8 +131,8 @@
 
         <TextBlock Text="Retail Price" Grid.Row="4" Grid.Column="6"
                    HorizontalAlignment="Center" VerticalAlignment="Center"
-                   FontSize="32"/>
-            <TextBox  
+                   FontSize="32" Visibility="{Binding IsManager}"/>
+        <TextBox  Visibility="{Binding IsManager}"
                 Grid.Row="5" Grid.Column="6"
                 TextAlignment="Center"
                    PreviewTextInput="PreviewTextInput" x:Name="RetailPriceTb" 
@@ -141,8 +141,8 @@
 
             <TextBlock Text="Tax" Grid.Row="6" Grid.Column="56"
                    HorizontalAlignment="Center" VerticalAlignment="Center"
-                   FontSize="32"/>
-            <TextBox  
+                   FontSize="32" Visibility="{Binding IsManager}"/>
+        <TextBox  Visibility="{Binding IsManager}"
                 TextAlignment="Center"
                 Grid.Row="7" Grid.Column="6"
                 PreviewTextInput="PreviewTextInput" x:Name="TaxTb"
@@ -152,9 +152,9 @@
             <TextBlock Text="Quantity" 
                        Grid.Row="8" Grid.Column="6"
                    HorizontalAlignment="Center" VerticalAlignment="Center"
-                   FontSize="32"/>
+                   FontSize="32" Visibility="{Binding IsManager}"/>
             <TextBox  
-                TextAlignment="Center"
+                TextAlignment="Center" Visibility="{Binding IsManager}"
                 Grid.Row="9" Grid.Column="6"
                   PreviewTextInput="PreviewTextInput" x:Name="QuantityTb" 
                 Margin="10 0 10 0" VerticalAlignment="Center" FontSize="27">
@@ -169,7 +169,7 @@
 
         <DataGrid 
             IsReadOnly="True"
-            Grid.Row="2" Grid.RowSpan="11" Grid.Column="0" Grid.ColumnSpan="4"
+            Grid.Row="2" Grid.RowSpan="11" Grid.Column="0" Grid.ColumnSpan="{Binding ColSpan}"
             Margin="5 8 0 0"
             ItemsSource="{Binding Products}" 
             SelectedItem="{Binding SelectedProduct}"

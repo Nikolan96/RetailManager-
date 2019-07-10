@@ -21,12 +21,14 @@ namespace RMDesktopUI.ViewModels
         private IAPIHelper _apiHelper;
         private IEventAggregator _events;
         private readonly IProductEndpoint _productEndpoint;
+        private readonly ILoggedInUserModel _loggedInUser;
 
-        public ProductsViewModel(IAPIHelper apiHelper, IEventAggregator events, IProductEndpoint productEndpoint)
+        public ProductsViewModel(IAPIHelper apiHelper, IEventAggregator events, IProductEndpoint productEndpoint, ILoggedInUserModel loggedInUser)
         {
             _apiHelper = apiHelper;
             _events = events;
             _productEndpoint = productEndpoint;
+            _loggedInUser = loggedInUser;
         }
      
         private string _productNameTb;
@@ -134,6 +136,29 @@ namespace RMDesktopUI.ViewModels
             }
         }
 
+        private string _isManager;
+
+        public string IsManager
+        {
+            get { return _isManager; }
+            set
+            {
+                _isManager = value;
+                NotifyOfPropertyChange(() => IsManager);
+            }
+        }
+
+        private int _colSpan;
+
+        public int ColSpan
+        {
+            get { return _colSpan; }
+            set
+            {
+                _colSpan = value;
+                NotifyOfPropertyChange(() => ColSpan);
+            }
+        }
 
 
         private BindingList<ProductModel> _products;
@@ -248,6 +273,20 @@ namespace RMDesktopUI.ViewModels
         {
             base.OnViewLoaded(view);
             await LoadProducts();
+
+            if (_loggedInUser.Role == "Manager")
+            {
+                IsManager = "Visible";
+                ColSpan = 4;
+            }
+            else
+            {
+                IsManager = "Hidden";
+                ColSpan = 6;
+            }
+
+            NotifyOfPropertyChange(() => ColSpan);
+            NotifyOfPropertyChange(() => IsManager);
         }
 
         public void Test()

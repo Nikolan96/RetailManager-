@@ -17,13 +17,15 @@ namespace RMDesktopUI.ViewModels
         private readonly IEventAggregator _events;
         private readonly IBillEndpoint _billEndpoint;
         private readonly IBillItemEndpoint _billItemEndpoint;
+        private readonly ILoggedInUserModel _loggedInUser;
 
-        public BillsViewModel(IAPIHelper apiHelper, IEventAggregator eventAggregator, IBillEndpoint billEndpoint, IBillItemEndpoint billItemEndpoint)
+        public BillsViewModel(IAPIHelper apiHelper, IEventAggregator eventAggregator, IBillEndpoint billEndpoint, IBillItemEndpoint billItemEndpoint, ILoggedInUserModel loggedInUser)
         {
             _apiHelper = apiHelper;
             _events = eventAggregator;
             _billEndpoint = billEndpoint;
             _billItemEndpoint = billItemEndpoint;
+            _loggedInUser = loggedInUser;
         }
 
         private BindingList<BillModel> _bills = new BindingList<BillModel>();
@@ -94,6 +96,18 @@ namespace RMDesktopUI.ViewModels
             }
         }
 
+        private string _isManager;
+
+        public string IsManager
+        {
+            get { return _isManager; }
+            set
+            {
+                _isManager = value;
+                NotifyOfPropertyChange(() => IsManager);
+            }
+        }
+
         public void BackToCashRegister()
         {
             _events.PublishOnUIThread(new CashRegisterEvent());
@@ -119,6 +133,17 @@ namespace RMDesktopUI.ViewModels
         {
             base.OnViewLoaded(view);
             await LoadBills();
+
+            if (_loggedInUser.Role == "Manager")
+            {
+                IsManager = "Visible";
+            }
+            else
+            {
+                IsManager = "Hidden";
+            }
+
+            NotifyOfPropertyChange(() => IsManager);
         }
     }
 }

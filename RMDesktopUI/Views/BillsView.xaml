@@ -112,7 +112,7 @@
                 <DataGridTextColumn
       Binding="{Binding Cashier}"
       Header="Cashier"
-      MinWidth="2000"
+      MinWidth="200"
       Width="200"
       MaxWidth="250"
       ScrollViewer.HorizontalScrollBarVisibility="Auto"
@@ -130,7 +130,7 @@
 
         <Viewbox Grid.Row="3" Grid.Column="3" Stretch="Fill">
             <Button x:Name="Delete" Content="Delete" Background="red"
-                    FontSize="20" Margin="10"
+                    FontSize="20" Margin="10" Visibility="{Binding IsManager}"
                     />
         </Viewbox>
 

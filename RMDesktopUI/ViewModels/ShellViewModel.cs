@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Caliburn.Micro;
 using RMDesktopUI.EventModels;
 using RMDesktopUI.Helpers;
+using RMDesktopUI.Library.Models;
 
 namespace RMDesktopUI.ViewModels
 {
@@ -28,13 +29,14 @@ namespace RMDesktopUI.ViewModels
         private readonly ShopListViewModel _shopListViewModel;
         private readonly ShopEditViewModel _shopEditViewModel;
         private readonly UserEditViewModel _userEditViewModel;
+        private ILoggedInUserModel _loggedInUserModel;
         private readonly CashRegisterViewModel _cashRegisterVM;
 
         // Uses constructor injection to pass in a new instance of LoginVM and activate it.
         public ShellViewModel(IEventAggregator events, IAutoMapper autoMapper, SalesViewModel salesVM, CashRegisterViewModel cashRegisterVM, SimpleContainer container,
             ProductsViewModel ProductsVM, EditProductViewModel editProductViewModel, BillsViewModel billsViewModel, BillItemsViewModel billItemsViewModel,
             ManagerMenuViewModel managerMenuViewModel, CEOMenuViewModel ceoMenuViewModel, ChartMenuViewModel chartMenuViewModel, UserListViewModel userListViewModel,
-            ShopListViewModel shopListViewModel, ShopEditViewModel shopEditViewModel, UserEditViewModel userEditViewModel)
+            ShopListViewModel shopListViewModel, ShopEditViewModel shopEditViewModel, UserEditViewModel userEditViewModel, ILoggedInUserModel loggedInUserModel)
         {
             _events = events;
             _autoMapper = autoMapper;
@@ -52,6 +54,7 @@ namespace RMDesktopUI.ViewModels
             _shopListViewModel = shopListViewModel;
             _shopEditViewModel = shopEditViewModel;
             _userEditViewModel = userEditViewModel;
+            _loggedInUserModel = loggedInUserModel;
             _autoMapper.Initialize();
 
             // Subscribes instance of shellview to events
@@ -62,6 +65,7 @@ namespace RMDesktopUI.ViewModels
 
         public void LogOut()
         {
+            _loggedInUserModel = null;
             _events.PublishOnUIThread(new LogoutEvent());
         }
 
@@ -124,6 +128,7 @@ namespace RMDesktopUI.ViewModels
 
         public void Handle(LogoutEvent message)
         {
+
             ActivateItem(_container.GetInstance<LoginViewModel>());
         }
 
