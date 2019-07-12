@@ -35,6 +35,23 @@ namespace RMDesktopUI.Library.Api
             }
         }
 
+        public async Task<ShopModel> GetShopByAddress(string Address)
+        {
+            using (HttpResponseMessage response = await _apiHelper.ApiClient.GetAsync($"/api/Shop/GetShopByAddress/{Address}"))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    var result = await response.Content.ReadAsAsync<ShopModel>();
+
+                    return result;
+                }
+                else
+                {
+                    throw new Exception(response.ReasonPhrase);
+                }
+            }
+        }
+
         public async Task<List<ShopModel>> GetShops()
         {
             using (HttpResponseMessage response = await _apiHelper.ApiClient.GetAsync("/api/Shop"))

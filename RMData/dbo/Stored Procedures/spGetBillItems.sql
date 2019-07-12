@@ -3,6 +3,6 @@
 AS
 begin
 	set nocount on;
-	SELECT Id, ProductName, Category, [Description], Quantity, RetailPrice FROM BillItem
+	SELECT Id, ProductName, Category, [Description], Quantity, RetailPrice, ProductID FROM BillItem
 	WHERE BillId = @BillId;
 end

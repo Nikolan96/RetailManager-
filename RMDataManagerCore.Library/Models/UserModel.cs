@@ -24,5 +24,7 @@ namespace RMDataManagerCore.Library.Models
 
         public DateTime CreatedDate { get; set; }
 
+        public bool IsActive { get; set; }
+
     }
 }

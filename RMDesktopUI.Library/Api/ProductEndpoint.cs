@@ -110,5 +110,23 @@ namespace RMDesktopUI.Library.Api
 
             return response;
         }
+
+        public async Task<HttpResponseMessage> UpdateProductQuantitySold(UpdateProductQuantityModel updateModel)
+        {
+            var stringContent = new StringContent(JsonConvert.SerializeObject(updateModel), Encoding.UTF8, "application/json");
+
+            HttpResponseMessage response = await _apiHelper.ApiClient.PutAsync("/api/Product/Sold", stringContent);
+
+            return response;
+        }
+
+        public async Task<HttpResponseMessage> UpdateProductQuantityCanceled(UpdateProductQuantityModel updateModel)
+        {
+            var stringContent = new StringContent(JsonConvert.SerializeObject(updateModel), Encoding.UTF8, "application/json");
+
+            HttpResponseMessage response = await _apiHelper.ApiClient.PutAsync("/api/Product/Canceled", stringContent);
+
+            return response;
+        }
     }
 }

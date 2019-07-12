@@ -4,10 +4,11 @@
 	@Quantity int,
 	@RetailPrice money,
 	@Category NVARCHAR(50),
-	@Description NVARCHAR(MAX)
+	@Description NVARCHAR(MAX),
+	@ProductID int
 AS
 begin
     set nocount on;
-	INSERT INTO BillItem(BillId,ProductName,Quantity,RetailPrice,Category,[Description])
-	VALUES(@BillId, @ProductName,@Quantity,@RetailPrice,@Category,@Description)
+	INSERT INTO BillItem(BillId,ProductName,Quantity,RetailPrice,Category,[Description], ProductID)
+	VALUES(@BillId, @ProductName,@Quantity,@RetailPrice,@Category,@Description, @ProductID)
 end

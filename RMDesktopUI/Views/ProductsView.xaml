@@ -183,7 +183,7 @@
             >
             <DataGrid.Columns>
                 <DataGridTextColumn                 
-      Binding="{Binding Id}"
+      Binding="{Binding ID}"
       Header="Product Id"
       MinWidth="90"
       MaxWidth="90">

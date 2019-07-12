@@ -13,6 +13,8 @@ namespace RMDesktopUI.Library.Api
         Task<HttpResponseMessage> InsertProduct(InsertProductModel productModel);
         Task<HttpResponseMessage> DeleteProduct(int id);
         Task<HttpResponseMessage> UpdateProduct(UpdateProductModel productModel);
+        Task<HttpResponseMessage> UpdateProductQuantitySold(UpdateProductQuantityModel updateModel);
+        Task<HttpResponseMessage> UpdateProductQuantityCanceled(UpdateProductQuantityModel updateModel);
         Task<List<ProductModel>> GetProductsByShopID(int ShopID);
     }
 }

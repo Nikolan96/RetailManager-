@@ -24,6 +24,15 @@ namespace RMDataManagerCore.Library.DataAccess
             return output;
         }
 
+        public ShopModel GetShopByAddress(string Address)
+        {
+            var p = new { Address = Address };
+
+            var output = _sqlDataAccess.LoadOne<ShopModel, dynamic>("dbo.spGetShopByAddress", p);
+
+            return output;
+        }
+
         public List<ShopModel> GetShops()
         {
             var output = _sqlDataAccess.LoadData<ShopModel, dynamic>("dbo.spGetShops", new { });

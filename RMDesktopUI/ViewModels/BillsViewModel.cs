@@ -18,14 +18,17 @@ namespace RMDesktopUI.ViewModels
         private readonly IBillEndpoint _billEndpoint;
         private readonly IBillItemEndpoint _billItemEndpoint;
         private readonly ILoggedInUserModel _loggedInUser;
+        private readonly IProductEndpoint _productEndpoint;
 
-        public BillsViewModel(IAPIHelper apiHelper, IEventAggregator eventAggregator, IBillEndpoint billEndpoint, IBillItemEndpoint billItemEndpoint, ILoggedInUserModel loggedInUser)
+        public BillsViewModel(IAPIHelper apiHelper, IEventAggregator eventAggregator, IBillEndpoint billEndpoint, IBillItemEndpoint billItemEndpoint, ILoggedInUserModel loggedInUser
+            , IProductEndpoint productEndpoint)
         {
             _apiHelper = apiHelper;
             _events = eventAggregator;
             _billEndpoint = billEndpoint;
             _billItemEndpoint = billItemEndpoint;
             _loggedInUser = loggedInUser;
+            _productEndpoint = productEndpoint;
         }
 
         private BindingList<BillModel> _bills = new BindingList<BillModel>();
@@ -71,6 +74,19 @@ namespace RMDesktopUI.ViewModels
 
         public async Task Delete()
         {
+            List<BillItemModel> billItems = await _billItemEndpoint.GetBillItems(SelectedBill.Id);
+
+            foreach (var item in billItems)
+            {
+                UpdateProductQuantityModel quantityModel = new UpdateProductQuantityModel()
+                {
+                    ID = item.ProductID,
+                    QuantitySold = item.Quantity
+                };
+
+                await _productEndpoint.UpdateProductQuantityCanceled(quantityModel);
+            }
+
             await _billItemEndpoint.Delete(SelectedBill.Id);
 
             await _billEndpoint.Delete(SelectedBill.Id);

@@ -61,5 +61,17 @@ namespace RMDataManagerCore.Controllers
         {
             _productData.UpdateProduct(productModel);
         }
+
+        [HttpPut("Sold")]
+        public void UpdateQuantitySold(UpdateProductQuantityModel updateModel)
+        {
+            _productData.UpdateProductQuantitySold(updateModel);
+        }
+
+        [HttpPut("Canceled")]
+        public void UpdateQuantityCanceled(UpdateProductQuantityModel updateModel)
+        {
+            _productData.UpdateProductQuantityCanceled(updateModel);
+        }
     }
 }

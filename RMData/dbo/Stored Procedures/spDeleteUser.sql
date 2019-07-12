@@ -2,5 +2,7 @@
 	@ID int
 AS
 begin
-	Delete from [User] where ID = @ID;
+	update [User] 
+	set IsActive = 0
+	where ID = @ID
 end

@@ -7,5 +7,6 @@
 	[Password] NVARCHAR(256) not null,
 	[Role] NVARCHAR(50) not null,
 	[ShopID] int FOREIGN KEY REFERENCES Shop(ID) ,
-    [CreatedDate] DATETIME2 NOT NULL DEFAULT getutcdate()
+    [CreatedDate] DATETIME2 NOT NULL DEFAULT getutcdate(),
+	[IsActive] bit
 )

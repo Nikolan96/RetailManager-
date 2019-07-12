@@ -33,6 +33,12 @@ namespace RMDataManagerCore.Controllers
             return _shopData.GetShops();
         }
 
+        [HttpGet("GetShopByAddress/{Address}")]
+        public ShopModel GetShopByAddress(string Address)
+        {
+            return _shopData.GetShopByAddress(Address);
+        }
+
         [HttpGet("GetShopIds")]
         public List<int> GetShopIds()
         {

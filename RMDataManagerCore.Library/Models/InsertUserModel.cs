@@ -17,5 +17,6 @@ namespace RMDataManagerCore.Library.Models
         public string Role { get; set; }
 
         public int? ShopId { get; set; }
+ 
     }
 }

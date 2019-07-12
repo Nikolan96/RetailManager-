@@ -23,5 +23,7 @@ namespace RMDesktopUI.Library.Models
         public int ShopId { get; set; }
 
         public DateTime CreatedDate { get; set; }
+
+        public bool IsActive { get; set; }
     }
 }

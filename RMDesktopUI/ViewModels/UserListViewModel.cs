@@ -227,7 +227,7 @@ namespace RMDesktopUI.ViewModels
 
                 if (!string.IsNullOrWhiteSpace(FirstNameTb)  && !string.IsNullOrWhiteSpace(LastNameTb) &&
                     !string.IsNullOrWhiteSpace(PasswordTb) && !string.IsNullOrWhiteSpace(EmailTb) && 
-                    Role != null)
+                    Role != null && ShopId > 0)
                 {
                     output = true;
                 }

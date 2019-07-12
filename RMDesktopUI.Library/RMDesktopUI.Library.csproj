@@ -74,6 +74,7 @@
     <Compile Include="Models\ProductModel.cs" />
     <Compile Include="Models\ShopModel.cs" />
     <Compile Include="Models\UpdateProductModel.cs" />
+    <Compile Include="Models\UpdateProductQuantityModel.cs" />
     <Compile Include="Models\UpdateShopModel.cs" />
     <Compile Include="Models\UpdateShopNumOfEmployeesModel.cs" />
     <Compile Include="Models\UpdateUserModel.cs" />

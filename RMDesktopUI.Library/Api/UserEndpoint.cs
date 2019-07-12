@@ -89,7 +89,9 @@ namespace RMDesktopUI.Library.Api
 
         public async Task<HttpResponseMessage> DeleteUser(int ID)
         {
-            HttpResponseMessage response = await _apiHelper.ApiClient.DeleteAsync("/api/Users/" + ID);
+            var stringContent = new StringContent(JsonConvert.SerializeObject(ID), Encoding.UTF8, "application/json");
+
+            HttpResponseMessage response = await _apiHelper.ApiClient.PutAsync($"/api/Users/Delete/{ID}", stringContent);
 
             return response;
         }

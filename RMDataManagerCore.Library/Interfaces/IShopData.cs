@@ -9,6 +9,8 @@ namespace RMDataManagerCore.Library.Interfaces
     {
         ShopModel GetShopById(int ID);
 
+        ShopModel GetShopByAddress(string Address);
+
         List<ShopModel> GetShops();
 
         List<int> GetShopIds();

@@ -51,7 +51,7 @@ namespace RMDataManagerCore.Controllers
             _userData.UpdateUser(userModel);
         }
 
-        [HttpDelete("{ID}")]
+        [HttpPut("Delete/{ID}")]
         public void Delete(int ID)
         {
             _userData.DeleteUser(ID);

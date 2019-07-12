@@ -11,6 +11,7 @@ namespace RMDesktopUI.Library.Api
     public interface IShopEndpoint
     {
         Task<ShopModel> GetShopById(int ID);
+        Task<ShopModel> GetShopByAddress(string Address);
         Task<List<ShopModel>> GetShops();
         Task<List<int>> GetShopIds();
         Task<HttpResponseMessage> UpdateShop(UpdateShopModel updateShopModel);

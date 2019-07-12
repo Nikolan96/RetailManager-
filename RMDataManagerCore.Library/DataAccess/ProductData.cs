@@ -67,5 +67,15 @@ namespace RMDataManagerCore.Library.DataAccess
 
             return output;
         }
+
+        public void UpdateProductQuantitySold(UpdateProductQuantityModel updateModel)
+        {
+            _sqlDataAccess.SaveData<UpdateProductQuantityModel, dynamic>("dbo.spUpdateProductQuantitySold", updateModel);
+        }
+
+        public void UpdateProductQuantityCanceled(UpdateProductQuantityModel updateModel)
+        {
+            _sqlDataAccess.SaveData<UpdateProductQuantityModel, dynamic>("dbo.spUpdateProductQuantityCanceled", updateModel);
+        }
     }
 }

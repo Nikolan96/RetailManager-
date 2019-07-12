@@ -4,5 +4,6 @@ AS
 begin
 	set nocount on;
 	select ID,FirstName, LastName, EmailAddress, [Password], [Role], ShopID, CreatedDate
-	from [dbo].[User];
+	from [dbo].[User]
+	where [dbo].[User].IsActive = 1;
 end

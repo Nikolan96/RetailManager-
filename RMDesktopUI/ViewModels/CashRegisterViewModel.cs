@@ -368,10 +368,20 @@ namespace RMDesktopUI.ViewModels
                     Description = item.Description,
                     RetailPrice = item.RetailPrice,
                     Quantity = item.QuantityInStock,
-                    BillId = bill.Id
+                    BillId = bill.Id,
+                    ProductID = item.Id
+                    
                 };
 
-                await _billItemEndpoint.InsertBillItem(billItem);            
+                await _billItemEndpoint.InsertBillItem(billItem);
+
+                UpdateProductQuantityModel quantityModel = new UpdateProductQuantityModel()
+                {
+                    ID = item.Id,
+                    QuantitySold = item.QuantityInStock
+                };
+
+                await _productEndpoint.UpdateProductQuantitySold(quantityModel);
             }
 
             string items = "";
