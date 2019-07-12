@@ -12,8 +12,9 @@ using RMDesktopUI.Library.Models;
 namespace RMDesktopUI.ViewModels
 {
     // Conductor holds on to and activates only one item at a time.
-    public class ShellViewModel : Conductor<object>, IHandle<CashierLogOnEvent>, IHandle<CashRegisterEvent>, IHandle<ProductsViewEvent>, IHandle<EditProductViewEvent>, IHandle<BillsViewEvent>, IHandle<BillItemsViewEvent>,
-        IHandle<ManagerLogOnEvent>, IHandle<CEOLogOnEvent>, IHandle<ChartMenuViewEvent>, IHandle<ShopListViewEvent>, IHandle<UserListViewEvent>, IHandle<LogoutEvent>, IHandle<EditShopViewEvent>, IHandle<EditUserViewEvent>
+    public class ShellViewModel : Conductor<object>, IHandle<CashierLogOnEvent>, IHandle<CashRegisterEvent>, IHandle<ProductsViewEvent>, IHandle<EditProductViewEvent>, IHandle<BillsViewEvent>,
+        IHandle<BillItemsViewEvent>,IHandle<ManagerLogOnEvent>, IHandle<CEOLogOnEvent>, IHandle<ChartMenuViewEvent>, IHandle<ShopListViewEvent>, IHandle<UserListViewEvent>, IHandle<LogoutEvent>, 
+        IHandle<EditShopViewEvent>, IHandle<EditUserViewEvent>, IHandle<ScannerViewEvent>
     {
         private readonly IEventAggregator _events;
         private readonly IAutoMapper _autoMapper;
@@ -34,6 +35,7 @@ namespace RMDesktopUI.ViewModels
         private readonly IUserEndpoint _userEndpoint;
         private readonly IPasswordEncryptor _passwordEncryptor;
         private readonly IShopEndpoint _shopEndpoint;
+        private readonly ScannerViewModel _scannerViewModel;
         private readonly CashRegisterViewModel _cashRegisterVM;
 
         // Uses constructor injection to pass in a new instance of LoginVM and activate it.
@@ -41,7 +43,7 @@ namespace RMDesktopUI.ViewModels
             ProductsViewModel ProductsVM, EditProductViewModel editProductViewModel, BillsViewModel billsViewModel, BillItemsViewModel billItemsViewModel,
             ManagerMenuViewModel managerMenuViewModel, CEOMenuViewModel ceoMenuViewModel, ChartMenuViewModel chartMenuViewModel, UserListViewModel userListViewModel,
             ShopListViewModel shopListViewModel, ShopEditViewModel shopEditViewModel, UserEditViewModel userEditViewModel, ILoggedInUserModel loggedInUserModel, IUserEndpoint userEndpoint
-            , IPasswordEncryptor passwordEncryptor, IShopEndpoint shopEndpoint)
+            , IPasswordEncryptor passwordEncryptor, IShopEndpoint shopEndpoint, ScannerViewModel scannerViewModel)
         {
             _events = events;
             _autoMapper = autoMapper;
@@ -63,6 +65,7 @@ namespace RMDesktopUI.ViewModels
             _userEndpoint = userEndpoint;
             _passwordEncryptor = passwordEncryptor;
             _shopEndpoint = shopEndpoint;
+            _scannerViewModel = scannerViewModel;
             _autoMapper.Initialize();
 
             // Subscribes instance of shellview to events
@@ -251,6 +254,11 @@ namespace RMDesktopUI.ViewModels
             }
 
             
+        }
+
+        public void Handle(ScannerViewEvent message)
+        {
+            ActivateItem(_container.GetInstance<ScannerViewModel>());
         }
     }
 }

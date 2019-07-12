@@ -198,6 +198,56 @@ namespace RMDesktopUI.ViewModels
             }
         }
 
+        private bool _searchBy = true;
+
+        public bool SearchBy
+        {
+            get { return _searchBy; }
+            set
+            {
+                if (value == true)
+                {
+                    SearchByName = "Visible";
+                    SearchByID = "Hidden";
+                }
+                else
+                {
+                    SearchByName = "Hidden";
+                    SearchByID = "Visible";
+                }
+
+                _searchBy = value;
+                NotifyOfPropertyChange(() => SearchBy);
+                NotifyOfPropertyChange(() => SearchByName);
+                NotifyOfPropertyChange(() => SearchByID);
+            }
+        }
+
+
+        private string _searchByName = "Visible";
+
+        public string SearchByName
+        {
+            get { return _searchByName; }
+            set
+            {
+                _searchByName = value;
+                NotifyOfPropertyChange(() => SearchByName);
+            }
+        }
+
+        private string _searchByID = "Hidden";
+
+        public string SearchByID
+        {
+            get { return _searchByID; }
+            set
+            {
+                _searchByID = value;
+                NotifyOfPropertyChange(() => SearchByID);
+            }
+        }
+      
         public bool CanAdd
         {
             get
@@ -271,6 +321,11 @@ namespace RMDesktopUI.ViewModels
 
                 return output;
             }
+        }
+
+        public void GoToScanner()
+        {
+            _events.PublishOnUIThread(new ScannerViewEvent());
         }
 
         public void DeleteBillItem()

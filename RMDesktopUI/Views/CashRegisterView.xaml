@@ -174,7 +174,28 @@
 
         </DataGrid>
 
-        <Viewbox Stretch="Uniform" Margin="5 15 5 15" Grid.Row="3" Grid.Column="15">
+        <Viewbox  Stretch="Uniform" Margin="20 20 20 20" Grid.Row="2" Grid.Column="15">
+            <StackPanel Orientation="Horizontal">
+
+                <TextBlock Text="ID" FontSize="13" 
+                   HorizontalAlignment="Center" VerticalAlignment="Center"
+                   />
+
+                <ToggleButton Margin="5 0 10 0"
+                 Style="{StaticResource MaterialDesignSwitchLightToggleButton}"                
+                 IsChecked="{Binding SearchBy}" 
+                 Name="SearchBy"/>
+
+                <TextBlock Text="Name"  FontSize="13" 
+                   HorizontalAlignment="Center" VerticalAlignment="Center"
+                   />
+            </StackPanel>
+        </Viewbox>
+
+        
+        <!--Search By Name-->
+        <Viewbox Stretch="Uniform" Margin="5 15 5 15" Grid.Row="3" Grid.Column="15"
+                 Visibility="{Binding SearchByName}">
             <TextBlock Text="Product Name" 
                    HorizontalAlignment="Center" VerticalAlignment="Center"
                    />
@@ -183,8 +204,8 @@
         <Viewbox  Stretch="Uniform" Margin="10" Grid.Row="4" Grid.Column="15">
             <ComboBox
                 MinWidth="120"
-             IsEditable="True"
-             IsEnabled="{Binding IsChecked, ElementName=RB2}"
+             IsEditable="True"    
+             Visibility="{Binding SearchByName}"
              ItemsSource="{Binding ProductNames}"
              SelectedItem="{Binding SelectedProductName}">
                 <ComboBox.ItemsPanel>
@@ -193,6 +214,30 @@
                     </ItemsPanelTemplate>
                 </ComboBox.ItemsPanel>
             </ComboBox>
+        </Viewbox>
+        
+        <!--Search By ID-->
+
+         <Viewbox Stretch="Fill" Grid.Row="0" Grid.RowSpan="2" Grid.Column="11" 
+                  Grid.ColumnSpan="2" Margin="25"
+                 Visibility="{Binding SearchByID}">
+            <Button x:Name="GoToScanner" Content="Scanner" 
+                   />
+        </Viewbox>
+        
+        <Viewbox Stretch="Uniform" Margin="5 15 5 15" Grid.Row="3" Grid.Column="15"
+                 Visibility="{Binding SearchByID}">
+            <TextBlock Text="Product ID" 
+                   HorizontalAlignment="Center" VerticalAlignment="Center"
+                   />
+        </Viewbox>
+
+        <Viewbox Stretch="Uniform" Margin="10" Grid.Row="4" Grid.Column="15"
+                 Visibility="{Binding SearchByID}">
+            <TextBox x:Name="ID" 
+                     MinWidth="100"
+                     IsReadOnly="True"
+                       TextAlignment="Center"></TextBox>
         </Viewbox>
 
         <Viewbox Stretch="Uniform" Margin="5 15 5 15" Grid.Row="5" Grid.Column="15">
