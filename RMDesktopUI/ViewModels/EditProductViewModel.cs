@@ -104,18 +104,18 @@ namespace RMDesktopUI.ViewModels
             }
         }
 
-        private int _quantityTb;
+        //private int _quantityTb;
 
-        public int QuantityTb
-        {
-            get { return _quantityTb; }
-            set
-            {
-                _quantityTb = value;
-                NotifyOfPropertyChange(() => CanEdit);
-                NotifyOfPropertyChange(() => QuantityTb);
-            }
-        }
+        //public int QuantityTb
+        //{
+        //    get { return _quantityTb; }
+        //    set
+        //    {
+        //        _quantityTb = value;
+        //        NotifyOfPropertyChange(() => CanEdit);
+        //        NotifyOfPropertyChange(() => QuantityTb);
+        //    }
+        //}
 
         public bool CanEdit
         {
@@ -123,7 +123,7 @@ namespace RMDesktopUI.ViewModels
             {
                 bool output = false;
 
-                if (RetailPriceTb > 0 && PurchasePriceTb > 0 && TaxTb > 0 && TaxTb <= 100 && QuantityTb > 0 &&
+                if (RetailPriceTb > 0 && PurchasePriceTb > 0 && TaxTb > 0 && TaxTb <= 100 &&
                     !string.IsNullOrWhiteSpace(ProductNameTb) && !string.IsNullOrWhiteSpace(CategoryTb) && !string.IsNullOrWhiteSpace(DescriptionTb))
                 {
                     output = true;
@@ -141,7 +141,7 @@ namespace RMDesktopUI.ViewModels
             PurchasePriceTb = _productModel.PurchasePrice;
             RetailPriceTb = _productModel.RetailPrice;
             TaxTb = _productModel.Tax;
-            QuantityTb = _productModel.QuantityInStock;
+            //QuantityTb = _productModel.QuantityInStock;
         }
 
         protected override void OnViewLoaded(object view)
@@ -165,8 +165,7 @@ namespace RMDesktopUI.ViewModels
                 Description = DescriptionTb,
                 PurchasePrice = PurchasePriceTb,
                 RetailPrice = RetailPriceTb,
-                Tax = TaxTb,
-                QuantityInStock = QuantityTb              
+                Tax = TaxTb           
             };
             await _productEndpoint.UpdateProduct(updateProductModel);
             _events.PublishOnUIThread(new ProductsViewEvent());

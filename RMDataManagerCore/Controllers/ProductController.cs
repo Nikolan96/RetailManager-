@@ -32,6 +32,12 @@ namespace RMDataManagerCore.Controllers
             return _productData.GetAllProductNames(ShopID);
         }
 
+        [HttpGet("{ID}")]
+        public ProductModel GetProductByID(string ID)
+        {
+            return _productData.GetProductByID(ID);
+        }
+
         [HttpGet("GetProductsByShopID/{ShopID}")]
         public List<ProductModel> GetProductsByShopID(int ShopID)
         {
@@ -51,7 +57,7 @@ namespace RMDataManagerCore.Controllers
         }
 
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public void Delete(string id)
         {
             _productData.DeleteProduct(id);
         }

@@ -6,7 +6,7 @@ namespace RMDataManagerCore.Library.Interfaces
 {
     public interface IProductData
     {
-        void DeleteProduct(int id);
+        void DeleteProduct(string ID);
         List<string> GetAllProductNames(int ShopID);
         ProductModel GetByProductName(string productName);
         List<ProductModel> GetProducts();
@@ -15,5 +15,6 @@ namespace RMDataManagerCore.Library.Interfaces
         List<ProductModel> GetProductsByShopID(int ShopID);
         void UpdateProductQuantitySold(UpdateProductQuantityModel updateModel);
         void UpdateProductQuantityCanceled(UpdateProductQuantityModel updateModel);
+        ProductModel GetProductByID(string ID);
     }
 }

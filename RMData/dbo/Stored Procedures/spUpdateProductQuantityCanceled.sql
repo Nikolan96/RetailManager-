@@ -1,5 +1,5 @@
 ﻿CREATE PROCEDURE [dbo].[spUpdateProductQuantityCanceled]
-    @ID int,
+    @ID nvarchar(150),
 	@QuantitySold int
 AS
 begin

@@ -8,7 +8,7 @@ namespace RMDesktopUI.Library.Models
 {
     public class UpdateProductModel
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
 
         public string ProductName { get; set; }
 
@@ -22,6 +22,5 @@ namespace RMDesktopUI.Library.Models
 
         public decimal RetailPrice { get; set; }
 
-        public int QuantityInStock { get; set; }
     }
 }

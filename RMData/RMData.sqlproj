@@ -72,7 +72,7 @@
     <Build Include="dbo\Stored Procedures\spGetUserByEmail.sql" />
     <Build Include="dbo\Stored Procedures\spGetProducts.sql" />
     <Build Include="dbo\Stored Procedures\spInsertProduct.sql" />
-    <Build Include="dbo\Stored Procedures\spGetProductById.sql" />
+    <Build Include="dbo\Stored Procedures\spGetProductByID.sql" />
     <Build Include="dbo\Stored Procedures\spDeleteProduct.sql" />
     <Build Include="dbo\Stored Procedures\spUpdateProduct.sql" />
     <Build Include="dbo\Stored Procedures\spGetAllProductNames.sql" />

@@ -3,7 +3,7 @@
 	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
 	[BillId] nvarchar(128) NOT NULL FOREIGN KEY REFERENCES Bill(ID),
 	[ProductName] NVARCHAR(100) NOT NULL, 
-	[ProductID] int,
+	[ProductID] nvarchar(150),
 	[Category] NVARCHAR(50) NOT NULL,
 	[Description] NVARCHAR(MAX) NOT NULL,
 	[Quantity] int NOT NULL,

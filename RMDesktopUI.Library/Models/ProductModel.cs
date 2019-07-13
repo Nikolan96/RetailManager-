@@ -9,7 +9,7 @@ namespace RMDesktopUI.Library.Models
     public class ProductModel
     {
 
-        public int Id { get; set; }
+        public string Id { get; set; }
 
         public string ProductName { get; set; }
 

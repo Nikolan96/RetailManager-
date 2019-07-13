@@ -6,7 +6,9 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data.SqlTypes;
+using System.Diagnostics;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -179,15 +181,20 @@ namespace RMDesktopUI.ViewModels
             get { return _selectedProductName; }
             set
             {
-                _selectedProductName = value;
+                if (SearchBy == true)
+                {
+                    _selectedProductName = value;
+                }
+               
                 NotifyOfPropertyChange(() => SelectedProductName);
                 NotifyOfPropertyChange(() => CanAdd);
+                NotifyOfPropertyChange(() => SearchBy);
             }
         }
 
-        private int _selectedProductId;
+        private string _selectedProductId;
 
-        public int SelectedProductId
+        public string SelectedProductId
         {
             get { return _selectedProductId; }
             set
@@ -207,11 +214,14 @@ namespace RMDesktopUI.ViewModels
             {
                 if (value == true)
                 {
+                    ID = "";
                     SearchByName = "Visible";
                     SearchByID = "Hidden";
                 }
                 else
                 {
+
+                    SelectedProductName = null;
                     SearchByName = "Hidden";
                     SearchByID = "Visible";
                 }
@@ -247,16 +257,41 @@ namespace RMDesktopUI.ViewModels
                 NotifyOfPropertyChange(() => SearchByID);
             }
         }
-      
+
+        private string _iD;
+
+        public string ID
+        {
+            get { return _iD; }
+            set
+            {
+                _iD = value;
+                NotifyOfPropertyChange(() => ID);
+                NotifyOfPropertyChange(() => CanAdd);
+            }
+        }
+
+
         public bool CanAdd
         {
             get
             {
                 bool output = false;
 
-                if (SelectedProductName != null || SelectedProductId > 0)
+
+                if (SearchBy == true)
                 {
-                    output = true;
+                    if (SelectedProductName != null && Quantity > 0)
+                    {
+                        output = true;
+                    }
+                }
+                else
+                {
+                    if (!string.IsNullOrWhiteSpace(ID) && Quantity > 0)
+                    {
+                        output = true;
+                    }
                 }
 
                 return output;
@@ -265,9 +300,20 @@ namespace RMDesktopUI.ViewModels
 
         public async void Add()
         {
-            
-            ProductModel ProductModel = await _productEndpoint.GetByProductName(SelectedProductName);
-            ProductModel existing = Products.FirstOrDefault(x => x.ProductName == SelectedProductName);
+
+            ProductModel ProductModel = new ProductModel();
+            ProductModel existing;
+
+            if (SearchBy == true)
+            {
+                ProductModel = await _productEndpoint.GetByProductName(SelectedProductName);
+                existing = Products.FirstOrDefault(x => x.ProductName == SelectedProductName);
+            }
+            else
+            {
+                ProductModel = await _productEndpoint.GetProductByID(ID);
+                existing = Products.FirstOrDefault(x => x.Id == ID);
+            }
 
             if (existing != null)
             {
@@ -298,6 +344,7 @@ namespace RMDesktopUI.ViewModels
 
             Quantity = 1;
             SelectedProductName = null;
+            ID = null;
             NotifyOfPropertyChange(() => CanAdd);
             NotifyOfPropertyChange(() => CanDeleteBill);
             NotifyOfPropertyChange(() => Total);
@@ -321,11 +368,6 @@ namespace RMDesktopUI.ViewModels
 
                 return output;
             }
-        }
-
-        public void GoToScanner()
-        {
-            _events.PublishOnUIThread(new ScannerViewEvent());
         }
 
         public void DeleteBillItem()
@@ -465,6 +507,37 @@ namespace RMDesktopUI.ViewModels
         {
             base.OnViewLoaded(view);
             await LoadProductNames();
+            CreateFileWatcher(@"E:\Programiranje\RetailManager");
+        }
+
+        public void CreateFileWatcher(string path)
+        {
+            // Create a new FileSystemWatcher and set its properties.
+            FileSystemWatcher watcher = new FileSystemWatcher();
+            watcher.Path = path;
+            /* Watch for changes in LastAccess and LastWrite times, and 
+               the renaming of files or directories. */
+            watcher.NotifyFilter = NotifyFilters.LastWrite;
+            // Only watch text files.
+            watcher.Filter = "Prenos.txt";
+
+            // Add event handlers.
+            watcher.Changed += new FileSystemEventHandler(OnChanged);
+            //watcher.Created += new FileSystemEventHandler(OnChanged);
+            //watcher.Deleted += new FileSystemEventHandler(OnChanged);         
+            // Begin watching.
+            watcher.EnableRaisingEvents = true;
+        }
+
+        private void OnChanged(object source, FileSystemEventArgs e)
+        {
+            // Specify what is done when a file is changed, created, or deleted.    
+
+
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                ID = File.ReadAllText(@"E:\Programiranje\RetailManager\Prenos.txt");
+            });
         }
 
         public void GoToProductsView()
@@ -492,6 +565,11 @@ namespace RMDesktopUI.ViewModels
             {
                 _events.PublishOnUIThread(new ManagerLogOnEvent());
             }
+        }
+
+        public void GoToScanner()
+        {
+            Process.Start(@"E:\Programiranje\RetailManager\RetailManager-\BarCodeScanner\bin\Debug\BarCodeScanner.exe");
         }
     }
 }

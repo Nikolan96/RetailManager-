@@ -1,5 +1,5 @@
 ﻿CREATE PROCEDURE [dbo].[spUpdateProductQuantitySold]
-    @Id int,
+    @Id nvarchar(150),
 	@QuantitySold int
 AS
 begin

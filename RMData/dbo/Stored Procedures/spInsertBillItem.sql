@@ -5,7 +5,7 @@
 	@RetailPrice money,
 	@Category NVARCHAR(50),
 	@Description NVARCHAR(MAX),
-	@ProductID int
+	@ProductID nvarchar(150)
 AS
 begin
     set nocount on;

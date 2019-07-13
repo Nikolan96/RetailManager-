@@ -11,10 +11,11 @@ namespace RMDesktopUI.Library.Api
         Task<List<string>> GetAllProductNames(int ShopID);
         Task<ProductModel> GetByProductName(string productName);
         Task<HttpResponseMessage> InsertProduct(InsertProductModel productModel);
-        Task<HttpResponseMessage> DeleteProduct(int id);
+        Task<HttpResponseMessage> DeleteProduct(string id);
         Task<HttpResponseMessage> UpdateProduct(UpdateProductModel productModel);
         Task<HttpResponseMessage> UpdateProductQuantitySold(UpdateProductQuantityModel updateModel);
         Task<HttpResponseMessage> UpdateProductQuantityCanceled(UpdateProductQuantityModel updateModel);
         Task<List<ProductModel>> GetProductsByShopID(int ShopID);
+        Task<ProductModel> GetProductByID(string ID);
     }
 }

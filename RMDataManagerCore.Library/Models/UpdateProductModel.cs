@@ -8,7 +8,7 @@ namespace RMDataManagerCore.Library.Models
 {
     public class UpdateProductModel
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
 
         public string ProductName { get; set; }
 

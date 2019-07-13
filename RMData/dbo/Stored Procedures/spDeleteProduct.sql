@@ -1,5 +1,5 @@
 ﻿CREATE PROCEDURE [dbo].[spDeleteProduct]
-	@id int
+	@id nvarchar(150)
 AS
 begin
 	set nocount on;

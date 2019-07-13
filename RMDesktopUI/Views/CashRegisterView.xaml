@@ -224,7 +224,7 @@
             <Button x:Name="GoToScanner" Content="Scanner" 
                    />
         </Viewbox>
-        
+
         <Viewbox Stretch="Uniform" Margin="5 15 5 15" Grid.Row="3" Grid.Column="15"
                  Visibility="{Binding SearchByID}">
             <TextBlock Text="Product ID" 

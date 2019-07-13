@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[spProductLookup]
+﻿CREATE PROCEDURE [dbo].[spGetProductByID]
 	@ID nvarchar(128)
 AS
 begin

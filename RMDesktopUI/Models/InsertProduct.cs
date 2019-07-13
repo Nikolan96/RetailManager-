@@ -8,6 +8,8 @@ namespace RMDesktopUI.Models
 {
     class InsertProduct
     {
+        public string ID { get; set; }
+
         public string ProductName { get; set; }
 
         public string Category { get; set; }

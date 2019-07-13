@@ -8,7 +8,7 @@ namespace RMDesktopUI.Library.Models
 {
     public class UpdateProductQuantityModel
     {
-        public int ID { get; set; }
+        public string ID { get; set; }
 
         public int QuantitySold { get; set; }
     }

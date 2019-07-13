@@ -24,6 +24,15 @@ namespace RMDataManagerCore.Library.DataAccess
             return output;
         }
 
+        public ProductModel GetProductByID(string ID)
+        {
+            var p = new { ID = ID };
+
+            var output = _sqlDataAccess.LoadOne<ProductModel, dynamic>("dbo.spGetProductByID", p);
+
+            return output;
+        }
+
         public List<string> GetAllProductNames(int ShopID)
         {
             var p = new { ShopID = ShopID };
@@ -47,7 +56,7 @@ namespace RMDataManagerCore.Library.DataAccess
             _sqlDataAccess.SaveData<InsertProductModel, dynamic>("dbo.spInsertProduct", productModel);
         }
 
-        public void DeleteProduct(int id)
+        public void DeleteProduct(string id)
         {
             var p = new { id = id };
 

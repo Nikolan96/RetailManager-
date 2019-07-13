@@ -35,6 +35,23 @@ namespace RMDesktopUI.Library.Api
             }
         }
 
+        public async Task<ProductModel> GetProductByID(string ID)
+        {
+            using (HttpResponseMessage response = await _apiHelper.ApiClient.GetAsync($"/api/Product/{ID}"))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    var result = await response.Content.ReadAsAsync<ProductModel>();
+
+                    return result;
+                }
+                else
+                {
+                    throw new Exception(response.ReasonPhrase);
+                }
+            }
+        }
+
         public async Task<List<string>> GetAllProductNames(int ShopID)
         {
             using (HttpResponseMessage response = await _apiHelper.ApiClient.GetAsync("/api/Product/ProductNames/" + ShopID))
@@ -95,7 +112,7 @@ namespace RMDesktopUI.Library.Api
             return response;
         }
 
-        public async Task<HttpResponseMessage> DeleteProduct(int id)
+        public async Task<HttpResponseMessage> DeleteProduct(string id)
         {
             HttpResponseMessage response = await _apiHelper.ApiClient.DeleteAsync("/api/Product/"+id);
 
