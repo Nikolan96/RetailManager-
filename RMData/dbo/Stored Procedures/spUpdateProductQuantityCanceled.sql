@@ -6,5 +6,5 @@ begin
 	set nocount on;
 	Update Product 
 	Set QuantityInStock = QuantityInStock + @QuantitySold
-	where Id = @ID;
+	where ID = @ID;
 end

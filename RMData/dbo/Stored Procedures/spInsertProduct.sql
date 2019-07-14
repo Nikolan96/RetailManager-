@@ -13,6 +13,6 @@
 as
 begin
 	set nocount on;
-	INSERT INTO Product(Id,ProductName, [Description], PurchasePrice, RetailPrice, Tax, Margin, QuantityInStock, Category, ShopID)
+	INSERT INTO Product(ID,ProductName, [Description], PurchasePrice, RetailPrice, Tax, Margin, QuantityInStock, Category, ShopID)
 	values (@ID,@ProductName,@Description,@PurchasePrice,@RetailPrice,@Tax, @RetailPrice-@purchasePrice,@Quantity,@Category, @ShopID);
 end

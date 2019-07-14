@@ -14,7 +14,7 @@ namespace RMDesktopUI.ViewModels
     // Conductor holds on to and activates only one item at a time.
     public class ShellViewModel : Conductor<object>, IHandle<CashierLogOnEvent>, IHandle<CashRegisterEvent>, IHandle<ProductsViewEvent>, IHandle<EditProductViewEvent>, IHandle<BillsViewEvent>,
         IHandle<BillItemsViewEvent>,IHandle<ManagerLogOnEvent>, IHandle<CEOLogOnEvent>, IHandle<ChartMenuViewEvent>, IHandle<ShopListViewEvent>, IHandle<UserListViewEvent>, IHandle<LogoutEvent>, 
-        IHandle<EditShopViewEvent>, IHandle<EditUserViewEvent>, IHandle<ScannerViewEvent>
+        IHandle<EditShopViewEvent>, IHandle<EditUserViewEvent>, IHandle<ScannerViewEvent>, IHandle<CashRegisterEventWithScanResult>, IHandle<ProductsViewEventWithScanResult>
     {
         private readonly IEventAggregator _events;
         private readonly IAutoMapper _autoMapper;
@@ -91,8 +91,20 @@ namespace RMDesktopUI.ViewModels
             ActivateItem(_cashRegisterVM);
         }
 
+        public void Handle(CashRegisterEventWithScanResult message)
+        {
+            _cashRegisterVM.ID = message.Parameters?.ToString();
+            ActivateItem(_cashRegisterVM);
+        }
+
         public void Handle(ProductsViewEvent message)
         {
+            ActivateItem(_productsVM);
+        }
+
+        public void Handle(ProductsViewEventWithScanResult message)
+        {
+            _productsVM.ProductIDTb = message.Parameters?.ToString();
             ActivateItem(_productsVM);
         }
 
@@ -258,7 +270,8 @@ namespace RMDesktopUI.ViewModels
 
         public void Handle(ScannerViewEvent message)
         {
-            ActivateItem(_container.GetInstance<ScannerViewModel>());
-        }
+            _scannerViewModel.SetNavigateToAfterResultScan(message.NavigateTo);
+            ActivateItem(_scannerViewModel);
+        }  
     }
 }

@@ -68,8 +68,8 @@
 
                 <DataGridTextColumn
                    
-      Binding="{Binding Id}"
-      Header="Product Id"
+      Binding="{Binding ProductID}"
+      Header="Product ID"
       MinWidth="200"
       MaxWidth="200"    
       >

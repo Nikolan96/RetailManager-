@@ -30,9 +30,13 @@
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
@@ -42,8 +46,8 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Rectangle Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="7" Fill="Gray"></Rectangle>
-        <Rectangle Grid.Row="1" Grid.Column="4" Grid.RowSpan="12"  Fill="Gray" Visibility="{Binding IsManager}"></Rectangle>
+        <Rectangle Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="8" Fill="Gray"></Rectangle>
+        <Rectangle Grid.Row="2" Grid.Column="5" Grid.RowSpan="15"  Fill="Gray" Visibility="{Binding IsManager}"></Rectangle>
 
         <!--<Rectangle Grid.Row="1" Grid.ColumnSpan="5" Fill="Gray"></Rectangle>
         <Rectangle Grid.Row="1" Grid.Column="3" Grid.RowSpan="2" Fill="Gray"
@@ -72,33 +76,49 @@
             </Button>
         </Viewbox>
 
-        <TextBlock Text="Insert Product" Grid.Row="0" Grid.Column="5" Grid.ColumnSpan="2"
+        <Viewbox Grid.Row="0" Grid.Column="4" Stretch="Fill">
+            <Button x:Name="Scanner" Visibility="{Binding IsManager}"
+                Margin="30 5 30 5"
+        Content="Scanner" FontSize="20" Background="Blue">
+            </Button>
+        </Viewbox>
+
+        <TextBlock Text="Insert Product" Grid.Row="0" Grid.Column="6" Grid.ColumnSpan="2"
                    HorizontalAlignment="Center" VerticalAlignment="Center"
                    FontSize="46" Visibility="{Binding IsManager}"/>
 
-            <TextBlock Text="Product Name" Grid.Row="2" Grid.Column="5"
+        <TextBlock Text="Product ID" Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="2"
+                   HorizontalAlignment="Center" VerticalAlignment="Center"
+                   FontSize="32" Visibility="{Binding IsManager}"/>
+        <TextBox  Visibility="{Binding IsManager}"
+                x:Name="ProductIDTb" VerticalAlignment="Center"
+                Width="350" TextAlignment="Center"
+                FontSize="27" Grid.Row="3" Grid.Column="6" Grid.ColumnSpan="2">
+        </TextBox>
+
+        <TextBlock Text="Product Name" Grid.Row="4" Grid.Column="6"
                    HorizontalAlignment="Center" VerticalAlignment="Center"
                    FontSize="32" Visibility="{Binding IsManager}"/>
             <TextBox  Visibility="{Binding IsManager}"
                 x:Name="ProductNameTb" VerticalAlignment="Center"
                 Margin="10 0 10 0" TextAlignment="Center"
-                FontSize="27" Grid.Row="3" Grid.Column="5">
+                FontSize="27" Grid.Row="5" Grid.Column="6">
             </TextBox>
 
         <TextBlock Text="Category" Visibility="{Binding IsManager}"
-                       Grid.Row="4" Grid.Column="5"
+                       Grid.Row="6" Grid.Column="6"
                    HorizontalAlignment="Center" VerticalAlignment="Center"
                    FontSize="32" />
-            <TextBox  Grid.Row="5" Grid.Column="5"
+            <TextBox  Grid.Row="7" Grid.Column="6"
                      x:Name="CategoryTb" Visibility="{Binding IsManager}"
                 Margin="10 0 10 0" VerticalAlignment="Center" TextAlignment="Center" FontSize="27">
             </TextBox>
 
 
-            <TextBlock Text="Description" Grid.Row="6" Grid.Column="5"
+            <TextBlock Text="Description" Grid.Row="8" Grid.Column="6"
                    HorizontalAlignment="Center" VerticalAlignment="Center"
                    FontSize="32" Visibility="{Binding IsManager}"/>
-        <Viewbox Grid.Row="7" Grid.Column="5" Grid.RowSpan="4" Stretch="Fill">
+        <Viewbox Grid.Row="9" Grid.Column="6" Grid.RowSpan="4" Stretch="Fill">
             <TextBox    Visibility="{Binding IsManager}"         
              x:Name="DescriptionTb" Margin="10"
              Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"          
@@ -112,55 +132,55 @@
              />
         </Viewbox>
 
-        <Viewbox Grid.Row="11" Grid.Column="5" Grid.RowSpan="2"  Stretch="Fill">
+        <Viewbox Grid.Row="13" Grid.Column="7" Grid.RowSpan="2"  Stretch="Fill">
             <Button x:Name="AddProduct" Visibility="{Binding IsManager}"  
                 Margin="30 10 30 10"
         Content="Add" FontSize="20" Background="Blue">
             </Button>
         </Viewbox>
 
-        <TextBlock Text="Purchase Price" Grid.Row="2" Grid.Column="6"
+        <TextBlock Text="Purchase Price" Grid.Row="4" Grid.Column="7"
                    HorizontalAlignment="Center" VerticalAlignment="Center"
                    FontSize="32" Visibility="{Binding IsManager}"/>
         <TextBox Visibility="{Binding IsManager}"
-                  PreviewTextInput="PreviewTextInput" Grid.Row="3" Grid.Column="7"
+                  PreviewTextInput="PreviewTextInput" Grid.Row="5" Grid.Column="7"
                   TextAlignment="Center"
                   x:Name="PurchasePriceTb" Margin="10 0 10 0" VerticalAlignment="Center"
                   FontSize="27">
         </TextBox>
 
-        <TextBlock Text="Retail Price" Grid.Row="4" Grid.Column="6"
+        <TextBlock Text="Retail Price" Grid.Row="6" Grid.Column="7"
                    HorizontalAlignment="Center" VerticalAlignment="Center"
                    FontSize="32" Visibility="{Binding IsManager}"/>
         <TextBox  Visibility="{Binding IsManager}"
-                Grid.Row="5" Grid.Column="6"
+                Grid.Row="7" Grid.Column="7"
                 TextAlignment="Center"
                    PreviewTextInput="PreviewTextInput" x:Name="RetailPriceTb" 
                    Margin="10 0 10 0" VerticalAlignment="Center" FontSize="27">
             </TextBox>
 
-            <TextBlock Text="Tax" Grid.Row="6" Grid.Column="56"
+            <TextBlock Text="Tax" Grid.Row="8" Grid.Column="56"
                    HorizontalAlignment="Center" VerticalAlignment="Center"
                    FontSize="32" Visibility="{Binding IsManager}"/>
         <TextBox  Visibility="{Binding IsManager}"
                 TextAlignment="Center"
-                Grid.Row="7" Grid.Column="6"
+                Grid.Row="9" Grid.Column="7"
                 PreviewTextInput="PreviewTextInput" x:Name="TaxTb"
                 Margin="10 0 10 0" VerticalAlignment="Center" FontSize="27">
             </TextBox>
 
             <TextBlock Text="Quantity" 
-                       Grid.Row="8" Grid.Column="6"
+                       Grid.Row="10" Grid.Column="7"
                    HorizontalAlignment="Center" VerticalAlignment="Center"
                    FontSize="32" Visibility="{Binding IsManager}"/>
             <TextBox  
                 TextAlignment="Center" Visibility="{Binding IsManager}"
-                Grid.Row="9" Grid.Column="6"
+                Grid.Row="11" Grid.Column="7"
                   PreviewTextInput="PreviewTextInput" x:Name="QuantityTb" 
                 Margin="10 0 10 0" VerticalAlignment="Center" FontSize="27">
             </TextBox>
 
-        <Viewbox Grid.Row="11" Grid.Column="6" Grid.RowSpan="2"  Stretch="Fill">
+        <Viewbox Grid.Row="13" Grid.Column="6" Grid.RowSpan="2"  Stretch="Fill">
             <Button x:Name="GoToCashRegister" 
                 Margin="30 10 30 10"
         Content="Back" FontSize="20" Background="Blue">
@@ -169,7 +189,7 @@
 
         <DataGrid 
             IsReadOnly="True"
-            Grid.Row="2" Grid.RowSpan="11" Grid.Column="0" Grid.ColumnSpan="{Binding ColSpan}"
+            Grid.Row="2" Grid.RowSpan="14" Grid.Column="0" Grid.ColumnSpan="{Binding ColSpan}"
             Margin="5 8 0 0"
             ItemsSource="{Binding Products}" 
             SelectedItem="{Binding SelectedProduct}"

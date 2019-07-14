@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace RMDesktopUI.EventModels
+﻿namespace RMDesktopUI.EventModels
 {
-    public class CashRegisterEvent
+    public class CashRegisterEvent : INavigationEvent
     {
 
     }
+
+    public class CashRegisterEventWithScanResult : INavigationEventWithParameters
+    {
+        public object Parameters { get; set; }
+    }
+
 }

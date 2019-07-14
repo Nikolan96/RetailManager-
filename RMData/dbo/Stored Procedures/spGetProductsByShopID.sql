@@ -3,7 +3,7 @@
 AS
 begin
 	set nocount on;
-	select Id,ProductName, Category, [Description], PurchasePrice, RetailPrice, Tax, QuantityInStock, Category
+	select ID,ProductName, Category, [Description], PurchasePrice, RetailPrice, Tax, QuantityInStock, Category
 	from [dbo].[Product]
 	where ShopID = @ShopID;
 end

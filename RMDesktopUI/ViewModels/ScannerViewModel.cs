@@ -14,80 +14,45 @@ using ZXing.Aztec;
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Controls;
+using System.Timers;
 
 namespace RMDesktopUI.ViewModels
 {
     public class ScannerViewModel : Screen
     {
+        internal readonly Services.IBarcodeScannerService BarcodeScannerService;
+
         private readonly IEventAggregator _eventAggregator;
         private readonly IProductEndpoint _productEndpoint;
 
-        private FilterInfoCollection CaptureDevice;
-        private VideoCaptureDevice FinalFrame;
+        private INavigationEventWithParameters _navigateTo;
 
-        public ScannerViewModel(IEventAggregator eventAggregator, IProductEndpoint productEndpoint)
+        public ScannerViewModel(
+            IEventAggregator eventAggregator, 
+            IProductEndpoint productEndpoint, 
+            // TODO Resolve this service in view maybe, not sure, investigate???
+            Services.IBarcodeScannerService barcodeScannerService)
         {
             _eventAggregator = eventAggregator;
             _productEndpoint = productEndpoint;
-            Devices = new BindingList<string>();
+
+            BarcodeScannerService = barcodeScannerService;
         }
 
-        private BindingList<string> _devices;
-
-        public BindingList<string> Devices
+        public void SetNavigateToAfterResultScan(INavigationEventWithParameters navigationEventWithParameters)
         {
-            get { return _devices; }
-            set
-            {
-                _devices = value;
-                NotifyOfPropertyChange(() => Devices);
-            }
+            _navigateTo = navigationEventWithParameters;
         }
 
-        private int _selectedIndex;
-
-        public int SelectedIndex
+        public void NavigateToView()
         {
-            get { return _selectedIndex; }
-            set
-            {
-                _selectedIndex = value;
-                NotifyOfPropertyChange(() => SelectedIndex);
-            }
+            _eventAggregator.PublishOnUIThread(_navigateTo);
         }
 
-        protected override void OnViewLoaded(object view)
+        public void OnBarcodeResult(string decoded)
         {
-            base.OnViewLoaded(view);
-
-            CaptureDevice = new FilterInfoCollection(FilterCategory.VideoInputDevice);
-            foreach (FilterInfo device in CaptureDevice)
-            {
-                Devices.Add(device.Name);
-            }
-
-            FinalFrame = new VideoCaptureDevice();
-        }
-
-        public MediaElement ImageFeed { get; set; }
-
-        private void FinalFrame_NewFrame(object sender, NewFrameEventArgs eventArgs)
-        {
-            ImageFeed.Source = (Uri)eventArgs.Frame.Clone();
-        }
-
-        public void OpenCamera()
-        {
-
-            FinalFrame = new VideoCaptureDevice(CaptureDevice[SelectedIndex].MonikerString);
-            FinalFrame.NewFrame += new NewFrameEventHandler(FinalFrame_NewFrame);
-            FinalFrame.Start();
-
-        }
-
-        public void GoToCashRegister()
-        {
-            _eventAggregator.PublishOnUIThread(new CashRegisterEvent());
+            _navigateTo.Parameters = decoded;
+            _eventAggregator.PublishOnUIThread(_navigateTo);
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿CREATE PROCEDURE [dbo].[spUpdateProduct]
 
-	@Id nvarchar(150),
+	@ID nvarchar(150),
 	@ProductName nvarchar(100),
 	@Description nvarchar(200),
 	@PurchasePrice money,
@@ -16,5 +16,5 @@ begin
 	Set 
 	ProductName = @ProductName, Category = @Category, Description = @Description, PurchasePrice = @PurchasePrice, RetailPrice = @RetailPrice, Tax = @Tax,
 	Margin = @RetailPrice-@purchasePrice, QuantityInStock = @QuantityInStock
-	where Id = @Id
+	where ID = @ID
 end

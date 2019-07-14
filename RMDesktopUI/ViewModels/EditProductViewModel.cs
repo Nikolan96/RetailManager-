@@ -159,7 +159,7 @@ namespace RMDesktopUI.ViewModels
         {
             UpdateProductModel updateProductModel = new UpdateProductModel
             {
-                Id = _productModel.Id,
+                Id = _productModel.ID,
                 ProductName = ProductNameTb,
                 Category = CategoryTb,
                 Description = DescriptionTb,

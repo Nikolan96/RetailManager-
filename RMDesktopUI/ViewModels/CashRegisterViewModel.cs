@@ -312,7 +312,7 @@ namespace RMDesktopUI.ViewModels
             else
             {
                 ProductModel = await _productEndpoint.GetProductByID(ID);
-                existing = Products.FirstOrDefault(x => x.Id == ID);
+                existing = Products.FirstOrDefault(x => x.ID == ID);
             }
 
             if (existing != null)
@@ -327,7 +327,7 @@ namespace RMDesktopUI.ViewModels
                 // add automapper
                 ProductModel productModelToAdd = new ProductModel
                 {
-                    Id = ProductModel.Id,
+                    ID = ProductModel.ID,
                     ProductName = ProductModel.ProductName,
                     Category = ProductModel.Category,
                     Description = ProductModel.Description,
@@ -466,7 +466,7 @@ namespace RMDesktopUI.ViewModels
                     RetailPrice = item.RetailPrice,
                     Quantity = item.QuantityInStock,
                     BillId = bill.Id,
-                    ProductID = item.Id
+                    ProductID = item.ID
                     
                 };
 
@@ -474,7 +474,7 @@ namespace RMDesktopUI.ViewModels
 
                 UpdateProductQuantityModel quantityModel = new UpdateProductQuantityModel()
                 {
-                    ID = item.Id,
+                    ID = item.ID,
                     QuantitySold = item.QuantityInStock
                 };
 
@@ -507,37 +507,6 @@ namespace RMDesktopUI.ViewModels
         {
             base.OnViewLoaded(view);
             await LoadProductNames();
-            CreateFileWatcher(@"E:\Programiranje\RetailManager");
-        }
-
-        public void CreateFileWatcher(string path)
-        {
-            // Create a new FileSystemWatcher and set its properties.
-            FileSystemWatcher watcher = new FileSystemWatcher();
-            watcher.Path = path;
-            /* Watch for changes in LastAccess and LastWrite times, and 
-               the renaming of files or directories. */
-            watcher.NotifyFilter = NotifyFilters.LastWrite;
-            // Only watch text files.
-            watcher.Filter = "Prenos.txt";
-
-            // Add event handlers.
-            watcher.Changed += new FileSystemEventHandler(OnChanged);
-            //watcher.Created += new FileSystemEventHandler(OnChanged);
-            //watcher.Deleted += new FileSystemEventHandler(OnChanged);         
-            // Begin watching.
-            watcher.EnableRaisingEvents = true;
-        }
-
-        private void OnChanged(object source, FileSystemEventArgs e)
-        {
-            // Specify what is done when a file is changed, created, or deleted.    
-
-
-            Application.Current.Dispatcher.Invoke(() =>
-            {
-                ID = File.ReadAllText(@"E:\Programiranje\RetailManager\Prenos.txt");
-            });
         }
 
         public void GoToProductsView()
@@ -569,7 +538,7 @@ namespace RMDesktopUI.ViewModels
 
         public void GoToScanner()
         {
-            Process.Start(@"E:\Programiranje\RetailManager\RetailManager-\BarCodeScanner\bin\Debug\BarCodeScanner.exe");
+            _events.BeginPublishOnUIThread(new ScannerViewEvent(new CashRegisterEventWithScanResult()));
         }
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RMDesktopUI.EventModels
 {
-    public class EditUserViewEvent
+    public class EditUserViewEvent : INavigationEvent
     {
         public UserModel SelectedUser { get; set; }
 

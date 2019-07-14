@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RMDesktopUI.EventModels
 {
-    public class CashierLogOnEvent
+    public class CashierLogOnEvent : INavigationEvent
     {
     }
 }

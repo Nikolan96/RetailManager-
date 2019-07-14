@@ -142,6 +142,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="EventModels\BarcodeScannedEvent.cs" />
     <Compile Include="EventModels\BillItemsViewEvent.cs" />
     <Compile Include="EventModels\BillsViewEvent.cs" />
     <Compile Include="EventModels\CashRegisterEvent.cs" />
@@ -151,6 +152,7 @@
     <Compile Include="EventModels\CashierLogOnEvent.cs" />
     <Compile Include="EventModels\EditShopViewEvent.cs" />
     <Compile Include="EventModels\EditUserViewEvent.cs" />
+    <Compile Include="EventModels\INavigationEvent.cs" />
     <Compile Include="EventModels\LogoutEvent.cs" />
     <Compile Include="EventModels\ManagerLogOnEvent.cs" />
     <Compile Include="EventModels\ProductsViewEvent.cs" />
@@ -164,6 +166,8 @@
     <Compile Include="Models\InsertProduct.cs" />
     <Compile Include="MyBkColorConverter.cs" />
     <Compile Include="Helpers\PasswordBoxHelper.cs" />
+    <Compile Include="Services\BarcodeScannerService.cs" />
+    <Compile Include="Services\IBarcodeScannerService.cs" />
     <Compile Include="ViewModels\BillCountByWorkerChartViewModel.cs" />
     <Compile Include="ViewModels\BillItemsViewModel.cs" />
     <Compile Include="ViewModels\CEOMenuViewModel.cs" />

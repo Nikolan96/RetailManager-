@@ -3,13 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.572
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RMDataManager", "RMDataManager\RMDataManager.csproj", "{BDD72F19-BFA4-489C-8E2B-524F75051BF6}"
-EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "RMData", "RMData\RMData.sqlproj", "{ACCC53D9-22DC-4632-82AA-619B663EE8C1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RMDesktopUI", "RMDesktopUI\RMDesktopUI.csproj", "{75C8E5D7-0075-4C42-9445-987A87541A99}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RMDataManager.Library", "RMDataManager.Library\RMDataManager.Library.csproj", "{9228FDD3-3491-480F-94A1-01642B7B791E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RMDesktopUI.Library", "RMDesktopUI.Library\RMDesktopUI.Library.csproj", "{E8CCA5E1-9F8C-4247-9DB5-767C47696B58}"
 EndProject
@@ -17,18 +13,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RMDataManagerCore", "RMData
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RMDataManagerCore.Library", "RMDataManagerCore.Library\RMDataManagerCore.Library.csproj", "{9AAFB0EC-809C-4A55-90E8-99990A239885}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarCodeScanner", "BarCodeScanner\BarCodeScanner.csproj", "{F8CADC3A-0F01-4CC4-BC89-2A40438B1173}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{BDD72F19-BFA4-489C-8E2B-524F75051BF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BDD72F19-BFA4-489C-8E2B-524F75051BF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BDD72F19-BFA4-489C-8E2B-524F75051BF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BDD72F19-BFA4-489C-8E2B-524F75051BF6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{ACCC53D9-22DC-4632-82AA-619B663EE8C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{ACCC53D9-22DC-4632-82AA-619B663EE8C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ACCC53D9-22DC-4632-82AA-619B663EE8C1}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
@@ -39,10 +29,6 @@ Global
 		{75C8E5D7-0075-4C42-9445-987A87541A99}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75C8E5D7-0075-4C42-9445-987A87541A99}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{75C8E5D7-0075-4C42-9445-987A87541A99}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9228FDD3-3491-480F-94A1-01642B7B791E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9228FDD3-3491-480F-94A1-01642B7B791E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9228FDD3-3491-480F-94A1-01642B7B791E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9228FDD3-3491-480F-94A1-01642B7B791E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E8CCA5E1-9F8C-4247-9DB5-767C47696B58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E8CCA5E1-9F8C-4247-9DB5-767C47696B58}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E8CCA5E1-9F8C-4247-9DB5-767C47696B58}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -55,10 +41,6 @@ Global
 		{9AAFB0EC-809C-4A55-90E8-99990A239885}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9AAFB0EC-809C-4A55-90E8-99990A239885}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9AAFB0EC-809C-4A55-90E8-99990A239885}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F8CADC3A-0F01-4CC4-BC89-2A40438B1173}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F8CADC3A-0F01-4CC4-BC89-2A40438B1173}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F8CADC3A-0F01-4CC4-BC89-2A40438B1173}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F8CADC3A-0F01-4CC4-BC89-2A40438B1173}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

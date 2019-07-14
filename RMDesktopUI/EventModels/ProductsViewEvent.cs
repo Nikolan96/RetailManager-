@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace RMDesktopUI.EventModels
 {
-    public class ProductsViewEvent
+    public class ProductsViewEvent : INavigationEvent
     {
+    }
+
+    public class ProductsViewEventWithScanResult : INavigationEventWithParameters
+    {
+        public object Parameters { get; set; }
     }
 }

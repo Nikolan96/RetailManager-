@@ -30,7 +30,20 @@ namespace RMDesktopUI.ViewModels
             _productEndpoint = productEndpoint;
             _loggedInUser = loggedInUser;
         }
-     
+
+        private string _productIDTb;
+
+        public string ProductIDTb
+        {
+            get { return _productIDTb; }
+            set
+            {
+                _productIDTb = value;
+                NotifyOfPropertyChange(() => CanAddProduct);
+                NotifyOfPropertyChange(() => ProductIDTb);
+            }
+        }
+
         private string _productNameTb;
 
         public string ProductNameTb
@@ -177,6 +190,7 @@ namespace RMDesktopUI.ViewModels
         {
             InsertProductModel productModel = new InsertProductModel()
             {
+                ID = ProductIDTb,
                 ProductName = ProductNameTb,
                 Category = CategoryTb,
                 Description = DescriptionTb,
@@ -199,7 +213,7 @@ namespace RMDesktopUI.ViewModels
             {
                 bool output = false;
 
-                if (RetailPriceTb > 0 && PurchasePriceTb > 0 && TaxTb > 0 && TaxTb <= 100 && QuantityTb > 0 &&
+                if (RetailPriceTb > 0 && PurchasePriceTb > 0 && TaxTb > 0 && TaxTb <= 100 && QuantityTb > 0 && !string.IsNullOrWhiteSpace(ProductIDTb) &&
                     !string.IsNullOrWhiteSpace(ProductNameTb) && !string.IsNullOrWhiteSpace(CategoryTb) && !string.IsNullOrWhiteSpace(DescriptionTb))
                    
                 {
@@ -254,13 +268,18 @@ namespace RMDesktopUI.ViewModels
 
         public async Task Delete()
         {
-            await _productEndpoint.DeleteProduct(SelectedProduct.Id);
+            await _productEndpoint.DeleteProduct(SelectedProduct.ID);
             await LoadProducts();
         }
 
         public void GoToCashRegister()
         {
             _events.PublishOnUIThread(new CashRegisterEvent());
+        }
+
+        public void Scanner()
+        {
+            _events.PublishOnUIThread(new ScannerViewEvent(new ProductsViewEventWithScanResult()));
         }
 
         private async Task LoadProducts()
@@ -283,19 +302,11 @@ namespace RMDesktopUI.ViewModels
             else
             {
                 IsManager = "Hidden";
-                ColSpan = 6;
+                ColSpan = 7;
             }
 
             NotifyOfPropertyChange(() => ColSpan);
             NotifyOfPropertyChange(() => IsManager);
         }
-
-        public void Test()
-        {
-            MessageBoxResult result = MessageBox.Show("Test");
-        }
-
-
     }
-
 }

@@ -80,7 +80,7 @@ namespace BarCodeScanner
             if (FinalFrame.IsRunning == true)
             {
                 FinalFrame.Stop();
-            }
+            } 
             Application.Exit();
         }
 

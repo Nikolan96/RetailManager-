@@ -8,6 +8,11 @@ namespace RMDesktopUI.EventModels
 {
     public class ScannerViewEvent
     {
+        public ScannerViewEvent(INavigationEventWithParameters navigateTo)
+        {
+            NavigateTo = navigateTo;
+        }
 
+        public INavigationEventWithParameters NavigateTo { get; }
     }
 }

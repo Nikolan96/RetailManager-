@@ -116,49 +116,46 @@ namespace RMDesktopUI.ViewModels
 
         public async void LogIn()
         {
-            try
-            {
                 ErrorMessage = "";
 
                 IsBusy = true;
 
                 var ExistingUser = await _userEndpoint.GetUserByEmail(_email);
-                var ExistingUsersPassword = _passwordEncryptor.Decrypt(ExistingUser.Password);
+                string ExistingUsersPassword;
 
                 if (ExistingUser == null)
                 {
                     ErrorMessage = "User does not exist";
                 }
-                else if (ExistingUsersPassword != _password)
+                else 
                 {
-                    ErrorMessage = "Incorrect password";
-                }
-                else
-                {
-                    LoggedInUserModel loggedInUser = Mapper.Map<LoggedInUserModel>(ExistingUser);
-                    _loggedInUser.PopulateLoggedInUser(loggedInUser);
+                    ExistingUsersPassword = _passwordEncryptor.Decrypt(ExistingUser.Password);
 
-                    switch (_loggedInUser.Role)
+                    if (ExistingUsersPassword != _password)
                     {
-                        case "Cashier":
-                            _events.PublishOnUIThread(new CashierLogOnEvent());
-                            break;
-                        case "Manager":
-                            _events.PublishOnUIThread(new ManagerLogOnEvent());
-                            break;
-                        case "CEO":
-                            _events.PublishOnUIThread(new CEOLogOnEvent());
-                            break;
+                        ErrorMessage = "Incorrect password";
                     }
+                    else
+                    {
+                        LoggedInUserModel loggedInUser = Mapper.Map<LoggedInUserModel>(ExistingUser);
+                        _loggedInUser.PopulateLoggedInUser(loggedInUser);
+
+                        switch (_loggedInUser.Role)
+                        {
+                            case "Cashier":
+                                _events.PublishOnUIThread(new CashierLogOnEvent());
+                                break;
+                            case "Manager":
+                                _events.PublishOnUIThread(new ManagerLogOnEvent());
+                                break;
+                            case "CEO":
+                                _events.PublishOnUIThread(new CEOLogOnEvent());
+                                break;
+                        }
+                    }                             
                 }
 
-                IsBusy = false;
-            }
-            catch (Exception ex)
-            {
-                IsBusy = false;
-                ErrorMessage = ex.Message;
-            }          
+                IsBusy = false;         
         }
     }
 }

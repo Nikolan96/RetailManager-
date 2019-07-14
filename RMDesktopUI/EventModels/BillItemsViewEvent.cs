@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RMDesktopUI.EventModels
 {
-    public class BillItemsViewEvent
+    public class BillItemsViewEvent : INavigationEvent
     {
         public string BillId { get; set; }
 
