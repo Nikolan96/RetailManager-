@@ -174,7 +174,7 @@
 
         </DataGrid>
 
-        <Viewbox  Stretch="Uniform" Margin="20 20 20 20" Grid.Row="2" Grid.Column="15">
+        <Viewbox  Stretch="Uniform" Margin="10" Grid.Row="2" Grid.Column="15">
             <StackPanel Orientation="Horizontal">
 
                 <TextBlock Text="ID" FontSize="13" 
@@ -235,7 +235,7 @@
         <Viewbox Stretch="Uniform" Margin="10" Grid.Row="4" Grid.Column="15"
                  Visibility="{Binding SearchByID}">
             <TextBox x:Name="ID" 
-                     MinWidth="100"
+                     MinWidth="100" PreviewTextInput="PreviewTextInput"
                      IsReadOnly="True"
                        TextAlignment="Center"></TextBox>
         </Viewbox>
@@ -247,12 +247,12 @@
         </Viewbox>
 
         <Viewbox Stretch="Uniform" Margin="10" Grid.Row="6" Grid.Column="15">
-            <TextBox x:Name="Quantity" 
+            <TextBox x:Name="Quantity" PreviewTextInput="PreviewTextInput"
                      MinWidth="100"
                        TextAlignment="Center"></TextBox>
         </Viewbox>
 
-        <Viewbox Stretch="Uniform" Margin="35" Grid.Row="7" Grid.Column="15" Grid.RowSpan="2">
+        <Viewbox Stretch="Uniform" Margin="25" Grid.Row="7" Grid.Column="15" Grid.RowSpan="2">
             <Button x:Name="Add" Content="Add"/>
         </Viewbox>
 
@@ -264,7 +264,7 @@
         </Viewbox>
 
         <Viewbox Stretch="Uniform" Grid.Row="10" Grid.Column="7" Grid.ColumnSpan="3"  Margin="10">
-            <TextBox x:Name="Paid" 
+            <TextBox x:Name="Paid"  TextInput="PreviewTextInput"
                       TextAlignment="Center" 
                       MinWidth="130"></TextBox>
         </Viewbox>
@@ -277,7 +277,7 @@
         </Viewbox>
 
         <Viewbox Stretch="Uniform" Grid.Row="12" Grid.Column="5" Grid.ColumnSpan="2"  Margin="10">
-            <TextBox x:Name="DisplayTotal" 
+            <TextBox x:Name="DisplayTotal" TextInput="PreviewTextInput"
                       TextAlignment="Center" 
                       MinWidth="130"></TextBox>
         </Viewbox>
@@ -289,7 +289,7 @@
         </Viewbox>
 
         <Viewbox  Stretch="Uniform" Grid.Row="12" Grid.Column="9" Grid.ColumnSpan="2" Margin="10">
-            <TextBox x:Name="DisplayChange" 
+            <TextBox x:Name="DisplayChange" TextInput="PreviewTextInput"
                       TextAlignment="Center" 
                       MinWidth="130"></TextBox>
         </Viewbox>

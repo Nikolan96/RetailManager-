@@ -31,6 +31,7 @@
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="2px"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
@@ -47,8 +48,12 @@
         </Grid.ColumnDefinitions>
 
         <Rectangle Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="8" Fill="Gray"></Rectangle>
-        <Rectangle Grid.Row="2" Grid.Column="5" Grid.RowSpan="15"  Fill="Gray" Visibility="{Binding IsManager}"></Rectangle>
-
+        <Rectangle Grid.Row="2" Grid.Column="5" Grid.RowSpan="15"
+                   Fill="Gray" Visibility="{Binding IsManager}">
+        </Rectangle>
+        <Rectangle Grid.Row="14" Grid.ColumnSpan="5"
+                   Fill="Gray">
+        </Rectangle>
         <!--<Rectangle Grid.Row="1" Grid.ColumnSpan="5" Fill="Gray"></Rectangle>
         <Rectangle Grid.Row="1" Grid.Column="3" Grid.RowSpan="2" Fill="Gray"
                    Margin="0 30 0 15"></Rectangle>
@@ -58,27 +63,41 @@
         <Rectangle Grid.Row="2" Fill="#dddddd" Grid.Column="2" Grid.RowSpan="2"
                    Grid.ColumnSpan="3"></Rectangle>-->
 
-        <TextBlock Text="List of Products" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+        <TextBlock Text="List of Products" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2"
                    HorizontalAlignment="Center" VerticalAlignment="Center"
                    FontSize="46" />
 
-        <Viewbox Grid.Row="0" Grid.Column="2" Stretch="Fill">
+        <Viewbox Grid.Row="15" Grid.RowSpan="2" Grid.Column="4" Stretch="Fill">
             <Button x:Name="Edit" Visibility="{Binding IsManager}"
                 Margin="30 5 30 5"
         Content="Edit" FontSize="20" Background="Green">
             </Button>
         </Viewbox>
 
-        <Viewbox Grid.Row="0" Grid.Column="3" Stretch="Fill">
+        <Viewbox Grid.Row="15" Grid.RowSpan="2" Grid.Column="3" Stretch="Fill">
             <Button x:Name="Delete" Visibility="{Binding IsManager}"
                 Margin="30 5 30 5"
         Content="Delete" FontSize="20" Background="Red">
             </Button>
         </Viewbox>
 
-        <Viewbox Grid.Row="0" Grid.Column="4" Stretch="Fill">
-            <Button x:Name="Scanner" Visibility="{Binding IsManager}"
+        <Viewbox Grid.Row="15" Grid.RowSpan="2" Grid.Column="0" Stretch="Fill">
+            <Button x:Name="Order"
                 Margin="30 5 30 5"
+        Content="Order" FontSize="20" Background="Blue">
+            </Button>
+        </Viewbox>
+
+        <Viewbox Grid.Row="15" Grid.RowSpan="2" Grid.Column="1" Stretch="Fill">
+            <Button x:Name="Orders"
+                Margin="30 5 30 5"
+        Content="Orders" FontSize="20" Background="Teal">
+            </Button>
+        </Viewbox>
+
+        <Viewbox Grid.Row="15" Grid.RowSpan="2" Grid.Column="2" Stretch="Fill">
+            <Button x:Name="Scanner" 
+                Margin="30 5 30 5" Visibility="{Binding IsManager}"
         Content="Scanner" FontSize="20" Background="Blue">
             </Button>
         </Viewbox>
@@ -132,7 +151,7 @@
              />
         </Viewbox>
 
-        <Viewbox Grid.Row="13" Grid.Column="7" Grid.RowSpan="2"  Stretch="Fill">
+        <Viewbox Grid.Row="14" Grid.Column="6" Grid.RowSpan="3"  Stretch="Fill">
             <Button x:Name="AddProduct" Visibility="{Binding IsManager}"  
                 Margin="30 10 30 10"
         Content="Add" FontSize="20" Background="Blue">
@@ -180,7 +199,7 @@
                 Margin="10 0 10 0" VerticalAlignment="Center" FontSize="27">
             </TextBox>
 
-        <Viewbox Grid.Row="13" Grid.Column="6" Grid.RowSpan="2"  Stretch="Fill">
+        <Viewbox Grid.Row="14" Grid.Column="7" Grid.RowSpan="3"  Stretch="Fill">
             <Button x:Name="GoToCashRegister" 
                 Margin="30 10 30 10"
         Content="Back" FontSize="20" Background="Blue">
@@ -189,7 +208,7 @@
 
         <DataGrid 
             IsReadOnly="True"
-            Grid.Row="2" Grid.RowSpan="14" Grid.Column="0" Grid.ColumnSpan="{Binding ColSpan}"
+            Grid.Row="2" Grid.RowSpan="12" Grid.Column="0" Grid.ColumnSpan="{Binding ColSpan}"
             Margin="5 8 0 0"
             ItemsSource="{Binding Products}" 
             SelectedItem="{Binding SelectedProduct}"

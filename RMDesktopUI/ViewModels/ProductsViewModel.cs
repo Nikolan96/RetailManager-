@@ -188,23 +188,33 @@ namespace RMDesktopUI.ViewModels
 
         public async Task AddProduct()
         {
-            InsertProductModel productModel = new InsertProductModel()
+            ProductModel existingProduct = await _productEndpoint.GetProductByID(ProductIDTb);
+
+            if (existingProduct != null)
+            {               
+                MessageBox.Show($"Product with ID : {ProductIDTb} already exists!");
+                ProductIDTb = "";
+            }
+            else
             {
-                ID = ProductIDTb,
-                ProductName = ProductNameTb,
-                Category = CategoryTb,
-                Description = DescriptionTb,
-                PurchasePrice = PurchasePriceTb,
-                RetailPrice = RetailPriceTb,
-                Tax = TaxTb,
-                Quantity = QuantityTb,
-                ShopID = _loggedInUser.ShopId
-            };
+                InsertProductModel productModel = new InsertProductModel()
+                {
+                    ID = ProductIDTb,
+                    ProductName = ProductNameTb,
+                    Category = CategoryTb,
+                    Description = DescriptionTb,
+                    PurchasePrice = PurchasePriceTb,
+                    RetailPrice = RetailPriceTb,
+                    Tax = TaxTb,
+                    Quantity = QuantityTb,
+                    ShopID = _loggedInUser.ShopId
+                };
 
-            await _productEndpoint.InsertProduct(productModel);
-            ResetTextboxes();
+                await _productEndpoint.InsertProduct(productModel);
+                ResetTextboxes();
 
-            await LoadProducts();       
+                await LoadProducts();
+            }         
         }
 
         public bool CanAddProduct
@@ -297,12 +307,12 @@ namespace RMDesktopUI.ViewModels
             if (_loggedInUser.Role == "Manager")
             {
                 IsManager = "Visible";
-                ColSpan = 4;
+                ColSpan = 6;
             }
             else
             {
                 IsManager = "Hidden";
-                ColSpan = 7;
+                ColSpan = 8;
             }
 
             NotifyOfPropertyChange(() => ColSpan);
