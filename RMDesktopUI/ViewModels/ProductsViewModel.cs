@@ -307,7 +307,7 @@ namespace RMDesktopUI.ViewModels
             if (_loggedInUser.Role == "Manager")
             {
                 IsManager = "Visible";
-                ColSpan = 6;
+                ColSpan = 5;
             }
             else
             {

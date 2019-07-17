@@ -106,47 +106,56 @@
                    HorizontalAlignment="Center" VerticalAlignment="Center"
                    FontSize="46" Visibility="{Binding IsManager}"/>
 
-        <TextBlock Text="Product ID" Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="2"
+        <Viewbox Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="2" Height="30"
+                 Visibility="{Binding IsManager}" Stretch="Uniform">
+            <TextBlock Text="Product ID" 
                    HorizontalAlignment="Center" VerticalAlignment="Center"
-                   FontSize="32" Visibility="{Binding IsManager}"/>
+                  />
+        </Viewbox>
         <TextBox  Visibility="{Binding IsManager}"
                 x:Name="ProductIDTb" VerticalAlignment="Center"
                 Width="350" TextAlignment="Center"
-                FontSize="27" Grid.Row="3" Grid.Column="6" Grid.ColumnSpan="2">
+                FontSize="20" Grid.Row="3" Grid.Column="6" Grid.ColumnSpan="2">
         </TextBox>
 
-        <TextBlock Text="Product Name" Grid.Row="4" Grid.Column="6"
-                   HorizontalAlignment="Center" VerticalAlignment="Center"
-                   FontSize="32" Visibility="{Binding IsManager}"/>
-            <TextBox  Visibility="{Binding IsManager}"
+        <Viewbox Visibility="{Binding IsManager}" Grid.Row="4" Grid.Column="6"
+                 Stretch="Uniform" Height="30">
+            <TextBlock Text="Product Name" 
+                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Viewbox>
+        <TextBox  Visibility="{Binding IsManager}"
                 x:Name="ProductNameTb" VerticalAlignment="Center"
                 Margin="10 0 10 0" TextAlignment="Center"
-                FontSize="27" Grid.Row="5" Grid.Column="6">
+                FontSize="20" Grid.Row="5" Grid.Column="6">
             </TextBox>
 
-        <TextBlock Text="Category" Visibility="{Binding IsManager}"
-                       Grid.Row="6" Grid.Column="6"
-                   HorizontalAlignment="Center" VerticalAlignment="Center"
-                   FontSize="32" />
-            <TextBox  Grid.Row="7" Grid.Column="6"
+        <Viewbox Visibility="{Binding IsManager}"  Grid.Row="6" Grid.Column="6"
+                 Stretch="Uniform" Height="30">
+            <TextBlock Text="Category"     
+                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Viewbox>
+        <TextBox  Grid.Row="7" Grid.Column="6"
                      x:Name="CategoryTb" Visibility="{Binding IsManager}"
-                Margin="10 0 10 0" VerticalAlignment="Center" TextAlignment="Center" FontSize="27">
+                Margin="10 0 10 0" VerticalAlignment="Center" TextAlignment="Center"
+                  FontSize="20">
             </TextBox>
 
+        <Viewbox Grid.Row="8" Grid.Column="6" Visibility="{Binding IsManager}"
+                 Height="30" Stretch="Uniform">
+            <TextBlock Text="Description" 
+                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Viewbox>
 
-            <TextBlock Text="Description" Grid.Row="8" Grid.Column="6"
-                   HorizontalAlignment="Center" VerticalAlignment="Center"
-                   FontSize="32" Visibility="{Binding IsManager}"/>
         <Viewbox Grid.Row="9" Grid.Column="6" Grid.RowSpan="4" Stretch="Fill">
             <TextBox    Visibility="{Binding IsManager}"         
              x:Name="DescriptionTb" Margin="10"
              Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"          
              FontSize="7"
-                MaxWidth="100"
+             MaxWidth="100"
              AcceptsReturn="True"
              TextWrapping="Wrap"
              VerticalScrollBarVisibility="Auto"
-                HorizontalScrollBarVisibility="Auto"
+             HorizontalScrollBarVisibility="Auto"
              materialDesign:HintAssist.Hint="Product description"
              />
         </Viewbox>
@@ -158,45 +167,52 @@
             </Button>
         </Viewbox>
 
-        <TextBlock Text="Purchase Price" Grid.Row="4" Grid.Column="7"
-                   HorizontalAlignment="Center" VerticalAlignment="Center"
-                   FontSize="32" Visibility="{Binding IsManager}"/>
+        <Viewbox Grid.Row="4" Grid.Column="7" Visibility="{Binding IsManager}"
+                 Stretch="Uniform" Height="30">
+            <TextBlock Text="Purchase Price" 
+                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Viewbox>
         <TextBox Visibility="{Binding IsManager}"
                   PreviewTextInput="PreviewTextInput" Grid.Row="5" Grid.Column="7"
                   TextAlignment="Center"
                   x:Name="PurchasePriceTb" Margin="10 0 10 0" VerticalAlignment="Center"
-                  FontSize="27">
+                  FontSize="20">
         </TextBox>
 
-        <TextBlock Text="Retail Price" Grid.Row="6" Grid.Column="7"
-                   HorizontalAlignment="Center" VerticalAlignment="Center"
-                   FontSize="32" Visibility="{Binding IsManager}"/>
+        <Viewbox  Grid.Row="6" Grid.Column="7" Visibility="{Binding IsManager}"
+                  Height="30" Stretch="Uniform">
+            <TextBlock Text="Retail Price"
+                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Viewbox>
         <TextBox  Visibility="{Binding IsManager}"
                 Grid.Row="7" Grid.Column="7"
                 TextAlignment="Center"
                    PreviewTextInput="PreviewTextInput" x:Name="RetailPriceTb" 
-                   Margin="10 0 10 0" VerticalAlignment="Center" FontSize="27">
+                   Margin="10 0 10 0" VerticalAlignment="Center" FontSize="20">
             </TextBox>
 
-            <TextBlock Text="Tax" Grid.Row="8" Grid.Column="56"
-                   HorizontalAlignment="Center" VerticalAlignment="Center"
-                   FontSize="32" Visibility="{Binding IsManager}"/>
+        <Viewbox  Grid.Row="8" Grid.Column="7" Visibility="{Binding IsManager}"
+                  Stretch="Uniform" Height="30">
+            <TextBlock Text="Tax"
+                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Viewbox>
         <TextBox  Visibility="{Binding IsManager}"
                 TextAlignment="Center"
                 Grid.Row="9" Grid.Column="7"
                 PreviewTextInput="PreviewTextInput" x:Name="TaxTb"
-                Margin="10 0 10 0" VerticalAlignment="Center" FontSize="27">
+                Margin="10 0 10 0" VerticalAlignment="Center" FontSize="20">
             </TextBox>
 
-            <TextBlock Text="Quantity" 
-                       Grid.Row="10" Grid.Column="7"
-                   HorizontalAlignment="Center" VerticalAlignment="Center"
-                   FontSize="32" Visibility="{Binding IsManager}"/>
-            <TextBox  
+        <Viewbox Visibility="{Binding IsManager}" Grid.Row="10" Grid.Column="7"
+                 Stretch="Uniform" Height="30">
+            <TextBlock Text="Quantity"                     
+                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Viewbox>
+        <TextBox  
                 TextAlignment="Center" Visibility="{Binding IsManager}"
                 Grid.Row="11" Grid.Column="7"
                   PreviewTextInput="PreviewTextInput" x:Name="QuantityTb" 
-                Margin="10 0 10 0" VerticalAlignment="Center" FontSize="27">
+                Margin="10 0 10 0" VerticalAlignment="Center" FontSize="20">
             </TextBox>
 
         <Viewbox Grid.Row="14" Grid.Column="7" Grid.RowSpan="3"  Stretch="Fill">
@@ -214,41 +230,61 @@
             SelectedItem="{Binding SelectedProduct}"
             CanUserSortColumns="False"
             CanUserAddRows="False"
+            CanUserReorderColumns="False"
             AutoGenerateColumns="False"
-            materialDesign:DataGridAssist.CellPadding="6 8 8 8"
-            materialDesign:DataGridAssist.ColumnHeaderPadding="8"
+
             VerticalScrollBarVisibility="Visible"
-            HorizontalScrollBarVisibility="Visible"
+            HorizontalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True"
             >
+
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="DataGridColumnHeader">
+                    <Setter Property="FontSize" Value="30"></Setter>
+                    
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+
+            <DataGrid.Resources>
+                <Style TargetType="DataGridRow">
+                    <Setter Property="HorizontalAlignment" Value="Center"/>
+                </Style>
+                <Style TargetType="DataGridCell">
+
+                    <Setter Property="FontSize" Value="20"/>
+                </Style>
+            </DataGrid.Resources>
+            
+            
+
             <DataGrid.Columns>
                 <DataGridTextColumn                 
       Binding="{Binding ID}"
       Header="Product Id"
-      MinWidth="90"
-      MaxWidth="90">
+      MinWidth="150"
+      MaxWidth="220">
                 </DataGridTextColumn>
 
                 <DataGridTextColumn
       Binding="{Binding ProductName}"
       Header="Product Name"
-      MinWidth="120"
-      MaxWidth="130"
+      MinWidth="150"
+      MaxWidth="260"
 >
                 </DataGridTextColumn>
 
                 <DataGridTextColumn
       Binding="{Binding Category}"
       Header="Category"
-      MinWidth="120"
-      MaxWidth="150"
+      MinWidth="200"
+      MaxWidth="230"
 >
                 </DataGridTextColumn>
 
                 <DataGridTextColumn
       Binding="{Binding Description}"
       Header="Description"
-      MinWidth="150"
-      Width="150"
+      MinWidth="250"
+      Width="250"
       MaxWidth="500"
       ScrollViewer.HorizontalScrollBarVisibility="Auto"
 >
@@ -257,8 +293,8 @@
                 <DataGridTextColumn
       Binding="{Binding PurchasePrice, StringFormat=N2}" 
       Header="Purchase Price"
-      MinWidth="120"
-      MaxWidth="120"
+      MinWidth="250"
+      MaxWidth="250"
       HeaderStringFormat=""
 >
                 </DataGridTextColumn>
@@ -266,31 +302,31 @@
                 <DataGridTextColumn
       Binding="{Binding RetailPrice, StringFormat=N2}"
       Header="Retail Price" 
-      MinWidth="110"
-      MaxWidth="110"
+      MinWidth="250"
+      MaxWidth="250"
 >
                 </DataGridTextColumn>
 
                 <DataGridTextColumn
       Binding="{Binding Tax, StringFormat=N2}" 
       Header="Tax"
-      MaxWidth="90"
-      MinWidth="90"
+      MaxWidth="150"
+      MinWidth="150"
 >
                 </DataGridTextColumn>
 
                 <DataGridTextColumn
       Binding="{Binding Margin, StringFormat=N2}"
       Header="Margin"
-      MaxWidth="70"
-      MinWidth="70">
+      MaxWidth="130"
+      MinWidth="130">
                 </DataGridTextColumn>
 
                 <DataGridTextColumn
       Binding="{Binding QuantityInStock}" 
       Header="Quantity"
-      MaxWidth="80"
-      MinWidth="80">
+      MaxWidth="150"
+      MinWidth="150">
                 </DataGridTextColumn>
 
                 <!--<DataGridTemplateColumn>
