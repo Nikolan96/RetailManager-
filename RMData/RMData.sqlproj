@@ -108,6 +108,15 @@
     <Build Include="dbo\Tables\OrderItem.sql" />
     <Build Include="dbo\Stored Procedures\spGetQuantityOfProductByName.sql" />
     <Build Include="dbo\Stored Procedures\spGetAllProductNamesAndQuantities.sql" />
+    <Build Include="dbo\Stored Procedures\spGetOrderByID.sql" />
+    <Build Include="dbo\Stored Procedures\spGetOrdersByShopID.sql" />
+    <Build Include="dbo\Stored Procedures\spApproveOrder.sql" />
+    <Build Include="dbo\Stored Procedures\spDeleteOrder.sql" />
+    <Build Include="dbo\Stored Procedures\spGetOrderItemsByOrderID.sql" />
+    <Build Include="dbo\Stored Procedures\spGetOrderItemByID.sql" />
+    <Build Include="dbo\Stored Procedures\spUpdateOrderItem.sql" />
+    <Build Include="dbo\Stored Procedures\spInsertOrderItem.sql" />
+    <Build Include="dbo\Stored Procedures\spInsertOrder.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="RMData.refactorlog" />
