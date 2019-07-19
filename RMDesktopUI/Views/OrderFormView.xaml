@@ -63,11 +63,20 @@
                    HorizontalAlignment="Center" VerticalAlignment="Center"
                   />
         </Viewbox>
-        <TextBox 
-                x:Name="Products" VerticalAlignment="Center"
-                Width="450" TextAlignment="Center"
-                FontSize="30" Grid.Row="3" Grid.Column="6" Grid.ColumnSpan="2">
-        </TextBox>
+        <Viewbox  Stretch="Uniform" Margin="15 15 15 20" Grid.Row="3" 
+                  Grid.Column="6" Grid.ColumnSpan="2">
+            <ComboBox
+             MinWidth="150"
+             IsEditable="True"    
+             ItemsSource="{Binding ProductNames}"
+             SelectedItem="{Binding SelectedProductName}">
+                <ComboBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <VirtualizingStackPanel />
+                    </ItemsPanelTemplate>
+                </ComboBox.ItemsPanel>
+            </ComboBox>
+        </Viewbox>
 
         <Viewbox Grid.Row="4" Grid.Column="6" Grid.ColumnSpan="2" Height="45"
                  Stretch="Uniform">
@@ -77,7 +86,7 @@
         </Viewbox>
         <TextBox 
                 x:Name="CurrentQuantityTb" VerticalAlignment="Center"
-                Width="450" TextAlignment="Center"
+                Width="450" TextAlignment="Center" IsReadOnly="True"
                 FontSize="30" Grid.Row="5" Grid.Column="6" Grid.ColumnSpan="2">
         </TextBox>
 
