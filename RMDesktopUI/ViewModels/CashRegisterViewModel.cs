@@ -25,7 +25,8 @@ namespace RMDesktopUI.ViewModels
         private readonly IBillItemEndpoint _billItemEndpoint;
         private readonly ILoggedInUserModel _loggedInUser;
 
-        public CashRegisterViewModel(IAPIHelper apiHelper, IEventAggregator events, IProductEndpoint productEndpoint, IBillEndpoint billEndpoint, IBillItemEndpoint billItemEndpoint, ILoggedInUserModel loggedInUser)
+        public CashRegisterViewModel(IAPIHelper apiHelper, IEventAggregator events, IProductEndpoint productEndpoint, 
+            IBillEndpoint billEndpoint, IBillItemEndpoint billItemEndpoint, ILoggedInUserModel loggedInUser)
         {
             _apiHelper = apiHelper;
             _events = events;

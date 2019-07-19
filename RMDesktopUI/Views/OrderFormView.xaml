@@ -109,6 +109,13 @@
         </Viewbox>
 
         <Viewbox Grid.Row="8" Grid.Column="7" Grid.RowSpan="2"  Stretch="Fill">
+            <Button x:Name="CancelOrderItem" 
+                Margin="30 10 30 10"
+        Content="Cancel Item" FontSize="20" Background="Blue">
+            </Button>
+        </Viewbox>
+
+        <Viewbox Grid.Row="10" Grid.Column="7" Grid.RowSpan="2"  Stretch="Fill">
             <Button x:Name="GoToProductsView" 
                 Margin="30 10 30 10"
         Content="Back" FontSize="20" Background="Blue">
@@ -116,8 +123,8 @@
         </Viewbox>
 
         <Viewbox Grid.Row="10" Grid.Column="6" Grid.RowSpan="2" 
-                 Grid.ColumnSpan="2"  Stretch="Fill" Margin="160 40 160 40">
-            <Button x:Name="Order" 
+                 Grid.ColumnSpan="1"  Stretch="Fill">
+            <Button x:Name="Order"  Margin="30 10 30 10"
         Content="Order" FontSize="20" Background="Teal">
             </Button>
         </Viewbox>

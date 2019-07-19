@@ -86,5 +86,23 @@ namespace RMDataManagerCore.Library.DataAccess
         {
             _sqlDataAccess.SaveData<UpdateProductQuantityModel, dynamic>("dbo.spUpdateProductQuantityCanceled", updateModel);
         }
+
+        public int GetQuantityOfProductByName(string ProductName)
+        {
+            var p = new { ProductName = ProductName };
+
+            var output = _sqlDataAccess.LoadOne<int, dynamic>("spGetQuantityOfProductByName", p);
+
+            return output;
+        }
+
+        public List<ProductNameQuantityModel> GetAllProductNamesAndQuantities(int ShopID)
+        {
+            var p = new { ShopID = ShopID };
+
+            var output = _sqlDataAccess.LoadData<ProductNameQuantityModel, dynamic>("spGetAllProductNamesAndQuantities", p);
+
+            return output;
+        }
     }
 }

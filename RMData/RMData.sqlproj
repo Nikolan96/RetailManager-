@@ -106,6 +106,8 @@
     <Build Include="dbo\Stored Procedures\spGetShopByAddress.sql" />
     <Build Include="dbo\Tables\Order.sql" />
     <Build Include="dbo\Tables\OrderItem.sql" />
+    <Build Include="dbo\Stored Procedures\spGetQuantityOfProductByName.sql" />
+    <Build Include="dbo\Stored Procedures\spGetAllProductNamesAndQuantities.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="RMData.refactorlog" />

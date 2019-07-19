@@ -72,6 +72,7 @@
     <Compile Include="Models\InsertUserModel.cs" />
     <Compile Include="Models\LoggedInUserModel.cs" />
     <Compile Include="Models\ProductModel.cs" />
+    <Compile Include="Models\ProductNameQuantityModel.cs" />
     <Compile Include="Models\ShopModel.cs" />
     <Compile Include="Models\UpdateProductModel.cs" />
     <Compile Include="Models\UpdateProductQuantityModel.cs" />

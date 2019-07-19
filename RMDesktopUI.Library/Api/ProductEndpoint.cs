@@ -145,5 +145,39 @@ namespace RMDesktopUI.Library.Api
 
             return response;
         }
+
+        public async Task<int> GetQuantityOfProductByName(string ProductName)
+        {
+            using (HttpResponseMessage response = await _apiHelper.ApiClient.GetAsync("/api/Product/Quantity/" + ProductName))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    var result = await response.Content.ReadAsAsync<int>();
+
+                    return result;
+                }
+                else
+                {
+                    throw new Exception(response.ReasonPhrase);
+                }
+            }
+        }
+
+        public async Task<List<ProductNameQuantityModel>> GetProductNamesAndQuantities(int ShopID)
+        {
+            using (HttpResponseMessage response = await _apiHelper.ApiClient.GetAsync("/api/Product/GetProductNamesAndQuantities/" + ShopID))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    var result = await response.Content.ReadAsAsync<List<ProductNameQuantityModel>>();
+
+                    return result;
+                }
+                else
+                {
+                    throw new Exception(response.ReasonPhrase);
+                }
+            }
+        }
     }
 }

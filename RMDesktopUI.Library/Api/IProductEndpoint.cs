@@ -17,5 +17,7 @@ namespace RMDesktopUI.Library.Api
         Task<HttpResponseMessage> UpdateProductQuantityCanceled(UpdateProductQuantityModel updateModel);
         Task<List<ProductModel>> GetProductsByShopID(int ShopID);
         Task<ProductModel> GetProductByID(string ID);
+        Task<int> GetQuantityOfProductByName(string ProductName);
+        Task<List<ProductNameQuantityModel>> GetProductNamesAndQuantities(int ShopID);
     }
 }

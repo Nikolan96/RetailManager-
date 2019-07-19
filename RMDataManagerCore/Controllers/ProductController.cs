@@ -50,6 +50,18 @@ namespace RMDataManagerCore.Controllers
             return _productData.GetByProductName(productName);
         }
 
+        [HttpGet("Quantity/{productName}")]
+        public int GetQuantityOfProductByName(string productName)
+        {
+            return _productData.GetQuantityOfProductByName(productName);
+        }
+
+        [HttpGet("GetProductNamesAndQuantities/{ShopID}")]
+        public List<ProductNameQuantityModel> GetProductNamesAndQuantities(int ShopID)
+        {
+            return _productData.GetAllProductNamesAndQuantities(ShopID);
+        }
+
         [HttpPost]
         public void Post(InsertProductModel productModel)
         {

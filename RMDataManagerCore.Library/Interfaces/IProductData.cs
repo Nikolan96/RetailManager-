@@ -16,5 +16,7 @@ namespace RMDataManagerCore.Library.Interfaces
         void UpdateProductQuantitySold(UpdateProductQuantityModel updateModel);
         void UpdateProductQuantityCanceled(UpdateProductQuantityModel updateModel);
         ProductModel GetProductByID(string ID);
+        int GetQuantityOfProductByName(string ProductName);
+        List<ProductNameQuantityModel> GetAllProductNamesAndQuantities(int ShopID);
     }
 }
