@@ -172,12 +172,18 @@
     <Compile Include="ViewModels\BillItemsViewModel.cs" />
     <Compile Include="ViewModels\CEOMenuViewModel.cs" />
     <Compile Include="ViewModels\ChartMenuViewModel.cs" />
+    <Compile Include="ViewModels\EditOrderItemViewModel.cs" />
     <Compile Include="ViewModels\EditUserViewModel.cs" />
     <Compile Include="ViewModels\ManagerMenuViewModel.cs" />
     <Compile Include="ViewModels\BillsViewModel.cs" />
     <Compile Include="ViewModels\CashRegisterViewModel.cs" />
     <Compile Include="ViewModels\EditProductViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\OrderDetailsViewModel.xaml.cs">
+      <DependentUpon>OrderDetailsViewModel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\OrderFormViewModel.cs" />
+    <Compile Include="ViewModels\OrdersViewModel.cs" />
     <Compile Include="ViewModels\ProductsBySaleChartViewModel.cs" />
     <Compile Include="ViewModels\ProductsViewModel.cs" />
     <Compile Include="ViewModels\ProfitByCategoryViewModel.cs" />
@@ -207,6 +213,9 @@
     <Compile Include="Views\ChartMenuView.xaml.cs">
       <DependentUpon>ChartMenuView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\EditOrderItemView.xaml.cs">
+      <DependentUpon>EditOrderItemView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\EditProductView.xaml.cs">
       <DependentUpon>EditProductView.xaml</DependentUpon>
     </Compile>
@@ -215,6 +224,15 @@
     </Compile>
     <Compile Include="Views\ManagerMenuView.xaml.cs">
       <DependentUpon>ManagerMenuView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OrderDetailsView.xaml.cs">
+      <DependentUpon>OrderDetailsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OrderFormView.xaml.cs">
+      <DependentUpon>OrderFormView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OrdersView.xaml.cs">
+      <DependentUpon>OrdersView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ProductsBySaleChartView.xaml.cs">
       <DependentUpon>ProductsBySaleChartView.xaml</DependentUpon>
@@ -261,6 +279,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="ViewModels\OrderDetailsViewModel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\BillCountByWorkerChartView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -285,6 +307,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\EditOrderItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\EditProductView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -294,6 +320,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ManagerMenuView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\OrderDetailsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\OrderFormView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\OrdersView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
