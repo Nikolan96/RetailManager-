@@ -148,6 +148,7 @@
     <Compile Include="EventModels\CashRegisterEvent.cs" />
     <Compile Include="EventModels\CEOLogOnEvent.cs" />
     <Compile Include="EventModels\ChartMenuViewEvent.cs" />
+    <Compile Include="EventModels\EditOrderItemViewEvent.cs" />
     <Compile Include="EventModels\EditProductViewEvent.cs" />
     <Compile Include="EventModels\CashierLogOnEvent.cs" />
     <Compile Include="EventModels\EditShopViewEvent.cs" />
@@ -155,6 +156,9 @@
     <Compile Include="EventModels\INavigationEvent.cs" />
     <Compile Include="EventModels\LogoutEvent.cs" />
     <Compile Include="EventModels\ManagerLogOnEvent.cs" />
+    <Compile Include="EventModels\OrderDetailsViewEvent.cs" />
+    <Compile Include="EventModels\OrdersFormViewEvent.cs" />
+    <Compile Include="EventModels\OrdersViewEvent.cs" />
     <Compile Include="EventModels\ProductsViewEvent.cs" />
     <Compile Include="EventModels\ScannerViewEvent.cs" />
     <Compile Include="EventModels\ShopListViewEvent.cs" />
@@ -179,9 +183,7 @@
     <Compile Include="ViewModels\CashRegisterViewModel.cs" />
     <Compile Include="ViewModels\EditProductViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
-    <Compile Include="ViewModels\OrderDetailsViewModel.xaml.cs">
-      <DependentUpon>OrderDetailsViewModel.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="ViewModels\OrderDetailsViewModel.cs" />
     <Compile Include="ViewModels\OrderFormViewModel.cs" />
     <Compile Include="ViewModels\OrdersViewModel.cs" />
     <Compile Include="ViewModels\ProductsBySaleChartViewModel.cs" />
@@ -279,10 +281,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="ViewModels\OrderDetailsViewModel.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\BillCountByWorkerChartView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

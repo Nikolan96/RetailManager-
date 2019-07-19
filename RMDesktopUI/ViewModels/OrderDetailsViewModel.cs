@@ -8,23 +8,23 @@ using System.Threading.Tasks;
 
 namespace RMDesktopUI.ViewModels
 {
-    public class OrdersViewModel : Screen
+    public class OrderDetailsViewModel : Screen
     {
         private readonly IEventAggregator _eventAggregator;
 
-        public OrdersViewModel(IEventAggregator eventAggregator)
+        public OrderDetailsViewModel(IEventAggregator eventAggregator)
         {
             _eventAggregator = eventAggregator;
         }
 
-        public void GoToProductsView()
+        public void EditOrderItem()
         {
-            _eventAggregator.PublishOnUIThread(new ProductsViewEvent());
+            _eventAggregator.PublishOnUIThread(new EditOrderItemViewEvent());
         }
 
-        public void Details()
+        public void Back()
         {
-            _eventAggregator.PublishOnUIThread(new OrderDetailsViewEvent());
+            _eventAggregator.PublishOnUIThread(new OrdersViewEvent());
         }
     }
 }

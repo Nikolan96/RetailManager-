@@ -58,7 +58,7 @@
         </Viewbox>
 
         <Viewbox Grid.Row="8" Grid.Column="6" Grid.ColumnSpan="2"  Grid.RowSpan="2"  Stretch="Fill">
-            <Button x:Name="GoToOrders" 
+            <Button x:Name="Back" 
                 Margin="30 10 30 10"
         Content="Back" FontSize="20" Background="Blue">
             </Button>

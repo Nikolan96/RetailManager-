@@ -27,6 +27,8 @@
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
@@ -42,9 +44,6 @@
 
         <Rectangle Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="8" Fill="Gray"></Rectangle>
         <Rectangle Grid.Row="2" Grid.Column="5" Grid.RowSpan="15"
-                   Fill="Gray">
-        </Rectangle>
-        <Rectangle Grid.Row="14" Grid.ColumnSpan="5"
                    Fill="Gray">
         </Rectangle>
 
@@ -102,19 +101,24 @@
                 FontSize="30" Grid.Row="7" Grid.Column="6" Grid.ColumnSpan="2">
         </TextBox>
 
-        <Viewbox Grid.Row="8" Grid.Column="6" Grid.RowSpan="3"  Stretch="Fill">
+        <Viewbox Grid.Row="8" Grid.Column="6" Grid.RowSpan="2"  Stretch="Fill">
             <Button x:Name="AddOrder"  
                 Margin="30 10 30 10"
         Content="Add" FontSize="20" Background="Blue">
             </Button>
         </Viewbox>
 
-      
-
-        <Viewbox Grid.Row="8" Grid.Column="7" Grid.RowSpan="3"  Stretch="Fill">
-            <Button x:Name="GoToCashRegister" 
+        <Viewbox Grid.Row="8" Grid.Column="7" Grid.RowSpan="2"  Stretch="Fill">
+            <Button x:Name="GoToProductsView" 
                 Margin="30 10 30 10"
         Content="Back" FontSize="20" Background="Blue">
+            </Button>
+        </Viewbox>
+
+        <Viewbox Grid.Row="10" Grid.Column="6" Grid.RowSpan="2" 
+                 Grid.ColumnSpan="2"  Stretch="Fill" Margin="160 40 160 40">
+            <Button x:Name="Order" 
+        Content="Order" FontSize="20" Background="Teal">
             </Button>
         </Viewbox>
 

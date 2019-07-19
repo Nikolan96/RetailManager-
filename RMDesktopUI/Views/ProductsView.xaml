@@ -54,15 +54,7 @@
         <Rectangle Grid.Row="14" Grid.ColumnSpan="5"
                    Fill="Gray">
         </Rectangle>
-        <!--<Rectangle Grid.Row="1" Grid.ColumnSpan="5" Fill="Gray"></Rectangle>
-        <Rectangle Grid.Row="1" Grid.Column="3" Grid.RowSpan="2" Fill="Gray"
-                   Margin="0 30 0 15"></Rectangle>
-
-
-        <Rectangle Grid.Row="0" Fill="#BBBBBB" Grid.ColumnSpan="6"></Rectangle>
-        <Rectangle Grid.Row="2" Fill="#dddddd" Grid.Column="2" Grid.RowSpan="2"
-                   Grid.ColumnSpan="3"></Rectangle>-->
-
+        
         <TextBlock Text="List of Products" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2"
                    HorizontalAlignment="Center" VerticalAlignment="Center"
                    FontSize="46" />

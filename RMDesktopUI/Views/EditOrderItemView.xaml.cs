@@ -17,7 +17,7 @@ namespace RMDesktopUI.Views
     /// <summary>
     /// Interaction logic for EditOrderItemView.xaml
     /// </summary>
-    public partial class EditOrderItemView : Window
+    public partial class EditOrderItemView : UserControl
     {
         public EditOrderItemView()
         {

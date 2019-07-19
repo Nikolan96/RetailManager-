@@ -17,7 +17,7 @@ namespace RMDesktopUI.Views
     /// <summary>
     /// Interaction logic for OrdersView.xaml
     /// </summary>
-    public partial class OrdersView : Window
+    public partial class OrdersView : UserControl
     {
         public OrdersView()
         {

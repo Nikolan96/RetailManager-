@@ -12,9 +12,10 @@ using RMDesktopUI.Library.Models;
 namespace RMDesktopUI.ViewModels
 {
     // Conductor holds on to and activates only one item at a time.
-    public class ShellViewModel : Conductor<object>, IHandle<CashierLogOnEvent>, IHandle<CashRegisterEvent>, IHandle<ProductsViewEvent>, IHandle<EditProductViewEvent>, IHandle<BillsViewEvent>,
-        IHandle<BillItemsViewEvent>,IHandle<ManagerLogOnEvent>, IHandle<CEOLogOnEvent>, IHandle<ChartMenuViewEvent>, IHandle<ShopListViewEvent>, IHandle<UserListViewEvent>, IHandle<LogoutEvent>, 
-        IHandle<EditShopViewEvent>, IHandle<EditUserViewEvent>, IHandle<ScannerViewEvent>, IHandle<CashRegisterEventWithScanResult>, IHandle<ProductsViewEventWithScanResult>
+    public class ShellViewModel : Conductor<object>, IHandle<CashierLogOnEvent>, IHandle<CashRegisterEvent>, IHandle<ProductsViewEvent>, IHandle<EditProductViewEvent>,
+        IHandle<BillsViewEvent>,IHandle<BillItemsViewEvent>,IHandle<ManagerLogOnEvent>, IHandle<CEOLogOnEvent>, IHandle<ChartMenuViewEvent>, IHandle<ShopListViewEvent>, 
+        IHandle<UserListViewEvent>, IHandle<LogoutEvent>, IHandle<EditShopViewEvent>, IHandle<EditUserViewEvent>, IHandle<ScannerViewEvent>, IHandle<CashRegisterEventWithScanResult>,
+        IHandle<ProductsViewEventWithScanResult>, IHandle<OrdersViewEvent>, IHandle<OrdersFormViewEvent>, IHandle<OrderDetailsViewEvent>, IHandle<EditOrderItemViewEvent>
     {
         private readonly IEventAggregator _events;
         private readonly IAutoMapper _autoMapper;
@@ -36,14 +37,19 @@ namespace RMDesktopUI.ViewModels
         private readonly IPasswordEncryptor _passwordEncryptor;
         private readonly IShopEndpoint _shopEndpoint;
         private readonly ScannerViewModel _scannerViewModel;
+        private readonly OrdersViewModel _ordersViewModel;
+        private readonly OrderFormViewModel _orderFormViewModel;
+        private readonly OrderDetailsViewModel _orderDetailsViewModel;
+        private readonly EditOrderItemViewModel _editOrderItemViewModel;
         private readonly CashRegisterViewModel _cashRegisterVM;
 
         // Uses constructor injection to pass in a new instance of LoginVM and activate it.
         public ShellViewModel(IEventAggregator events, IAutoMapper autoMapper, SalesViewModel salesVM, CashRegisterViewModel cashRegisterVM, SimpleContainer container,
             ProductsViewModel ProductsVM, EditProductViewModel editProductViewModel, BillsViewModel billsViewModel, BillItemsViewModel billItemsViewModel,
             ManagerMenuViewModel managerMenuViewModel, CEOMenuViewModel ceoMenuViewModel, ChartMenuViewModel chartMenuViewModel, UserListViewModel userListViewModel,
-            ShopListViewModel shopListViewModel, ShopEditViewModel shopEditViewModel, UserEditViewModel userEditViewModel, ILoggedInUserModel loggedInUserModel, IUserEndpoint userEndpoint
-            , IPasswordEncryptor passwordEncryptor, IShopEndpoint shopEndpoint, ScannerViewModel scannerViewModel)
+            ShopListViewModel shopListViewModel, ShopEditViewModel shopEditViewModel, UserEditViewModel userEditViewModel, ILoggedInUserModel loggedInUserModel,
+            IUserEndpoint userEndpoint, IPasswordEncryptor passwordEncryptor, IShopEndpoint shopEndpoint, ScannerViewModel scannerViewModel, OrdersViewModel ordersViewModel,
+            OrderFormViewModel orderFormViewModel, OrderDetailsViewModel orderDetailsViewModel, EditOrderItemViewModel editOrderItemViewModel)
         {
             _events = events;
             _autoMapper = autoMapper;
@@ -66,6 +72,10 @@ namespace RMDesktopUI.ViewModels
             _passwordEncryptor = passwordEncryptor;
             _shopEndpoint = shopEndpoint;
             _scannerViewModel = scannerViewModel;
+            _ordersViewModel = ordersViewModel;
+            _orderFormViewModel = orderFormViewModel;
+            _orderDetailsViewModel = orderDetailsViewModel;
+            _editOrderItemViewModel = editOrderItemViewModel;
             _autoMapper.Initialize();
 
             // Subscribes instance of shellview to events
@@ -168,110 +178,30 @@ namespace RMDesktopUI.ViewModels
             ActivateItem(_userEditViewModel);
         }
 
-        public async void Seed()
-        {
-          
-            InsertShopModel Shop1 = new InsertShopModel()
-            {
-                Town = "Novi Sad",
-                Address = "Bulevar oslobodjenja 36"
-            };
-
-            InsertShopModel Shop2 = new InsertShopModel()
-            {
-                Town = "Beograd",
-                Address = "Bulevar Vojvode Putnika 71"
-            };
-
-            List<InsertShopModel> shopModels = new List<InsertShopModel>()
-            {
-                Shop1, Shop2
-            };
-
-            foreach (var item in shopModels)
-            {
-                ShopModel ExistingShop = new ShopModel();
-                ExistingShop = await _shopEndpoint.GetShopByAddress(item.Address);
-
-                if (ExistingShop != null)
-                {
-                    await _shopEndpoint.InsertShop(item);
-                }
-            }
-
-            InsertUserModel CEO = new InsertUserModel()
-            {
-                EmailAddress = "Nikolan96@gmail.com",
-                FirstName = "Nikola",
-                LastName = "Andrić",
-                Password = _passwordEncryptor.Encrypt("Nikola123"),
-                Role = "CEO",
-                ShopId = 1
-                
-            };
-
-            InsertUserModel Manager1 = new InsertUserModel()
-            {
-                EmailAddress = "Matija@gmail.com",
-                FirstName = "Matija",
-                LastName = "Andrić",
-                Password = _passwordEncryptor.Encrypt("Matija123"),
-                Role = "Manager",
-                ShopId = 1
-            };
-
-            InsertUserModel Manager2 = new InsertUserModel()
-            {
-                EmailAddress = "Pera@gmail.com",
-                FirstName = "Pera",
-                LastName = "Perić",
-                Password = _passwordEncryptor.Encrypt("Pera123"),
-                Role = "Manager",
-                ShopId = 2
-            };
-
-            InsertUserModel Cashier1 = new InsertUserModel()
-            {
-                EmailAddress = "Mika@gmail.com",
-                FirstName = "Mika",
-                LastName = "Mikić",
-                Password = _passwordEncryptor.Encrypt("Mika123"),
-                Role = "Cashier",
-                ShopId = 1
-            };
-
-            InsertUserModel Cashier2 = new InsertUserModel()
-            {
-                EmailAddress = "Sanja@gmail.com",
-                FirstName = "Sanja",
-                LastName = "Marić",
-                Password = _passwordEncryptor.Encrypt("Sanja123"),
-                Role = "Cashier",
-                ShopId = 2
-            };
-
-            List<InsertUserModel> insertUserModels = new List<InsertUserModel>()
-            {
-                CEO, Manager1, Manager2, Cashier1, Cashier2
-            };
-
-            foreach (var user in insertUserModels)
-            {
-                var existingUser = await _userEndpoint.GetUserByEmail(user.EmailAddress);
-
-                if (existingUser != null)
-                {
-                    await _userEndpoint.InsertUser(user);
-                }
-            }
-
-            
-        }
-
         public void Handle(ScannerViewEvent message)
         {
             _scannerViewModel.SetNavigateToAfterResultScan(message.NavigateTo);
             ActivateItem(_scannerViewModel);
-        }  
+        }
+
+        public void Handle(OrdersViewEvent message)
+        {
+            ActivateItem(_ordersViewModel);
+        }
+
+        public void Handle(OrdersFormViewEvent message)
+        {
+            ActivateItem(_orderFormViewModel);
+        }
+
+        public void Handle(OrderDetailsViewEvent message)
+        {
+            ActivateItem(_orderDetailsViewModel);
+        }
+
+        public void Handle(EditOrderItemViewEvent message)
+        {
+            ActivateItem(_editOrderItemViewModel);
+        }
     }
 }

@@ -292,6 +292,16 @@ namespace RMDesktopUI.ViewModels
             _events.PublishOnUIThread(new ScannerViewEvent(new ProductsViewEventWithScanResult()));
         }
 
+        public void Order()
+        {
+            _events.BeginPublishOnUIThread(new OrdersFormViewEvent());
+        }
+
+        public void Orders()
+        {
+            _events.BeginPublishOnUIThread(new OrdersViewEvent());
+        }
+
         private async Task LoadProducts()
         {
             var productList = await _productEndpoint.GetProductsByShopID(_loggedInUser.ShopId);
