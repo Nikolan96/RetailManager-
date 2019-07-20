@@ -355,7 +355,6 @@ namespace RMDesktopUI.ViewModels
 
         }
 
-
         public bool CanDeleteBillItem
         {
             get

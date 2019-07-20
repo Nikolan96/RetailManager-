@@ -68,7 +68,7 @@
 
                 <ToggleButton Margin="5 0 10 0"
                  Style="{StaticResource MaterialDesignSwitchLightToggleButton}"                
-                 IsChecked="{Binding SearchBy}" 
+                 IsChecked="{Binding IsApproved}" 
                  Name="SearchBy"/>
 
                 <TextBlock Text="Ordered" FontSize="13" 
@@ -79,7 +79,7 @@
 
         <Viewbox Grid.Row="6" Grid.Column="6" Grid.ColumnSpan="2" 
                  Grid.RowSpan="2"  Stretch="Fill" Margin="150 30 150 30"
-                 Visibility="{Binding IsManager}">
+                 Visibility="{Binding IsManagerAndApproved}">
             <Button x:Name="Approve" 
         Content="Approve" FontSize="20" Background="green">
             </Button>
@@ -87,7 +87,7 @@
 
         <Viewbox Grid.Row="8" Grid.Column="6" Grid.ColumnSpan="2" 
                  Grid.RowSpan="2"  Stretch="Fill" Margin="150 30 150 30"
-                 Visibility="{Binding IsManager}">
+                 Visibility="{Binding IsManagerAndApproved}">
             <Button x:Name="Disapprove" 
         Content="Disapprove" FontSize="20" Background="red">
             </Button>
@@ -99,37 +99,33 @@
         Content="Back" FontSize="20" Background="Blue">
             </Button>
         </Viewbox>
-
+      
+        <!--Approved Orders-->
         <DataGrid 
             IsReadOnly="True"
             Grid.Row="2" Grid.RowSpan="10" Grid.Column="0" 
             Grid.ColumnSpan="2"
             Margin="5 8 0 0"
+           
             ItemsSource="{Binding Orders}" 
             SelectedItem="{Binding SelectedOrder}"
             CanUserSortColumns="False"
             CanUserAddRows="False"
             CanUserReorderColumns="False"
             AutoGenerateColumns="False"
-
             VerticalScrollBarVisibility="Visible"
             HorizontalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True"
             >
-
             <DataGrid.ColumnHeaderStyle>
                 <Style TargetType="DataGridColumnHeader">
                     <Setter Property="FontSize" Value="60"></Setter>
-
                 </Style>
             </DataGrid.ColumnHeaderStyle>
 
             <DataGrid.Resources>
-                <Style TargetType="DataGridRow">
-                    <Setter Property="HorizontalAlignment" Value="Center"/>
-                </Style>
                 <Style TargetType="DataGridCell">
 
-                    <Setter Property="FontSize" Value="50"/>
+                    <Setter Property="FontSize" Value="30"/>
                 </Style>
             </DataGrid.Resources>
 
@@ -137,15 +133,15 @@
                 <DataGridTextColumn                 
       Binding="{Binding ID}"
       Header="Order ID"
-      MinWidth="450"
-      MaxWidth="450">
+      MinWidth="650"
+      MaxWidth="750">
                 </DataGridTextColumn>
 
                 <DataGridTextColumn
       Binding="{Binding CreatedDate}"
       Header="Ordered Date"
-      MinWidth="540"
-      MaxWidth="600">
+      MinWidth="400"
+      MaxWidth="500">
                 </DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>

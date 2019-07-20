@@ -61,12 +61,11 @@ namespace RMDesktopUI.Library.Api
             return response;
         }
 
-        // ????
         public async Task<HttpResponseMessage> ApproveOrder(string ID)
         {
             var stringContent = new StringContent(JsonConvert.SerializeObject(ID), Encoding.UTF8, "application/json");
 
-            HttpResponseMessage response = await _apiHelper.ApiClient.PutAsync("/api/Order", stringContent);
+            HttpResponseMessage response = await _apiHelper.ApiClient.PutAsync("/api/Order/" + ID, stringContent);
 
             return response;
         }

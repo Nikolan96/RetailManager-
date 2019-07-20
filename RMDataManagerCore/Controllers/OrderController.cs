@@ -44,7 +44,7 @@ namespace RMDataManagerCore.Controllers
             _orderData.DeleteOrder(ID);
         }
 
-        [HttpPut]
+        [HttpPut("{ID}")]
         public void ApproveOrder(string ID)
         {
             _orderData.ApproveOrder(ID);
