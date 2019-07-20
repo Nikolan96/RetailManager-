@@ -140,7 +140,7 @@ namespace RMDesktopUI.ViewModels
 
         public void Details()
         {
-            _eventAggregator.PublishOnUIThread(new OrderDetailsViewEvent());
+            _eventAggregator.PublishOnUIThread(new OrderDetailsViewEvent(SelectedOrder.ID, SelectedOrder.IsApproved));
         }
 
         public bool CanApprove
@@ -208,6 +208,7 @@ namespace RMDesktopUI.ViewModels
         {
             var orders = await _orderEndpoint.GetOrdersByShopID(_loggedInUserModel.ShopId);
             AllOrders = new List<OrderModel>(orders);
+            IsApproved = false;
             Orders = new BindingList<OrderModel>(AllOrders.Where(t => t.IsApproved == false).ToList<OrderModel>());
         }
 

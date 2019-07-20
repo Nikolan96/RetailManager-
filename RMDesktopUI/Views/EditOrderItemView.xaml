@@ -83,7 +83,7 @@
 
         <Viewbox Grid.Row="7" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="2" Margin="20"
                  VerticalAlignment="Center">
-            <Button x:Name="EditOrderItem" FontSize="13" Panel.ZIndex="1"
+            <Button x:Name="Edit" FontSize="13" Panel.ZIndex="1"
                     VerticalAlignment="Bottom" 
                     >
                 Edit

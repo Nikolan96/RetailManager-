@@ -196,11 +196,14 @@ namespace RMDesktopUI.ViewModels
 
         public void Handle(OrderDetailsViewEvent message)
         {
+            _orderDetailsViewModel.AddOrderID(message.OrderID);
+            _orderDetailsViewModel.AddIsApproved(message.IsApproved);
             ActivateItem(_orderDetailsViewModel);
         }
 
         public void Handle(EditOrderItemViewEvent message)
         {
+            _editOrderItemViewModel.AddID(message.ID);
             ActivateItem(_editOrderItemViewModel);
         }
     }

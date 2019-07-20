@@ -8,5 +8,11 @@ namespace RMDesktopUI.EventModels
 {
     public class EditOrderItemViewEvent : INavigationEvent
     {
+        public int ID { get; set; }
+
+        public EditOrderItemViewEvent(int ID)
+        {
+            this.ID = ID;
+        }
     }
 }

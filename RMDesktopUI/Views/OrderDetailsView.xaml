@@ -50,10 +50,18 @@
                    FontSize="55" />
 
         <Viewbox Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="2"  
-                 Grid.RowSpan="1"  Stretch="Fill" Visibility="{Binding IsManager}">
+                 Grid.RowSpan="1"  Stretch="Fill" Visibility="{Binding OrderIsApproved}">
             <Button x:Name="EditOrderItem" 
                 Margin="30 10 30 10"
         Content="Edit" FontSize="20" Background="green">
+            </Button>
+        </Viewbox>
+
+        <Viewbox Grid.Row="3" Grid.Column="6" Grid.ColumnSpan="2"  
+                 Grid.RowSpan="1"  Stretch="Fill" Visibility="{Binding OrderIsApproved}">
+            <Button x:Name="DeleteOrderItem" 
+                Margin="30 10 30 10"
+        Content="Delete" FontSize="20" Background="red">
             </Button>
         </Viewbox>
 

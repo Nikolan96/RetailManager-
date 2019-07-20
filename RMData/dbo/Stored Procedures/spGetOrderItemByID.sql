@@ -3,7 +3,7 @@
 AS
 begin
 	set nocount on;
-	select ID, ProductID, ProductName, Quantity
+	select ID, OrderID, ProductID, ProductName, Quantity
 	from [dbo].[OrderItem]
 	where ID = @ID;
 end
