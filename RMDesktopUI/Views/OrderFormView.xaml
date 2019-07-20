@@ -135,7 +135,7 @@
             Grid.ColumnSpan="5"
             Margin="5 8 0 0"
             ItemsSource="{Binding OrderItemsToAdd}" 
-            SelectedItem="{Binding SelectedProduct}"
+            SelectedItem="{Binding SelectedOrderItemToAdd}"
             CanUserSortColumns="False"
             CanUserAddRows="False"
             CanUserReorderColumns="False"
@@ -158,14 +158,14 @@
                 </Style>
                 <Style TargetType="DataGridCell">
 
-                    <Setter Property="FontSize" Value="40"/>
+                    <Setter Property="FontSize" Value="35"/>
                 </Style>
             </DataGrid.Resources>
 
             <DataGrid.Columns>
                 <DataGridTextColumn                 
-      Binding="{Binding ID}"
-      Header="Product Id"
+      Binding="{Binding ProductID}"
+      Header="Product ID"
       MinWidth="500"
       MaxWidth="500">
                 </DataGridTextColumn>

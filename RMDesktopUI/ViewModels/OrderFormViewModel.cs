@@ -8,6 +8,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace RMDesktopUI.ViewModels
 {
@@ -16,12 +17,17 @@ namespace RMDesktopUI.ViewModels
         private readonly IEventAggregator _eventAggregator;
         private readonly IProductEndpoint _productEndpoint;
         private readonly ILoggedInUserModel _loggedInUser;
+        private readonly IOrderEndpoint _orderEndpoint;
+        private readonly IOrderItemEndpoint _orderItemEndpoint;
 
-        public OrderFormViewModel(IEventAggregator eventAggregator, IProductEndpoint productEndpoint, ILoggedInUserModel loggedInUser)
+        public OrderFormViewModel(IEventAggregator eventAggregator, IProductEndpoint productEndpoint,
+            ILoggedInUserModel loggedInUser, IOrderEndpoint orderEndpoint, IOrderItemEndpoint orderItemEndpoint)
         {
             _eventAggregator = eventAggregator;
             _productEndpoint = productEndpoint;
             _loggedInUser = loggedInUser;
+            _orderEndpoint = orderEndpoint;
+            _orderItemEndpoint = orderItemEndpoint;
         }
 
         private BindingList<ProductNameQuantityModel> _products;
@@ -62,6 +68,32 @@ namespace RMDesktopUI.ViewModels
                 NotifyOfPropertyChange(() => CanAddOrder);
             }
         }
+
+        private BindingList<OrderItemModel> _orderItemsToAdd = new BindingList<OrderItemModel>();
+
+        public BindingList<OrderItemModel> OrderItemsToAdd
+        {
+            get { return _orderItemsToAdd; }
+            set
+            {
+                _orderItemsToAdd = value;
+                NotifyOfPropertyChange(() => OrderItemsToAdd);
+            }
+        }
+
+        private OrderItemModel _selectedOrderItemToAdd;
+
+        public OrderItemModel SelectedOrderItemToAdd
+        {
+            get { return _selectedOrderItemToAdd; }
+            set
+            {
+                _selectedOrderItemToAdd = value;
+                NotifyOfPropertyChange(() => SelectedOrderItemToAdd);
+                NotifyOfPropertyChange(() => CanCancelOrderItem);
+            }
+        }
+
 
         private int _currentQuantityTb;
 
@@ -110,7 +142,7 @@ namespace RMDesktopUI.ViewModels
             {
                 bool output = false;
 
-                if (SelectedProductName != null && QuantityTb == 0)
+                if (SelectedProductName != null && QuantityTb != 0)
                 {
                     output = true;
                 }
@@ -119,9 +151,40 @@ namespace RMDesktopUI.ViewModels
             }
         }
 
-        public void AddOrder()
+        public async void AddOrder()
         {
+            ProductModel product = await _productEndpoint.GetByProductName(SelectedProductName);
+            OrderItemModel existingOrderItem;
 
+            existingOrderItem = OrderItemsToAdd.Where(n => n.ProductName == SelectedProductName).FirstOrDefault();
+
+            if (existingOrderItem != null)
+            {
+                existingOrderItem.Quantity += QuantityTb;
+                OrderItemsToAdd.Remove(existingOrderItem);
+                OrderItemsToAdd.Add(existingOrderItem);
+            }
+            else
+            {
+                OrderItemModel orderItem = new OrderItemModel
+                {
+                    ProductName = SelectedProductName,
+                    Quantity = QuantityTb,
+                    ProductID = product.ID                   
+                };
+
+                OrderItemsToAdd.Add(orderItem);
+            }
+
+            QuantityTb = 0;
+            SelectedProductName = null;
+            CurrentQuantityTb = 0;
+
+            NotifyOfPropertyChange(() => CurrentQuantityTb);
+            NotifyOfPropertyChange(() => SelectedProductName);
+            NotifyOfPropertyChange(() => QuantityTb);
+            NotifyOfPropertyChange(() => OrderItemsToAdd);
+            NotifyOfPropertyChange(() => CanOrder);
         }
 
         public bool CanCancelOrderItem
@@ -130,14 +193,20 @@ namespace RMDesktopUI.ViewModels
             {
                 bool output = false;
 
-                // if SelectedOrderItem != null
-                //if (true)
-                //{
-                //    output = true;
-                //}
+                if (SelectedOrderItemToAdd != null)
+                {
+                    output = true;
+                }
 
                 return output;
             }
+        }
+
+        public void CancelOrderItem()
+        {
+            OrderItemsToAdd.Remove(SelectedOrderItemToAdd);
+
+            NotifyOfPropertyChange(() => OrderItemsToAdd);
         }
 
         public bool CanOrder
@@ -146,25 +215,45 @@ namespace RMDesktopUI.ViewModels
             {
                 bool output = false;
 
-                // if OrderItems != null
-                //if (true)
-                //{ 
-                //    output = true;
-                //}
+                if (OrderItemsToAdd.Count != 0)
+                {
+                    output = true;
+                }
 
                 return output;
             }
         }
 
-        public void Order()
+        public async void Order()
         {
-            // add Order to db, Add orderItems to db, clear OrderItems
+            InsertOrderModel order = new InsertOrderModel
+            {
+                ID = Guid.NewGuid().ToString(),
+                ShopID = _loggedInUser.ShopId,
+                CreatedDate = DateTime.Now
+            };
+    
+            await _orderEndpoint.InsertOrder(order);
+
+            foreach (var orderitem in OrderItemsToAdd)
+            {
+                InsertOrderItemModel insertOrderItemModel = new InsertOrderItemModel
+                {
+                    OrderID = order.ID,
+                    ProductName = orderitem.ProductName,
+                    Quantity = orderitem.Quantity,
+                    ProductID = orderitem.ProductID
+                };
+
+                await _orderItemEndpoint.InsertOrderItem(insertOrderItemModel);
+            }
+
+            MessageBox.Show("Created Order Successfully");
+
+            OrderItemsToAdd.Clear();
+            NotifyOfPropertyChange(() => OrderItemsToAdd);
+
             _eventAggregator.PublishOnUIThread(new ProductsViewEvent());
-        }
-
-        public void CancelOrderItem()
-        {
-
         }
 
         private async Task LoadProducts()

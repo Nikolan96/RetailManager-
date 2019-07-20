@@ -55,7 +55,9 @@ namespace RMDataManagerCore
                     .AddScoped<IBillItemData, BillItemData>()
                     .AddScoped<IProductData, ProductData>()
                     .AddScoped<IUserData, UserData>()
-                    .AddScoped<IShopData, ShopData>();
+                    .AddScoped<IShopData, ShopData>()
+                    .AddScoped<IOrderData, OrderData>()
+                    .AddScoped<IOrderItemData, OrderItemData>();
 
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(

@@ -52,7 +52,7 @@ namespace RMDesktopUI.Library.Api
             }
         }
 
-        public async Task<HttpResponseMessage> InsertOrder(OrderModel orderModel)
+        public async Task<HttpResponseMessage> InsertOrder(InsertOrderModel orderModel)
         {
             var stringContent = new StringContent(JsonConvert.SerializeObject(orderModel), Encoding.UTF8, "application/json");
 

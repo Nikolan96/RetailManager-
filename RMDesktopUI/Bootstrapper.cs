@@ -40,6 +40,8 @@ namespace RMDesktopUI
                 .PerRequest<IUserEndpoint, UserEndpoint>()
                 .PerRequest<IPasswordEncryptor, PasswordEncryptor>()
                 .PerRequest<IShopEndpoint, ShopEndpoint>()
+                .PerRequest<IOrderEndpoint, OrderEndpoint>()
+                .PerRequest<IOrderItemEndpoint, OrderItemEndpoint>()
                 .PerRequest<IAutoMapper, Helpers.AutoMapper>();
 
             _container

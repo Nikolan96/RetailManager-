@@ -10,7 +10,7 @@ namespace RMDataManagerCore.Library.Interfaces
         OrderModel GetOrderByID(string ID);
         void DeleteOrder(string ID);
         List<OrderModel> GetOrdersByShopID(int ShopID);
-        void InsertOrder(OrderModel orderModel);
+        void InsertOrder(InsertOrderModel orderModel);
         void ApproveOrder(string ID);
     }
 }

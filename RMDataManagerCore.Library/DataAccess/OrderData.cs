@@ -33,9 +33,9 @@ namespace RMDataManagerCore.Library.DataAccess
             return output;
         }
 
-        public void InsertOrder(OrderModel orderModel)
+        public void InsertOrder(InsertOrderModel orderModel)
         {
-            _sqlDataAccess.SaveData<OrderModel, dynamic>("dbo.spInsertOrder", orderModel);
+            _sqlDataAccess.SaveData<InsertOrderModel, dynamic>("dbo.spInsertOrder", orderModel);
         }
 
         public void DeleteOrder(string ID)

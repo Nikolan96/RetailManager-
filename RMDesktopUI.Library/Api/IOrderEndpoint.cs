@@ -12,7 +12,7 @@ namespace RMDesktopUI.Library.Api
     {
         Task<OrderModel> GetOrderByID(string ID);
         Task<List<OrderModel>> GetOrdersByShopID(int ShopID);
-        Task<HttpResponseMessage> InsertOrder(OrderModel orderModel);
+        Task<HttpResponseMessage> InsertOrder(InsertOrderModel orderModel);
         Task<HttpResponseMessage> DeleteOrder(string ID);
         Task<HttpResponseMessage> ApproveOrder(string ID);
     }

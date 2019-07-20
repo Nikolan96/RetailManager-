@@ -21,7 +21,7 @@ namespace RMDataManagerCore.Controllers
         }
 
         [HttpGet("{ID}")]
-        public OrderModel GetBill(string ID)
+        public OrderModel GetOrder(string ID)
         {
             return _orderData.GetOrderByID(ID);
         }
@@ -33,7 +33,7 @@ namespace RMDataManagerCore.Controllers
         }
 
         [HttpPost]
-        public void InsertOrder(OrderModel orderModel)
+        public void InsertOrder(InsertOrderModel orderModel)
         {
             _orderData.InsertOrder(orderModel);
         }
