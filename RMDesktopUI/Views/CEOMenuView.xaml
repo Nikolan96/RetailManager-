@@ -15,7 +15,7 @@
              FontFamily="{DynamicResource MaterialDesignFont}">
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="C:\Users\Nikola\Desktop\market.jpg"></ImageBrush>
+            <ImageBrush ImageSource="E:\Programiranje\RetailManager\RetailManager-\Images\market.jpg"></ImageBrush>
         </Grid.Background>
 
         <Grid.RowDefinitions>
@@ -64,7 +64,7 @@
                x:Name="GoToChartMenuView"
   Style="{StaticResource MaterialDesignFloatingActionAccentButton}">
                 <Button.Content>
-                    <Image Width="40" Source="C:\Users\Nikola\Desktop\graph1.png"></Image>
+                    <Image Width="40" Source="E:\Programiranje\RetailManager\RetailManager-\Images\graph1.png"></Image>
                 </Button.Content>
             </Button>
         </Viewbox>
@@ -74,7 +74,7 @@
                  x:Name="GoToUserListView"
   Style="{StaticResource MaterialDesignFloatingActionAccentButton}">
                 <Button.Content>
-                    <Image Width="40" Source="C:\Users\Nikola\Desktop\cashier.png"></Image>
+                    <Image Width="40" Source="E:\Programiranje\RetailManager\RetailManager-\Images\cashier.png"></Image>
                 </Button.Content>
             </Button>
         </Viewbox>
@@ -84,7 +84,7 @@
                 x:Name="GoToShopListView"
   Style="{StaticResource MaterialDesignFloatingActionAccentButton}">
                 <Button.Content>
-                    <Image Width="40" Source="C:\Users\Nikola\Desktop\splashscreen.png"></Image>
+                    <Image Width="40" Source="E:\Programiranje\RetailManager\RetailManager-\Images\splashscreen.png"></Image>
                 </Button.Content>
             </Button>
         </Viewbox>

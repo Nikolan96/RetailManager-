@@ -12,7 +12,7 @@
              FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto">
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="C:\Users\Nikola\Desktop\market.jpg"></ImageBrush>
+            <ImageBrush ImageSource="E:\Programiranje\RetailManager\RetailManager-\Images\market.jpg"></ImageBrush>
         </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>

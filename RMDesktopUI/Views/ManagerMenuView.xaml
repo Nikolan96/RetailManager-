@@ -15,7 +15,7 @@
              FontFamily="{DynamicResource MaterialDesignFont}">
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="C:\Users\Nikola\Desktop\market.jpg"></ImageBrush>
+            <ImageBrush ImageSource="E:\Programiranje\RetailManager\RetailManager-\Images\market.jpg"></ImageBrush>
         </Grid.Background>
 
         <Grid.RowDefinitions>
@@ -58,7 +58,7 @@
                x:Name="GoToChartMenu" 
   Style="{StaticResource MaterialDesignFloatingActionAccentButton}">
                 <Button.Content>
-                    <Image Width="40" Source="C:\Users\Nikola\Desktop\graph1.png"></Image>
+                    <Image Width="40" Source="E:\Programiranje\RetailManager\RetailManager-\Images\graph1.png"></Image>
                 </Button.Content>
             </Button>
         </Viewbox>
@@ -68,7 +68,7 @@
                x:Name="GoToCashRegister" 
   Style="{StaticResource MaterialDesignFloatingActionAccentButton}">
                 <Button.Content>
-                    <Image Width="40" Source="C:\Users\Nikola\Desktop\cashregister1.png"></Image>
+                    <Image Width="40" Source="E:\Programiranje\RetailManager\RetailManager-\Images\cashregister1.png"></Image>
                 </Button.Content>
             </Button>
         </Viewbox>
