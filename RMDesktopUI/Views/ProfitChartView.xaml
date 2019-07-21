@@ -36,55 +36,50 @@
 
         <Rectangle Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Fill="Gray"></Rectangle>
 
-        <TextBlock Grid.Row="2" Grid.Column="0"
-            FontSize="25" HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
+        <Viewbox Grid.Row="3" Grid.Column="0" Stretch="Uniform" Height="45">
+            <TextBlock 
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
            >Shop
-        </TextBlock>
-        
-        <ComboBox 
-            Grid.Row="3" 
-             Margin="5 0 5 0">
-        </ComboBox>
+            </TextBlock>
+        </Viewbox>
 
-              
+        <Viewbox  Grid.Row="4" Margin="10" Stretch="Uniform"
+            >
+            <ComboBox
+                MinWidth="100"
+                >
+            </ComboBox>
+        </Viewbox>
 
-        <DatePicker
-            Grid.Row="4"
-            Width="100"
-            materialDesign:HintAssist.Hint="Start Date"
-            Style="{StaticResource MaterialDesignFloatingHintDatePicker}">
-        </DatePicker>
-       
-        <DatePicker
-            Grid.Row="5"
-            Width="100"
-            materialDesign:HintAssist.Hint="End Date"
-            Style="{StaticResource MaterialDesignFloatingHintDatePicker}">
-        </DatePicker>
-
-        <Button Grid.Row="7" Grid.Column="0" Grid.RowSpan="2"
-                Margin="30 0 30 0" Height="50">
-            Back
-        </Button>
+        <Viewbox Grid.Row="7" Grid.Column="0" Grid.RowSpan="2" Stretch="Fill"
+                 Margin="35">
+            <Button
+                 x:Name="Back">
+                Back
+            </Button>
+        </Viewbox>
 
         <Rectangle Grid.Row="0" Grid.RowSpan="9" Grid.Column="1" Fill="Gray"></Rectangle>
 
-        <TextBlock Grid.Row="0" Grid.Column="2"
-                FontSize="30" HorizontalAlignment="Center"
-                       VerticalAlignment="Center">
+        <Viewbox Grid.Row="0" Grid.Column="2" Stretch="Uniform" Height="50">
+            <TextBlock 
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Center">
             Profit Chart
-        </TextBlock>
+            </TextBlock>
+        </Viewbox>
 
-        <lvc:CartesianChart Grid.Row="1" Grid.Column="3" Grid.RowSpan="8"
-            Series="{Binding SeriesCollection}" LegendLocation="Bottom" >
-            <lvc:CartesianChart.AxisY>
-                <lvc:Axis Title="Sales" LabelFormatter="{Binding YFormatter}"></lvc:Axis>
-            </lvc:CartesianChart.AxisY>
-            <lvc:CartesianChart.AxisX>
-                <lvc:Axis Title="Month" Labels="{Binding Labels}"></lvc:Axis>
-            </lvc:CartesianChart.AxisX>
-        </lvc:CartesianChart>
+        <Grid Grid.Row="2" Grid.Column="3" Grid.RowSpan="8">
+            <lvc:CartesianChart DataContext="{Binding DataContext}" Series="{Binding SeriesCollection}" LegendLocation="Right" Loaded="CartesianChart_Loaded" >
+                <lvc:CartesianChart.AxisY>
+                    <lvc:Axis Title="Sales" LabelFormatter="{Binding YFormatter}"></lvc:Axis>
+                </lvc:CartesianChart.AxisY>
+                <lvc:CartesianChart.AxisX>
+                    <lvc:Axis Title="Month" Labels="{Binding Labels}"></lvc:Axis>
+                </lvc:CartesianChart.AxisX>
+            </lvc:CartesianChart>
+        </Grid>
 
     </Grid>
 </UserControl>

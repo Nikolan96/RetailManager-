@@ -143,6 +143,7 @@
     </ApplicationDefinition>
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="EventModels\BarcodeScannedEvent.cs" />
+    <Compile Include="EventModels\BillCountByWorkerChartViewEvent.cs" />
     <Compile Include="EventModels\BillItemsViewEvent.cs" />
     <Compile Include="EventModels\BillsViewEvent.cs" />
     <Compile Include="EventModels\CashRegisterEvent.cs" />
@@ -160,6 +161,8 @@
     <Compile Include="EventModels\OrdersFormViewEvent.cs" />
     <Compile Include="EventModels\OrdersViewEvent.cs" />
     <Compile Include="EventModels\ProductsViewEvent.cs" />
+    <Compile Include="EventModels\ProfitByCategoryViewEvent.cs" />
+    <Compile Include="EventModels\ProfitChartViewEvent.cs" />
     <Compile Include="EventModels\ScannerViewEvent.cs" />
     <Compile Include="EventModels\ShopListViewEvent.cs" />
     <Compile Include="EventModels\UserListViewEvent.cs" />
@@ -186,11 +189,9 @@
     <Compile Include="ViewModels\OrderDetailsViewModel.cs" />
     <Compile Include="ViewModels\OrderFormViewModel.cs" />
     <Compile Include="ViewModels\OrdersViewModel.cs" />
-    <Compile Include="ViewModels\ProductsBySaleChartViewModel.cs" />
     <Compile Include="ViewModels\ProductsViewModel.cs" />
     <Compile Include="ViewModels\ProfitByCategoryViewModel.cs" />
     <Compile Include="ViewModels\ProfitChartViewModel.cs" />
-    <Compile Include="ViewModels\SalesViewModel.cs" />
     <Compile Include="ViewModels\ScannerViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Compile Include="ViewModels\ShopEditViewModel.cs" />
@@ -236,9 +237,6 @@
     <Compile Include="Views\OrdersView.xaml.cs">
       <DependentUpon>OrdersView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ProductsBySaleChartView.xaml.cs">
-      <DependentUpon>ProductsBySaleChartView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\ProductsView.xaml.cs">
       <DependentUpon>ProductsView.xaml</DependentUpon>
     </Compile>
@@ -247,9 +245,6 @@
     </Compile>
     <Compile Include="Views\ProfitChartView.xaml.cs">
       <DependentUpon>ProfitChartView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\SalesView.xaml.cs">
-      <DependentUpon>SalesView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ScannerView.xaml.cs">
       <DependentUpon>ScannerView.xaml</DependentUpon>
@@ -333,10 +328,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\ProductsBySaleChartView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\ProductsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -346,10 +337,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ProfitChartView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\SalesView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -36,58 +36,54 @@
 
         <Rectangle Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Fill="Gray"></Rectangle>
 
-        <TextBlock Grid.Row="2" Grid.Column="0"
-            FontSize="25" HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
+        <Viewbox Grid.Row="3" Grid.Column="0" Stretch="Uniform" Height="45">
+            <TextBlock 
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
            >Shop
-        </TextBlock>
+            </TextBlock>
+        </Viewbox>
 
-        <ComboBox 
-            Grid.Row="3" 
-             Margin="5 0 5 0">
-        </ComboBox>
+        <Viewbox  Grid.Row="4" Margin="10" Stretch="Uniform"
+            >
+            <ComboBox
+                MinWidth="100"
+                >
+            </ComboBox>
+        </Viewbox>
 
-        <DatePicker
-            Grid.Row="4"
-            Width="100"
-            materialDesign:HintAssist.Hint="Start Date"
-            Style="{StaticResource MaterialDesignFloatingHintDatePicker}">
-        </DatePicker>
-
-        <DatePicker
-            Grid.Row="5"
-            Width="100"
-            materialDesign:HintAssist.Hint="End Date"
-            Style="{StaticResource MaterialDesignFloatingHintDatePicker}">
-        </DatePicker>
-
-        <Button Grid.Row="7" Grid.Column="0" Grid.RowSpan="2"
-                Margin="30 0 30 0" Height="50">
-            Back
-        </Button>
+        <Viewbox Grid.Row="7" Grid.Column="0" Grid.RowSpan="2" Stretch="Fill"
+                 Margin="35">
+            <Button
+                 x:Name="Back">
+                Back
+            </Button>
+        </Viewbox>
 
         <Rectangle Grid.Row="0" Grid.RowSpan="9" Grid.Column="1" Fill="Gray"></Rectangle>
 
-        <TextBlock Grid.Row="0" Grid.Column="2"
-                FontSize="30" HorizontalAlignment="Center"
-                       VerticalAlignment="Center">
-            Profit By Product Category
-        </TextBlock>
+        <Viewbox Grid.Row="0" Grid.Column="2" Stretch="Uniform" Height="50">
+            <TextBlock 
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Center">
+            Profit By Product Category 
+            </TextBlock>
+        </Viewbox>
 
-        <lvc:PieChart Grid.Row="1" Grid.Column="3" Grid.RowSpan="8"
-            LegendLocation="Left" 
-                      Hoverable="False" DataTooltip="{x:Null}">
-            <lvc:PieChart.Series>
-                <lvc:PieSeries Title="Maria" Values="3" DataLabels="True"
+        <Grid Grid.Row="1" Grid.Column="3" Grid.RowSpan="8">
+            <lvc:PieChart LegendLocation="Left" DataClick="Chart_OnDataClick" Hoverable="False" DataTooltip="{x:Null}" Loaded="PieChart_Loaded">
+                <lvc:PieChart.Series>
+                    <lvc:PieSeries Title="Maria" Values="3" DataLabels="True"
                                LabelPoint="{Binding PointLabel}"/>
-                <lvc:PieSeries Title="Charles" Values="4" DataLabels="True" 
+                    <lvc:PieSeries Title="Charles" Values="4" DataLabels="True" 
                                LabelPoint="{Binding PointLabel}"/>
-                <lvc:PieSeries Title="Frida" Values="6" DataLabels="True" 
+                    <lvc:PieSeries Title="Frida" Values="6" DataLabels="True" 
                                LabelPoint="{Binding PointLabel}"/>
-                <lvc:PieSeries Title="Frederic" Values="2" DataLabels="True" 
+                    <lvc:PieSeries Title="Frederic" Values="2" DataLabels="True" 
                                LabelPoint="{Binding PointLabel}"/>
-            </lvc:PieChart.Series>
-        </lvc:PieChart>
-
+                </lvc:PieChart.Series>
+            </lvc:PieChart>
+        </Grid>
+        
     </Grid>
 </UserControl>

@@ -1,4 +1,5 @@
 ﻿using Caliburn.Micro;
+using RMDesktopUI.EventModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,18 @@ using System.Threading.Tasks;
 
 namespace RMDesktopUI.ViewModels
 {
-    class BillCountByWorkerChartViewModel : Screen
+    public class BillCountByWorkerChartViewModel : Screen
     {
+        private readonly IEventAggregator _eventAggregator;
+
+        public BillCountByWorkerChartViewModel(IEventAggregator eventAggregator)
+        {
+            _eventAggregator = eventAggregator;
+        }
+
+        public void Back()
+        {
+            _eventAggregator.PublishOnUIThread(new ChartMenuViewEvent());
+        }
     }
 }

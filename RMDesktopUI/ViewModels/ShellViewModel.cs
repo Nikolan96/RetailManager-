@@ -15,11 +15,11 @@ namespace RMDesktopUI.ViewModels
     public class ShellViewModel : Conductor<object>, IHandle<CashierLogOnEvent>, IHandle<CashRegisterEvent>, IHandle<ProductsViewEvent>, IHandle<EditProductViewEvent>,
         IHandle<BillsViewEvent>,IHandle<BillItemsViewEvent>,IHandle<ManagerLogOnEvent>, IHandle<CEOLogOnEvent>, IHandle<ChartMenuViewEvent>, IHandle<ShopListViewEvent>, 
         IHandle<UserListViewEvent>, IHandle<LogoutEvent>, IHandle<EditShopViewEvent>, IHandle<EditUserViewEvent>, IHandle<ScannerViewEvent>, IHandle<CashRegisterEventWithScanResult>,
-        IHandle<ProductsViewEventWithScanResult>, IHandle<OrdersViewEvent>, IHandle<OrdersFormViewEvent>, IHandle<OrderDetailsViewEvent>, IHandle<EditOrderItemViewEvent>
+        IHandle<ProductsViewEventWithScanResult>, IHandle<OrdersViewEvent>, IHandle<OrdersFormViewEvent>, IHandle<OrderDetailsViewEvent>, IHandle<EditOrderItemViewEvent>,
+        IHandle<ProfitChartViewEvent>, IHandle<ProfitByCategoryViewEvent>, IHandle<BillCountByWorkerChartViewEvent>
     {
         private readonly IEventAggregator _events;
         private readonly IAutoMapper _autoMapper;
-        private readonly SalesViewModel _salesVM;
         private readonly SimpleContainer _container;
         private readonly ProductsViewModel _productsVM;
         private readonly EditProductViewModel _editProductViewModel;
@@ -41,19 +41,22 @@ namespace RMDesktopUI.ViewModels
         private readonly OrderFormViewModel _orderFormViewModel;
         private readonly OrderDetailsViewModel _orderDetailsViewModel;
         private readonly EditOrderItemViewModel _editOrderItemViewModel;
+        private readonly ProfitChartViewModel _profitChartViewModel;
+        private readonly ProfitByCategoryViewModel _profitByCategoryViewModel;
+        private readonly BillCountByWorkerChartViewModel _billCountByWorkerChartViewModel;
         private readonly CashRegisterViewModel _cashRegisterVM;
 
         // Uses constructor injection to pass in a new instance of LoginVM and activate it.
-        public ShellViewModel(IEventAggregator events, IAutoMapper autoMapper, SalesViewModel salesVM, CashRegisterViewModel cashRegisterVM, SimpleContainer container,
+        public ShellViewModel(IEventAggregator events, IAutoMapper autoMapper, CashRegisterViewModel cashRegisterVM, SimpleContainer container,
             ProductsViewModel ProductsVM, EditProductViewModel editProductViewModel, BillsViewModel billsViewModel, BillItemsViewModel billItemsViewModel,
             ManagerMenuViewModel managerMenuViewModel, CEOMenuViewModel ceoMenuViewModel, ChartMenuViewModel chartMenuViewModel, UserListViewModel userListViewModel,
             ShopListViewModel shopListViewModel, ShopEditViewModel shopEditViewModel, UserEditViewModel userEditViewModel, ILoggedInUserModel loggedInUserModel,
             IUserEndpoint userEndpoint, IPasswordEncryptor passwordEncryptor, IShopEndpoint shopEndpoint, ScannerViewModel scannerViewModel, OrdersViewModel ordersViewModel,
-            OrderFormViewModel orderFormViewModel, OrderDetailsViewModel orderDetailsViewModel, EditOrderItemViewModel editOrderItemViewModel)
+            OrderFormViewModel orderFormViewModel, OrderDetailsViewModel orderDetailsViewModel, EditOrderItemViewModel editOrderItemViewModel,
+            ProfitChartViewModel profitChartViewModel, ProfitByCategoryViewModel profitByCategoryViewModel, BillCountByWorkerChartViewModel billCountByWorkerChartViewModel)
         {
             _events = events;
             _autoMapper = autoMapper;
-            _salesVM = salesVM;
             _cashRegisterVM = cashRegisterVM;
             _container = container;
             _productsVM = ProductsVM;
@@ -76,6 +79,9 @@ namespace RMDesktopUI.ViewModels
             _orderFormViewModel = orderFormViewModel;
             _orderDetailsViewModel = orderDetailsViewModel;
             _editOrderItemViewModel = editOrderItemViewModel;
+            _profitChartViewModel = profitChartViewModel;
+            _profitByCategoryViewModel = profitByCategoryViewModel;
+            _billCountByWorkerChartViewModel = billCountByWorkerChartViewModel;
             _autoMapper.Initialize();
 
             // Subscribes instance of shellview to events
@@ -205,6 +211,21 @@ namespace RMDesktopUI.ViewModels
         {
             _editOrderItemViewModel.AddID(message.ID);
             ActivateItem(_editOrderItemViewModel);
+        }
+
+        public void Handle(ProfitChartViewEvent message)
+        {
+            ActivateItem(_profitChartViewModel);
+        }
+
+        public void Handle(ProfitByCategoryViewEvent message)
+        {
+            ActivateItem(_profitByCategoryViewModel);
+        }
+
+        public void Handle(BillCountByWorkerChartViewEvent message)
+        {
+            ActivateItem(_billCountByWorkerChartViewModel);
         }
     }
 }

@@ -20,6 +20,22 @@ namespace RMDesktopUI.ViewModels
             _loggedInUserModel = loggedInUserModel;
         }
 
+        public void GoToShopProfit()
+        {
+            _eventAggregator.PublishOnUIThread(new ProfitChartViewEvent());
+        }
+
+        public void GoToBillsIssued()
+        {
+            
+            _eventAggregator.PublishOnUIThread(new BillCountByWorkerChartViewEvent());
+        }
+
+        public void GoToProfitByCategory()
+        {
+            _eventAggregator.PublishOnUIThread(new ProfitByCategoryViewEvent());
+        }
+
         public void Back()
         {
             if (_loggedInUserModel.Role == "CEO")

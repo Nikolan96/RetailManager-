@@ -60,7 +60,7 @@
         </Viewbox>
 
         <Viewbox  Grid.Row="4" Grid.Column="3" Grid.ColumnSpan="2" Grid.RowSpan="4" Stretch="Fill">
-            <Button            
+            <Button x:Name="GoToShopProfit"          
   Style="{StaticResource MaterialDesignFloatingActionAccentButton}">
                 <Button.Content>
                     <StackPanel>
@@ -72,7 +72,7 @@
         </Viewbox>
 
         <Viewbox Grid.Row="4" Grid.Column="9" Grid.ColumnSpan="2" Grid.RowSpan="4" Stretch="Fill">
-            <Button               
+            <Button x:Name="GoToBillsIssued"               
   Style="{StaticResource MaterialDesignFloatingActionAccentButton}">
                 <Button.Content>
                     <StackPanel>
@@ -84,7 +84,7 @@
         </Viewbox>
 
         <Viewbox Grid.Row="4" Grid.Column="6" Grid.ColumnSpan="2" Grid.RowSpan="4" Stretch="Fill">
-            <Button 
+            <Button x:Name="GoToProfitByCategory" 
   Style="{StaticResource MaterialDesignFloatingActionAccentButton}">
                 <Button.Content>
                     <StackPanel>

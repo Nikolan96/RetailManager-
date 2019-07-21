@@ -1,4 +1,6 @@
-﻿using System;
+﻿using LiveCharts;
+using LiveCharts.Wpf;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,30 @@ namespace RMDesktopUI.Views
     /// </summary>
     public partial class BillCountByWorkerChartView : UserControl
     {
+        public SeriesCollection SeriesCollection { get; set; }
+        public string[] Labels { get; set; }
+        public Func<double, string> Formatter { get; set; }
+   
         public BillCountByWorkerChartView()
         {
-            InitializeComponent();
+            InitializeComponent();        
+        }
+
+        private void CartesianChart_Loaded(object sender, RoutedEventArgs e)
+        {
+            SeriesCollection = new SeriesCollection
+            {
+                new ColumnSeries
+                {
+                    Title = "2015",
+                    Values = new ChartValues<double> { 10, 50, 39, 50 }
+                }
+            };
+
+            Labels = new[] { "Maria", "Susan", "Charles", "Frida" };
+            Formatter = value => value.ToString("N");
+
+            DataContext = this;
         }
     }
 }
