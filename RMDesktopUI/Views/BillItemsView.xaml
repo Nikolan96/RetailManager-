@@ -116,8 +116,10 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <Viewbox  Grid.Row="4" Grid.RowSpan="2" Grid.Column="2" Stretch="Fill"
-                  Margin="120">
+        <Viewbox  Grid.Row="4" Grid.RowSpan="2" 
+                  Grid.Column="2" 
+                  Stretch="Uniform"
+                  Margin="80">
             <Button x:Name="GoToBillsView" Content="Back"
                 Padding="5"/>
         </Viewbox>

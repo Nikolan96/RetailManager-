@@ -57,20 +57,11 @@
         <Rectangle Grid.Row="1" Grid.Column="14" Grid.RowSpan="8" Fill="Gray"></Rectangle>
 
 
-        <Viewbox Grid.Row="0" Grid.Column="0" Margin="25" Stretch="fill">
-            <Button  Content="1"
-                    />
-        </Viewbox>
+        <Viewbox Grid.Row="0" Grid.Column="0" Margin="25" Stretch="fill"/>
 
-        <Viewbox Grid.Row="0" Grid.Column="1" Margin="25" Stretch="fill">
-            <Button  Content="2"
-                   />
-        </Viewbox>
+        <Viewbox Grid.Row="0" Grid.Column="1" Margin="25" Stretch="fill"/>
 
-        <Viewbox Grid.Row="0" Grid.Column="2" Margin="25" Stretch="Fill">
-            <Button Content="3"
-                    />
-        </Viewbox>
+        <Viewbox Grid.Row="0" Grid.Column="2" Margin="25" Stretch="Fill"/>
 
         <!--<Viewbox  Grid.Row="0" Grid.Column="6" Grid.ColumnSpan="2" Margin="30" Stretch="Fill">
             <TextBlock Text="User :"

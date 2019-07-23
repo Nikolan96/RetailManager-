@@ -41,11 +41,6 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
         <Rectangle Grid.Row="1" Grid.RowSpan="7" Grid.Column="1" Grid.ColumnSpan="13" RadiusX="40" RadiusY="40">
@@ -54,22 +49,14 @@
             </Rectangle.Fill>
         </Rectangle>
 
-        <Viewbox  Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="5" Stretch="Uniform" Margin="15">
+        <Viewbox  Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="5" Stretch="Uniform">
             <TextBlock
                    VerticalAlignment="Center" HorizontalAlignment="Center">CEO Menu</TextBlock>
         </Viewbox>
        
-        <Viewbox Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="3" Grid.RowSpan="3" Stretch="Fill">
-            <Button 
-               x:Name="GoToChartMenuView"
-  Style="{StaticResource MaterialDesignFloatingActionAccentButton}">
-                <Button.Content>
-                    <Image Width="40" Source="E:\Programiranje\RetailManager\RetailManager-\Images\graph1.png"></Image>
-                </Button.Content>
-            </Button>
-        </Viewbox>
-
-        <Viewbox  Grid.Row="3" Grid.Column="6" Grid.ColumnSpan="3" Grid.RowSpan="3" Stretch="Fill">
+        <Viewbox  Grid.Row="3" Grid.Column="2"
+                  Grid.ColumnSpan="3" Grid.RowSpan="4"
+                  Stretch="Fill">
             <Button
                  x:Name="GoToUserListView"
   Style="{StaticResource MaterialDesignFloatingActionAccentButton}">
@@ -79,7 +66,7 @@
             </Button>
         </Viewbox>
 
-        <Viewbox Grid.Row="3" Grid.Column="10" Grid.ColumnSpan="3" Grid.RowSpan="3" Stretch="Fill">
+        <Viewbox Grid.Row="3" Grid.Column="6" Grid.ColumnSpan="3" Grid.RowSpan="4" Stretch="Fill">
             <Button 
                 x:Name="GoToShopListView"
   Style="{StaticResource MaterialDesignFloatingActionAccentButton}">

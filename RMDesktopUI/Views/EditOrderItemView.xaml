@@ -76,8 +76,11 @@
 
         <Viewbox  Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="3"  Margin="10 0 10 0" Stretch="Uniform">
             <TextBox  
-                     MinWidth="150"
-                     x:Name="Quantity" TextAlignment="Center" FontSize="10">
+                MinWidth="150"
+                x:Name="Quantity" 
+                TextAlignment="Center" 
+                FontSize="10"
+                PreviewTextInput="PreviewTextInput">
             </TextBox>
         </Viewbox>
 

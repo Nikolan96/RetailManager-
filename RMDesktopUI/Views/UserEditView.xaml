@@ -60,13 +60,21 @@
             </TextBlock>
         </Viewbox>
 
-        <Viewbox Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Stretch="Uniform" Margin="10">
+        <Viewbox Grid.Row="3" Grid.Column="2"
+                 Grid.ColumnSpan="2" 
+                 Stretch="Uniform" 
+                 Margin="10 0 10 0">
             <TextBlock Text="First Name"
-                   HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Bottom"
                    />
         </Viewbox>
 
-        <Viewbox  Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" Stretch="Uniform" Margin="10 0 10 0" >
+        <Viewbox  Grid.Row="4"
+                  Grid.Column="2" 
+                  Grid.ColumnSpan="2"
+                  Stretch="Uniform"
+                  Margin="10 0 10 0" >
             <TextBox    
                    x:Name="FirstNameTb" TextAlignment="Center" FontSize="17"
                    MinWidth="160"
@@ -75,7 +83,11 @@
         </Viewbox>
 
 
-        <Viewbox Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" Stretch="Uniform" Margin="10">
+        <Viewbox Grid.Row="5"
+                 Grid.Column="2" 
+                 Grid.ColumnSpan="2" 
+                 Stretch="Uniform"
+                 Margin="10 0 10 0">
             <TextBlock Text="Last Name" 
                            
                    HorizontalAlignment="Center" VerticalAlignment="Bottom"
@@ -84,7 +96,9 @@
 
         <Viewbox  Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2"  Margin="10 0 10 0" Stretch="Uniform">
             <TextBox          
-                     x:Name="LastNameTb" TextAlignment="Center" FontSize="17"
+                     x:Name="LastNameTb" 
+                TextAlignment="Center"
+                FontSize="17"
                      MinWidth="150"
                      MaxWidth="150">
             </TextBox>
@@ -92,10 +106,10 @@
 
 
         <Viewbox  Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="2" Stretch="Uniform" Margin="10 0 10 0">
-            <TextBlock Text="Email" 
-                          
-                   HorizontalAlignment="Center" VerticalAlignment="Bottom"
-                   FontSize="17" />
+            <TextBlock Text="Email"                       
+                   HorizontalAlignment="Center" 
+                   VerticalAlignment="Bottom"
+                   />
         </Viewbox>
 
         <Viewbox  Grid.Row="8" Grid.Column="2" Grid.ColumnSpan="2" 
@@ -107,10 +121,15 @@
             </TextBox>
         </Viewbox>
 
-        <Viewbox  Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="2" Margin="10" Stretch="Uniform">
+        <Viewbox  Grid.Row="3" 
+                  Grid.Column="4" 
+                  Grid.ColumnSpan="2" 
+                  Margin="10 0 10 0"
+                  Stretch="Uniform">
             <TextBlock Text="Password"
-                   HorizontalAlignment="Center" VerticalAlignment="Bottom"
-                   FontSize="17" />
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Bottom"
+                    />
         </Viewbox>
 
         <Viewbox  Grid.Row="4" Grid.Column="4" Grid.ColumnSpan="2" Stretch="Uniform" Margin="10 0 10 0">
@@ -121,10 +140,15 @@
 
         </Viewbox>
 
-        <Viewbox Grid.Row="5" Grid.Column="4" Grid.ColumnSpan="2" Margin="10 0 10 0" Stretch="Uniform">
+        <Viewbox Grid.Row="5" 
+                 Grid.Column="4"
+                 Grid.ColumnSpan="2" 
+                 Margin="10 0 10 0"
+                 Stretch="Uniform">
             <TextBlock Text="Role" 
-                   HorizontalAlignment="Center" VerticalAlignment="Bottom"
-                   FontSize="32" />
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Bottom"
+                    />
         </Viewbox>
 
         <Viewbox Grid.Row="6" Grid.Column="4" Grid.ColumnSpan="2"  Margin="10 0 10 0" Stretch="Uniform">
@@ -141,10 +165,14 @@
         </Viewbox>
 
 
-        <Viewbox Grid.Row="7" Grid.Column="4" Grid.ColumnSpan="2" Stretch="Uniform" Margin="10 0 10 0">
+        <Viewbox Grid.Row="7"
+                 Grid.Column="4"
+                 Grid.ColumnSpan="2"
+                 Stretch="Uniform" Margin="10 0 10 0">
             <TextBlock Text="Shop Id"  
-                   HorizontalAlignment="Center" VerticalAlignment="Bottom"
-                   FontSize="32" />
+                   HorizontalAlignment="Center" 
+                   VerticalAlignment="Bottom"
+                   />
         </Viewbox>
 
         <Viewbox  Grid.Row="8" Grid.Column="4" Grid.ColumnSpan="2" Margin="10 0 10 0" Stretch="Uniform">

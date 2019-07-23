@@ -146,7 +146,7 @@ namespace RMDesktopUI.ViewModels
                                 _events.PublishOnUIThread(new CashierLogOnEvent());
                                 break;
                             case "Manager":
-                                _events.PublishOnUIThread(new ManagerLogOnEvent());
+                                _events.PublishOnUIThread(new CashierLogOnEvent());
                                 break;
                             case "CEO":
                                 _events.PublishOnUIThread(new CEOLogOnEvent());
