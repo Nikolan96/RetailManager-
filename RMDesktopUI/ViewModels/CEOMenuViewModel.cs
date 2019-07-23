@@ -26,10 +26,5 @@ namespace RMDesktopUI.ViewModels
         {
             _eventAggregator.PublishOnUIThread(new UserListViewEvent());
         }
-
-        public void GoToChartMenuView()
-        {
-            _eventAggregator.PublishOnUIThread(new ChartMenuViewEvent());
-        }
     }
 }

@@ -13,10 +13,9 @@ namespace RMDesktopUI.ViewModels
 {
     // Conductor holds on to and activates only one item at a time.
     public class ShellViewModel : Conductor<object>, IHandle<CashierLogOnEvent>, IHandle<CashRegisterEvent>, IHandle<ProductsViewEvent>, IHandle<EditProductViewEvent>,
-        IHandle<BillsViewEvent>,IHandle<BillItemsViewEvent>,IHandle<ManagerLogOnEvent>, IHandle<CEOLogOnEvent>, IHandle<ChartMenuViewEvent>, IHandle<ShopListViewEvent>, 
+        IHandle<BillsViewEvent>,IHandle<BillItemsViewEvent>, IHandle<CEOLogOnEvent>, IHandle<ShopListViewEvent>, 
         IHandle<UserListViewEvent>, IHandle<LogoutEvent>, IHandle<EditShopViewEvent>, IHandle<EditUserViewEvent>, IHandle<ScannerViewEvent>, IHandle<CashRegisterEventWithScanResult>,
-        IHandle<ProductsViewEventWithScanResult>, IHandle<OrdersViewEvent>, IHandle<OrdersFormViewEvent>, IHandle<OrderDetailsViewEvent>, IHandle<EditOrderItemViewEvent>,
-        IHandle<ProfitChartViewEvent>, IHandle<ProfitByCategoryViewEvent>, IHandle<BillCountByWorkerChartViewEvent>
+        IHandle<ProductsViewEventWithScanResult>, IHandle<OrdersViewEvent>, IHandle<OrdersFormViewEvent>, IHandle<OrderDetailsViewEvent>, IHandle<EditOrderItemViewEvent>
     {
         private readonly IEventAggregator _events;
         private readonly IAutoMapper _autoMapper;
@@ -25,9 +24,7 @@ namespace RMDesktopUI.ViewModels
         private readonly EditProductViewModel _editProductViewModel;
         private readonly BillsViewModel _billsViewModel;
         private readonly BillItemsViewModel _billItemsViewModel;
-        private readonly ManagerMenuViewModel _managerMenuViewModel;
         private readonly CEOMenuViewModel _ceoMenuViewModel;
-        private readonly ChartMenuViewModel _chartMenuViewModel;
         private readonly UserListViewModel _userListViewModel;
         private readonly ShopListViewModel _shopListViewModel;
         private readonly ShopEditViewModel _shopEditViewModel;
@@ -41,19 +38,15 @@ namespace RMDesktopUI.ViewModels
         private readonly OrderFormViewModel _orderFormViewModel;
         private readonly OrderDetailsViewModel _orderDetailsViewModel;
         private readonly EditOrderItemViewModel _editOrderItemViewModel;
-        private readonly ProfitChartViewModel _profitChartViewModel;
-        private readonly ProfitByCategoryViewModel _profitByCategoryViewModel;
-        private readonly BillCountByWorkerChartViewModel _billCountByWorkerChartViewModel;
         private readonly CashRegisterViewModel _cashRegisterVM;
 
         // Uses constructor injection to pass in a new instance of LoginVM and activate it.
         public ShellViewModel(IEventAggregator events, IAutoMapper autoMapper, CashRegisterViewModel cashRegisterVM, SimpleContainer container,
             ProductsViewModel ProductsVM, EditProductViewModel editProductViewModel, BillsViewModel billsViewModel, BillItemsViewModel billItemsViewModel,
-            ManagerMenuViewModel managerMenuViewModel, CEOMenuViewModel ceoMenuViewModel, ChartMenuViewModel chartMenuViewModel, UserListViewModel userListViewModel,
-            ShopListViewModel shopListViewModel, ShopEditViewModel shopEditViewModel, UserEditViewModel userEditViewModel, ILoggedInUserModel loggedInUserModel,
+            CEOMenuViewModel ceoMenuViewModel, UserListViewModel userListViewModel, ShopListViewModel shopListViewModel,
+            ShopEditViewModel shopEditViewModel, UserEditViewModel userEditViewModel, ILoggedInUserModel loggedInUserModel,
             IUserEndpoint userEndpoint, IPasswordEncryptor passwordEncryptor, IShopEndpoint shopEndpoint, ScannerViewModel scannerViewModel, OrdersViewModel ordersViewModel,
-            OrderFormViewModel orderFormViewModel, OrderDetailsViewModel orderDetailsViewModel, EditOrderItemViewModel editOrderItemViewModel,
-            ProfitChartViewModel profitChartViewModel, ProfitByCategoryViewModel profitByCategoryViewModel, BillCountByWorkerChartViewModel billCountByWorkerChartViewModel)
+            OrderFormViewModel orderFormViewModel, OrderDetailsViewModel orderDetailsViewModel, EditOrderItemViewModel editOrderItemViewModel)
         {
             _events = events;
             _autoMapper = autoMapper;
@@ -63,9 +56,7 @@ namespace RMDesktopUI.ViewModels
             _editProductViewModel = editProductViewModel;
             _billsViewModel = billsViewModel;
             _billItemsViewModel = billItemsViewModel;
-            _managerMenuViewModel = managerMenuViewModel;
             _ceoMenuViewModel = ceoMenuViewModel;
-            _chartMenuViewModel = chartMenuViewModel;
             _userListViewModel = userListViewModel;
             _shopListViewModel = shopListViewModel;
             _shopEditViewModel = shopEditViewModel;
@@ -79,9 +70,6 @@ namespace RMDesktopUI.ViewModels
             _orderFormViewModel = orderFormViewModel;
             _orderDetailsViewModel = orderDetailsViewModel;
             _editOrderItemViewModel = editOrderItemViewModel;
-            _profitChartViewModel = profitChartViewModel;
-            _profitByCategoryViewModel = profitByCategoryViewModel;
-            _billCountByWorkerChartViewModel = billCountByWorkerChartViewModel;
             _autoMapper.Initialize();
 
             // Subscribes instance of shellview to events
@@ -141,19 +129,9 @@ namespace RMDesktopUI.ViewModels
             ActivateItem(_billItemsViewModel);
         }
 
-        public void Handle(ManagerLogOnEvent message)
-        {
-            ActivateItem(_managerMenuViewModel);
-        }
-
         public void Handle(CEOLogOnEvent message)
         {
             ActivateItem(_ceoMenuViewModel);
-        }
-
-        public void Handle(ChartMenuViewEvent message)
-        {
-            ActivateItem(_chartMenuViewModel);
         }
 
         public void Handle(UserListViewEvent message)
@@ -211,21 +189,6 @@ namespace RMDesktopUI.ViewModels
         {
             _editOrderItemViewModel.AddID(message.ID);
             ActivateItem(_editOrderItemViewModel);
-        }
-
-        public void Handle(ProfitChartViewEvent message)
-        {
-            ActivateItem(_profitChartViewModel);
-        }
-
-        public void Handle(ProfitByCategoryViewEvent message)
-        {
-            ActivateItem(_profitByCategoryViewModel);
-        }
-
-        public void Handle(BillCountByWorkerChartViewEvent message)
-        {
-            ActivateItem(_billCountByWorkerChartViewModel);
         }
     }
 }

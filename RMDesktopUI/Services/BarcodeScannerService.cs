@@ -47,7 +47,6 @@ namespace RMDesktopUI.Services
                 var frameImage = (Bitmap)eventArgs.Frame.Clone();
                 var imageSouce = new BitmapImage();
 
-                // TODO Dispose memory stream
                 var ms = new MemoryStream();
                 frameImage.Save(ms, ImageFormat.Bmp);
                 ms.Seek(0, SeekOrigin.Begin);

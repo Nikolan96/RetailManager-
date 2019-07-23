@@ -125,10 +125,13 @@
 
         <Viewbox  Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="2" Stretch="Uniform" Margin="10 0 1 0">
             <TextBox
-                   MinWidth="120"
+                MinWidth="120"
                 MaxWidth="120"
-                x:Name="PurchasePriceTb" TextAlignment="Center" FontSize="10"/>
-
+                x:Name="PurchasePriceTb" 
+                TextAlignment="Center"
+                FontSize="10"
+                PreviewTextInput="PreviewTextInput"
+                />
         </Viewbox>
                 
         <Viewbox Grid.Row="4" Grid.Column="4" Grid.ColumnSpan="2" Margin="10" Stretch="Uniform">
@@ -141,7 +144,10 @@
             <TextBox  
                    MinWidth="120"
                 MaxWidth="120"
-                   x:Name="RetailPriceTb"  TextAlignment="Center" FontSize="10"/>
+                   x:Name="RetailPriceTb" 
+                TextAlignment="Center" 
+                FontSize="10"
+                PreviewTextInput="PreviewTextInput"/>
         </Viewbox>
               
 
@@ -153,7 +159,10 @@
 
         <Viewbox  Grid.Row="7" Grid.Column="3" Grid.ColumnSpan="2" Margin="10 0 10 0" Stretch="Uniform">
             <TextBox 
-                  x:Name="TaxTb"  TextAlignment="Center" FontSize="27"/>
+                  x:Name="TaxTb" 
+                TextAlignment="Center"
+                FontSize="27"
+                PreviewTextInput="PreviewTextInput"/>
         </Viewbox>
                      
         <Viewbox Grid.Row="12" Grid.Column="2" Grid.RowSpan="2" Grid.ColumnSpan="2"

@@ -526,14 +526,7 @@ namespace RMDesktopUI.ViewModels
 
         public void Back()
         {
-            if (_loggedInUser.Role == "Cashier")
-            {
                 _events.PublishOnUIThread(new LogoutEvent());
-            }
-            else
-            {
-                _events.PublishOnUIThread(new ManagerLogOnEvent());
-            }
         }
 
         public void GoToScanner()

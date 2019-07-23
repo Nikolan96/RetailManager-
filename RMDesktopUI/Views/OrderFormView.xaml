@@ -56,13 +56,13 @@
                    HorizontalAlignment="Center" VerticalAlignment="Center"
                    FontSize="55"/>
 
-        <Viewbox Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="2" Height="45"
+        <Viewbox Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="2" Height="50"
                  Stretch="Uniform">
             <TextBlock Text="Product" 
                    HorizontalAlignment="Center" VerticalAlignment="Center"
                   />
         </Viewbox>
-        <Viewbox  Stretch="Uniform" Margin="15 15 15 20" Grid.Row="3" 
+        <Viewbox  Stretch="Uniform" Margin="10" Grid.Row="3" 
                   Grid.Column="6" Grid.ColumnSpan="2">
             <ComboBox
              MinWidth="150"
@@ -83,11 +83,18 @@
                    HorizontalAlignment="Center" VerticalAlignment="Center"
                   />
         </Viewbox>
-        <TextBox 
-                x:Name="CurrentQuantityTb" VerticalAlignment="Center"
-                Width="450" TextAlignment="Center" IsReadOnly="True"
-                FontSize="30" Grid.Row="5" Grid.Column="6" Grid.ColumnSpan="2">
-        </TextBox>
+        <Viewbox Grid.Row="5" Grid.Column="6" 
+                 Grid.ColumnSpan="2"
+                 Height="50">
+            <TextBox 
+                x:Name="CurrentQuantityTb"
+                VerticalAlignment="Center"
+                MinWidth="170" TextAlignment="Center"
+                IsReadOnly="True"
+                >
+            </TextBox>
+        </Viewbox>
+
 
         <Viewbox Grid.Row="6" Grid.Column="6" Grid.ColumnSpan="2" Height="45"
                  Stretch="Uniform">
@@ -95,11 +102,19 @@
                    HorizontalAlignment="Center" VerticalAlignment="Center"
                   />
         </Viewbox>
-        <TextBox 
-                x:Name="QuantityTb" VerticalAlignment="Center"
-                Width="450" TextAlignment="Center"
-                FontSize="30" Grid.Row="7" Grid.Column="6" Grid.ColumnSpan="2">
-        </TextBox>
+        <Viewbox  Grid.Row="7"
+                  Grid.Column="6" 
+                  Grid.ColumnSpan="2"
+                  Height="50">
+            <TextBox 
+                x:Name="QuantityTb"
+                VerticalAlignment="Center"
+                MinWidth="170" 
+                TextAlignment="Center"
+                PreviewTextInput="PreviewTextInput"
+                >
+            </TextBox>
+        </Viewbox>
 
         <Viewbox Grid.Row="8" Grid.Column="6" Grid.RowSpan="2"  Stretch="Fill">
             <Button x:Name="AddOrder"  
